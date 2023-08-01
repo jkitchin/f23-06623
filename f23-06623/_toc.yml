@@ -4,3 +4,4 @@
 format: jb-book
 root: syllabus
 chapters:
+  - file: lectures/00-intro/00-intro.ipynb
