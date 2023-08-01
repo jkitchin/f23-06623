@@ -6,3 +6,5 @@ pycse
 numdifftools
 jax[cpu]
 scipy
+jupyterquiz
+jupytercards
