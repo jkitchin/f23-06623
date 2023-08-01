@@ -6,6 +6,7 @@ root: syllabus
 parts:
 - caption: Lectures
   chapters:
+    - file: lectures/toc.ipynb
     - file: lectures/00-intro/00-intro.ipynb
     - file: lectures/01-jupyter/01-followups.ipynb
 - caption: About the book
