@@ -647,7 +647,7 @@ Remember this cell. You will use it almost every time you make a plot.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f61f0399e50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa7a4712fa0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/eacac4e2ff278c49e9f93ba61562c2dfc377e887006abb535e8c31774f03bece.png" src="../../_images/eacac4e2ff278c49e9f93ba61562c2dfc377e887006abb535e8c31774f03bece.png" />
@@ -741,12 +741,19 @@ Remember this cell. You will use it almost every time you make a plot.
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">display_quiz</span><span class="p">(</span><span class="s1">&#39;quiz.json&#39;</span><span class="p">)</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">display_quiz</span><span class="p">(</span><span class="s1">&#39;quiz.json&#39;</span><span class="p">)</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;jupyterquiz&#39;
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.17/x64/lib/python3.8/site-packages/jupyterquiz/dynamic.py:126,</span> in <span class="ni">display_quiz</span><span class="nt">(ref, num, shuffle_questions, shuffle_answers, preserve_responses, border_radius, question_alignment, max_width, colors)</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span> <span class="n">styles</span><span class="o">+=</span> <span class="s2">&quot;}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span> <span class="c1">#print(styles)</span>
+<span class="ne">--&gt; </span><span class="mi">126</span> <span class="n">f</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="n">package</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;styles.css&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span> <span class="n">css</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span> <span class="n">styles</span> <span class="o">+=</span> <span class="n">css</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: module &#39;importlib.resources&#39; has no attribute &#39;files&#39;
 </pre></div>
 </div>
 </div>
