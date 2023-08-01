@@ -3,5 +3,11 @@
 
 format: jb-book
 root: syllabus
-chapters:
-  - file: lectures/00-intro/00-intro.ipynb
+parts:
+- caption: Lectures
+  chapters:
+    - file: lectures/00-intro/00-intro.ipynb
+    - file: lectures/01-jupyter/01-followups.ipynb
+- caption: About the book
+  chapters:
+    - file: execution-statistics.md    
