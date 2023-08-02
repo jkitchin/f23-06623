@@ -522,13 +522,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2.07283325e+00 -6.93889390e-18]
- [ 2.02004874e+00 -2.25514052e-17]
- [ 2.00590349e+00 -1.45716772e-15]
- [ 2.00196134e+00 -2.13717932e-15]
- [ 2.00085100e+00 -2.19269047e-15]
- [ 2.00053732e+00 -2.63677968e-15]
- [ 2.00044864e+00 -5.89545773e-15]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2.07283325e+00 -6.93889390e-17]
+ [ 2.02004874e+00  8.56953397e-16]
+ [ 2.00590349e+00  6.93889390e-16]
+ [ 2.00196134e+00 -2.96290770e-15]
+ [ 2.00085100e+00  2.27595720e-15]
+ [ 2.00053732e+00 -5.34294831e-15]
+ [ 2.00044864e+00  5.73933262e-15]]
 </pre></div>
 </div>
 </div>
@@ -591,7 +591,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(38.79895060619217, array([ 2.00044864e+00, -5.89545773e-15]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(38.798950606192165, array([2.00044864e+00, 5.73933262e-15]))
 </pre></div>
 </div>
 </div>
@@ -621,9 +621,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([array([ 6.29888301, 12.5977615 , 18.89663872, 25.19551557, 31.49439233,
-         37.79326904])],
- array([6.2988785 , 6.29887721, 6.29887685, 6.29887676, 6.29887672]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([array([2.86945317e-15, 6.29888301e+00, 1.25977615e+01, 1.88966387e+01,
+         2.51955156e+01, 3.14943923e+01, 3.77932690e+01])],
+ array([6.29888301, 6.2988785 , 6.29887721, 6.29887685, 6.29887676,
+        6.29887672]))
 </pre></div>
 </div>
 </div>
@@ -640,10 +641,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2.2004040548071027,
- 2.2004892419393975,
- -2.2485910367256534,
- 2.2485910192056817)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2.2004040548071035,
+ 2.200489241939398,
+ -2.248591036725654,
+ 2.2485910192056826)
 </pre></div>
 </div>
 <img alt="../../_images/52ae47fa66add306a7ed66a14c2a74acd0667655c8f0568b689a15ec55bd342a.png" src="../../_images/52ae47fa66add306a7ed66a14c2a74acd0667655c8f0568b689a15ec55bd342a.png" />
@@ -776,9 +777,7 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For mu=0.5, steady period after 1 iterations
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For mu=0.1, steady period after 0 iterations
+For mu=0.1, steady period after 0 iterations
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For mu=0.01, steady period after 0 iterations
@@ -831,13 +830,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="kvYINZwUBESc" data-shufflequestions="False"
+<div class="output text_html"><div id="iMwEFkoPqRPf" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#kvYINZwUBESc {
+#iMwEFkoPqRPf {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1007,7 +1006,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionskvYINZwUBESc=[{"question": "Interpret sol.status = 1, where, sol = solve_ivp()", "type": "multiple_choice", "answers": [{"answer": "The solver reached the end of the integration interval.", "correct": false}, {"answer": "A termination event occurred.", "correct": true}, {"answer": "A non-termination event was evaluated.", "correct": false}, {"answer": "all of the above", "correct": false}], "tag": "scipy", "lecture_file": "05_nth_odes"}, {"question": "Assigning 'max_step = None' in solve_ivp() results in", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": true}, {"answer": "The solver would determine the step size.", "correct": false}, {"answer": "The step size will be infinite.", "correct": false}, {"answer": "Need to specify 't_eval' to avoid an error.", "correct": false}], "tag": "scipy", "lecture_file": "05_nth_odes"}, {"question": "matplotlib.pyplot.axis('equal') results in", "type": "multiple_choice", "answers": [{"answer": "a square plot", "correct": false}, {"answer": "equal scaling of the axes by changing axis limits", "correct": true}, {"answer": "limits the axes to the data range", "correct": false}, {"answer": "equal scaling of the axes by changing dimensions of the plot box", "correct": false}], "tag": "matplotlib coding", "lecture_file": "05_nth_odes"}, {"question": "Assigning 'event_function.direction = -5' in solve_ivp() registers an event when", "type": "multiple_choice", "answers": [{"answer": "event value goes from positive to negative, that is, a maximum", "correct": true}, {"answer": "Error", "correct": false}, {"answer": "event value goes from negative to positive, that is, a maximum", "correct": false}, {"answer": "event value goes from negative to positive, that is, a minimum", "correct": false}], "tag": "scipy", "lecture_file": "05_nth_odes"}, {"question": "Assigning 'event_function.direction = 0' in solve_ivp() registers an event when", "type": "multiple_choice", "answers": [{"answer": "event value goes from positive to negative, that is, a maximum", "correct": false}, {"answer": "event value goes from negative to positive, that is, a minimum", "correct": false}, {"answer": "Both, a and b", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "scipy", "lecture_file": "05_nth_odes"}, {"question": "When 'dense_output = True' in 'sol = solve_ivp()', to integrate the function 'f',  then sol.sol(1)", "type": "multiple_choice", "answers": [{"answer": "would evaluate the solution at 1 if an event occurs at t=1.", "correct": false}, {"answer": "would evaluate the function f at 1 if an event occurs at t=1.", "correct": false}, {"answer": "evaluates the function f at t=1, irrespective of whether it is an event or not.", "correct": false}, {"answer": "evaluates the solution at t=1, irrespective of whether it is an event of not.", "correct": true}], "tag": "scipy", "lecture_file": "05_nth_odes"}, {"question": "What is the output of: <br><br>a = np.array([[1, 2, 3], [1, 2, 3]])<br>np.diff(a, axis = 0).shape", "type": "multiple_choice", "answers": [{"answer": "(2, 2)", "correct": false}, {"answer": "(2, 3)", "correct": false}, {"answer": "(1, 3)", "correct": true}, {"answer": "(1, 5)", "correct": false}], "tag": "numpy coding", "lecture_file": "05_nth_odes"}, {"question": "What will be the output of: <br><br>p = 0<br>while(p<0):<br>    print(p)<br>    p -= 1", "type": "multiple_choice", "answers": [{"answer": "[0, -1]", "correct": false}, {"answer": "[-1]", "correct": false}, {"answer": "loop runs for infinite iterations", "correct": false}, {"answer": "no output as loop does not run", "correct": true}], "tag": "loops coding", "lecture_file": "05_nth_odes"}, {"question": "What will be the output of:<br><br>l = [1, 2, 3]<br>a = l.reverse()<br>print(a)", "type": "multiple_choice", "answers": [{"answer": "[3, 2 ,1]", "correct": false}, {"answer": "None", "correct": true}, {"answer": "[]", "correct": false}, {"answer": "[1, 2, 3]", "correct": false}], "tag": "lists coding", "lecture_file": "05_nth_odes"}, {"question": "d^3y/dx^3 = 0<br>is equivalent to which of the following systems of differential equations?", "type": "multiple_choice", "answers": [{"answer": "dy/dx = 0<br>   da/dx = 0<br>   db/dx = 0", "correct": false}, {"answer": "dy/dx = da/dx = db/dx", "correct": false}, {"answer": "dy/dx = a<br>   da/dx = b<br>   db/dx = y", "correct": false}, {"answer": "dy/dx = a<br>   da/dx = b<br>   db/dx = 0", "correct": true}], "tag": "ode", "lecture_file": "05_nth_odes"}];
+</style></div><script type="application/javascript">var questionsiMwEFkoPqRPf=[{"question": "Interpret sol.status = 1, where, sol = solve_ivp()", "type": "multiple_choice", "answers": [{"answer": "The solver reached the end of the integration interval.", "correct": false}, {"answer": "A termination event occurred.", "correct": true}, {"answer": "A non-termination event was evaluated.", "correct": false}, {"answer": "all of the above", "correct": false}], "tag": "scipy", "lecture_file": "05_nth_odes"}, {"question": "Assigning 'max_step = None' in solve_ivp() results in", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": true}, {"answer": "The solver would determine the step size.", "correct": false}, {"answer": "The step size will be infinite.", "correct": false}, {"answer": "Need to specify 't_eval' to avoid an error.", "correct": false}], "tag": "scipy", "lecture_file": "05_nth_odes"}, {"question": "matplotlib.pyplot.axis('equal') results in", "type": "multiple_choice", "answers": [{"answer": "a square plot", "correct": false}, {"answer": "equal scaling of the axes by changing axis limits", "correct": true}, {"answer": "limits the axes to the data range", "correct": false}, {"answer": "equal scaling of the axes by changing dimensions of the plot box", "correct": false}], "tag": "matplotlib coding", "lecture_file": "05_nth_odes"}, {"question": "Assigning 'event_function.direction = -5' in solve_ivp() registers an event when", "type": "multiple_choice", "answers": [{"answer": "event value goes from positive to negative, that is, a maximum", "correct": true}, {"answer": "Error", "correct": false}, {"answer": "event value goes from negative to positive, that is, a maximum", "correct": false}, {"answer": "event value goes from negative to positive, that is, a minimum", "correct": false}], "tag": "scipy", "lecture_file": "05_nth_odes"}, {"question": "Assigning 'event_function.direction = 0' in solve_ivp() registers an event when", "type": "multiple_choice", "answers": [{"answer": "event value goes from positive to negative, that is, a maximum", "correct": false}, {"answer": "event value goes from negative to positive, that is, a minimum", "correct": false}, {"answer": "Both, a and b", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "scipy", "lecture_file": "05_nth_odes"}, {"question": "When 'dense_output = True' in 'sol = solve_ivp()', to integrate the function 'f',  then sol.sol(1)", "type": "multiple_choice", "answers": [{"answer": "would evaluate the solution at 1 if an event occurs at t=1.", "correct": false}, {"answer": "would evaluate the function f at 1 if an event occurs at t=1.", "correct": false}, {"answer": "evaluates the function f at t=1, irrespective of whether it is an event or not.", "correct": false}, {"answer": "evaluates the solution at t=1, irrespective of whether it is an event of not.", "correct": true}], "tag": "scipy", "lecture_file": "05_nth_odes"}, {"question": "What is the output of: <br><br>a = np.array([[1, 2, 3], [1, 2, 3]])<br>np.diff(a, axis = 0).shape", "type": "multiple_choice", "answers": [{"answer": "(2, 2)", "correct": false}, {"answer": "(2, 3)", "correct": false}, {"answer": "(1, 3)", "correct": true}, {"answer": "(1, 5)", "correct": false}], "tag": "numpy coding", "lecture_file": "05_nth_odes"}, {"question": "What will be the output of: <br><br>p = 0<br>while(p<0):<br>    print(p)<br>    p -= 1", "type": "multiple_choice", "answers": [{"answer": "[0, -1]", "correct": false}, {"answer": "[-1]", "correct": false}, {"answer": "loop runs for infinite iterations", "correct": false}, {"answer": "no output as loop does not run", "correct": true}], "tag": "loops coding", "lecture_file": "05_nth_odes"}, {"question": "What will be the output of:<br><br>l = [1, 2, 3]<br>a = l.reverse()<br>print(a)", "type": "multiple_choice", "answers": [{"answer": "[3, 2 ,1]", "correct": false}, {"answer": "None", "correct": true}, {"answer": "[]", "correct": false}, {"answer": "[1, 2, 3]", "correct": false}], "tag": "lists coding", "lecture_file": "05_nth_odes"}, {"question": "d^3y/dx^3 = 0<br>is equivalent to which of the following systems of differential equations?", "type": "multiple_choice", "answers": [{"answer": "dy/dx = 0<br>   da/dx = 0<br>   db/dx = 0", "correct": false}, {"answer": "dy/dx = da/dx = db/dx", "correct": false}, {"answer": "dy/dx = a<br>   da/dx = b<br>   db/dx = y", "correct": false}, {"answer": "dy/dx = a<br>   da/dx = b<br>   db/dx = 0", "correct": true}], "tag": "ode", "lecture_file": "05_nth_odes"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1756,8 +1755,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("kvYINZwUBESc")) {
-            show_questions(questionskvYINZwUBESc,  kvYINZwUBESc); 
+          if(document.getElementById("iMwEFkoPqRPf")) {
+            show_questions(questionsiMwEFkoPqRPf,  iMwEFkoPqRPf); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1766,8 +1765,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("kvYINZwUBESc");
-        // console.log(document.getElementById("kvYINZwUBESc"));
+        //console.log("iMwEFkoPqRPf");
+        // console.log(document.getElementById("iMwEFkoPqRPf"));
 
         try_show();
         }
