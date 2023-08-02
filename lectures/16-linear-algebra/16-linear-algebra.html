@@ -165,6 +165,14 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="../01-jupyter/01-jupyter.html">Jupyter Lab</a></li>
+
+
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../02-integration-1/02-integration-1.html">Integration in Python</a></li>
 
 
@@ -822,17 +830,6 @@ sympy.Matrix.rref<span class="o">?</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">sympy</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;pinfo&#39;</span><span class="p">,</span> <span class="s1">&#39;sympy.Matrix.rref&#39;</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can convert the <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> to an array like this.</p>
 <p>From here you can use the code from above to construct the equations.</p>
@@ -1051,7 +1048,7 @@ sympy.Matrix.rref<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1f415dae50a84423d2dfef6157feae2b0d72ec1a491594873bbb671121cc2ce7.png" src="../../_images/1f415dae50a84423d2dfef6157feae2b0d72ec1a491594873bbb671121cc2ce7.png" />
+<img alt="../../_images/5c1381de46253ea350e1b03e6ded32840dde348fae6d4e4175753b7f209d678b.png" src="../../_images/5c1381de46253ea350e1b03e6ded32840dde348fae6d4e4175753b7f209d678b.png" />
 </div>
 </div>
 <p>Note that we have approximated the solution by discretizing and estimating the derivatives at the points. You have to check for convergence by increasing the number of points <span class="math notranslate nohighlight">\(N\)</span>.</p>
@@ -1095,7 +1092,7 @@ sympy.Matrix.rref<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ff48bb0f5999acfdf5c2e9129c31b8c3f742acdb013cb0d65715491be1b76ef9.png" src="../../_images/ff48bb0f5999acfdf5c2e9129c31b8c3f742acdb013cb0d65715491be1b76ef9.png" />
+<img alt="../../_images/743ed337361614d451965f664d8e1032b08bd9c9f3d571d4788b7eeb2f27bab9.png" src="../../_images/743ed337361614d451965f664d8e1032b08bd9c9f3d571d4788b7eeb2f27bab9.png" />
 </div>
 </div>
 <p>Now consider this slightly different system where we just change -0.46 to -0.47. Surely that should not be a big deal right?</p>
@@ -1123,7 +1120,7 @@ sympy.Matrix.rref<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.030000000000000023, 82.3511902180071)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.030000000000000023, 82.35119021800712)
 </pre></div>
 </div>
 </div>
@@ -1198,7 +1195,7 @@ sympy.Matrix.rref<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8fb226ef0c5d77963387939ed55d818b5a2f3b4ddd38a1d71749940f7645caf4.png" src="../../_images/8fb226ef0c5d77963387939ed55d818b5a2f3b4ddd38a1d71749940f7645caf4.png" />
+<img alt="../../_images/c82b0cca92f9f4002191d2965100e7e123b5a0335f615feca7abac278bcc34d7.png" src="../../_images/c82b0cca92f9f4002191d2965100e7e123b5a0335f615feca7abac278bcc34d7.png" />
 </div>
 </div>
 <p>This system of equations is sensitive to roundoff errors, both in the coefficients of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and in the numerics of solving the equations.</p>
@@ -1353,7 +1350,7 @@ sympy.Matrix.rref<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>162.39
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>162.39000000000001
 </pre></div>
 </div>
 </div>
@@ -1398,13 +1395,13 @@ sympy.Matrix.rref<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="dfcWYHnSXYMr" data-shufflequestions="False"
+<div class="output text_html"><div id="EqfOcJNRlCrz" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#dfcWYHnSXYMr {
+#EqfOcJNRlCrz {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1574,7 +1571,7 @@ sympy.Matrix.rref<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsdfcWYHnSXYMr=[{"question": "Express: summation ((a_i)**2 * (b_i)**2) <br>using linear algebra", "type": "multiple_choice", "answers": [{"answer": "a @ np.diag(a) @ b @ np.diag(b)", "correct": false}, {"answer": "a @ np.diag(a) + np.diag(b) @ b", "correct": false}, {"answer": "a @ np.diag(a) @ np.diag(b) @ b", "correct": true}, {"answer": "a @ b @ np.diag(a) @ np.diag(b)", "correct": false}], "tag": "summation iteration dot_product", "lecture_file": "16_linear_algebra"}, {"question": "What will be the shape of the final matrix, if the 4 matrices below are multiplied in the way shown:<br>np.array([1, 1]) @ np.array([[1, 2], [3, 4], [5, 6]).T @ np.array([1, 2, 3]).T", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": false}, {"answer": "(1)", "correct": true}, {"answer": "(1, 3)", "correct": false}, {"answer": "(2, 3)", "correct": false}], "tag": "matrices", "lecture_file": "16_linear_algebra"}, {"question": "What will be the shape of the final matrix, if the 4 matrices below are multiplied in the way shown:<br>np.array([1, 1]) @ np.array([[1, 2], [3, 4], [5, 6]).T @ np.array([1, 2, 3])", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": true}, {"answer": "(1)", "correct": false}, {"answer": "(1, 3)", "correct": false}, {"answer": "(2, 3)", "correct": false}], "tag": "matrices", "lecture_file": "16_linear_algebra"}, {"question": "The determinant of a matrix is a", "type": "multiple_choice", "answers": [{"answer": "scalar", "correct": true}, {"answer": "vector", "correct": false}, {"answer": "matrix", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "determinant", "lecture_file": "16_linear_algebra"}, {"question": "Find the determinant of the following matrix:<br>np.array([[1, 2, 3], [2, 2, 2]])", "type": "multiple_choice", "answers": [{"answer": "0", "correct": false}, {"answer": "3", "correct": false}, {"answer": "1", "correct": false}, {"answer": "determinant can be calculated only for square matrices", "correct": true}], "tag": "determinant", "lecture_file": "16_linear_algebra"}, {"question": "Which of the following statements is true about the below matrix:<br>np.array([[1, 2, 3], [2, 2, 2], [1, 1, 1]])", "type": "multiple_choice", "answers": [{"answer": "It is a non-singular matrix", "correct": false}, {"answer": "Rank of the matrix is 3", "correct": false}, {"answer": "It is a singular matrix", "correct": true}, {"answer": "The inverse of the matrix is real and finite", "correct": false}], "tag": "matrices", "lecture_file": "16_linear_algebra"}, {"question": "The advantage of using linear algebra over solve_bvp to solve boundary value problems is that", "type": "multiple_choice", "answers": [{"answer": "It can solve a non-linear system of equations", "correct": false}, {"answer": "No need of an initial guess", "correct": true}, {"answer": "Requires very few points", "correct": false}, {"answer": "All of the above", "correct": false}], "tag": "scipy applications", "lecture_file": "16_linear_algebra"}, {"question": "Which of the folllowing matrices are in reduced row echelon form:<br>1: np.array([[1, 2, 3], [0, 1, 0], [0, 0, 1]])<br>2: np.array([[1, 0, 1], [0, 1, 1], [0, 0, 0]])<br>3: np.array([[0, 1, 0], [0, 0, 1], [0, 0, 0]])", "type": "multiple_choice", "answers": [{"answer": "1, 2, 3", "correct": false}, {"answer": "1, 2", "correct": false}, {"answer": "2, 3", "correct": false}, {"answer": "3", "correct": true}], "tag": "reduced_row_echelon matrices", "lecture_file": "16_linear_algebra"}, {"question": "Which of the following  is not true about a dot product", "type": "multiple_choice", "answers": [{"answer": "It is the sum of the element-wise product of 2 arrays", "correct": false}, {"answer": "square root of a vector's dot product with itself is the magnitude of the vector", "correct": false}, {"answer": "It can also produce a vector", "correct": true}, {"answer": "It can be used to find the angle between 2 vectors", "correct": false}], "tag": "dot_product", "lecture_file": "16_linear_algebra"}, {"question": "Which of the following is a property of dot products for the vectors A, B, C.", "type": "multiple_choice", "answers": [{"answer": "If A.B = A.C; then B=C", "correct": false}, {"answer": "(A.B).C = C.(A.B)", "correct": false}, {"answer": "A and B are orthogonal if A.B = 1", "correct": false}, {"answer": "A.(B+C) = A.B + A.C", "correct": true}], "tag": "dot_product", "lecture_file": "16_linear_algebra"}];
+</style></div><script type="application/javascript">var questionsEqfOcJNRlCrz=[{"question": "Express: summation ((a_i)**2 * (b_i)**2) <br>using linear algebra", "type": "multiple_choice", "answers": [{"answer": "a @ np.diag(a) @ b @ np.diag(b)", "correct": false}, {"answer": "a @ np.diag(a) + np.diag(b) @ b", "correct": false}, {"answer": "a @ np.diag(a) @ np.diag(b) @ b", "correct": true}, {"answer": "a @ b @ np.diag(a) @ np.diag(b)", "correct": false}], "tag": "summation iteration dot_product", "lecture_file": "16_linear_algebra"}, {"question": "What will be the shape of the final matrix, if the 4 matrices below are multiplied in the way shown:<br>np.array([1, 1]) @ np.array([[1, 2], [3, 4], [5, 6]).T @ np.array([1, 2, 3]).T", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": false}, {"answer": "(1)", "correct": true}, {"answer": "(1, 3)", "correct": false}, {"answer": "(2, 3)", "correct": false}], "tag": "matrices", "lecture_file": "16_linear_algebra"}, {"question": "What will be the shape of the final matrix, if the 4 matrices below are multiplied in the way shown:<br>np.array([1, 1]) @ np.array([[1, 2], [3, 4], [5, 6]).T @ np.array([1, 2, 3])", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": true}, {"answer": "(1)", "correct": false}, {"answer": "(1, 3)", "correct": false}, {"answer": "(2, 3)", "correct": false}], "tag": "matrices", "lecture_file": "16_linear_algebra"}, {"question": "The determinant of a matrix is a", "type": "multiple_choice", "answers": [{"answer": "scalar", "correct": true}, {"answer": "vector", "correct": false}, {"answer": "matrix", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "determinant", "lecture_file": "16_linear_algebra"}, {"question": "Find the determinant of the following matrix:<br>np.array([[1, 2, 3], [2, 2, 2]])", "type": "multiple_choice", "answers": [{"answer": "0", "correct": false}, {"answer": "3", "correct": false}, {"answer": "1", "correct": false}, {"answer": "determinant can be calculated only for square matrices", "correct": true}], "tag": "determinant", "lecture_file": "16_linear_algebra"}, {"question": "Which of the following statements is true about the below matrix:<br>np.array([[1, 2, 3], [2, 2, 2], [1, 1, 1]])", "type": "multiple_choice", "answers": [{"answer": "It is a non-singular matrix", "correct": false}, {"answer": "Rank of the matrix is 3", "correct": false}, {"answer": "It is a singular matrix", "correct": true}, {"answer": "The inverse of the matrix is real and finite", "correct": false}], "tag": "matrices", "lecture_file": "16_linear_algebra"}, {"question": "The advantage of using linear algebra over solve_bvp to solve boundary value problems is that", "type": "multiple_choice", "answers": [{"answer": "It can solve a non-linear system of equations", "correct": false}, {"answer": "No need of an initial guess", "correct": true}, {"answer": "Requires very few points", "correct": false}, {"answer": "All of the above", "correct": false}], "tag": "scipy applications", "lecture_file": "16_linear_algebra"}, {"question": "Which of the folllowing matrices are in reduced row echelon form:<br>1: np.array([[1, 2, 3], [0, 1, 0], [0, 0, 1]])<br>2: np.array([[1, 0, 1], [0, 1, 1], [0, 0, 0]])<br>3: np.array([[0, 1, 0], [0, 0, 1], [0, 0, 0]])", "type": "multiple_choice", "answers": [{"answer": "1, 2, 3", "correct": false}, {"answer": "1, 2", "correct": false}, {"answer": "2, 3", "correct": false}, {"answer": "3", "correct": true}], "tag": "reduced_row_echelon matrices", "lecture_file": "16_linear_algebra"}, {"question": "Which of the following  is not true about a dot product", "type": "multiple_choice", "answers": [{"answer": "It is the sum of the element-wise product of 2 arrays", "correct": false}, {"answer": "square root of a vector's dot product with itself is the magnitude of the vector", "correct": false}, {"answer": "It can also produce a vector", "correct": true}, {"answer": "It can be used to find the angle between 2 vectors", "correct": false}], "tag": "dot_product", "lecture_file": "16_linear_algebra"}, {"question": "Which of the following is a property of dot products for the vectors A, B, C.", "type": "multiple_choice", "answers": [{"answer": "If A.B = A.C; then B=C", "correct": false}, {"answer": "(A.B).C = C.(A.B)", "correct": false}, {"answer": "A and B are orthogonal if A.B = 1", "correct": false}, {"answer": "A.(B+C) = A.B + A.C", "correct": true}], "tag": "dot_product", "lecture_file": "16_linear_algebra"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2323,8 +2320,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("dfcWYHnSXYMr")) {
-            show_questions(questionsdfcWYHnSXYMr,  dfcWYHnSXYMr); 
+          if(document.getElementById("EqfOcJNRlCrz")) {
+            show_questions(questionsEqfOcJNRlCrz,  EqfOcJNRlCrz); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2333,8 +2330,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("dfcWYHnSXYMr");
-        // console.log(document.getElementById("dfcWYHnSXYMr"));
+        //console.log("EqfOcJNRlCrz");
+        // console.log(document.getElementById("EqfOcJNRlCrz"));
 
         try_show();
         }
