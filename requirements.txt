@@ -8,3 +8,4 @@ jax[cpu]
 scipy
 jupyterquiz
 jupytercards
+ipywidgets
