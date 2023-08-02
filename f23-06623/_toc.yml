@@ -24,6 +24,11 @@ parts:
     - file: lectures/16-linear-algebra/16-linear-algebra.ipynb
     - file: lectures/17-linear-algebra-2/17-linear-algebra-2.ipynb
     - file: lectures/18-linear-regression/18-linear-regression.ipynb
+    - file: lectures/19-introduction-to-autograd/19-introduction-to-jax.ipynb
+    - file: lectures/20-autograd-applications/20-jax-applications.ipynb
+    - file: lectures/21-machine-learning/21-machine-learning-jax.ipynb
+    - file: lectures/22-ml-2/22-ml-2-jax.ipynb
+    - file: lectures/23-gp/23-gp.ipynb
 - caption: About the book
   chapters:
     - file: execution-statistics.md    
