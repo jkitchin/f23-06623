@@ -9,6 +9,7 @@ parts:
     - file: lectures/toc.ipynb
     - file: lectures/00-intro/00-intro.ipynb
     - file: lectures/01-jupyter/01-followups.ipynb
+    - file: lectures/02-integration-1/02-integration-1.ipynb
 - caption: About the book
   chapters:
     - file: execution-statistics.md    

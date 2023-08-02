@@ -1,0 +1,18 @@
+[
+    {
+        "front": "np.trapz",
+        "back": "Trapezoid method for data integration"
+    },
+    {
+        "front": "scipy.integrate.simps",
+        "back": "Simpson's method for data integration"
+    },
+    {
+        "front": "scipy.integrate.cumtrapz",
+        "back": "Cumulative data integration"
+    },
+    {
+        "front": "scipy.integrate.quad",
+        "back": "Gaussian quadrature to integrate functions<br>Returns integrand, error estimate"
+    }
+]
