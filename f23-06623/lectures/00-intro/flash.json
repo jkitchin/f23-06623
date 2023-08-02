@@ -1,0 +1,14 @@
+[
+    {
+        "front": "numpy",
+        "back": "Numerical python for arrays<br>import numpy as np"
+    },
+    {
+        "front": "matplotlib",
+        "back": "Plotting library for python.<br>import matplotlib.pyplot as plt"
+    },
+    {
+        "front": "scipy",
+        "back": "Scientific python. ODEs, optimization, root finding, etc. "
+    }
+]
