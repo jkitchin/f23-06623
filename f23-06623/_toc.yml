@@ -8,7 +8,7 @@ parts:
   chapters:
     - file: lectures/toc.ipynb
     - file: lectures/00-intro/00-intro.ipynb
-    - file: lectures/01-jupyter/01-followups.ipynb
+    - file: lectures/01-jupyter/01-jupyter.ipynb
     - file: lectures/02-integration-1/02-integration-1.ipynb
     - file: lectures/03-fode-1/03-fode-1.ipynb
     - file: lectures/04-fode-2/04-fode-2.ipynb
