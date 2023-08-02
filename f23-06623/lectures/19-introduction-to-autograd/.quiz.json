@@ -1,0 +1,242 @@
+[
+  {
+    "question": "Derivatives have useful applications in determining",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "rate of change of physical quantities",
+        "correct": false
+      },
+      {
+        "answer": "uncertainty propagation",
+        "correct": false
+      },
+      {
+        "answer": "extreme values of a function",
+        "correct": false
+      },
+      {
+        "answer": "All of the above",
+        "correct": true
+      }
+    ],
+    "tag": "derivative",
+    "lecture_file": "19_introduction_to_autograd"
+  },
+  {
+    "question": "np.gradient and numdifftools.Derivative approximates the derivatives based on",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "chain rule",
+        "correct": false
+      },
+      {
+        "answer": "Finite element analysis",
+        "correct": false
+      },
+      {
+        "answer": "Finite differences",
+        "correct": true
+      },
+      {
+        "answer": "None of the above",
+        "correct": false
+      }
+    ],
+    "tag": "derivative numpy scipy",
+    "lecture_file": "19_introduction_to_autograd"
+  },
+  {
+    "question": "A requirement of using np.gradient to calculate the derivative is",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "equation of the function to be differentiated",
+        "correct": false
+      },
+      {
+        "answer": "data points",
+        "correct": true
+      },
+      {
+        "answer": "defining a function in python",
+        "correct": false
+      },
+      {
+        "answer": "None of the above",
+        "correct": false
+      }
+    ],
+    "tag": "numpy derivative",
+    "lecture_file": "19_introduction_to_autograd"
+  },
+  {
+    "question": "A requirement of using numdifftools.Derivative to calculate the derivative is",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "equation of the function to be differentiated",
+        "correct": false
+      },
+      {
+        "answer": "defining a function in python",
+        "correct": false
+      },
+      {
+        "answer": "All of the above",
+        "correct": true
+      },
+      {
+        "answer": "None of the above",
+        "correct": false
+      }
+    ],
+    "tag": "scipy derivative",
+    "lecture_file": "19_introduction_to_autograd"
+  },
+  {
+    "question": "Automatic differentiation is better than classical methods such as symbolic and numerical differentiation as",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "It does not approximate",
+        "correct": false
+      },
+      {
+        "answer": "It can solve higher order derivatives",
+        "correct": false
+      },
+      {
+        "answer": "It can work on a program",
+        "correct": false
+      },
+      {
+        "answer": "All of the above",
+        "correct": true
+      }
+    ],
+    "tag": "derivative automatic_differentiation",
+    "lecture_file": "19_introduction_to_autograd"
+  },
+  {
+    "question": "If f(x) is a scalar function, and E = elementwise_grad(f), then E(np.array([a, b, c]), will output",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "A single element as f(x) is a scalar function",
+        "correct": false
+      },
+      {
+        "answer": "An array of length 3",
+        "correct": true
+      },
+      {
+        "answer": "An error",
+        "correct": false
+      },
+      {
+        "answer": "An array of length 9",
+        "correct": false
+      }
+    ],
+    "tag": "autograd",
+    "lecture_file": "19_introduction_to_autograd"
+  },
+  {
+    "question": "When using jax, which of the following codes will work without raising an error",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "def z(x):<br>    c = 1/x - 1<br>    return c<br>dz = grad(z)<br>dz(-2.0)",
+        "correct": true
+      },
+      {
+        "answer": "def z(x):<br>    c = 1/x - 1<br>    return c<br>dz = grad(z)<br>dz(2)",
+        "correct": false
+      },
+      {
+        "answer": "def z(x):<br>    c = 1/x - 1<br>    return c<br>dz = grad(z)<br>dz(0.0)",
+        "correct": false
+      },
+      {
+        "answer": "def z(x):<br>    c = 1/x - 1<br>    return c<br>dz = grad(z)<br>dz(np.array([-2.0, -1.0]))",
+        "correct": false
+      }
+    ],
+    "tag": "autograd",
+    "lecture_file": "19_introduction_to_autograd"
+  },
+  {
+    "question": "When using jax.jacobian() to evaluate the derivative for multiple input arrays, we need to",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Use a list of arrays as input",
+        "correct": false
+      },
+      {
+        "answer": "Cannot be done directly; Need to use a single input array at a time",
+        "correct": false
+      },
+      {
+        "answer": "Use a nested array as the input",
+        "correct": true
+      },
+      {
+        "answer": "Can be used if we vectorize the function with '@np.vectorize' decorator",
+        "correct": false
+      }
+    ],
+    "tag": "autograd",
+    "lecture_file": "19_introduction_to_autograd"
+  },
+  {
+    "question": "Hessian and Jacobian are useful to find the partial derivatives of",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Vector-valued functions",
+        "correct": false
+      },
+      {
+        "answer": "Scalar-valued functions",
+        "correct": false
+      },
+      {
+        "answer": "Hessian is used on scalar-valued functions and Jacobian on vector-valued functions",
+        "correct": true
+      },
+      {
+        "answer": "Hessian is used on vector-valued functions and Jacobian on scalar-valued functions",
+        "correct": false
+      }
+    ],
+    "tag": "hessian jacobian",
+    "lecture_file": "19_introduction_to_autograd"
+  },
+  {
+    "question": "When the input dimensions and output dimensions of a vector valued function are equal to 1, then",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The function can be interpreted as scalar-valued",
+        "correct": false
+      },
+      {
+        "answer": "The jacobian matrix has a single value which is the derivative of the function at the input value",
+        "correct": false
+      },
+      {
+        "answer": "The function is no longer multivariate",
+        "correct": false
+      },
+      {
+        "answer": "All of the above",
+        "correct": true
+      }
+    ],
+    "tag": "autograd functions",
+    "lecture_file": "19_introduction_to_autograd"
+  }
+]
