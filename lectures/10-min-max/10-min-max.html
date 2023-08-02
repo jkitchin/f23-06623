@@ -66,6 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/10-min-max/10-min-max';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introduction to nonlinear regression" href="../11-regression/11-regression.html" />
+    <link rel="prev" title="Boundary Value Problems in differential equations" href="../09-bvp/09-bvp.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,7 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../toc.html">Fall 2023 - 06-623 Mathematical modeling of chemical engineering processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../00-intro/00-intro.html">Introduction to 06-623 and Jupyter Lab</a></li>
 
@@ -174,6 +176,50 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../04-fode-2/04-fode-2.html">Families of solutions to FODEs</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05-nth-odes/05-nth-odes.html">Higher order differential equations</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../07-nla-1/07-nla-1.html">Introduction to nonlinear algebra</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../08-nla-2/08-nla-2.html">Advanced topics in nonlinear algebra</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../09-bvp/09-bvp.html">Boundary Value Problems in differential equations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to optimization</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../11-regression/11-regression.html">Introduction to nonlinear regression</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../12-nonlinear-regression/12-nonlinear-regression-2.html">Uncertainty estimates from curvefit and scipy.optimize.minimize</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../13-constrained-optimization/13-constrained-optimization.html">Constrained minimization</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../15-intro-linear-algebra/15-intro-linear-algebra.html">Introduction to Linear algebra</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../16-linear-algebra/16-linear-algebra.html">Linear algebraic equations</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../17-linear-algebra-2/17-linear-algebra-2.html">Advanced topics in linear algebra</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../18-linear-regression/18-linear-regression.html">Linear regression</a></li>
+
+
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the book</span></p>
@@ -1175,13 +1221,13 @@ minimize<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="NWmNqkxchuKI" data-shufflequestions="False"
+<div class="output text_html"><div id="eEFamumEQwAP" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#NWmNqkxchuKI {
+#eEFamumEQwAP {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1351,7 +1397,7 @@ minimize<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsNWmNqkxchuKI=[{"question": "What will be the output of <br>a = [1, 2, 3]; b = 5<br>print(max(*a, b))", "type": "multiple_choice", "answers": [{"answer": "TypeError: '<' not supported between instances of 'int' and 'list'", "correct": false}, {"answer": "a", "correct": false}, {"answer": "5", "correct": true}, {"answer": "b", "correct": false}], "tag": "python", "lecture_file": "10_min_max"}, {"question": "What will be the output of <br>a = [1, 2, 3]; b = 5<br>print(min(a, b))", "type": "multiple_choice", "answers": [{"answer": "TypeError: '<' not supported between instances of 'int' and 'list'", "correct": true}, {"answer": "a", "correct": false}, {"answer": "1", "correct": false}, {"answer": "b", "correct": false}], "tag": "python", "lecture_file": "10_min_max"}, {"question": "What will be the output of <br>a = [[1, 2, 3], [-1, -2, -3]]<br>print(np.argmin(a, axis = 1))", "type": "multiple_choice", "answers": [{"answer": "-3", "correct": false}, {"answer": "[5]", "correct": false}, {"answer": "[0, 2]", "correct": true}, {"answer": "[-1, -2, -3]", "correct": false}], "tag": "numpy", "lecture_file": "10_min_max"}, {"question": "A saddle point is always located at a local minimum and local maximum", "type": "multiple_choice", "answers": [{"answer": "TRUE", "correct": true}, {"answer": "FALSE", "correct": false}, {"answer": "Only local minimum", "correct": false}, {"answer": "Only local maximum", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "Which of the following functions from scipy are useful for finding the minimum", "type": "multiple_choice", "answers": [{"answer": "minimize", "correct": false}, {"answer": "fmin", "correct": false}, {"answer": "solve_ivp", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "Finding the global extrema using scipy.optimize.minimize depends on", "type": "multiple_choice", "answers": [{"answer": "The initial guess", "correct": false}, {"answer": "The solver method", "correct": false}, {"answer": "Constraints", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "Accuracy of finding minima using the graphical method is mainly limited by which of the following factors:<br>a: Computational power available<br>b: Discretization of the function<br>c: Plotting library", "type": "multiple_choice", "answers": [{"answer": "a", "correct": false}, {"answer": "a, b", "correct": true}, {"answer": "a, b, c", "correct": false}, {"answer": "b, c", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "The number of iterations performed by the solver when using <br>sol = minimize(f, guess)<br>can be found with", "type": "multiple_choice", "answers": [{"answer": "sol.int", "correct": false}, {"answer": "sol.nit", "correct": true}, {"answer": "sol.iter", "correct": false}, {"answer": "len(sol.x)", "correct": false}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "If f(x) is discontinous at the point x=a, then", "type": "multiple_choice", "answers": [{"answer": "There is a global minimum at 'a'", "correct": false}, {"answer": "There is a local maximum at 'a'", "correct": false}, {"answer": "There can be either a local maximum or a local minimum at 'a'", "correct": true}, {"answer": "There is a global maximum at 'a'", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "Reducing the spacing (dx) between points to calculate the derivative using scipy.misc.derivative() might result in", "type": "multiple_choice", "answers": [{"answer": "Low accuracy", "correct": false}, {"answer": "High accuracy with a risk of numerical instability", "correct": true}, {"answer": "High accuracy and numerical stability", "correct": false}, {"answer": "Low accuracy and numerical instability", "correct": false}], "tag": "scipy", "lecture_file": "10_min_max"}];
+</style></div><script type="application/javascript">var questionseEFamumEQwAP=[{"question": "What will be the output of <br>a = [1, 2, 3]; b = 5<br>print(max(*a, b))", "type": "multiple_choice", "answers": [{"answer": "TypeError: '<' not supported between instances of 'int' and 'list'", "correct": false}, {"answer": "a", "correct": false}, {"answer": "5", "correct": true}, {"answer": "b", "correct": false}], "tag": "python", "lecture_file": "10_min_max"}, {"question": "What will be the output of <br>a = [1, 2, 3]; b = 5<br>print(min(a, b))", "type": "multiple_choice", "answers": [{"answer": "TypeError: '<' not supported between instances of 'int' and 'list'", "correct": true}, {"answer": "a", "correct": false}, {"answer": "1", "correct": false}, {"answer": "b", "correct": false}], "tag": "python", "lecture_file": "10_min_max"}, {"question": "What will be the output of <br>a = [[1, 2, 3], [-1, -2, -3]]<br>print(np.argmin(a, axis = 1))", "type": "multiple_choice", "answers": [{"answer": "-3", "correct": false}, {"answer": "[5]", "correct": false}, {"answer": "[0, 2]", "correct": true}, {"answer": "[-1, -2, -3]", "correct": false}], "tag": "numpy", "lecture_file": "10_min_max"}, {"question": "A saddle point is always located at a local minimum and local maximum", "type": "multiple_choice", "answers": [{"answer": "TRUE", "correct": true}, {"answer": "FALSE", "correct": false}, {"answer": "Only local minimum", "correct": false}, {"answer": "Only local maximum", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "Which of the following functions from scipy are useful for finding the minimum", "type": "multiple_choice", "answers": [{"answer": "minimize", "correct": false}, {"answer": "fmin", "correct": false}, {"answer": "solve_ivp", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "Finding the global extrema using scipy.optimize.minimize depends on", "type": "multiple_choice", "answers": [{"answer": "The initial guess", "correct": false}, {"answer": "The solver method", "correct": false}, {"answer": "Constraints", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "Accuracy of finding minima using the graphical method is mainly limited by which of the following factors:<br>a: Computational power available<br>b: Discretization of the function<br>c: Plotting library", "type": "multiple_choice", "answers": [{"answer": "a", "correct": false}, {"answer": "a, b", "correct": true}, {"answer": "a, b, c", "correct": false}, {"answer": "b, c", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "The number of iterations performed by the solver when using <br>sol = minimize(f, guess)<br>can be found with", "type": "multiple_choice", "answers": [{"answer": "sol.int", "correct": false}, {"answer": "sol.nit", "correct": true}, {"answer": "sol.iter", "correct": false}, {"answer": "len(sol.x)", "correct": false}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "If f(x) is discontinous at the point x=a, then", "type": "multiple_choice", "answers": [{"answer": "There is a global minimum at 'a'", "correct": false}, {"answer": "There is a local maximum at 'a'", "correct": false}, {"answer": "There can be either a local maximum or a local minimum at 'a'", "correct": true}, {"answer": "There is a global maximum at 'a'", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "Reducing the spacing (dx) between points to calculate the derivative using scipy.misc.derivative() might result in", "type": "multiple_choice", "answers": [{"answer": "Low accuracy", "correct": false}, {"answer": "High accuracy with a risk of numerical instability", "correct": true}, {"answer": "High accuracy and numerical stability", "correct": false}, {"answer": "Low accuracy and numerical instability", "correct": false}], "tag": "scipy", "lecture_file": "10_min_max"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2100,8 +2146,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("NWmNqkxchuKI")) {
-            show_questions(questionsNWmNqkxchuKI,  NWmNqkxchuKI); 
+          if(document.getElementById("eEFamumEQwAP")) {
+            show_questions(questionseEFamumEQwAP,  eEFamumEQwAP); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2110,8 +2156,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("NWmNqkxchuKI");
-        // console.log(document.getElementById("NWmNqkxchuKI"));
+        //console.log("eEFamumEQwAP");
+        // console.log(document.getElementById("eEFamumEQwAP"));
 
         try_show();
         }
@@ -2150,6 +2196,24 @@ if (typeof version == 'undefined') {
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../09-bvp/09-bvp.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Boundary Value Problems in differential equations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../11-regression/11-regression.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to nonlinear regression</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>

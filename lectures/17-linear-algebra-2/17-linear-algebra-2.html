@@ -66,6 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/17-linear-algebra-2/17-linear-algebra-2';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Linear regression" href="../18-linear-regression/18-linear-regression.html" />
+    <link rel="prev" title="Linear algebraic equations" href="../16-linear-algebra/16-linear-algebra.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,7 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../toc.html">Fall 2023 - 06-623 Mathematical modeling of chemical engineering processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../00-intro/00-intro.html">Introduction to 06-623 and Jupyter Lab</a></li>
 
@@ -174,6 +176,50 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../04-fode-2/04-fode-2.html">Families of solutions to FODEs</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../05-nth-odes/05-nth-odes.html">Higher order differential equations</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../07-nla-1/07-nla-1.html">Introduction to nonlinear algebra</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../08-nla-2/08-nla-2.html">Advanced topics in nonlinear algebra</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../09-bvp/09-bvp.html">Boundary Value Problems in differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-min-max/10-min-max.html">Introduction to optimization</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../11-regression/11-regression.html">Introduction to nonlinear regression</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../12-nonlinear-regression/12-nonlinear-regression-2.html">Uncertainty estimates from curvefit and scipy.optimize.minimize</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../13-constrained-optimization/13-constrained-optimization.html">Constrained minimization</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../15-intro-linear-algebra/15-intro-linear-algebra.html">Introduction to Linear algebra</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../16-linear-algebra/16-linear-algebra.html">Linear algebraic equations</a></li>
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Advanced topics in linear algebra</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../18-linear-regression/18-linear-regression.html">Linear regression</a></li>
+
+
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the book</span></p>
@@ -1228,13 +1274,13 @@ True [-1.77022954 -1.68275159 -1.73736055] [-1.77022954 -1.68275159 -1.73736055]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="uMuQfpJsTvrk" data-shufflequestions="False"
+<div class="output text_html"><div id="RezeuHZyAWvi" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#uMuQfpJsTvrk {
+#RezeuHZyAWvi {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1404,7 +1450,7 @@ True [-1.77022954 -1.68275159 -1.73736055] [-1.77022954 -1.68275159 -1.73736055]
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsuMuQfpJsTvrk=[{"question": "Which of the following matrices can be solved using np.linalg.solve(A, B)", "type": "multiple_choice", "answers": [{"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4]])<br>B = np.array([b1, b2, b3])", "correct": false}, {"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4], [a3, a4 ,a5]])<br>B = np.array([b1, b2])", "correct": false}, {"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4], [a3, a4, a5]])<br>B = np.array([b1, b2, b3])", "correct": true}, {"answer": "A = np.array([[a1, a2], [a2, a3], [a3, a4]])<br>B = np.array([b1, b2])", "correct": false}], "tag": "numpy applications", "lecture_file": "17_linear_algebra_2"}, {"question": "If B and X are row vectors, then the expression $b_1 x_1 + b_2 x_2 + b_3 x_3$ can be expressed as", "type": "multiple_choice", "answers": [{"answer": "B.T . X.T", "correct": false}, {"answer": "B . X", "correct": false}, {"answer": "B.T . X", "correct": false}, {"answer": "B . X.T", "correct": true}], "tag": "vectors applications", "lecture_file": "17_linear_algebra_2"}, {"question": "x = np.linspace(1, 5, 3); y = np.array([3, 9, 27])<br>Y = interp1d(x, y, kind='quadratic', bounds_error=False)<br>xfit = np.linspace(-1, 8)<br>print(Y(xfit))<br><br>The above code will", "type": "multiple_choice", "answers": [{"answer": "Raise an error", "correct": false}, {"answer": "Print Y() values for the x-range (-1, 8)", "correct": false}, {"answer": "Print Y() values for the x-range (1, 5) and NaN for the rest", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "scipy applications", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvalues of matrix A are complex, then we can be certain that the matrix A", "type": "multiple_choice", "answers": [{"answer": "is symmetric", "correct": false}, {"answer": "is a non-square matrix", "correct": false}, {"answer": "has all the elements as complex numbers", "correct": false}, {"answer": "is non-symmetric", "correct": true}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "For a 2 x 2 matrix with all values being real, and having 2 eigenvalues, if 1-2j is one of the eigenvalues, what is the other eigenvalue", "type": "multiple_choice", "answers": [{"answer": "1 + 2j", "correct": true}, {"answer": "-2j", "correct": false}, {"answer": "-1 -2j", "correct": false}, {"answer": "-1+2j", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "For an N x N matrix, the number of eigenvalues", "type": "multiple_choice", "answers": [{"answer": "will always be equal to N", "correct": false}, {"answer": "can never be more than N", "correct": true}, {"answer": "can be less or more than N", "correct": false}, {"answer": "will always be less than N", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "Find the product of the eigenvalues for the matrix:<br>np.array([[1, 2, 3], [3, 2, 1], [2, 1, 0]])", "type": "multiple_choice", "answers": [{"answer": "-8", "correct": false}, {"answer": "Need more information", "correct": false}, {"answer": "0", "correct": true}, {"answer": "1", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "Find the sum of all the eigenvalues of the matrix:<br>np.array([[1, 2, 3], [3, 2, 1], [2, 0, 1]])", "type": "multiple_choice", "answers": [{"answer": "0", "correct": false}, {"answer": "4", "correct": true}, {"answer": "Need more information", "correct": false}, {"answer": "6", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvalues of the Hessian matrix for a function are all negative, then we are at a", "type": "multiple_choice", "answers": [{"answer": "minimum", "correct": false}, {"answer": "saddle point", "correct": false}, {"answer": "maximum", "correct": true}, {"answer": "Need more information", "correct": false}], "tag": "eigenvalues hessian eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvectors of a matrix A are orthogonal, then we can be certain  that matrix A is a ", "type": "multiple_choice", "answers": [{"answer": "symmetric matrix", "correct": true}, {"answer": "asymmetric matrix", "correct": false}, {"answer": "lower triangular matrix", "correct": false}, {"answer": "There is no inference", "correct": false}], "tag": "eigenvectors eigen", "lecture_file": "17_linear_algebra_2"}];
+</style></div><script type="application/javascript">var questionsRezeuHZyAWvi=[{"question": "Which of the following matrices can be solved using np.linalg.solve(A, B)", "type": "multiple_choice", "answers": [{"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4]])<br>B = np.array([b1, b2, b3])", "correct": false}, {"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4], [a3, a4 ,a5]])<br>B = np.array([b1, b2])", "correct": false}, {"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4], [a3, a4, a5]])<br>B = np.array([b1, b2, b3])", "correct": true}, {"answer": "A = np.array([[a1, a2], [a2, a3], [a3, a4]])<br>B = np.array([b1, b2])", "correct": false}], "tag": "numpy applications", "lecture_file": "17_linear_algebra_2"}, {"question": "If B and X are row vectors, then the expression $b_1 x_1 + b_2 x_2 + b_3 x_3$ can be expressed as", "type": "multiple_choice", "answers": [{"answer": "B.T . X.T", "correct": false}, {"answer": "B . X", "correct": false}, {"answer": "B.T . X", "correct": false}, {"answer": "B . X.T", "correct": true}], "tag": "vectors applications", "lecture_file": "17_linear_algebra_2"}, {"question": "x = np.linspace(1, 5, 3); y = np.array([3, 9, 27])<br>Y = interp1d(x, y, kind='quadratic', bounds_error=False)<br>xfit = np.linspace(-1, 8)<br>print(Y(xfit))<br><br>The above code will", "type": "multiple_choice", "answers": [{"answer": "Raise an error", "correct": false}, {"answer": "Print Y() values for the x-range (-1, 8)", "correct": false}, {"answer": "Print Y() values for the x-range (1, 5) and NaN for the rest", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "scipy applications", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvalues of matrix A are complex, then we can be certain that the matrix A", "type": "multiple_choice", "answers": [{"answer": "is symmetric", "correct": false}, {"answer": "is a non-square matrix", "correct": false}, {"answer": "has all the elements as complex numbers", "correct": false}, {"answer": "is non-symmetric", "correct": true}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "For a 2 x 2 matrix with all values being real, and having 2 eigenvalues, if 1-2j is one of the eigenvalues, what is the other eigenvalue", "type": "multiple_choice", "answers": [{"answer": "1 + 2j", "correct": true}, {"answer": "-2j", "correct": false}, {"answer": "-1 -2j", "correct": false}, {"answer": "-1+2j", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "For an N x N matrix, the number of eigenvalues", "type": "multiple_choice", "answers": [{"answer": "will always be equal to N", "correct": false}, {"answer": "can never be more than N", "correct": true}, {"answer": "can be less or more than N", "correct": false}, {"answer": "will always be less than N", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "Find the product of the eigenvalues for the matrix:<br>np.array([[1, 2, 3], [3, 2, 1], [2, 1, 0]])", "type": "multiple_choice", "answers": [{"answer": "-8", "correct": false}, {"answer": "Need more information", "correct": false}, {"answer": "0", "correct": true}, {"answer": "1", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "Find the sum of all the eigenvalues of the matrix:<br>np.array([[1, 2, 3], [3, 2, 1], [2, 0, 1]])", "type": "multiple_choice", "answers": [{"answer": "0", "correct": false}, {"answer": "4", "correct": true}, {"answer": "Need more information", "correct": false}, {"answer": "6", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvalues of the Hessian matrix for a function are all negative, then we are at a", "type": "multiple_choice", "answers": [{"answer": "minimum", "correct": false}, {"answer": "saddle point", "correct": false}, {"answer": "maximum", "correct": true}, {"answer": "Need more information", "correct": false}], "tag": "eigenvalues hessian eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvectors of a matrix A are orthogonal, then we can be certain  that matrix A is a ", "type": "multiple_choice", "answers": [{"answer": "symmetric matrix", "correct": true}, {"answer": "asymmetric matrix", "correct": false}, {"answer": "lower triangular matrix", "correct": false}, {"answer": "There is no inference", "correct": false}], "tag": "eigenvectors eigen", "lecture_file": "17_linear_algebra_2"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2153,8 +2199,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("uMuQfpJsTvrk")) {
-            show_questions(questionsuMuQfpJsTvrk,  uMuQfpJsTvrk); 
+          if(document.getElementById("RezeuHZyAWvi")) {
+            show_questions(questionsRezeuHZyAWvi,  RezeuHZyAWvi); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2163,8 +2209,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("uMuQfpJsTvrk");
-        // console.log(document.getElementById("uMuQfpJsTvrk"));
+        //console.log("RezeuHZyAWvi");
+        // console.log(document.getElementById("RezeuHZyAWvi"));
 
         try_show();
         }
@@ -2203,6 +2249,24 @@ if (typeof version == 'undefined') {
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../16-linear-algebra/16-linear-algebra.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Linear algebraic equations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../18-linear-regression/18-linear-regression.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Linear regression</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
