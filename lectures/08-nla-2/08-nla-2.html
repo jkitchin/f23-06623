@@ -1,0 +1,2212 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Advanced topics in nonlinear algebra &#8212; f23-06623</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/08-nla-2/08-nla-2';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../syllabus.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/06623-roadmap.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/06623-roadmap.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../syllabus.html">
+                    Syllabus for  06-623 Mathematical Modeling of Chemical Engineering Processes
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../toc.html">Fall 2023 - 06-623 Mathematical modeling of chemical engineering processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00-intro/00-intro.html">Introduction to 06-623 and Jupyter Lab</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02-integration-1/02-integration-1.html">Integration in Python</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../03-fode-1/03-fode-1.html">Solutions to first-order differential equations by integration</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../04-fode-2/04-fode-2.html">Families of solutions to FODEs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../05-nth-odes/05-nth-odes.html">Higher order differential equations</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About the book</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../execution-statistics.html">Build statistics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jkitchin/f23-06623" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jkitchin/f23-06623/issues/new?title=Issue%20on%20page%20%2Flectures/08-nla-2/08-nla-2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lectures/08-nla-2/08-nla-2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Advanced topics in nonlinear algebra</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Advanced topics in nonlinear algebra</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#special-nonlinear-systems-polynomials">Special nonlinear systems - polynomials</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-equations-of-state">Cubic equations of state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-things-to-remember-about-polynomials">Other useful things to remember about polynomials</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-of-nonlinear-equations">Systems of nonlinear equations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-harder-example">A harder example</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="advanced-topics-in-nonlinear-algebra">
+<h1>Advanced topics in nonlinear algebra<a class="headerlink" href="#advanced-topics-in-nonlinear-algebra" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>KEYWORDS: scipy.optimize.fsolve, numpy.roots, numpy.polyder, numpy.polyval, numpy.polyint, numpy.poly1d</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="special-nonlinear-systems-polynomials">
+<h1>Special nonlinear systems - polynomials<a class="headerlink" href="#special-nonlinear-systems-polynomials" title="Permalink to this heading">#</a></h1>
+<p>Polynomials are a special class of nonlinear algebraic equations that are especially easy to solve. A polynomial is linear in the coefficients in front of the variable. If we consider the following <span class="math notranslate nohighlight">\(n^{th}\)</span> order polynomial:</p>
+<p><span class="math notranslate nohighlight">\(p_0 x^n + p_1 x^{(n-1)} + ... + p_{n-1} x + p_n = 0\)</span></p>
+<p>Let’s be specific:</p>
+<p><span class="math notranslate nohighlight">\(x^2 + 8x + 16 = 0\)</span></p>
+<p>We express this as [1, 8, 16].</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">?</span>np.roots
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-4., -4.])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">r</span> <span class="o">+</span> <span class="mi">16</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 0.])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="mi">16</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/99595b82025414e7fb9a2c0f918a5c3358ab76344868fe22e8e74d3770f53427.png" src="../../_images/99595b82025414e7fb9a2c0f918a5c3358ab76344868fe22e8e74d3770f53427.png" />
+</div>
+</div>
+<p>Note we get all the roots. We can check that with the <code class="docutils literal notranslate"><span class="pre">numpy.polyval</span></code> command.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>np.polyval
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>  <span class="c1"># Another new command</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 0.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also use this to plot a polynomial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/99595b82025414e7fb9a2c0f918a5c3358ab76344868fe22e8e74d3770f53427.png" src="../../_images/99595b82025414e7fb9a2c0f918a5c3358ab76344868fe22e8e74d3770f53427.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">root</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+
+<span class="n">root</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> message: The solution converged.
+ success: True
+  status: 1
+     fun: [ 0.000e+00]
+       x: [-4.000e+00]
+    nfev: 37
+    fjac: [[-1.000e+00]]
+       r: [-1.883e-07]
+     qtf: [-3.553e-15]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Why is this so convenient?</p>
+<section id="cubic-equations-of-state">
+<h2>Cubic equations of state<a class="headerlink" href="#cubic-equations-of-state" title="Permalink to this heading">#</a></h2>
+<p>There are applications of polynomials in thermodynamics. The van der waal equation is a cubic polynomial <span class="math notranslate nohighlight">\(f(V) = V^3 - \frac{p n b + n R T}{p} V^2 + \frac{n^2 a}{p}V - \frac{n^3 a b}{p} = 0\)</span>, where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are constants, <span class="math notranslate nohighlight">\(p\)</span> is the pressure, <span class="math notranslate nohighlight">\(R\)</span> is the gas constant, <span class="math notranslate nohighlight">\(T\)</span> is an absolute temperature and <span class="math notranslate nohighlight">\(n\)</span> is the number of moles. The roots of this equation tell you the volume of the gas at those conditions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># numerical values of the constants</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">3.49e4</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">1.45</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">679.7</span>  <span class="c1"># pressure in psi</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">683</span>  <span class="c1"># T in Rankine</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mf">1.136</span>  <span class="c1"># lb-moles</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">10.73</span>  <span class="c1"># ft^3 * psi / R / lb-mol</span>
+
+<span class="n">ppar</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># V**3</span>
+    <span class="o">-</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">b</span> <span class="o">+</span> <span class="n">n</span> <span class="o">*</span> <span class="n">R</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="n">p</span><span class="p">,</span>  <span class="c1"># V**2</span>
+    <span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span> <span class="o">/</span> <span class="n">p</span><span class="p">,</span>  <span class="c1"># V</span>
+    <span class="o">-</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">/</span> <span class="n">p</span><span class="p">,</span>
+<span class="p">]</span>  <span class="c1"># constant, together this defines f(V)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">ppar</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5.09432376+0.j         4.4006681 +1.43502848j 4.4006681 -1.43502848j]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">ppar</span><span class="p">)</span>
+<span class="p">(</span><span class="n">rr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">imag</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">ppar</span><span class="p">,</span> <span class="n">V</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/65ae002a85426096a089ed76a08b457e0a7ee42e43576ffaf9b5f16742527f8e.png" src="../../_images/65ae002a85426096a089ed76a08b457e0a7ee42e43576ffaf9b5f16742527f8e.png" />
+</div>
+</div>
+<p>Note that only one root is real (and even then, we have to interpret 0.j as not being imaginary. Also, in a cubic polynomial, there can only be two imaginary roots). In this case that means there is only one phase present.</p>
+<p>Remember fsolve? Two of these roots are not accessible in fsolve because they are imaginary.</p>
+</section>
+<section id="other-useful-things-to-remember-about-polynomials">
+<h2>Other useful things to remember about polynomials<a class="headerlink" href="#other-useful-things-to-remember-about-polynomials" title="Permalink to this heading">#</a></h2>
+<p>You can easily get the parameters of the derivative of the polynomial with <code class="docutils literal notranslate"><span class="pre">numpy.polyder</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>np.polyder
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(y = x^2 + 8x + 16\)</span></p>
+<p><span class="math notranslate nohighlight">\(y'(x) = 2x + 8\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+
+<span class="n">pd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyder</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>  <span class="c1"># New command</span>
+<span class="n">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 8])
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use these with <code class="docutils literal notranslate"><span class="pre">numpy.polyval</span></code> to compute the derivative at different points. Note, this is an <em>analytical</em> derivative! No approximation necessary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">pd</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-2.        , -1.91836735, -1.83673469, -1.75510204, -1.67346939,
+       -1.59183673, -1.51020408, -1.42857143, -1.34693878, -1.26530612,
+       -1.18367347, -1.10204082, -1.02040816, -0.93877551, -0.85714286,
+       -0.7755102 , -0.69387755, -0.6122449 , -0.53061224, -0.44897959,
+       -0.36734694, -0.28571429, -0.20408163, -0.12244898, -0.04081633,
+        0.04081633,  0.12244898,  0.20408163,  0.28571429,  0.36734694,
+        0.44897959,  0.53061224,  0.6122449 ,  0.69387755,  0.7755102 ,
+        0.85714286,  0.93877551,  1.02040816,  1.10204082,  1.18367347,
+        1.26530612,  1.34693878,  1.42857143,  1.51020408,  1.59183673,
+        1.67346939,  1.75510204,  1.83673469,  1.91836735,  2.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also get the coefficients of the integral of the polynomial. The integration constant is assumed to be 0 by default.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>np.polyint
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pint</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyint</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>  <span class="c1"># new command</span>
+<span class="n">pint</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.33333333,  4.        , 16.        ,  0.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use this to compute definite integrals, e.g. from x=1 to x=2:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>np.polyval
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">pint</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">pint</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30.33333333333334
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+
+
+<span class="k">def</span> <span class="nf">integrand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">16</span>
+
+
+<span class="n">quad</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(30.333333333333332, 3.367676508029641e-13)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 8, 16]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="mi">16</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">simps</span>
+
+<span class="n">simps</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30.333333333333336
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>exercise</strong> Use another method to confirm the result above.</p>
+<p>Finally, the syntax <code class="docutils literal notranslate"><span class="pre">np.polyval(pint,</span> <span class="pre">2)</span></code> can be a little tedious. You can create a function with <code class="docutils literal notranslate"><span class="pre">numpy.poly1d</span></code> using the array of coefficients. Conveniently, you can use the function in the roots, polyder and polyint commands!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>np.poly1d
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">pint</span><span class="p">)</span>
+<span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30.33333333333334
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>poly1d([ 0.33333333,  4.        , 16.        ,  0.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-6.+3.46410162j, -6.-3.46410162j,  0.+0.j        ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>p
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        3     2
+0.3333 x + 4 x + 16 x
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">r</span>  <span class="c1"># shorthand for roots</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-6.+3.46410162j, -6.-3.46410162j,  0.+0.j        ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="n">root</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">root</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">r</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1e-12</span>
+<span class="p">]</span>  <span class="c1"># extract out only the real part of the real roots.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>  <span class="c1"># show very small numbers as 0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">r</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.+0.j 0.-0.j 0.+0.j]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">coefficients</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.33333333,  4.        , 16.        ,  0.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">order</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="systems-of-nonlinear-equations">
+<h1>Systems of nonlinear equations<a class="headerlink" href="#systems-of-nonlinear-equations" title="Permalink to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is also <code class="docutils literal notranslate"><span class="pre">scipy.optimize.fsolve</span></code> which can also be used to solve nonlinear equations. This is an older function, and <code class="docutils literal notranslate"><span class="pre">root</span></code> is preferred for new code.</p>
+</div>
+<p>Analogously to systems of ordinary differential equations, with systems of nonlinear equations we define functions that will return a zero for each equation in the system. Then we have to pass an initial guess for each variable to fsolve, and it will return an array of values, one for each variable.</p>
+<p>It is considerably more difficult to visualize systems of nonlinear equations. With two equations and two unknowns it is sometimes easy to plot solutions, but not always.</p>
+<p>\begin{align}
+y &amp;=&amp; x^2 \
+y &amp;=&amp; 8 - x^2
+\end{align}</p>
+<p>One approach to visualizing this is to plot the two curves.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="n">y1</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;y1&quot;</span><span class="p">,</span> <span class="s2">&quot;y2&quot;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/82c954f72045c9d50d6ec3f2f7572c5a9abfe7e0adb2d4c6b0371f8349a26e24.png" src="../../_images/82c954f72045c9d50d6ec3f2f7572c5a9abfe7e0adb2d4c6b0371f8349a26e24.png" />
+</div>
+</div>
+<p>You can see that on this domain, there is one place where the two curves intersect near the point (2, 5), which is a solution point. At this point there is one (x, y) pair that is a solution to <em>both</em> equations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">root</span>
+
+
+<span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="n">z1</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">z2</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">])</span>
+
+
+<span class="n">guess</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">]</span>
+<span class="n">objective</span><span class="p">(</span><span class="n">guess</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.4, -0.4])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ans</span> <span class="o">=</span> <span class="n">root</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">guess</span><span class="p">)</span>  
+
+<span class="n">ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> message: The solution converged.
+ success: True
+  status: 1
+     fun: [-4.441e-16  0.000e+00]
+       x: [ 2.000e+00  4.000e+00]
+    nfev: 5
+    fjac: [[-7.071e-01  7.071e-01]
+           [-7.071e-01 -7.071e-01]]
+       r: [ 5.657e+00  1.332e-15 -1.414e+00]
+     qtf: [-2.341e-09  1.404e-09]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">root</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">guess</span><span class="p">)</span>  <span class="c1"># we unpack the two parts of the solution into x and y</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="n">objective</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)),</span>  <span class="c1"># tuple</span>
+    <span class="n">objective</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]),</span>  <span class="c1"># list</span>
+    <span class="c1"># use an array</span>
+    <span class="n">objective</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])),</span>
+<span class="p">]</span>  <span class="c1"># three equivalent ways to call the objective function</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([-4.4408921e-16,  0.0000000e+00]),
+ array([-4.4408921e-16,  0.0000000e+00]),
+ array([-4.4408921e-16,  0.0000000e+00])]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">objective</span><span class="p">(</span><span class="n">ans</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-4.4408921e-16,  0.0000000e+00])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">objective</span><span class="p">(</span><span class="n">guess</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.4, -0.4])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-harder-example">
+<h1>A harder example<a class="headerlink" href="#a-harder-example" title="Permalink to this heading">#</a></h1>
+<p>It is not always easy to solve for one variable in terms of the other though. In that case, we can resort to an alternate graphical approach where we evaluate the objective function over a range of the variables, and look for regions where they overlap.</p>
+<p>Consider the solution to these equations (adapted from <a class="reference external" href="https://www.mathworks.com/help/optim/ug/fsolve.html">https://www.mathworks.com/help/optim/ug/fsolve.html</a>):</p>
+<p><span class="math notranslate nohighlight">\(e^{-e^{-(x_1 + x_2)}} = x_2 (1 + x_1^2)\)</span></p>
+<p>and</p>
+<p><span class="math notranslate nohighlight">\(x_1 \cos(x_2) + x_2 \sin(x_1) = 1/2\)</span></p>
+<p>It is not possible to solve either one for one variable in terms of the other. So instead, we will compute the objective function for a range of <span class="math notranslate nohighlight">\(x_1, x_2\)</span> values, and then use a contour plot of each equation to see where there might be a solution.</p>
+<p>The key to this visualization is where we draw the contours. A good choice is to highlight only the part of the solutions that bracket zero. Then we can see where they intersect, because there is probably a solution in that neighborhood.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="n">z1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">)))</span> <span class="o">-</span> <span class="n">x2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x1</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">z2</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span> <span class="o">+</span> <span class="n">x2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">])</span>
+
+
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="n">X1</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+
+<span class="n">Z1</span><span class="p">,</span> <span class="n">Z2</span> <span class="o">=</span> <span class="n">objective</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">Z1</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">Z2</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$x_1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$x_2$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/607247edccb83ab5aee31c62afe9242a785a415bfbd1294935796c81d3376a0a.png" src="../../_images/607247edccb83ab5aee31c62afe9242a785a415bfbd1294935796c81d3376a0a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">objective</span><span class="p">([</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span>  <span class="c1"># shows that the objective function is approximately zero</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.00379937,  0.06378525])
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is an intersection near <span class="math notranslate nohighlight">\(x_1=0.4\)</span>, and <span class="math notranslate nohighlight">\(x_2 = 0.6\)</span>. We can use that as an initial guess.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">root</span>
+
+<span class="n">ans</span> <span class="o">=</span> <span class="n">root</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">])</span>  
+<span class="n">ans</span><span class="p">,</span> <span class="n">objective</span><span class="p">(</span><span class="n">ans</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>( message: The solution converged.
+  success: True
+   status: 1
+      fun: [ 1.090e-13 -2.670e-14]
+        x: [ 3.532e-01  6.061e-01]
+     nfev: 21
+     fjac: [[-1.114e-01  9.938e-01]
+            [-9.938e-01 -1.114e-01]]
+        r: [ 1.396e+00  2.402e-01  8.425e-01]
+      qtf: [ 3.050e-10  8.300e-10],
+ array([ 1.09023901e-13, -2.67008637e-14]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">X1</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+<span class="n">Z1</span><span class="p">,</span> <span class="n">Z2</span> <span class="o">=</span> <span class="n">objective</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">Z1</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;seismic&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span>
+    <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">Z2</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;seismic&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span>
+<span class="p">)</span>  <span class="c1"># set a colormap</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">ans</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">ans</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;bs&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$x_1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$x_2$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/33a2021340c7279d2ad7b7a11c6ceab328784067af2734b2d72b29a455d40e4c.png" src="../../_images/33a2021340c7279d2ad7b7a11c6ceab328784067af2734b2d72b29a455d40e4c.png" />
+</div>
+</div>
+<p>This shows the solution, and that the objective is practically equal to zero at that point.</p>
+<p>You can see that trying to do this in more than 2 dimensions can quickly get difficult to visualize!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># show that we only get one solution by brute force iteration over all the grid points</span>
+<span class="n">I</span><span class="p">,</span> <span class="n">J</span> <span class="o">=</span> <span class="n">X1</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">solns</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">I</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">J</span><span class="p">):</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">X1</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">X2</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="n">root</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">])</span>
+        <span class="n">solns</span> <span class="o">+=</span> <span class="p">[</span><span class="n">ans</span><span class="o">.</span><span class="n">x</span><span class="p">]</span>
+
+<span class="n">solns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">solns</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">solns</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">solns</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.35324662, 0.60608174]), array([6.13078369e-12, 1.45204395e-11]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solns</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2500, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">50</span><span class="o">**</span><span class="mi">10</span> <span class="o">*</span> <span class="mi">16</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span>  <span class="c1"># Estimate of memory required to store 50**10 floats in an array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1455191522.8366852
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>We learned about a special class of nonlinear functions that are polynomials, and a series of useful functions to manipulate them.</p></li>
+<li><p>We learned that you can use root to find solutions to coupled non-linear algebraic equations.</p></li>
+<li><p>Next time, we will apply this to solving a nonlinear boundary value differential equation.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Technically the polynomial functions here are not preferred anymore (<a class="reference external" href="https://numpy.org/doc/stable/reference/routines.polynomials.html">https://numpy.org/doc/stable/reference/routines.polynomials.html</a>). Instead, there is a new <code class="docutils literal notranslate"><span class="pre">numpy.polynomial</span></code> package that is preferred. This new package is more complete, and supposed to be more convenient. However, it introduces some surprising conventions, especially in polynomial fitting, that make it inconvenient in my opinion. That is why I do not recommend them here as the first entrypoint in using polynomials.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
+<span class="n">display_quiz</span><span class="p">(</span><span class="s1">&#39;.quiz.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="avEGhqMZBNek" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-preserveresponses="false"
+               data-numquestions="1000000"
+               data-maxwidth="600"
+               style="border-radius: 10px; text-align: left"> <style>
+#avEGhqMZBNek {
+   --jq-multiple-choice-bg: #6f78ffff;
+   --jq-mc-button-bg: #fafafa;
+   --jq-mc-button-border: #e0e0e0e0;
+   --jq-mc-button-inset-shadow: #555555;
+   --jq-many-choice-bg: #f75c03ff;
+   --jq-numeric-bg: #392061ff;
+   --jq-numeric-input-bg: #c0c0c0;
+   --jq-numeric-input-label: #101010;
+   --jq-numeric-input-shadow: #999999;
+   --jq-incorrect-color: #c80202;
+   --jq-correct-color: #009113;
+   --jq-text-color: #fafafa;
+}
+
+.Quiz {
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
+    border-radius: inherit;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode>pre {
+    padding: 4px;
+}
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    border-radius: inherit;
+}
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
+
+.Input {
+    align: left;
+    font-size: 20pt;
+}
+
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: var(--jq-numeric-input-bg);
+    color: var(--jq-text-color);
+    padding: 5px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+.Input-text:focus {
+    outline: none;
+    background-color: var(--jq-numeric-input-bg);
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem var(--jq-numeric-input-shadow);
+}
+
+.MCButton {
+    background: var(--jq-mc-button-bg);
+    border: 1px solid var(--jq-mc-button-border);
+    border-radius: inherit;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--jq-multiple-choice-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--jq-many-choice-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--jq-numeric-bg);
+    color: var(--jq-text-color);
+    border-radius: inherit;
+}
+
+.NumericQn p {
+    color: inherit;
+}
+
+.InpLabel {
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: var(--jq-numeric-input-label);
+    font-size: 15pt;
+}
+
+.incorrect {
+    color: var(--jq-incorrect-color);
+}
+
+.correct {
+    color: var(--jq-correct-color);
+}
+
+.correctButton {
+    /*
+    background: var(--jq-correct-color);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
+    color: var(--jq-text-color);
+    box-shadow: inset 0px 0px 5px var(--jq-mc-button-inset-shadow);
+    outline: none;
+}
+
+.incorrectButton {
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
+    color: var(--jq-text-color);
+    box-shadow: inset 0px 0px 5px var(--jq-mc-button-inset-shadow);
+    outline: none;
+}
+
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--jq-incorrect-color);
+    }
+}
+
+@keyframes correct-anim {
+    100% {
+        background-color: var(--jq-correct-color);
+    }
+}
+</style></div><script type="application/javascript">var questionsavEGhqMZBNek=[{"question": "What will be the input to np.roots() to find the roots of the equation:<br>$5x^4 - 10x^2 + 20x - 50 = 0$", "type": "multiple_choice", "answers": [{"answer": "[5, -10, 20, -50]", "correct": false}, {"answer": "[1, -2, 4, 10]", "correct": false}, {"answer": "[5, -10, 20, -50, 0]", "correct": false}, {"answer": "[5, 0, -10, 20, -50]", "correct": true}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "p = [1, -5, 6]<br>x = np.linspace(0, 10, 20)<br>y = np.polyval(p, x)<br>y.shape = ?", "type": "multiple_choice", "answers": [{"answer": "(50,)", "correct": false}, {"answer": "(20,)", "correct": true}, {"answer": "(10,)", "correct": false}, {"answer": "(3,)", "correct": false}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "What will be the output of:<br>np.polyder([5, 0, 3, 5])", "type": "multiple_choice", "answers": [{"answer": "np.array([15, 2, 3])", "correct": false}, {"answer": "np.array([15, 3])", "correct": false}, {"answer": "np.array([15, 3, 0])", "correct": false}, {"answer": "np.array([15, 0, 3])", "correct": true}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "What will be the output of:<br>p = [1]<br>pint = np.polyint(p, 2, [1, 4])<br>print(pint)", "type": "multiple_choice", "answers": [{"answer": "[1.0, 1.0]", "correct": false}, {"answer": "[0.5, 1.0, 4.0]", "correct": true}, {"answer": "[0.167, 1.0, 4.0]", "correct": false}, {"answer": "Error", "correct": false}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "If 'p = np.poly1d([1, -5, 6])'<br>then 'print(p.r)' will output", "type": "multiple_choice", "answers": [{"answer": "[3, 2]", "correct": true}, {"answer": "Error", "correct": false}, {"answer": "False", "correct": false}, {"answer": "True", "correct": false}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "What will be a possible solution for<br>y = 3x^2 + 6<br>y = 6cos(x)", "type": "multiple_choice", "answers": [{"answer": "(0, 0)", "correct": false}, {"answer": "(6, 1)", "correct": false}, {"answer": "(0, 6)", "correct": true}, {"answer": "(6, 3)", "correct": false}], "tag": "matplotlib", "lecture_file": "08_nla_2"}, {"question": "How many contour lines will be plotted with:<br>plt.contour(X, Y, Z, levels = 10)", "type": "multiple_choice", "answers": [{"answer": "11", "correct": true}, {"answer": "10", "correct": false}, {"answer": "9", "correct": false}, {"answer": "50", "correct": false}], "tag": "matplotlib contour", "lecture_file": "08_nla_2"}, {"question": "<p>What is missing from the following objective function to solve a set of linear equations using root:</p>\n<pre><code>def f(P):\n    z1 = 3p + 6 - q + r\n    z2 = 5p + 5 - 2q + r\n    z3 = p - q + 2r\n    return np.array([z1, z2, z3])\n</code></pre>", "type": "multiple_choice", "answers": [{"answer": "z1, z2, z3 = P", "correct": false}, {"answer": "z1+z2+z3 = P", "correct": false}, {"answer": "p, q, r = P", "correct": true}, {"answer": "P = p, q, r", "correct": false}], "tag": "scipy", "lecture_file": "08_nla_2"}, {"question": "<p>Using <code>root(f, initial_guess)</code> with the following objective function to solve a set of linear equations:</p>\n<pre><code>def f(p, q, r):\n    z1 = 3p + 6 - q + r\n    z2 = 5p + 5 - 2q + r\n    z3 = p - q + 2r\n    return np.array([z1, z2, z3])\n</code></pre>", "type": "multiple_choice", "answers": [{"answer": "Will give an error", "correct": true}, {"answer": "The code would work but give the wrong answer.", "correct": false}, {"answer": "The code would work and give the correct  answer.", "correct": false}, {"answer": "The code will give the correct answer if we use: 'fsolve(f, p, args = (q, r))'", "correct": false}], "tag": "scipy", "lecture_file": "08_nla_2"}, {"question": "<p>How many contour lines will be plotted with:</p>\n<pre><code class=\"language-python\">plt.contour(X, Y, Z, levels = np.array([0.1, 0.2, 0.3, -0.1, -0.2, -0.3]))\n</code></pre>", "type": "multiple_choice", "answers": [{"answer": "6", "correct": false}, {"answer": "5", "correct": false}, {"answer": "7", "correct": false}, {"answer": "Error", "correct": true}], "tag": "matplotlib contour", "lecture_file": "08_nla_2"}];
+    // Make a random ID
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+
+function printResponses(responsesContainer) {
+    var responses=JSON.parse(responsesContainer.dataset.responses);
+    var stringResponses='<B>IMPORTANT!</B>To preserve this answer sequence for submission, when you have finalized your answers: <ol> <li> Copy the text in this cell below "Answer String"</li> <li> Double click on the cell directly below the Answer String, labeled "Replace Me"</li> <li> Select the whole "Replace Me" text</li> <li> Paste in your answer string and press shift-Enter.</li><li>Save the notebook using the save icon or File->Save Notebook menu item</li></ul><br><br><br><b>Answer String:</b><br> ';
+    console.log(responses);
+    responses.forEach((response, index) => {
+        if (response) {
+            console.log(index + ': ' + response);
+            stringResponses+= index + ': ' + response +"<BR>";
+        }
+    });
+    responsesContainer.innerHTML=stringResponses;
+}
+function check_mc() {
+    var id = this.id.split('-')[0];
+    //var response = this.id.split('-')[1];
+    //console.log(response);
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
+        depth++;
+    }
+
+
+
+    var answers = label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb" + id);
+
+
+
+
+    if (fb.dataset.numcorrect == 1) {
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            responses[qnum]= response;
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+        
+        for (var i = 0; i < answers.length; i++) {
+            var child = answers[i];
+            //console.log(child);
+            child.className = "MCButton";
+        }
+
+
+
+        if (label.dataset.correct == "true") {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+         if (label.dataset.correct == "true") {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
+            }
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            //console.log(responsesContainer);
+            var response = label.firstChild.innerText;
+            if (label.querySelector(".QuizCode")){
+                response+= label.querySelector(".QuizCode").firstChild.innerText;
+            }
+            console.log(response);
+            //console.log(document.getElementById("quizWrap"+id));
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            if (label.dataset.correct == "true") {
+                if (typeof(responses[qnum]) == "object"){
+                    if (!responses[qnum].includes(response))
+                        responses[qnum].push(response);
+                } else{
+                    responses[qnum]= [ response ];
+                }
+            } else {
+                responses[qnum]= response;
+            }
+            console.log(responses);
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End save responses stuff
+
+
+
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([fb]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers == "True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled = qa.answers;
+    }
+
+
+    var num_correct = 0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName = "";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item) {
+            codeSpan = document.createElement('span');
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item) {
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
+    } else {
+        outerqDiv.className = "MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id = ths.id.split('-')[0];
+
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            var sub_parts = submission.split('/');
+            //console.log(sub_parts);
+            submission = sub_parts[0] / sub_parts[1];
+        }
+        //console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            var precision = ths.dataset.precision;
+            // console.log("1:", submission)
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
+
+        var answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
+
+        var defaultFB = "";
+        var correct;
+        var done = false;
+        answers.every(answer => {
+            //console.log(answer.type);
+
+            correct = false;
+            // if (answer.type=="value"){
+            if ('value' in answer) {
+                if (submission == answer.value) {
+                    if ("feedback" in answer) {
+                        fb.textContent = jaxify(answer.feedback);
+                    } else {
+                        fb.textContent = jaxify("Correct");
+                    }
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+                // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                //console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.innerHTML = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display = "block";
+        if (correct) {
+            ths.className = "Input-text";
+            ths.classList.add("correctButton");
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className = "Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        // What follows is for the saved responses stuff
+        var outerContainer = fb.parentElement.parentElement;
+        var responsesContainer = document.getElementById("responses" + outerContainer.id);
+        if (responsesContainer) {
+            console.log(submission);
+            var qnum = document.getElementById("quizWrap"+id).dataset.qnum;
+            //console.log("Question " + qnum);
+            //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+            var responses=JSON.parse(responsesContainer.dataset.responses);
+            console.log(responses);
+            if (submission == ths.value){
+                responses[qnum]= submission;
+            } else {
+                responses[qnum]= ths.value + "(" + submission +")";
+            }
+            responsesContainer.setAttribute('data-responses', JSON.stringify(responses));
+            printResponses(responsesContainer);
+        }
+        // End code to preserve responses
+
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([fb]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+        return false;
+    }
+
+}
+
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            var parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else if (charC == 45) {
+        var edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
+}
+
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC == 13) {
+        check_numeric(this, evnt);
+    } else {
+        return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+    //console.log(answer);
+
+
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
+
+    var lab = document.createElement("label");
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type = "text";
+    //inp.id="input-"+id;
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    //console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
+
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
+        return false;
+    }
+    );
+
+
+}
+function jaxify(string) {
+    var mystring = string;
+
+    var count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    var count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    console.log('show_questions');
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+    var max_width = mydiv.dataset.maxwidth;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
+    }
+
+    var questions;
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
+        //console.log(num_questions+","+json.length);
+        questions = getRandomSubarray(json, num_questions);
+    } else {
+        questions = json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        //iDiv.id = 'quizWrap' + id + index;
+        iDiv.id = 'quizWrap' + id;
+        iDiv.className = 'Quiz';
+        iDiv.setAttribute('data-qnum', index);
+        iDiv.style.maxWidth  =max_width+"px";
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+        
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id = "OuterquizQn" + id + index;
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id = "quizQn" + id + index;
+        
+        if (qa.question) {
+            iDiv.append(outerqDiv);
+
+            //qDiv.textContent=qa.question;
+            qDiv.innerHTML = jaxify(qa.question);
+            outerqDiv.append(qDiv);
+        }
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa) {
+            codeDiv = document.createElement('div');
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = qa.code;
+            outerqDiv.append(codeDiv);
+            //console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
+        iDiv.append(aDiv);
+
+        //console.log(qa.type);
+
+        var num_correct;
+        if ((qa.type == "multiple_choice") || (qa.type == "many_choice") ) {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+            if ("answer_cols" in qa) {
+                //aDiv.style.gridTemplateColumns = 'auto '.repeat(qa.answer_cols);
+                aDiv.style.gridTemplateColumns = 'repeat(' + qa.answer_cols + ', 1fr)';
+            }
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id = "fb" + id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className = "Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    var preserveResponses = mydiv.dataset.preserveresponses;
+    console.log(preserveResponses);
+    console.log(preserveResponses == "true");
+    if (preserveResponses == "true") {
+        console.log(preserveResponses);
+        // Create Div to contain record of answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'responses' + mydiv.id;
+        iDiv.className = 'JCResponses';
+        // Create a place to store responses as an empty array
+        iDiv.setAttribute('data-responses', '[]');
+
+        // Dummy Text
+        iDiv.innerHTML="<b>Select your answers and then follow the directions that will appear here.</b>"
+        //iDiv.className = 'Quiz';
+        mydiv.appendChild(iDiv);
+    }
+//console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
+        }
+    }
+    return false;
+}
+/* This is to handle asynchrony issues in loading Jupyter notebooks
+           where the quiz has been previously run. The Javascript was generally
+           being run before the div was added to the DOM. I tried to do this
+           more elegantly using Mutation Observer, but I didn't get it to work.
+
+           Someone more knowledgeable could make this better ;-) */
+
+        function try_show() {
+          if(document.getElementById("avEGhqMZBNek")) {
+            show_questions(questionsavEGhqMZBNek,  avEGhqMZBNek); 
+          } else {
+             setTimeout(try_show, 200);
+          }
+        };
+    
+        {
+        // console.log(element);
+
+        //console.log("avEGhqMZBNek");
+        // console.log(document.getElementById("avEGhqMZBNek"));
+
+        try_show();
+        }
+        </script></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures/08-nla-2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Advanced topics in nonlinear algebra</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#special-nonlinear-systems-polynomials">Special nonlinear systems - polynomials</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic-equations-of-state">Cubic equations of state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-things-to-remember-about-polynomials">Other useful things to remember about polynomials</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#systems-of-nonlinear-equations">Systems of nonlinear equations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-harder-example">A harder example</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By John Kitchin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
