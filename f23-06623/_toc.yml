@@ -10,6 +10,9 @@ parts:
     - file: lectures/00-intro/00-intro.ipynb
     - file: lectures/01-jupyter/01-followups.ipynb
     - file: lectures/02-integration-1/02-integration-1.ipynb
+    - file: lectures/03-fode-1/03-fode-1.ipynb
+    - file: lectures/04-fode-2/04-fode-2.ipynb
+    - file: lectures/05-nth-odes/05-nth-odes.ipynb
 - caption: About the book
   chapters:
     - file: execution-statistics.md    
