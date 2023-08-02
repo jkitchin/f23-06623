@@ -24,7 +24,7 @@
     "lecture_file": "02_integration_1"
   },
   {
-    "question": "<p>What will be the output of the following code:</p><br><p><code>x = np.array([4, 3, 2, 1])<br>for I in x:<br>    print(I)</code></p>",
+    "question": "<p>What will be the output of the following code:</p><br><p><pre>x = np.array([4, 3, 2, 1])<br>for I in x:<br>    print(I)</pre></p>",
     "type": "multiple_choice",
     "answers": [
       {
