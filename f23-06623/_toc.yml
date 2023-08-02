@@ -13,6 +13,17 @@ parts:
     - file: lectures/03-fode-1/03-fode-1.ipynb
     - file: lectures/04-fode-2/04-fode-2.ipynb
     - file: lectures/05-nth-odes/05-nth-odes.ipynb
+    - file: lectures/07-nla-1/07-nla-1.ipynb
+    - file: lectures/08-nla-2/08-nla-2.ipynb
+    - file: lectures/09-bvp/09-bvp.ipynb
+    - file: lectures/10-min-max/10-min-max.ipynb
+    - file: lectures/11-regression/11-regression.ipynb
+    - file: lectures/12-nonlinear-regression/12-nonlinear-regression-2.ipynb
+    - file: lectures/13-constrained-optimization/13-constrained-optimization.ipynb
+    - file: lectures/15-intro-linear-algebra/15-intro-linear-algebra.ipynb
+    - file: lectures/16-linear-algebra/16-linear-algebra.ipynb
+    - file: lectures/17-linear-algebra-2/17-linear-algebra-2.ipynb
+    - file: lectures/18-linear-regression/18-linear-regression.ipynb
 - caption: About the book
   chapters:
     - file: execution-statistics.md    
