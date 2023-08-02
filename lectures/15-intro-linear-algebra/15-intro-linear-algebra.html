@@ -1265,19 +1265,27 @@ document.write(`
 <p><strong>Reflective Questions</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">f22_06623</span> <span class="kn">import</span> <span class="n">MCQ</span>
-<span class="n">MCQ</span><span class="p">([</span><span class="s2">&quot;arrays&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
+<span class="n">display_quiz</span><span class="p">(</span><span class="s1">&#39;.quiz-arrays.json&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">58</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">f22_06623</span> <span class="kn">import</span> <span class="n">MCQ</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">MCQ</span><span class="p">([</span><span class="s2">&quot;arrays&quot;</span><span class="p">])</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">58</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">display_quiz</span><span class="p">(</span><span class="s1">&#39;.quiz-arrays.json&#39;</span><span class="p">)</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;f22_06623&#39;
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.12/x64/lib/python3.10/site-packages/jupyterquiz/dynamic.py:176,</span> in <span class="ni">display_quiz</span><span class="nt">(ref, num, shuffle_questions, shuffle_answers, preserve_responses, border_radius, question_alignment, max_width, colors)</span>
+<span class="g g-Whitespace">    </span><span class="mi">173</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>     <span class="c1">#print(&quot;File detected&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>     <span class="n">script</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;var questions</span><span class="si">{</span><span class="n">div_id</span><span class="si">}</span><span class="s2">=&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">176</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span>         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">178</span>             <span class="n">script</span> <span class="o">+=</span> <span class="n">line</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;.quiz-arrays.json&#39;
 </pre></div>
 </div>
 </div>
