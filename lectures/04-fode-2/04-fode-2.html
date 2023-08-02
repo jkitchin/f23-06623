@@ -629,52 +629,19 @@ document.write(`
 <p><strong>Reflective Questions</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-<span class="n">qs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../question-bank.json&#39;</span><span class="p">))</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;.quiz.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">([</span><span class="n">q</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">qs</span> <span class="k">if</span> <span class="n">q</span><span class="p">[</span><span class="s1">&#39;tag&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;matplotlib&#39;</span><span class="p">]))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">json</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">qs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../question-bank.json&#39;</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;.quiz.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">([</span><span class="n">q</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">qs</span> <span class="k">if</span> <span class="n">q</span><span class="p">[</span><span class="s1">&#39;tag&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;matplotlib&#39;</span><span class="p">]))</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.12/x64/lib/python3.10/site-packages/IPython/core/interactiveshell.py:284,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">277</span> <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}:</span>
-<span class="g g-Whitespace">    </span><span class="mi">278</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">279</span>         <span class="sa">f</span><span class="s2">&quot;IPython won&#39;t let you open fd=</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> by default &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">280</span>         <span class="s2">&quot;as it is likely to crash IPython. If you know what you are doing, &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">281</span>         <span class="s2">&quot;you can use builtins&#39; open.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">282</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">284</span> <span class="k">return</span> <span class="n">io_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../question-bank.json&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
 <span class="n">display_quiz</span><span class="p">(</span><span class="s1">&#39;.quiz.json&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="OXsWicCGMtjH" data-shufflequestions="False"
+<div class="output text_html"><div id="UquejHsFZitX" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#OXsWicCGMtjH {
+#UquejHsFZitX {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -844,7 +811,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsOXsWicCGMtjH=[{"question": "Which is the correct argument in matplotlib to plot data using black circles connected with a solid line?", "type": "multiple_choice", "answers": [{"answer": "ko-", "correct": true}, {"answer": "bo-", "correct": false}, {"answer": "blo-", "correct": false}, {"answer": "bko-", "correct": false}], "tag": "matplotlib", "lecture_file": "02_integration_1"}, {"question": "How to plot the legend in the lower left corner of a matplotlib plot?", "type": "multiple_choice", "answers": [{"answer": "plt.legend(loc = 3)", "correct": true}, {"answer": "plt.lower_left('legend')", "correct": false}, {"answer": "plt.loc('lower left')", "correct": false}, {"answer": "plt.legend('3')", "correct": false}], "tag": "matplotlib", "lecture_file": "03_fode_1"}, {"question": "Which of the following is true about matplotlib.pyplot.quiver()?", "type": "multiple_choice", "answers": [{"answer": "plt.quiver() requires the values of X and Y both for arrow locations", "correct": false}, {"answer": "cannot be used in 3D", "correct": true}, {"answer": "requires normalized derivative values", "correct": false}, {"answer": "can be used in 2D and 3D both", "correct": false}], "tag": "matplotlib", "lecture_file": "04_fode_2"}, {"question": "What will be a possible solution for<br>y = 3x^2 + 6<br>y = 6cos(x)", "type": "multiple_choice", "answers": [{"answer": "(0, 0)", "correct": false}, {"answer": "(6, 1)", "correct": false}, {"answer": "(0, 6)", "correct": true}, {"answer": "(6, 3)", "correct": false}], "tag": "matplotlib", "lecture_file": "08_nla_2"}];
+</style></div><script type="application/javascript">var questionsUquejHsFZitX=[{"question": "Which is the correct argument in matplotlib to plot data using black circles connected with a solid line?", "type": "multiple_choice", "answers": [{"answer": "ko-", "correct": true}, {"answer": "bo-", "correct": false}, {"answer": "blo-", "correct": false}, {"answer": "bko-", "correct": false}], "tag": "matplotlib", "lecture_file": "02_integration_1"}, {"question": "How to plot the legend in the lower left corner of a matplotlib plot?", "type": "multiple_choice", "answers": [{"answer": "plt.legend(loc = 3)", "correct": true}, {"answer": "plt.lower_left('legend')", "correct": false}, {"answer": "plt.loc('lower left')", "correct": false}, {"answer": "plt.legend('3')", "correct": false}], "tag": "matplotlib", "lecture_file": "03_fode_1"}, {"question": "Which of the following is true about matplotlib.pyplot.quiver()?", "type": "multiple_choice", "answers": [{"answer": "plt.quiver() requires the values of X and Y both for arrow locations", "correct": false}, {"answer": "cannot be used in 3D", "correct": true}, {"answer": "requires normalized derivative values", "correct": false}, {"answer": "can be used in 2D and 3D both", "correct": false}], "tag": "matplotlib", "lecture_file": "04_fode_2"}, {"question": "What will be a possible solution for<br>y = 3x^2 + 6<br>y = 6cos(x)", "type": "multiple_choice", "answers": [{"answer": "(0, 0)", "correct": false}, {"answer": "(6, 1)", "correct": false}, {"answer": "(0, 6)", "correct": true}, {"answer": "(6, 3)", "correct": false}], "tag": "matplotlib", "lecture_file": "08_nla_2"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1593,8 +1560,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("OXsWicCGMtjH")) {
-            show_questions(questionsOXsWicCGMtjH,  OXsWicCGMtjH); 
+          if(document.getElementById("UquejHsFZitX")) {
+            show_questions(questionsUquejHsFZitX,  UquejHsFZitX); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1603,8 +1570,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("OXsWicCGMtjH");
-        // console.log(document.getElementById("OXsWicCGMtjH"));
+        //console.log("UquejHsFZitX");
+        // console.log(document.getElementById("UquejHsFZitX"));
 
         try_show();
         }
@@ -1713,7 +1680,7 @@ Net flow into B = 0.0 gal/min
         t: [ 0.000e+00  1.606e-01 ...  1.972e+02  2.000e+02]
         y: [[ 1.833e+00  1.823e+00 ...  1.401e+00  1.400e+00]
             [ 1.300e+00  1.326e+00 ...  1.798e+00  1.799e+00]]
-      sol: &lt;scipy.integrate._ivp.common.OdeSolution object at 0x143f1d400&gt;
+      sol: &lt;scipy.integrate._ivp.common.OdeSolution object at 0x7f24a36139a0&gt;
  t_events: None
  y_events: None
      nfev: 134
@@ -1732,7 +1699,7 @@ Net flow into B = 0.0 gal/min
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5ed45b5bb37315884c0771a4b12ae192dbfe775ee3e2aa30a849a1ca28273d4e.png" src="../../_images/5ed45b5bb37315884c0771a4b12ae192dbfe775ee3e2aa30a849a1ca28273d4e.png" />
+<img alt="../../_images/a26868c9f839931864e26ac189a5852a442e74c64bddd286a34fbe55863382fe.png" src="../../_images/a26868c9f839931864e26ac189a5852a442e74c64bddd286a34fbe55863382fe.png" />
 </div>
 </div>
 <p>The shape of our solution is two rows by 1000 columns.</p>
@@ -1783,7 +1750,7 @@ Net flow into B = 0.0 gal/min
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/86a1324092b45262bca7bcc2f5c8f69c3ba37633abfb25a8b0dc30821f07ef88.png" src="../../_images/86a1324092b45262bca7bcc2f5c8f69c3ba37633abfb25a8b0dc30821f07ef88.png" />
+<img alt="../../_images/1cb45dec8493e6ede21464721d434897528a525264bebbab6308fc33313c7032.png" src="../../_images/1cb45dec8493e6ede21464721d434897528a525264bebbab6308fc33313c7032.png" />
 </div>
 </div>
 <p>Here we consider how to determine if we have made a good solution. We approximate the derivatives from the solution, and compare them to the derivatives defined by the system of equations. The difference should be approximately zero. It is close, but not exactly zero because we can only approximate the derivatives. It gets closer to zero if you have more data points that are more closely spaced.</p>
@@ -1802,7 +1769,7 @@ Net flow into B = 0.0 gal/min
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ac9d1f83c85ad0f31be8dc04d56d002c35a5a56168bdbf7449952383f7c4fcc9.png" src="../../_images/ac9d1f83c85ad0f31be8dc04d56d002c35a5a56168bdbf7449952383f7c4fcc9.png" />
+<img alt="../../_images/a781867ea53c520387e4eaac78831465593ee5fad8135b7899c0eaab865607ab.png" src="../../_images/a781867ea53c520387e4eaac78831465593ee5fad8135b7899c0eaab865607ab.png" />
 </div>
 </div>
 <p>Ideally both curves would be identically zero, but we have made several approximations in both the solution and the derivatives of the solution, so here we have to settle for the differences being “small” and close to zero.</p>
@@ -1817,7 +1784,7 @@ Net flow into B = 0.0 gal/min
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/03ae7df61c9ac359883f2a3c1b24e904ccdb3dd9fdb14e717e172aa7ec281c1d.png" src="../../_images/03ae7df61c9ac359883f2a3c1b24e904ccdb3dd9fdb14e717e172aa7ec281c1d.png" />
+<img alt="../../_images/dbe9a7e090740080911fb20d60a604168b7ea843340dc5cda5df282c3d13f932.png" src="../../_images/dbe9a7e090740080911fb20d60a604168b7ea843340dc5cda5df282c3d13f932.png" />
 </div>
 </div>
 <p>This works because you can plot an array where the values to be plotted are all in columns.</p>
@@ -1890,7 +1857,7 @@ Net flow into B = 0.0 gal/min
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/385393f0a72672dbb9f31cbce0047d54d485a47276567122aec66d853cb24b9b.png" src="../../_images/385393f0a72672dbb9f31cbce0047d54d485a47276567122aec66d853cb24b9b.png" />
+<img alt="../../_images/5e282535c05ee27ef502aecfe8acfde36262e4bf1c5804c340d06e628f0adb37.png" src="../../_images/5e282535c05ee27ef502aecfe8acfde36262e4bf1c5804c340d06e628f0adb37.png" />
 </div>
 </div>
 <section id="brief-review">
@@ -1953,7 +1920,7 @@ Net flow into B = 0.0 gal/min
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c652817b01f426fc8ce47b79505e57909b4bae08c1db5e257ada2b7604e25fc8.png" src="../../_images/c652817b01f426fc8ce47b79505e57909b4bae08c1db5e257ada2b7604e25fc8.png" />
+<img alt="../../_images/a197e00262f98e83e4e1d20a79597cd18c146594c20195058a47c1e31fda3097.png" src="../../_images/a197e00262f98e83e4e1d20a79597cd18c146594c20195058a47c1e31fda3097.png" />
 </div>
 </div>
 <p>This is a classic boom/bust cycle of predator/prey.</p>
@@ -1984,7 +1951,7 @@ Net flow into B = 0.0 gal/min
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bb625d8154c2e2270cc5cea0a8e76087f22aa97045a61fa8bb41b7518996c5b2.png" src="../../_images/bb625d8154c2e2270cc5cea0a8e76087f22aa97045a61fa8bb41b7518996c5b2.png" />
+<img alt="../../_images/6422119a03bf5b5e597cf76f89554e68edaae522ca43723910cdb0c387bce037.png" src="../../_images/6422119a03bf5b5e597cf76f89554e68edaae522ca43723910cdb0c387bce037.png" />
 </div>
 </div>
 <p>In this view, we have a <em>limit cycle</em> which just shows the number of rabbits and foxes goes up and down periodically as you travel around the solution curve. Time is parametric in this plot. It starts at t=0 at the initial state, and increases as you go around the cycle.</p>
@@ -2010,13 +1977,13 @@ Net flow into B = 0.0 gal/min
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="zuQbnKpgADFJ" data-shufflequestions="False"
+<div class="output text_html"><div id="jpRvhQciiqDc" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#zuQbnKpgADFJ {
+#jpRvhQciiqDc {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -2186,7 +2153,7 @@ Net flow into B = 0.0 gal/min
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionszuQbnKpgADFJ=[{"question": "<p>Given</p><br><pre><code>a = np.linspace(0, 5, 2)<br>b = np.linspace(5, 10, 3)<br>c = np.linspace(10, 15, 5)<br><br>A, _ = np.meshgrid(a, b, c)<br></code></pre><br><p>What is the shape of the array A?</p>", "type": "multiple_choice", "answers": [{"answer": "(3, 2, 5)", "correct": true}, {"answer": "(5, 5, 5)", "correct": false}, {"answer": "(2, 3, 5)", "correct": false}, {"answer": "(5, 3, 2)", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "<pre><code>A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])<br>B = np.array([1, 1, 1])<br></code></pre><br><p>What is the shape of 'A+B'?</p>", "type": "multiple_choice", "answers": [{"answer": "(3, 3)", "correct": true}, {"answer": "(1, 3)", "correct": false}, {"answer": "(3, 1)", "correct": false}, {"answer": "(1, 1)", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "<pre><code>A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])<br>B = np.array([1])<br></code></pre><br><p>What is the value of 'A+B'?</p>", "type": "multiple_choice", "answers": [{"answer": "np.array([[2, 2, 3], [5, 5, 6], [8, 8, 9]])", "correct": false}, {"answer": "ValueError: operands could not be broadcast together with shapes (3,3) (1,) ", "correct": false}, {"answer": "np.array([[2, 3, 4], [5, 6, 7], [8, 9, 10]])", "correct": true}, {"answer": "np.array([[2, 3, 4], [4, 5, 6], [7, 8, 9]])", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "Which of the following objective functions will give a correct answer when used with solve_ivp() to solve coupled differential equations?", "type": "multiple_choice", "answers": [{"answer": "<pre><code>def f(t, Sa, Sb):<br>    dSa / dt = eq_1<br>    dSb / dt = eq_2<br>    return(Sa, Sb)<br></code></pre>", "correct": false}, {"answer": "<pre><code>def f(t, S):<br>    Sa = S[0]<br>    Sb = S[1]<br>    dSa / dt = eq_1<br>    dSb / dt = eq_2<br>    return (dSa/dt, dSb/dt)<br></code></pre>", "correct": true}, {"answer": "<pre><code>def f(t, S):<br>    Sa = S[0]<br>    Sb = S[1]<br>    dSa / dt = eq_1<br>    dSb / dt = eq_2<br>    return (S)<br></code></pre>", "correct": false}, {"answer": "<pre><code>def f(t):<br>    dSa / dt = eq_1<br>    dSb / dt = eq_2<br>    return (dSa/dt, dSb/dt)<br></code></pre>", "correct": false}], "tag": "scipy", "lecture_file": "04_fode_2"}, {"question": "Which of the following are coupled differential equations:<br><br>a: dw/dt = x + y<br>b: dx/dt = 2x + 4w<br>c: dy/dt = x", "type": "multiple_choice", "answers": [{"answer": "a, b", "correct": false}, {"answer": "b, c", "correct": false}, {"answer": "a, c", "correct": false}, {"answer": "a, b, c", "correct": true}], "tag": "ode", "lecture_file": "04_fode_2"}, {"question": "What will be the value of b: <br><br>a = np.linspace(6, 10, 5)<br>b = *a", "type": "multiple_choice", "answers": [{"answer": "Memory address of 'a'", "correct": false}, {"answer": "6.0  7.0  8.0  9.0  10.0", "correct": false}, {"answer": "SyntaxError", "correct": true}, {"answer": "np.array([6.0, 7.0, 8.0, 9.0, 10.0])", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "What is the output of:<br><br>a = np.linspace(6, 10, 5)<br>print(*a)", "type": "multiple_choice", "answers": [{"answer": "Memory address of 'a'", "correct": false}, {"answer": "6.0  7.0  8.0  9.0  10.0", "correct": true}, {"answer": "SyntaxError", "correct": false}, {"answer": "np.array([6.0, 7.0, 8.0, 9.0, 10.0])", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "Which of the following are coupled differential equations:<br><br>a: dw/dt = x + w<br>b: dx/dt = 2x + 4w<br>c: dy/dt = 5", "type": "multiple_choice", "answers": [{"answer": "none are coupled", "correct": false}, {"answer": "a, b, c", "correct": false}, {"answer": "b, c", "correct": false}, {"answer": "a, b", "correct": true}], "tag": "ode", "lecture_file": "04_fode_2"}, {"question": "Which of the following is true about matplotlib.pyplot.quiver()?", "type": "multiple_choice", "answers": [{"answer": "plt.quiver() requires the values of X and Y both for arrow locations", "correct": false}, {"answer": "cannot be used in 3D", "correct": true}, {"answer": "requires normalized derivative values", "correct": false}, {"answer": "can be used in 2D and 3D both", "correct": false}], "tag": "matplotlib", "lecture_file": "04_fode_2"}, {"question": "What will be the output of X[:, 2], where<br>X = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])", "type": "multiple_choice", "answers": [{"answer": "array([4, 5, 6])", "correct": false}, {"answer": "array([2, 5, 8])", "correct": false}, {"answer": "array([1, 2])", "correct": false}, {"answer": "array([3, 6, 9])", "correct": true}], "tag": "arrays", "lecture_file": "04_fode_2"}];
+</style></div><script type="application/javascript">var questionsjpRvhQciiqDc=[{"question": "<p>Given</p><br><pre><code>a = np.linspace(0, 5, 2)<br>b = np.linspace(5, 10, 3)<br>c = np.linspace(10, 15, 5)<br><br>A, _ = np.meshgrid(a, b, c)<br></code></pre><br><p>What is the shape of the array A?</p>", "type": "multiple_choice", "answers": [{"answer": "(3, 2, 5)", "correct": true}, {"answer": "(5, 5, 5)", "correct": false}, {"answer": "(2, 3, 5)", "correct": false}, {"answer": "(5, 3, 2)", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "<pre><code>A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])<br>B = np.array([1, 1, 1])<br></code></pre><br><p>What is the shape of 'A+B'?</p>", "type": "multiple_choice", "answers": [{"answer": "(3, 3)", "correct": true}, {"answer": "(1, 3)", "correct": false}, {"answer": "(3, 1)", "correct": false}, {"answer": "(1, 1)", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "<pre><code>A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])<br>B = np.array([1])<br></code></pre><br><p>What is the value of 'A+B'?</p>", "type": "multiple_choice", "answers": [{"answer": "np.array([[2, 2, 3], [5, 5, 6], [8, 8, 9]])", "correct": false}, {"answer": "ValueError: operands could not be broadcast together with shapes (3,3) (1,) ", "correct": false}, {"answer": "np.array([[2, 3, 4], [5, 6, 7], [8, 9, 10]])", "correct": true}, {"answer": "np.array([[2, 3, 4], [4, 5, 6], [7, 8, 9]])", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "Which of the following objective functions will give a correct answer when used with solve_ivp() to solve coupled differential equations?", "type": "multiple_choice", "answers": [{"answer": "<pre><code>def f(t, Sa, Sb):<br>    dSa / dt = eq_1<br>    dSb / dt = eq_2<br>    return(Sa, Sb)<br></code></pre>", "correct": false}, {"answer": "<pre><code>def f(t, S):<br>    Sa = S[0]<br>    Sb = S[1]<br>    dSa / dt = eq_1<br>    dSb / dt = eq_2<br>    return (dSa/dt, dSb/dt)<br></code></pre>", "correct": true}, {"answer": "<pre><code>def f(t, S):<br>    Sa = S[0]<br>    Sb = S[1]<br>    dSa / dt = eq_1<br>    dSb / dt = eq_2<br>    return (S)<br></code></pre>", "correct": false}, {"answer": "<pre><code>def f(t):<br>    dSa / dt = eq_1<br>    dSb / dt = eq_2<br>    return (dSa/dt, dSb/dt)<br></code></pre>", "correct": false}], "tag": "scipy", "lecture_file": "04_fode_2"}, {"question": "Which of the following are coupled differential equations:<br><br>a: dw/dt = x + y<br>b: dx/dt = 2x + 4w<br>c: dy/dt = x", "type": "multiple_choice", "answers": [{"answer": "a, b", "correct": false}, {"answer": "b, c", "correct": false}, {"answer": "a, c", "correct": false}, {"answer": "a, b, c", "correct": true}], "tag": "ode", "lecture_file": "04_fode_2"}, {"question": "What will be the value of b: <br><br>a = np.linspace(6, 10, 5)<br>b = *a", "type": "multiple_choice", "answers": [{"answer": "Memory address of 'a'", "correct": false}, {"answer": "6.0  7.0  8.0  9.0  10.0", "correct": false}, {"answer": "SyntaxError", "correct": true}, {"answer": "np.array([6.0, 7.0, 8.0, 9.0, 10.0])", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "What is the output of:<br><br>a = np.linspace(6, 10, 5)<br>print(*a)", "type": "multiple_choice", "answers": [{"answer": "Memory address of 'a'", "correct": false}, {"answer": "6.0  7.0  8.0  9.0  10.0", "correct": true}, {"answer": "SyntaxError", "correct": false}, {"answer": "np.array([6.0, 7.0, 8.0, 9.0, 10.0])", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "Which of the following are coupled differential equations:<br><br>a: dw/dt = x + w<br>b: dx/dt = 2x + 4w<br>c: dy/dt = 5", "type": "multiple_choice", "answers": [{"answer": "none are coupled", "correct": false}, {"answer": "a, b, c", "correct": false}, {"answer": "b, c", "correct": false}, {"answer": "a, b", "correct": true}], "tag": "ode", "lecture_file": "04_fode_2"}, {"question": "Which of the following is true about matplotlib.pyplot.quiver()?", "type": "multiple_choice", "answers": [{"answer": "plt.quiver() requires the values of X and Y both for arrow locations", "correct": false}, {"answer": "cannot be used in 3D", "correct": true}, {"answer": "requires normalized derivative values", "correct": false}, {"answer": "can be used in 2D and 3D both", "correct": false}], "tag": "matplotlib", "lecture_file": "04_fode_2"}, {"question": "What will be the output of X[:, 2], where<br>X = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])", "type": "multiple_choice", "answers": [{"answer": "array([4, 5, 6])", "correct": false}, {"answer": "array([2, 5, 8])", "correct": false}, {"answer": "array([1, 2])", "correct": false}, {"answer": "array([3, 6, 9])", "correct": true}], "tag": "arrays", "lecture_file": "04_fode_2"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2935,8 +2902,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("zuQbnKpgADFJ")) {
-            show_questions(questionszuQbnKpgADFJ,  zuQbnKpgADFJ); 
+          if(document.getElementById("jpRvhQciiqDc")) {
+            show_questions(questionsjpRvhQciiqDc,  jpRvhQciiqDc); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2945,8 +2912,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("zuQbnKpgADFJ");
-        // console.log(document.getElementById("zuQbnKpgADFJ"));
+        //console.log("jpRvhQciiqDc");
+        // console.log(document.getElementById("jpRvhQciiqDc"));
 
         try_show();
         }
