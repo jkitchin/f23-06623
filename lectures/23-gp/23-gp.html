@@ -61,8 +61,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/23-gp/23-gp';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -291,6 +289,55 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub-dev.cheme.cmu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jkitchin/f23-06623&urlpath=lab/tree/f23-06623/docs/lectures/23-gp/23-gp.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jkitchin/f23-06623/blob/main/docs/lectures/23-gp/23-gp.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -474,7 +521,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="gaussian-process-regression">
+<section id="gaussian-process-regression">
 <h1>Gaussian process regression<a class="headerlink" href="#gaussian-process-regression" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>KEYWORDS: Gaussian process</p></li>
@@ -507,12 +554,12 @@ document.write(`
 </section>
 <section id="gpr-by-example">
 <h2>GPR by example<a class="headerlink" href="#gpr-by-example" title="Permalink to this heading">#</a></h2>
-<p>Let’s start with a goal, which is given some set of data points <span class="math notranslate nohighlight">\(x_i, y_i\)</span> we would like to predict the value of <span class="math notranslate nohighlight">\(y*\)</span> at some new point <span class="math notranslate nohighlight">\(x*\)</span>, and we would like that prediction to have the form of <span class="math notranslate nohighlight">\(y* = \sum_i w_i y_i\)</span>. That is we want the predicted value to be a weighted sum of the known points.  The key challenge is how to compute those weights.</p>
+<p>Let’s start with a goal, which is given some set of data points $x_i, y_i$ we would like to predict the value of $y*$ at some new point $x*$, and we would like that prediction to have the form of $y* = \sum_i w_i y_i$. That is we want the predicted value to be a weighted sum of the known points.  The key challenge is how to compute those weights.</p>
 <p>To motivate why this is a reasonable idea, recall the idea behind Gaussian quadrature for integrals (<a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_quadrature">https://en.wikipedia.org/wiki/Gaussian_quadrature</a>): we can compute the value of an integral as the weighted sum of a few special points. The integral is a kind of function, and surely if those special points were among our data points, we could just weight all the other points by 0 and achieve this goal.</p>
 <p>Alternatively, consider how you might estimate it in your head. You would look at the data, and use points that are close to the data point you want to estimate to form the estimate. Points that are far from the data point would have less influence on your estimate. You are implicitly weighing the value of the known points in doing this. In GPR we make this idea quantitative.</p>
-<p>The key concept to quantify this is called <em>covariance</em>, which is how are two variables correlated with each other. Intuitively, if two x-values are close together, then we anticipate that the corresponding <span class="math notranslate nohighlight">\(f(x)\)</span> values are also close together. We can say that the values “co-vary”, i.e. they are not independent. We use this fact when we integrate an ODE and estimate the next point, or in root solving when we iteratively find the next steps. We will use this idea to compute the weights that we need. The covariance is a matrix and each element of the matrix defines the covariance between two data points. To compute this, <em>we need to make some assumptions</em> about the data. A common assumption is that the covariance is Gaussian with the form:</p>
-<p><span class="math notranslate nohighlight">\(K_{ij} = \sigma_f \exp\left(-\frac{(x_i - x_j)^2}{2 \lambda^2}\right)\)</span></p>
-<p>In this equation, <span class="math notranslate nohighlight">\(\sigma_f\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> are called <em>hyperparameters</em> and we have to determine what are good values for them. <span class="math notranslate nohighlight">\(\sigma_f\)</span> is a scale factor, and <span class="math notranslate nohighlight">\(\lambda\)</span> is a length scale. With this formula, data points with a distance of <span class="math notranslate nohighlight">\(2\lambda\)</span> away from the point of interest have low (near zero) covariance with that point. In other words, only data points within <span class="math notranslate nohighlight">\(2\lambda\)</span> distance units of a point will contribute to our estimate for that point.</p>
+<p>The key concept to quantify this is called <em>covariance</em>, which is how are two variables correlated with each other. Intuitively, if two x-values are close together, then we anticipate that the corresponding $f(x)$ values are also close together. We can say that the values “co-vary”, i.e. they are not independent. We use this fact when we integrate an ODE and estimate the next point, or in root solving when we iteratively find the next steps. We will use this idea to compute the weights that we need. The covariance is a matrix and each element of the matrix defines the covariance between two data points. To compute this, <em>we need to make some assumptions</em> about the data. A common assumption is that the covariance is Gaussian with the form:</p>
+<p>$K_{ij} = \sigma_f \exp\left(-\frac{(x_i - x_j)^2}{2 \lambda^2}\right)$</p>
+<p>In this equation, $\sigma_f$ and $\lambda$ are called <em>hyperparameters</em> and we have to determine what are good values for them. $\sigma_f$ is a scale factor, and $\lambda$ is a length scale. With this formula, data points with a distance of $2\lambda$ away from the point of interest have low (near zero) covariance with that point. In other words, only data points within $2\lambda$ distance units of a point will contribute to our estimate for that point.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -535,7 +582,7 @@ document.write(`
 <img alt="../../_images/022c8c27af30705e31d38386eb71b14621d76d9ec8f52d6200f011d0858dea05.png" src="../../_images/022c8c27af30705e31d38386eb71b14621d76d9ec8f52d6200f011d0858dea05.png" />
 </div>
 </div>
-<p>So, what we need is a convenient way to compute the covariance between the points we know, and the points we want to estimate. To keep things simple for now, we consider a small data set. We need to be able to compute the distance from each known <span class="math notranslate nohighlight">\(x_i\)</span> to each known <span class="math notranslate nohighlight">\(x_j\)</span>. Numpy array broadcasting makes this simple. We <em>expand</em> each array, and then take the difference.</p>
+<p>So, what we need is a convenient way to compute the covariance between the points we know, and the points we want to estimate. To keep things simple for now, we consider a small data set. We need to be able to compute the distance from each known $x_i$ to each known $x_j$. Numpy array broadcasting makes this simple. We <em>expand</em> each array, and then take the difference.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -552,7 +599,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a2d09449e4ecfc2b9fee3b34c99fd976fe9aca59e71b4e244b0cb545978fb2ea.png" src="../../_images/a2d09449e4ecfc2b9fee3b34c99fd976fe9aca59e71b4e244b0cb545978fb2ea.png" />
+<img alt="../../_images/7c81b60ebf3d8e711e5f4ab5452df2f1eb7cef89576e5120c3c807568990547c.png" src="../../_images/7c81b60ebf3d8e711e5f4ab5452df2f1eb7cef89576e5120c3c807568990547c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -590,7 +637,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>First, we get the covariance array for <em>the known x-values</em>. We have to make some choices for the hyperparameters. We will return to how to do this later. For now, we use these values because they work. We also add at this point the possibility that there is some noise in our data, which is characterized by a normal distribution with a mean of 0, and a spread of <span class="math notranslate nohighlight">\(\sigma_n\)</span>.</p>
+<p>First, we get the covariance array for <em>the known x-values</em>. We have to make some choices for the hyperparameters. We will return to how to do this later. For now, we use these values because they work. We also add at this point the possibility that there is some noise in our data, which is characterized by a normal distribution with a mean of 0, and a spread of $\sigma_n$.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigma_f</span> <span class="o">=</span> <span class="mi">1</span>
@@ -626,8 +673,8 @@ document.write(`
 </div>
 </div>
 <p>The first definition that we need is:</p>
-<p><span class="math notranslate nohighlight">\(\mathbf{w} = K(X*, X) \cdot [K(X, X) + \sigma_n^2 \mathbf{I}]^{-1}\)</span></p>
-<p>Here, <span class="math notranslate nohighlight">\(\sigma_n\)</span> is a constant that represents noise. It can be zero, but during fitting it is helpful for it to be non-zero to avoid ill-conditioned matrices.</p>
+<p>$\mathbf{w} = K(X*, X) \cdot [K(X, X) + \sigma_n^2 \mathbf{I}]^{-1}$</p>
+<p>Here, $\sigma_n$ is a constant that represents noise. It can be zero, but during fitting it is helpful for it to be non-zero to avoid ill-conditioned matrices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">K2</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">K1</span><span class="p">)</span>
@@ -668,7 +715,7 @@ document.write(`
 </div>
 <p>Those weights mean that the middle data point contributes the most to the estimate, and the others hardly contribute.</p>
 <p>To make an estimate with these weights, we use this second definition:</p>
-<p><span class="math notranslate nohighlight">\(y^* = \mathbf{w} \cdot \mathbf{y}\)</span></p>
+<p>$y^* = \mathbf{w} \cdot \mathbf{y}$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
@@ -676,7 +723,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00256036, 0.79912976, 1.00163853])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.01610894, 0.78524556, 1.00418443])
 </pre></div>
 </div>
 </div>
@@ -689,7 +736,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.75341594, 0.76331096])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.74037834, 0.75016438])
 </pre></div>
 </div>
 </div>
@@ -706,10 +753,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1d8294704ca38aceca3d6a044b0a646f33d2a7b64b934f518cf89a8e254fbc91.png" src="../../_images/1d8294704ca38aceca3d6a044b0a646f33d2a7b64b934f518cf89a8e254fbc91.png" />
+<img alt="../../_images/1b38d1e4cc4a8e80aef06755c3b257925071e75f34db50f10a17979a15b1d48f.png" src="../../_images/1b38d1e4cc4a8e80aef06755c3b257925071e75f34db50f10a17979a15b1d48f.png" />
 </div>
 </div>
-<p>That is not bad, but clearly not great. With a <span class="math notranslate nohighlight">\(\lambda=0.15\)</span>, only one data point is contributing to the estimate, the other points have only small contributions because they are far from points we are estimating. This is a feature of the <em>assumption</em> we made about the covariance with <span class="math notranslate nohighlight">\(\lambda\)</span>. This means we do not have enough data to make a very good estimate. We can see this if we try this with a much more dense data set.</p>
+<p>That is not bad, but clearly not great. With a $\lambda=0.15$, only one data point is contributing to the estimate, the other points have only small contributions because they are far from points we are estimating. This is a feature of the <em>assumption</em> we made about the covariance with $\lambda$. This means we do not have enough data to make a very good estimate. We can see this if we try this with a much more dense data set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">retstep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -741,7 +788,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Known data step size is 0.05
 </pre></div>
 </div>
-<img alt="../../_images/476f7df2defaf2100a80fe26daf8a6ad5894345b3c7179a818d7b61d7759928a.png" src="../../_images/476f7df2defaf2100a80fe26daf8a6ad5894345b3c7179a818d7b61d7759928a.png" />
+<img alt="../../_images/0cc8d692c35f5662eee299e8f5157fd5a36bacf67455c21ee3b9ebca9af64310.png" src="../../_images/0cc8d692c35f5662eee299e8f5157fd5a36bacf67455c21ee3b9ebca9af64310.png" />
 </div>
 </div>
 <p>Now you can see that we do very well in estimating the values. The length scale here might even be considered too short, since it is evident we are fitting trends in the noise.</p>
@@ -773,7 +820,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Known data step size is 0.05
 </pre></div>
 </div>
-<img alt="../../_images/1e9c0d055d5ecf75232a4cefbb49d0eaca8966736a5180b7b397447e04226f49.png" src="../../_images/1e9c0d055d5ecf75232a4cefbb49d0eaca8966736a5180b7b397447e04226f49.png" />
+<img alt="../../_images/79af912e529bd3300fbd406d82414f399f2f27facd35ffdadb685c06c91dd1fa.png" src="../../_images/79af912e529bd3300fbd406d82414f399f2f27facd35ffdadb685c06c91dd1fa.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -814,7 +861,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/365d7ad2ff034be15802d8ac2518d92152a108ec1535e48ce76402188f813b58.png" src="../../_images/365d7ad2ff034be15802d8ac2518d92152a108ec1535e48ce76402188f813b58.png" />
+<img alt="../../_images/a31b88e31c21a6dcf7beec9c8a214913b356799f649ee091e53998f925c45c53.png" src="../../_images/a31b88e31c21a6dcf7beec9c8a214913b356799f649ee091e53998f925c45c53.png" />
 </div>
 </div>
 </section>
@@ -843,15 +890,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/694f67ca7258259f3fa050359f2b8630f041236bcb8d9862c4ce094685738652.png" src="../../_images/694f67ca7258259f3fa050359f2b8630f041236bcb8d9862c4ce094685738652.png" />
+<img alt="../../_images/67798d71b829b9fd564960eb860cf944dfbf54ee38251eaad317cb19d9a4e9ba.png" src="../../_images/67798d71b829b9fd564960eb860cf944dfbf54ee38251eaad317cb19d9a4e9ba.png" />
 </div>
 </div>
 </section>
 <section id="finding-the-hyperparameters-in-gpr">
 <h3>Finding the hyperparameters in GPR<a class="headerlink" href="#finding-the-hyperparameters-in-gpr" title="Permalink to this heading">#</a></h3>
 <p>You can see from the examples above that we have to choose some compromises in the hyperparameters. Some sets will underfit, and some will overfit. So, we need some principled way to estimate these. In conventional regression we would do this by minimizing an error function. In GPR, we use a different approach called <em>maximizing the log likelihood</em> of the parameters. This is a statistical concept, that is similar to minimizing the summed squared error, but different in that it is estimating the most likely average value of the hyperparameters. It is also must an optimization problem, that we formulate as:</p>
-<p><span class="math notranslate nohighlight">\(logp \approx -0.5 y K^{-1} y - 0.5 \log |K|\)</span></p>
-<p>The first term emphasizes fitting to the data, while the second term penalizes complexity. In this equation, <span class="math notranslate nohighlight">\(K\)</span> depends on the hyperparameters, and we want to adjust these to maximize <span class="math notranslate nohighlight">\(logp\)</span>. Since we know something about the noise here, we fix that parameter, and adjust the other two parameters.</p>
+<p>$logp \approx -0.5 y K^{-1} y - 0.5 \log |K|$</p>
+<p>The first term emphasizes fitting to the data, while the second term penalizes complexity. In this equation, $K$ depends on the hyperparameters, and we want to adjust these to maximize $logp$. Since we know something about the noise here, we fix that parameter, and adjust the other two parameters.</p>
 <p>Given the original data, we now estimate the best hyperparameters and then predict other values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -894,10 +941,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 0.07028442])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 0.06764929])
 </pre></div>
 </div>
-<img alt="../../_images/34f8f27640ca9392f6764798beb549b70745df2fa01a8ed1da1a28d661c4df27.png" src="../../_images/34f8f27640ca9392f6764798beb549b70745df2fa01a8ed1da1a28d661c4df27.png" />
+<img alt="../../_images/7005cf09892a5252daf4d2564a1eae25b61c53179f11b9fbe09201ca6a716374.png" src="../../_images/7005cf09892a5252daf4d2564a1eae25b61c53179f11b9fbe09201ca6a716374.png" />
 </div>
 </div>
 <p>Note that we still see some wiggles in the fit, indicating some minor degree of overfitting with the optimal hyperparameters. That is happening because we fit to all the data, and do not use any to estimate how good our fits are. You can use train/test data splits for GPR for this purpose as well, but it is out of the scope of the lecture today.</p>
@@ -917,8 +964,8 @@ document.write(`
 <section id="an-example-with-a-linear-kernel">
 <h3>An example with a linear kernel<a class="headerlink" href="#an-example-with-a-linear-kernel" title="Permalink to this heading">#</a></h3>
 <p>One definition of a linear kernel is</p>
-<p><span class="math notranslate nohighlight">\(k(x, x*) = \sigma_b^2 + \sigma_v^2 (x-c)(x_{*}-c)\)</span>.</p>
-<p>There are three hyperparameters in this kernel, <span class="math notranslate nohighlight">\(\sigma_b, \sigma_v\)</span> and <span class="math notranslate nohighlight">\(c\)</span>. None of these are easily interpreted as properties of the line though. Instead, they represent properties of a distribution of lines that fit the data. We do not care about this distribution directly, but rather about their mean value which is what we are predicting.</p>
+<p>$k(x, x*) = \sigma_b^2 + \sigma_v^2 (x-c)(x_{*}-c)$.</p>
+<p>There are three hyperparameters in this kernel, $\sigma_b, \sigma_v$ and $c$. None of these are easily interpreted as properties of the line though. Instead, they represent properties of a distribution of lines that fit the data. We do not care about this distribution directly, but rather about their mean value which is what we are predicting.</p>
 <p>We will use this to fit some linear data in this example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -932,7 +979,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/940e848f7939f6bdeee4341a29887c5a9f5cef9df01b0946ea93b805ee43004f.png" src="../../_images/940e848f7939f6bdeee4341a29887c5a9f5cef9df01b0946ea93b805ee43004f.png" />
+<img alt="../../_images/73585b4a06bc329cb893997bc6015bafd275a2fbb8d44c38cc4e41529cac9825.png" src="../../_images/73585b4a06bc329cb893997bc6015bafd275a2fbb8d44c38cc4e41529cac9825.png" />
 </div>
 </div>
 <p>As before, we setup a log likelihood function and maximize it to get estimates for the parameters.</p>
@@ -956,15 +1003,15 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: Optimization terminated successfully.
   success: True
    status: 0
-      fun: 7.502203342710828
-        x: [-2.014e-06  6.531e-01 -1.457e+00]
-      nit: 27
-      jac: [-8.345e-07  5.186e-06  1.431e-06]
- hess_inv: [[ 5.791e+00  1.446e-02  4.698e-04]
-            [ 1.446e-02  3.323e-02  1.670e-02]
-            [ 4.698e-04  1.670e-02  4.706e-02]]
-     nfev: 156
-     njev: 39
+      fun: 7.5243683829343215
+        x: [-1.396e-07  6.398e-01 -1.496e+00]
+      nit: 31
+      jac: [-3.397e-06 -5.007e-06 -1.311e-06]
+ hess_inv: [[ 7.347e-01 -5.892e-02 -9.500e-02]
+            [-5.892e-02  3.061e-02  1.636e-02]
+            [-9.500e-02  1.636e-02  4.819e-02]]
+     nfev: 168
+     njev: 42
 </pre></div>
 </div>
 </div>
@@ -992,10 +1039,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/470015dd45e8844d8d080f5fbf00744d79d65a6c165d9a843f4e657f3335033c.png" src="../../_images/470015dd45e8844d8d080f5fbf00744d79d65a6c165d9a843f4e657f3335033c.png" />
+<img alt="../../_images/71c94bc063897ac70e6084d80920a5f1dfc09586579af25091a0145a139cd42f.png" src="../../_images/71c94bc063897ac70e6084d80920a5f1dfc09586579af25091a0145a139cd42f.png" />
 </div>
 </div>
-<p>Note that now, we get linear extrapolation, <em>because we are using a linear kernel</em>. Note also that the hyperparameters do not mean anything in particular to us. They do not include the slope or intercept. We can work those out pretty easily though. The intercept is just a prediction at <span class="math notranslate nohighlight">\(x=0\)</span>:</p>
+<p>Note that now, we get linear extrapolation, <em>because we are using a linear kernel</em>. Note also that the hyperparameters do not mean anything in particular to us. They do not include the slope or intercept. We can work those out pretty easily though. The intercept is just a prediction at $x=0$:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Kp</span> <span class="o">=</span> <span class="n">sb</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sv</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="n">c</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">c</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
@@ -1005,7 +1052,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.95958762])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.97790579])
 </pre></div>
 </div>
 </div>
@@ -1018,7 +1065,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0317296595590064
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.9905776151602115
 </pre></div>
 </div>
 </div>
@@ -1030,7 +1077,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.02563542, 2.97512557])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.98460975, 2.99337556])
 </pre></div>
 </div>
 </div>
@@ -1038,7 +1085,7 @@ document.write(`
 <section id="uncertainty-quantification-in-gpr">
 <h4>Uncertainty quantification in GPR<a class="headerlink" href="#uncertainty-quantification-in-gpr" title="Permalink to this heading">#</a></h4>
 <p>One of the main reasons to use GPR is that you can estimate the uncertainty in predictions in a straightforward way. The covariance of a prediction is given by:</p>
-<p><span class="math notranslate nohighlight">\(\mathbf{\sigma} = K(X*, X*) - K(X*, X) [K(X, X) + \sigma_n^2 \mathbf{I}]^{-1} K(X, X*)\)</span></p>
+<p>$\mathbf{\sigma} = K(X*, X*) - K(X*, X) [K(X, X) + \sigma_n^2 \mathbf{I}]^{-1} K(X, X*)$</p>
 <p>As we have done before, the square root of the diagonal is an estimate of the error in the prediction of each point.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1066,7 +1113,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c46410441856f52b1d6f54c66c23ec4599aac655a775ede2ba77277706896aaf.png" src="../../_images/c46410441856f52b1d6f54c66c23ec4599aac655a775ede2ba77277706896aaf.png" />
+<img alt="../../_images/2c77a74039c5c0f2e125b33cb969e70c78626de2006fbe15c7042a5cba12c77f.png" src="../../_images/2c77a74039c5c0f2e125b33cb969e70c78626de2006fbe15c7042a5cba12c77f.png" />
 </div>
 </div>
 </section>
@@ -1084,12 +1131,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cdfaf1bb29e1775e8d032ef88c1706c90c03a8852fe309ea7eeb5473aa82906c.png" src="../../_images/cdfaf1bb29e1775e8d032ef88c1706c90c03a8852fe309ea7eeb5473aa82906c.png" />
+<img alt="../../_images/7ae7526d7d7e1f5766866198b35f2f449b24590289aba77c829e890b356fd0ec.png" src="../../_images/7ae7526d7d7e1f5766866198b35f2f449b24590289aba77c829e890b356fd0ec.png" />
 </div>
 </div>
 <p>This looks like a sin wave superimposed on a line. A periodic kernel is defined as</p>
-<p><span class="math notranslate nohighlight">\(k(x, x') = \sigma^2 \exp\left(-\frac{2 \sin^2(\pi|x - x'| / p)}{l^2}\right)\)</span></p>
-<p><span class="math notranslate nohighlight">\(p\)</span> is the periodicity and <span class="math notranslate nohighlight">\(l\)</span> is the lengthscale. A key feature of GPR is you can add two kernel functions together and get a new kernel. Here we combine the linear kernel with the periodic kernel to represent data that is periodic and which increases (or decreases) with time.</p>
+<p>$k(x, x’) = \sigma^2 \exp\left(-\frac{2 \sin^2(\pi|x - x’| / p)}{l^2}\right)$</p>
+<p>$p$ is the periodicity and $l$ is the lengthscale. A key feature of GPR is you can add two kernel functions together and get a new kernel. Here we combine the linear kernel with the periodic kernel to represent data that is periodic and which increases (or decreases) with time.</p>
 <p>As before we use the log likelihood to find the hyperparameters that best fit this data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1112,19 +1159,19 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: Optimization terminated successfully.
   success: True
    status: 0
-      fun: 25.48798202230053
-        x: [-1.148e-06  4.016e-01 -1.650e+00  6.185e-01  9.257e-01
-            -3.468e-01]
-      nit: 39
-      jac: [-1.192e-06 -3.338e-06  9.537e-07  1.431e-06 -2.384e-06
-             1.431e-06]
- hess_inv: [[ 2.478e+00 -1.372e-02 ... -2.738e-03 -3.087e-03]
-            [-1.372e-02  2.070e-02 ...  3.073e-03 -8.870e-04]
+      fun: 25.67358184759296
+        x: [ 3.862e-07  4.077e-01 -1.621e+00  6.269e-01  9.242e-01
+            -3.464e-01]
+      nit: 50
+      jac: [-7.153e-07  2.384e-07 -7.153e-07 -2.384e-07 -1.669e-06
+            -2.146e-06]
+ hess_inv: [[ 2.760e+00 -1.561e-02 ... -7.398e-03 -1.862e-02]
+            [-1.561e-02  2.194e-02 ...  3.302e-03 -1.413e-03]
             ...
-            [-2.738e-03  3.073e-03 ...  1.624e-03 -8.341e-05]
-            [-3.087e-03 -8.870e-04 ... -8.341e-05  1.408e-02]]
-     nfev: 322
-     njev: 46
+            [-7.398e-03  3.302e-03 ...  1.671e-03 -3.794e-04]
+            [-1.862e-02 -1.413e-03 ... -3.794e-04  1.159e-02]]
+     nfev: 413
+     njev: 59
 </pre></div>
 </div>
 </div>
@@ -1155,7 +1202,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0c72742980d9653dad89af95ba90d1563ad3467ec2b5a36f226c9e0012ce895c.png" src="../../_images/0c72742980d9653dad89af95ba90d1563ad3467ec2b5a36f226c9e0012ce895c.png" />
+<img alt="../../_images/54caa88ddfa3e437d70db955edb33fc7ed9009c6eddee0803bbd4950e6d76db1.png" src="../../_images/54caa88ddfa3e437d70db955edb33fc7ed9009c6eddee0803bbd4950e6d76db1.png" />
 </div>
 </div>
 <p>Note that we get oscillatory + linear extrapolation behavior! That is again <em>because of properties of the kernel</em> and <em>not because the model learned anything</em>.</p>
@@ -1165,7 +1212,7 @@ document.write(`
 <h2>Brief comparison of GPR and NN<a class="headerlink" href="#brief-comparison-of-gpr-and-nn" title="Permalink to this heading">#</a></h2>
 <p>GPR is called a non-parametric regression method. That is only partly true, there are hyperparameters that must be chosen in the kernels. In contrast, neural networks (and other physical models) are called <em>parametric</em> models.</p>
 <p>A key feature of GPR compared to other methods is that uncertainty estimates are a “built-in” feature, compared to parametric models where you might consider it an add-on feature that approximates the uncertainty. Although we say uncertainty analysis is built into to GPR, it also relies on some assumptions, e.g. that there is Gaussian noise in the data, and that the residual errors are Gaussian. If those are not true, then the uncertainty in a GPR is also an estimate.</p>
-<p>For very large datasets GPR has a distinct disadvantage over neural networks. For <span class="math notranslate nohighlight">\(n\)</span> data points covariance matrix is an <span class="math notranslate nohighlight">\(n \times n\)</span>, and we need the inverse of this array. Inverse calculations usually scale as <span class="math notranslate nohighlight">\(O(n^3)\)</span> so this can get expensive fast. Even after that, however, you have to do several matrix multiplications, including an <span class="math notranslate nohighlight">\(m \times n\)</span> covariance array, a <span class="math notranslate nohighlight">\(n \times n\)</span> inverse covariance array and the <span class="math notranslate nohighlight">\(n \times 1\)</span> array of known values. If is possible to compute one of these one time only, but for every prediction, one must compute the <span class="math notranslate nohighlight">\(m \times n\)</span> covariance array every time.</p>
+<p>For very large datasets GPR has a distinct disadvantage over neural networks. For $n$ data points covariance matrix is an $n \times n$, and we need the inverse of this array. Inverse calculations usually scale as $O(n^3)$ so this can get expensive fast. Even after that, however, you have to do several matrix multiplications, including an $m \times n$ covariance array, a $n \times n$ inverse covariance array and the $n \times 1$ array of known values. If is possible to compute one of these one time only, but for every prediction, one must compute the $m \times n$ covariance array every time.</p>
 <p>In contrast, for neural networks, all the time is spent upfront on training. After that, all the arrays of weights are fixed, and the computational time for predictions is constant (and usually comparatively small).</p>
 </section>
 <section id="gpr-libraries">
@@ -1175,7 +1222,7 @@ document.write(`
 <li><p><strong>scikit-learn:</strong> <a class="reference external" href="https://scikit-learn.org/stable/modules/gaussian_process.html">https://scikit-learn.org/stable/modules/gaussian_process.html</a></p></li>
 <li><p><strong>Gpy:</strong> <a class="reference external" href="https://sheffieldml.github.io/GPy/">https://sheffieldml.github.io/GPy/</a>(pytorch)</p></li>
 <li><p><strong>GPFlow:</strong> <a class="reference external" href="https://gpflow.readthedocs.io/en/master/intro.html">https://gpflow.readthedocs.io/en/master/intro.html</a>(Tensorflow)</p></li>
-<li><p>autograd ‘<a class="github reference external" href="https://github.com/HIPS/autograd/blob/master/examples/gaussian_process.py">HIPS/autograd</a>](autograd)</p></li>
+<li><p>autograd ‘https://github.com/HIPS/autograd/blob/master/examples/gaussian_process.py](autograd)</p></li>
 </ul>
 </section>
 <section id="summary">
@@ -1189,13 +1236,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="UGgEutGZNeoO" data-shufflequestions="False"
+<div class="output text_html"><div id="qMTQlBYAwzrb" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#UGgEutGZNeoO {
+#qMTQlBYAwzrb {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1365,7 +1412,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsUGgEutGZNeoO=[{"question": "A smaller lengthscale than the optimum will result in", "type": "multiple_choice", "answers": [{"answer": "A more accurate model", "correct": false}, {"answer": "Overfitting", "correct": true}, {"answer": "Underfitting", "correct": false}, {"answer": "A linear model", "correct": false}], "tag": "hyperparameters lengthscale", "lecture_file": "23_gp"}, {"question": "When using a gaussian kernel, a point has near-zero covariance with another point if it is x distance away. x = ?", "type": "multiple_choice", "answers": [{"answer": "Lengthscale", "correct": false}, {"answer": "0.5*Lengthscale", "correct": false}, {"answer": "2*Lengthscale", "correct": true}, {"answer": "4*Lengthscale", "correct": false}], "tag": "hyperparameters lengthscale", "lecture_file": "23_gp"}, {"question": "To calculate the weights of a GPR model, we would need", "type": "multiple_choice", "answers": [{"answer": "The x-values of the train data set", "correct": false}, {"answer": "The x-values of the test data set", "correct": false}, {"answer": "Noise in the data", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "hyperparameters", "lecture_file": "23_gp"}, {"question": "We can use multiple covariance functions in a single model", "type": "multiple_choice", "answers": [{"answer": "TRUE", "correct": true}, {"answer": "FALSE", "correct": false}, {"answer": "-", "correct": false}, {"answer": "-", "correct": false}], "tag": "kernel", "lecture_file": "23_gp"}, {"question": "A kernel is analogous to", "type": "multiple_choice", "answers": [{"answer": "a change of basis", "correct": true}, {"answer": "activation functions", "correct": false}, {"answer": "Both of the above", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "kernel", "lecture_file": "23_gp"}, {"question": "Which of the following are hyperparameters of a GPR model?", "type": "multiple_choice", "answers": [{"answer": "Lengthscale", "correct": false}, {"answer": "Noise", "correct": false}, {"answer": "Kernel", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "hyperparameters", "lecture_file": "23_gp"}, {"question": "Gaussian Process Regression is", "type": "multiple_choice", "answers": [{"answer": "Deterministic and parametric", "correct": false}, {"answer": "Probabilistic and non-parametric", "correct": true}, {"answer": "Probabilistic and parametric", "correct": false}, {"answer": "Deterministic and non-parametric", "correct": false}], "tag": "kernel", "lecture_file": "23_gp"}, {"question": "The sum of two independent gaussian distribution functions is", "type": "multiple_choice", "answers": [{"answer": "a constant", "correct": false}, {"answer": "linear", "correct": false}, {"answer": "gaussian", "correct": true}, {"answer": "Periodic", "correct": false}], "tag": "kernel", "lecture_file": "23_gp"}, {"question": "The nature of extrapolation of a GPR model beyond the training data range would be determined by", "type": "multiple_choice", "answers": [{"answer": "The kernel", "correct": true}, {"answer": "The number of data points", "correct": false}, {"answer": "Noise", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "kernel extrapolation", "lecture_file": "23_gp"}, {"question": "What would be the result if we use a linear kernal for a dataset that roughly follows a sinusoidal trend.", "type": "multiple_choice", "answers": [{"answer": "We will get a coding error", "correct": false}, {"answer": "the model will still perfectly fit", "correct": false}, {"answer": "the model will have a low uncertainty", "correct": false}, {"answer": "The model will have a high uncertainty ", "correct": true}], "tag": "kernel uncertainty", "lecture_file": "23_gp"}];
+</style></div><script type="application/javascript">var questionsqMTQlBYAwzrb=[{"question": "A smaller lengthscale than the optimum will result in", "type": "multiple_choice", "answers": [{"answer": "A more accurate model", "correct": false}, {"answer": "Overfitting", "correct": true}, {"answer": "Underfitting", "correct": false}, {"answer": "A linear model", "correct": false}], "tag": "hyperparameters lengthscale", "lecture_file": "23_gp"}, {"question": "When using a gaussian kernel, a point has near-zero covariance with another point if it is x distance away. x = ?", "type": "multiple_choice", "answers": [{"answer": "Lengthscale", "correct": false}, {"answer": "0.5*Lengthscale", "correct": false}, {"answer": "2*Lengthscale", "correct": true}, {"answer": "4*Lengthscale", "correct": false}], "tag": "hyperparameters lengthscale", "lecture_file": "23_gp"}, {"question": "To calculate the weights of a GPR model, we would need", "type": "multiple_choice", "answers": [{"answer": "The x-values of the train data set", "correct": false}, {"answer": "The x-values of the test data set", "correct": false}, {"answer": "Noise in the data", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "hyperparameters", "lecture_file": "23_gp"}, {"question": "We can use multiple covariance functions in a single model", "type": "multiple_choice", "answers": [{"answer": "TRUE", "correct": true}, {"answer": "FALSE", "correct": false}, {"answer": "-", "correct": false}, {"answer": "-", "correct": false}], "tag": "kernel", "lecture_file": "23_gp"}, {"question": "A kernel is analogous to", "type": "multiple_choice", "answers": [{"answer": "a change of basis", "correct": true}, {"answer": "activation functions", "correct": false}, {"answer": "Both of the above", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "kernel", "lecture_file": "23_gp"}, {"question": "Which of the following are hyperparameters of a GPR model?", "type": "multiple_choice", "answers": [{"answer": "Lengthscale", "correct": false}, {"answer": "Noise", "correct": false}, {"answer": "Kernel", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "hyperparameters", "lecture_file": "23_gp"}, {"question": "Gaussian Process Regression is", "type": "multiple_choice", "answers": [{"answer": "Deterministic and parametric", "correct": false}, {"answer": "Probabilistic and non-parametric", "correct": true}, {"answer": "Probabilistic and parametric", "correct": false}, {"answer": "Deterministic and non-parametric", "correct": false}], "tag": "kernel", "lecture_file": "23_gp"}, {"question": "The sum of two independent gaussian distribution functions is", "type": "multiple_choice", "answers": [{"answer": "a constant", "correct": false}, {"answer": "linear", "correct": false}, {"answer": "gaussian", "correct": true}, {"answer": "Periodic", "correct": false}], "tag": "kernel", "lecture_file": "23_gp"}, {"question": "The nature of extrapolation of a GPR model beyond the training data range would be determined by", "type": "multiple_choice", "answers": [{"answer": "The kernel", "correct": true}, {"answer": "The number of data points", "correct": false}, {"answer": "Noise", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "kernel extrapolation", "lecture_file": "23_gp"}, {"question": "What would be the result if we use a linear kernal for a dataset that roughly follows a sinusoidal trend.", "type": "multiple_choice", "answers": [{"answer": "We will get a coding error", "correct": false}, {"answer": "the model will still perfectly fit", "correct": false}, {"answer": "the model will have a low uncertainty", "correct": false}, {"answer": "The model will have a high uncertainty ", "correct": true}], "tag": "kernel uncertainty", "lecture_file": "23_gp"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2114,8 +2161,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("UGgEutGZNeoO")) {
-            show_questions(questionsUGgEutGZNeoO,  UGgEutGZNeoO); 
+          if(document.getElementById("qMTQlBYAwzrb")) {
+            show_questions(questionsqMTQlBYAwzrb,  qMTQlBYAwzrb); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2124,8 +2171,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("UGgEutGZNeoO");
-        // console.log(document.getElementById("UGgEutGZNeoO"));
+        //console.log("qMTQlBYAwzrb");
+        // console.log(document.getElementById("qMTQlBYAwzrb"));
 
         try_show();
         }

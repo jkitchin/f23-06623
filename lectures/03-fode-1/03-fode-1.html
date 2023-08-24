@@ -61,8 +61,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/03-fode-1/03-fode-1';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -291,6 +289,55 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub-dev.cheme.cmu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jkitchin/f23-06623&urlpath=lab/tree/f23-06623/docs/lectures/03-fode-1/03-fode-1.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jkitchin/f23-06623/blob/main/docs/lectures/03-fode-1/03-fode-1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -472,20 +519,20 @@ document.write(`
 <ul class="simple">
 <li><p>KEYWORDS: integration, quad, zeros, shape, enumerate, solve_ivp</p></li>
 </ul>
-<section class="tex2jax_ignore mathjax_ignore" id="solutions-to-first-order-differential-equations-by-integration">
+<section id="solutions-to-first-order-differential-equations-by-integration">
 <h1>Solutions to first-order differential equations by integration<a class="headerlink" href="#solutions-to-first-order-differential-equations-by-integration" title="Permalink to this heading">#</a></h1>
 <p>Adapted from Ch. 2 in Advanced Engineering Mathematics, 2<sup>nd</sup> Ed. by Michael Greenberg.</p>
 <section id="homogeneous-first-order-linear-differential-equations">
 <h2>Homogeneous, first-order linear differential equations<a class="headerlink" href="#homogeneous-first-order-linear-differential-equations" title="Permalink to this heading">#</a></h2>
 <p>We first consider a homogeneous, first-order, linear differential equation of the form:</p>
-<p><span class="math notranslate nohighlight">\(y' + p(x) y = 0\)</span>, with <span class="math notranslate nohighlight">\(y(a) = b\)</span> as an initial value.</p>
+<p>$y’ + p(x) y = 0$, with $y(a) = b$ as an initial value.</p>
 <p>You can derive a solution to this ODE as:</p>
-<p><span class="math notranslate nohighlight">\(y(x) = b e^{-\int_a^x p(\xi) d\xi}\)</span></p>
-<p>For concreteness, consider <span class="math notranslate nohighlight">\((x+2) y' - xy = 0, y(0) = 3\)</span></p>
-<p>what is the value of <span class="math notranslate nohighlight">\(y(1)\)</span>?</p>
-<p>We need to cast this in the form required to identify <span class="math notranslate nohighlight">\(p(x)\)</span>. That form is:</p>
-<p><span class="math notranslate nohighlight">\(y' + \frac{-x}{x+2}y = 0\)</span>.</p>
-<p>Now, we simply evaluate the required integral and use it to compute the value of the solution at the desired new <span class="math notranslate nohighlight">\(x\)</span> value.</p>
+<p>$y(x) = b e^{-\int_a^x p(\xi) d\xi}$</p>
+<p>For concreteness, consider $(x+2) y’ - xy = 0, y(0) = 3$</p>
+<p>what is the value of $y(1)$?</p>
+<p>We need to cast this in the form required to identify $p(x)$. That form is:</p>
+<p>$y’ + \frac{-x}{x+2}y = 0$.</p>
+<p>Now, we simply evaluate the required integral and use it to compute the value of the solution at the desired new $x$ value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
@@ -515,7 +562,7 @@ document.write(`
 </div>
 </div>
 <p>It is worth asking how do you know if this answer is correct? To evaluate that, you could compute the derivative of the solution, and plug it back into the differential equation to see if it works. We check here with a simple centered finite difference formula:</p>
-<p><span class="math notranslate nohighlight">\(y' \approx \frac{y(x + \delta) - y(x - \delta)}{2\delta}\)</span>.</p>
+<p>$y’ \approx \frac{y(x + \delta) - y(x - \delta)}{2\delta}$.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">=</span> <span class="mf">1e-6</span>
@@ -541,7 +588,7 @@ document.write(`
 <p>That result is pretty close to zero, indicating we have a good result.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>“pretty close” is in the eye of the beholder, and an indication we have made an approximation. We have to decide how close is close enough.  Here the solution error due to the approximation is negligible (7e-11) compared to the value at <span class="math notranslate nohighlight">\(y(1)\)</span>.</p>
+<p>“pretty close” is in the eye of the beholder, and an indication we have made an approximation. We have to decide how close is close enough.  Here the solution error due to the approximation is negligible (7e-11) compared to the value at $y(1)$.</p>
 </div>
 <p>It is a little trickier to evaluate the solution at several x-values, e.g. to make a plot. The <code class="docutils literal notranslate"><span class="pre">quad</span></code> function is not “vectorized”, meaning it only performs one integral for one range at a time. You cannot pass it a list of ranges to evaluate it several times. Instead, we have to use a loop for this. In the loop, we will solve the integral, and accumulate the result in a solution array. Before we do that, here are a few useful commands we will need to use.</p>
 <p>First, it is useful to make an array to store the results in. There are a few ways to do this, the one we use today is the <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> function. You specify the size of the array as an argument. For example, to make an array with three zeros, do this:</p>
@@ -722,7 +769,7 @@ After the loop new_arr = [0.   0.25 1.   2.25 4.  ]
 </div>
 </div>
 </div>
-<p>We can express the ODE as: <span class="math notranslate nohighlight">\(y' = \frac{x}{x+2}y\)</span>. By inspection, we can see that the derivative will always be positive, so the solution should increase from the initial value, which it does.</p>
+<p>We can express the ODE as: $y’ = \frac{x}{x+2}y$. By inspection, we can see that the derivative will always be positive, so the solution should increase from the initial value, which it does.</p>
 <p>We can also examine the derivatives of our solution. We have to rely on numerical derivatives of our solution because x and y are arrays. <code class="docutils literal notranslate"><span class="pre">np.gradient</span></code> will compute the derivative using a reasonable approximation. We know the derivative analytically from the ODE.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -755,9 +802,9 @@ After the loop new_arr = [0.   0.25 1.   2.25 4.  ]
 <section id="optional-non-homogeneous-linear-first-order-odes">
 <h2>(Optional) Non-homogeneous linear first-order ODEs<a class="headerlink" href="#optional-non-homogeneous-linear-first-order-odes" title="Permalink to this heading">#</a></h2>
 <p>A non-homogenous first order, linear differential equation has this form:</p>
-<p><span class="math notranslate nohighlight">\(y' + p(x) y = q(x), y(a)=b\)</span></p>
+<p>$y’ + p(x) y = q(x), y(a)=b$</p>
 <p>Equations of this form are typically solved with a method called variation of parameters. In the most general form, this leads to solutions of the form:</p>
-<p><span class="math notranslate nohighlight">\(y(x) = e^{-\int_a^x p(\xi)d\xi}\left(\int_a^x e^{-\int_a^{\xi} p(\zeta)d\zeta} q(\xi)d\xi + b\right)\)</span></p>
+<p>$y(x) = e^{-\int_a^x p(\xi)d\xi}\left(\int_a^x e^{-\int_a^{\xi} p(\zeta)d\zeta} q(\xi)d\xi + b\right)$</p>
 <p>It is a little tricky to implement this. It is helpful to break this down into several pieces. Note that it is not necessary to do this, it just makes it easier to read, debug, and see that you have done it correctly. Here are the easiest parts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -776,10 +823,10 @@ After the loop new_arr = [0.   0.25 1.   2.25 4.  ]
 </div>
 </div>
 <p>Next, we will break the equation into two parts:</p>
-<p><span class="math notranslate nohighlight">\(y(x) = term1 * term2\)</span> where</p>
-<p><span class="math notranslate nohighlight">\(term1 = e^{-\int_a^x p(\xi)d\xi}\)</span></p>
+<p>$y(x) = term1 * term2$ where</p>
+<p>$term1 = e^{-\int_a^x p(\xi)d\xi}$</p>
 <p>and</p>
-<p><span class="math notranslate nohighlight">\(term2 = \left(\int_a^x e^{-\int_a^{\xi} p(\zeta)d\zeta} q(\xi)d\xi + b\right)\)</span></p>
+<p>$term2 = \left(\int_a^x e^{-\int_a^{\xi} p(\zeta)d\zeta} q(\xi)d\xi + b\right)$</p>
 <p>We can immediately define a function for term1 as:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -820,7 +867,7 @@ After the loop new_arr = [0.   0.25 1.   2.25 4.  ]
 </div>
 </div>
 <p>With some algebra and calculus on your part, you might arrive at the following non-elementary integral solution:</p>
-<p><span class="math notranslate nohighlight">\(y(x) = e^{x^2} \left(\int_0^x e^{-\xi^2} \sin{\xi} d\xi + 3\right)\)</span></p>
+<p>$y(x) = e^{x^2} \left(\int_0^x e^{-\xi^2} \sin{\xi} d\xi + 3\right)$</p>
 <p>The solution is called non-elementary because you cannot evaluate the integral in closed form using elementary functions, e.g. powers of x, trigonometric functions, exponentials or logarithms. You can, however, use numerical methods to integrate it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -848,21 +895,21 @@ After the loop new_arr = [0.   0.25 1.   2.25 4.  ]
 </section>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="numerical-solutions-to-differential-equations">
+<section id="numerical-solutions-to-differential-equations">
 <h1>Numerical solutions to differential equations<a class="headerlink" href="#numerical-solutions-to-differential-equations" title="Permalink to this heading">#</a></h1>
 <p>We begin with a brief review of first order differential equations. The equations we are concerned with here all have the form:</p>
-<p><span class="math notranslate nohighlight">\(\frac{dy}{dx} = f(x, y)\)</span></p>
-<p>And the value of the solution is known at some point, e.g. <span class="math notranslate nohighlight">\(y(x_0) = y_0\)</span>. <span class="math notranslate nohighlight">\(f(x, y)\)</span> can be linear or nonlinear. Our goal in this section is to motivate how numerical solutions are obtained.</p>
+<p>$\frac{dy}{dx} = f(x, y)$</p>
+<p>And the value of the solution is known at some point, e.g. $y(x_0) = y_0$. $f(x, y)$ can be linear or nonlinear. Our goal in this section is to motivate how numerical solutions are obtained.</p>
 <p>These notes were adapted from Chapter 6 in Advanced Engineering Mathematics 2<sup>nd</sup> ed. by Michael D. Greenberg.</p>
 <p>The basic idea behind these methods is that we know the initial value of the solution <em>and</em> the derivative of the solution (it is defined by the ODE definition above), and so we can estimate the solution a small distance away from the initial value. If you repeat this process with the newly estimated point, you can estimate the next point, and so on. There are many algorithms for performing the estimation, and we will consider a two of them. These algorithms differ in efficiency, ease of implementation, and accuracy.</p>
 <section id="euler-s-method">
 <h2>Euler’s method<a class="headerlink" href="#euler-s-method" title="Permalink to this heading">#</a></h2>
-<p>The main idea of Euler’s method is that if you know the value of the solution at some point, and you know the derivative at that point, you can estimate the solution nearby at <span class="math notranslate nohighlight">\(x0 + h\)</span>, where <span class="math notranslate nohighlight">\(h\)</span> is a small number:</p>
-<p><span class="math notranslate nohighlight">\(y_{n+1} = y_n + f(x_n, y_n) h\)</span></p>
+<p>The main idea of Euler’s method is that if you know the value of the solution at some point, and you know the derivative at that point, you can estimate the solution nearby at $x0 + h$, where $h$ is a small number:</p>
+<p>$y_{n+1} = y_n + f(x_n, y_n) h$</p>
 <p>Now, you just repeat this until you get to the x-value that you want. For concreteness, consider:</p>
-<p><span class="math notranslate nohighlight">\(y' = y + 2x - x^2\)</span></p>
-<p><span class="math notranslate nohighlight">\(y(0) = 1\)</span>.</p>
-<p>This ODE has a known analytical solution: <span class="math notranslate nohighlight">\(y(x) = x^2 + e^x\)</span>. We will use this for comparison.</p>
+<p>$y’ = y + 2x - x^2$</p>
+<p>$y(0) = 1$.</p>
+<p>This ODE has a known analytical solution: $y(x) = x^2 + e^x$. We will use this for comparison.</p>
 <p>Find a solution from x=0 to x=1.5.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -940,9 +987,9 @@ After the loop new_arr = [0.   0.25 1.   2.25 4.  ]
 <img alt="../../_images/6072280897577c40cc29fdc935d217c7f650eae8e02796bb7b9e2d1435ac067b.png" src="../../_images/6072280897577c40cc29fdc935d217c7f650eae8e02796bb7b9e2d1435ac067b.png" />
 </div>
 </div>
-<p>This solution does not look that good until you increase the number of points (i.e. decrease the value of <span class="math notranslate nohighlight">\(h\)</span>, significantly). It is known the error decreases only linearly with <span class="math notranslate nohighlight">\(h\)</span>.</p>
+<p>This solution does not look that good until you increase the number of points (i.e. decrease the value of $h$, significantly). It is known the error decreases only linearly with $h$.</p>
 <p><strong>Exercise</strong> Increase the number of points in the x array and see how it affects the solution.</p>
-<p>This method is not used in practice; it is not very accurate, and you need quite small <span class="math notranslate nohighlight">\(h\)</span> to get a good solution. It is used here to illustrate the idea of how one integrates a differential equation. We will consider one more advanced method, the fourth-order Runge-Kutta method.</p>
+<p>This method is not used in practice; it is not very accurate, and you need quite small $h$ to get a good solution. It is used here to illustrate the idea of how one integrates a differential equation. We will consider one more advanced method, the fourth-order Runge-Kutta method.</p>
 </section>
 <section id="fourth-order-runge-kutta-method">
 <h2>Fourth-order Runge-Kutta method<a class="headerlink" href="#fourth-order-runge-kutta-method" title="Permalink to this heading">#</a></h2>
@@ -988,19 +1035,19 @@ After the loop new_arr = [0.   0.25 1.   2.25 4.  ]
 <img alt="../../_images/6a43bf74410d335b188cddab2cd4f749aa64378fd15ea0af4b07d12457b6695a.png" src="../../_images/6a43bf74410d335b188cddab2cd4f749aa64378fd15ea0af4b07d12457b6695a.png" />
 </div>
 </div>
-<p>Note you can get a much more accurate solution with a larger <span class="math notranslate nohighlight">\(h\)</span> with this method than you can with the Euler method.</p>
-<p><em>If</em> our differential equation is just <span class="math notranslate nohighlight">\(\frac{dy}{dx} = f(x)\)</span>, i.e. <span class="math notranslate nohighlight">\(f\)</span> is independent of <span class="math notranslate nohighlight">\(y\)</span>, then this method is equivalent to Simpson’s rule of integration.</p>
+<p>Note you can get a much more accurate solution with a larger $h$ with this method than you can with the Euler method.</p>
+<p><em>If</em> our differential equation is just $\frac{dy}{dx} = f(x)$, i.e. $f$ is independent of $y$, then this method is equivalent to Simpson’s rule of integration.</p>
 <p>Both of these methods leave some things to be desired:</p>
 <ol class="arabic simple">
 <li><p>We had to code them, and there are many places to make mistakes.</p></li>
-<li><p>You have to choose <span class="math notranslate nohighlight">\(h\)</span>, or equivalently the number of points to use, and then make sure the solution has converged (does not depend on your choice).</p></li>
-<li><p><span class="math notranslate nohighlight">\(h\)</span> is fixed in these examples, and you might prefer to use an adaptive value.</p></li>
-<li><p>It is not easy to solve the inverse problem, e.g. for what value of <span class="math notranslate nohighlight">\(x\)</span> does <span class="math notranslate nohighlight">\(y=4\)</span>?</p></li>
+<li><p>You have to choose $h$, or equivalently the number of points to use, and then make sure the solution has converged (does not depend on your choice).</p></li>
+<li><p>$h$ is fixed in these examples, and you might prefer to use an adaptive value.</p></li>
+<li><p>It is not easy to solve the inverse problem, e.g. for what value of $x$ does $y=4$?</p></li>
 </ol>
 <p>In practice, there are well-written ODE integrators to solve this kind of problem that address all the short-comings listed above. To use them, we just need to learn the syntax. We do that next.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="scipy-integrate-solve-ivp">
+<section id="scipy-integrate-solve-ivp">
 <h1>scipy.integrate.solve_ivp<a class="headerlink" href="#scipy-integrate-solve-ivp" title="Permalink to this heading">#</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> library provides <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> to solve first order differential equations. It is not the only one available, but this function is recommended. You import the function like this:</p>
 <div class="cell docutils container">
@@ -1012,7 +1059,7 @@ After the loop new_arr = [0.   0.25 1.   2.25 4.  ]
 </div>
 </div>
 <p>Here is a minimal use of the function, with keyword arguments.</p>
-<p><code class="docutils literal notranslate"><span class="pre">y0</span></code> is an array containing the initial values.  <code class="docutils literal notranslate"><span class="pre">fun</span></code> is a function with a signature of f(t, y). Here, <span class="math notranslate nohighlight">\(t\)</span> is considered the independent variable. You can call it whatever you want, so f(x, y) is also fine. Since <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> had <span class="math notranslate nohighlight">\(t\)</span> in mind, the second argument is the <code class="docutils literal notranslate"><span class="pre">t_span</span></code>, which is a tuple of two numbers for where the integration starts (t0, or x0) and where it ends.  <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> returns an object.</p>
+<p><code class="docutils literal notranslate"><span class="pre">y0</span></code> is an array containing the initial values.  <code class="docutils literal notranslate"><span class="pre">fun</span></code> is a function with a signature of f(t, y). Here, $t$ is considered the independent variable. You can call it whatever you want, so f(x, y) is also fine. Since <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> had $t$ in mind, the second argument is the <code class="docutils literal notranslate"><span class="pre">t_span</span></code>, which is a tuple of two numbers for where the integration starts (t0, or x0) and where it ends.  <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> returns an object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">??</span>f  <span class="c1"># we defined this before</span>
@@ -1164,18 +1211,18 @@ After the loop new_arr = [0.   0.25 1.   2.25 4.  ]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbe3f149c00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f1f9ce5a230&gt;
 </pre></div>
 </div>
 <img alt="../../_images/3c28f7a2c35448d232b1f678c9c64015cf0e364c219e0051a363bf72e27d23ba.png" src="../../_images/3c28f7a2c35448d232b1f678c9c64015cf0e364c219e0051a363bf72e27d23ba.png" />
 </div>
 </div>
-<p>So far, <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> solves the issues with item 1 (we did not have to code the algorithm), and items 2 and 3 (it uses an adaptive step and converges to a tolerance for us). It will also help us solve for the inverse problem, i.e. for what value of <span class="math notranslate nohighlight">\(x\)</span> is <span class="math notranslate nohighlight">\(y=4\)</span>?</p>
+<p>So far, <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> solves the issues with item 1 (we did not have to code the algorithm), and items 2 and 3 (it uses an adaptive step and converges to a tolerance for us). It will also help us solve for the inverse problem, i.e. for what value of $x$ is $y=4$?</p>
 <section id="events">
 <h2>Events<a class="headerlink" href="#events" title="Permalink to this heading">#</a></h2>
 <p>To do this, we need a new concept of an “event function”. During each step of the integration, you can run a function that can detect an “event”. When an event is detected, the location of the event is stored, and if desired integration can be terminated. <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> can take a list of event functions. We consider only one for now.</p>
-<p>An event occurs when an event function is equal to zero. During integration, if the event function changes sign, then it is clear an event has occurred, and the algorithm determines where it occurred. Since we want to know when <span class="math notranslate nohighlight">\(y=4\)</span>, we will define a function that returns <span class="math notranslate nohighlight">\(y - 4\)</span>, because that will equal zero at that condition. We want the integration to terminate when that happens, so we set the “terminal” attribute on our function to True.</p>
-<p>An event function has a signature of f(x, y). Remember that <span class="math notranslate nohighlight">\(y\)</span> is going to be an array,</p>
+<p>An event occurs when an event function is equal to zero. During integration, if the event function changes sign, then it is clear an event has occurred, and the algorithm determines where it occurred. Since we want to know when $y=4$, we will define a function that returns $y - 4$, because that will equal zero at that condition. We want the integration to terminate when that happens, so we set the “terminal” attribute on our function to True.</p>
+<p>An event function has a signature of f(x, y). Remember that $y$ is going to be an array,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span>
@@ -1236,7 +1283,7 @@ After the loop new_arr = [0.   0.25 1.   2.25 4.  ]
 </div>
 </div>
 </div>
-<p>Now, there are a couple of new things to note. First, we got a message that a termination event occurred. Second, the sol.y array ends at 4.0, because we made the event function <em>terminal</em>. Next, sol.t_events is not empty, because an event occurred. It now contains the value where the event occurred, which is where <span class="math notranslate nohighlight">\(y=4\)</span>!</p>
+<p>Now, there are a couple of new things to note. First, we got a message that a termination event occurred. Second, the sol.y array ends at 4.0, because we made the event function <em>terminal</em>. Next, sol.t_events is not empty, because an event occurred. It now contains the value where the event occurred, which is where $y=4$!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">t_events</span>
@@ -1287,13 +1334,13 @@ After the loop new_arr = [0.   0.25 1.   2.25 4.  ]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="OHynbzRQoowA" data-shufflequestions="False"
+<div class="output text_html"><div id="OvCsdKXiUGnK" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#OHynbzRQoowA {
+#OvCsdKXiUGnK {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1463,7 +1510,7 @@ After the loop new_arr = [0.   0.25 1.   2.25 4.  ]
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsOHynbzRQoowA=[{"question": "Which of the following is not a vectorized function?", "type": "multiple_choice", "answers": [{"answer": "np.sin()", "correct": false}, {"answer": "np.sqrt()", "correct": false}, {"answer": "np.sum()", "correct": false}, {"answer": "all are vectorized functions", "correct": true}], "tag": "numpy", "lecture_file": "03_fode_1"}, {"question": "Which of the following will give a 5 rows x 5 columns 2D array of zeros?", "type": "multiple_choice", "answers": [{"answer": "np.zeros(5, 5)", "correct": false}, {"answer": "np.zeros([5, 5])", "correct": true}, {"answer": "5*np.zeros(5)", "correct": false}, {"answer": "np.five(5)", "correct": false}], "tag": "numpy", "lecture_file": "03_fode_1"}, {"question": "If the first and second derivative of a function are zero, then we have a ", "type": "multiple_choice", "answers": [{"answer": "global maximum", "correct": false}, {"answer": "global minimum", "correct": false}, {"answer": "saddle point", "correct": false}, {"answer": "cannot say", "correct": true}], "tag": "derivative", "lecture_file": "03_fode_1"}, {"question": "How to plot the legend in the lower left corner of a matplotlib plot?", "type": "multiple_choice", "answers": [{"answer": "plt.legend(loc = 3)", "correct": true}, {"answer": "plt.lower_left('legend')", "correct": false}, {"answer": "plt.loc('lower left')", "correct": false}, {"answer": "plt.legend('3')", "correct": false}], "tag": "matplotlib", "lecture_file": "03_fode_1"}, {"question": "$5 dy/dx - y*e^x + 5*sin(x) = 0$ ; is a", "type": "multiple_choice", "answers": [{"answer": "homogeneous first-order linear equation", "correct": false}, {"answer": "non-homogeneous first order linear equation", "correct": true}, {"answer": "non-homogeneous first order non-linear equation", "correct": false}, {"answer": "homogeneous first-order non-linear equation", "correct": false}], "tag": "derivative", "lecture_file": "03_fode_1"}, {"question": "The values at which the function 'f' was evaluated when using sol = solve_ivp(f) can be read with", "type": "multiple_choice", "answers": [{"answer": "sol.x", "correct": false}, {"answer": "sol.X", "correct": false}, {"answer": "sol.t", "correct": true}, {"answer": "sol", "correct": false}], "tag": "scipy", "lecture_file": "03_fode_1"}, {"question": "Which of the following does not give an error?", "type": "multiple_choice", "answers": [{"answer": "solve_ivp(f, t_span = (0,1), y0 = y0, t_eval = np.linspace(0, 2))", "correct": false}, {"answer": "solve_ivp(f, t_span = (0,1), y0)", "correct": false}, {"answer": "solve_ivp(f, y0 = y0, t_eval = np.linspace(0,1))", "correct": false}, {"answer": "solve_ivp(f, t_span = [0,1], y0 = y0)", "correct": true}], "tag": "scipy", "lecture_file": "03_fode_1"}, {"question": "A solve_ivp() event occurs when the value the event function", "type": "multiple_choice", "answers": [{"answer": "becomes positive", "correct": false}, {"answer": "is equal to zero", "correct": true}, {"answer": "crosses the event value", "correct": false}, {"answer": "becomes negative", "correct": false}], "tag": "scipy", "lecture_file": "03_fode_1"}, {"question": "solve_ivp() makes solving first-order differential equations easier by", "type": "multiple_choice", "answers": [{"answer": "using an adaptive step size to increase the efficiency of the algorithm", "correct": false}, {"answer": "converging to an acceptable value", "correct": false}, {"answer": "helping to find the value of the independent variable at an instance of the dependent variable", "correct": false}, {"answer": "all of the above", "correct": true}], "tag": "scipy", "lecture_file": "03_fode_1"}, {"question": "Which of the following methods is not available in the solve_ivp() function?", "type": "multiple_choice", "answers": [{"answer": "Euler's Method", "correct": true}, {"answer": "Runge-Kutta", "correct": false}, {"answer": "Backward Differentiation", "correct": false}, {"answer": "LSODA", "correct": false}], "tag": "scipy", "lecture_file": "03_fode_1"}];
+</style></div><script type="application/javascript">var questionsOvCsdKXiUGnK=[{"question": "Which of the following is not a vectorized function?", "type": "multiple_choice", "answers": [{"answer": "np.sin()", "correct": false}, {"answer": "np.sqrt()", "correct": false}, {"answer": "np.sum()", "correct": false}, {"answer": "all are vectorized functions", "correct": true}], "tag": "numpy", "lecture_file": "03_fode_1"}, {"question": "Which of the following will give a 5 rows x 5 columns 2D array of zeros?", "type": "multiple_choice", "answers": [{"answer": "np.zeros(5, 5)", "correct": false}, {"answer": "np.zeros([5, 5])", "correct": true}, {"answer": "5*np.zeros(5)", "correct": false}, {"answer": "np.five(5)", "correct": false}], "tag": "numpy", "lecture_file": "03_fode_1"}, {"question": "If the first and second derivative of a function are zero, then we have a ", "type": "multiple_choice", "answers": [{"answer": "global maximum", "correct": false}, {"answer": "global minimum", "correct": false}, {"answer": "saddle point", "correct": false}, {"answer": "cannot say", "correct": true}], "tag": "derivative", "lecture_file": "03_fode_1"}, {"question": "How to plot the legend in the lower left corner of a matplotlib plot?", "type": "multiple_choice", "answers": [{"answer": "plt.legend(loc = 3)", "correct": true}, {"answer": "plt.lower_left('legend')", "correct": false}, {"answer": "plt.loc('lower left')", "correct": false}, {"answer": "plt.legend('3')", "correct": false}], "tag": "matplotlib", "lecture_file": "03_fode_1"}, {"question": "$5 dy/dx - y*e^x + 5*sin(x) = 0$ ; is a", "type": "multiple_choice", "answers": [{"answer": "homogeneous first-order linear equation", "correct": false}, {"answer": "non-homogeneous first order linear equation", "correct": true}, {"answer": "non-homogeneous first order non-linear equation", "correct": false}, {"answer": "homogeneous first-order non-linear equation", "correct": false}], "tag": "derivative", "lecture_file": "03_fode_1"}, {"question": "The values at which the function 'f' was evaluated when using sol = solve_ivp(f) can be read with", "type": "multiple_choice", "answers": [{"answer": "sol.x", "correct": false}, {"answer": "sol.X", "correct": false}, {"answer": "sol.t", "correct": true}, {"answer": "sol", "correct": false}], "tag": "scipy", "lecture_file": "03_fode_1"}, {"question": "Which of the following does not give an error?", "type": "multiple_choice", "answers": [{"answer": "solve_ivp(f, t_span = (0,1), y0 = y0, t_eval = np.linspace(0, 2))", "correct": false}, {"answer": "solve_ivp(f, t_span = (0,1), y0)", "correct": false}, {"answer": "solve_ivp(f, y0 = y0, t_eval = np.linspace(0,1))", "correct": false}, {"answer": "solve_ivp(f, t_span = [0,1], y0 = y0)", "correct": true}], "tag": "scipy", "lecture_file": "03_fode_1"}, {"question": "A solve_ivp() event occurs when the value the event function", "type": "multiple_choice", "answers": [{"answer": "becomes positive", "correct": false}, {"answer": "is equal to zero", "correct": true}, {"answer": "crosses the event value", "correct": false}, {"answer": "becomes negative", "correct": false}], "tag": "scipy", "lecture_file": "03_fode_1"}, {"question": "solve_ivp() makes solving first-order differential equations easier by", "type": "multiple_choice", "answers": [{"answer": "using an adaptive step size to increase the efficiency of the algorithm", "correct": false}, {"answer": "converging to an acceptable value", "correct": false}, {"answer": "helping to find the value of the independent variable at an instance of the dependent variable", "correct": false}, {"answer": "all of the above", "correct": true}], "tag": "scipy", "lecture_file": "03_fode_1"}, {"question": "Which of the following methods is not available in the solve_ivp() function?", "type": "multiple_choice", "answers": [{"answer": "Euler's Method", "correct": true}, {"answer": "Runge-Kutta", "correct": false}, {"answer": "Backward Differentiation", "correct": false}, {"answer": "LSODA", "correct": false}], "tag": "scipy", "lecture_file": "03_fode_1"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2212,8 +2259,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("OHynbzRQoowA")) {
-            show_questions(questionsOHynbzRQoowA,  OHynbzRQoowA); 
+          if(document.getElementById("OvCsdKXiUGnK")) {
+            show_questions(questionsOvCsdKXiUGnK,  OvCsdKXiUGnK); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2222,8 +2269,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("OHynbzRQoowA");
-        // console.log(document.getElementById("OHynbzRQoowA"));
+        //console.log("OvCsdKXiUGnK");
+        // console.log(document.getElementById("OvCsdKXiUGnK"));
 
         try_show();
         }
@@ -2231,7 +2278,7 @@ if (typeof version == 'undefined') {
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<section id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>We learned how to solve different types of first-order differential equations. Linear equations can be solved by integration, which has the benefit of providing an estimate of error if the <code class="docutils literal notranslate"><span class="pre">scipy.integrate.quad</span></code> function is used.</p>
 <p>Most first-order differential equations can be solved numerically with <code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code>. This solver allows you to specify the points the solution is evaluated on, and to define event functions that can terminate the integration, or record where events occur.</p>

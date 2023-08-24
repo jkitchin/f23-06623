@@ -61,8 +61,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/08-nla-2/08-nla-2';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -291,6 +290,55 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub-dev.cheme.cmu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jkitchin/f23-06623&urlpath=lab/tree/f23-06623/docs/lectures/08-nla-2/08-nla-2.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jkitchin/f23-06623/blob/main/docs/lectures/08-nla-2/08-nla-2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -460,18 +508,18 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="advanced-topics-in-nonlinear-algebra">
+<section id="advanced-topics-in-nonlinear-algebra">
 <h1>Advanced topics in nonlinear algebra<a class="headerlink" href="#advanced-topics-in-nonlinear-algebra" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
-<li><p>KEYWORDS: scipy.optimize.fsolve, numpy.roots, numpy.polyder, numpy.polyval, numpy.polyint, numpy.poly1d</p></li>
+<li><p>KEYWORDS: scipy.optimize.root, numpy.roots, numpy.polyder, numpy.polyval, numpy.polyint, numpy.poly1d</p></li>
 </ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="special-nonlinear-systems-polynomials">
+<section id="special-nonlinear-systems-polynomials">
 <h1>Special nonlinear systems - polynomials<a class="headerlink" href="#special-nonlinear-systems-polynomials" title="Permalink to this heading">#</a></h1>
-<p>Polynomials are a special class of nonlinear algebraic equations that are especially easy to solve. A polynomial is linear in the coefficients in front of the variable. If we consider the following <span class="math notranslate nohighlight">\(n^{th}\)</span> order polynomial:</p>
-<p><span class="math notranslate nohighlight">\(p_0 x^n + p_1 x^{(n-1)} + ... + p_{n-1} x + p_n = 0\)</span></p>
+<p>Polynomials are a special class of nonlinear algebraic equations that are especially easy to solve. A polynomial is linear in the coefficients in front of the variable. If we consider the following $n^{th}$ order polynomial:</p>
+<p>$p_0 x^n + p_1 x^{(n-1)} + … + p_{n-1} x + p_n = 0$</p>
 <p>Let’s be specific:</p>
-<p><span class="math notranslate nohighlight">\(x^2 + 8x + 16 = 0\)</span></p>
+<p>$x^2 + 8x + 16 = 0$</p>
 <p>We express this as [1, 8, 16].</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -593,7 +641,7 @@ document.write(`
 <p>Why is this so convenient?</p>
 <section id="cubic-equations-of-state">
 <h2>Cubic equations of state<a class="headerlink" href="#cubic-equations-of-state" title="Permalink to this heading">#</a></h2>
-<p>There are applications of polynomials in thermodynamics. The van der waal equation is a cubic polynomial <span class="math notranslate nohighlight">\(f(V) = V^3 - \frac{p n b + n R T}{p} V^2 + \frac{n^2 a}{p}V - \frac{n^3 a b}{p} = 0\)</span>, where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are constants, <span class="math notranslate nohighlight">\(p\)</span> is the pressure, <span class="math notranslate nohighlight">\(R\)</span> is the gas constant, <span class="math notranslate nohighlight">\(T\)</span> is an absolute temperature and <span class="math notranslate nohighlight">\(n\)</span> is the number of moles. The roots of this equation tell you the volume of the gas at those conditions.</p>
+<p>There are applications of polynomials in thermodynamics. The van der waal equation is a cubic polynomial $f(V) = V^3 - \frac{p n b + n R T}{p} V^2 + \frac{n^2 a}{p}V - \frac{n^3 a b}{p} = 0$, where $a$ and $b$ are constants, $p$ is the pressure, $R$ is the gas constant, $T$ is an absolute temperature and $n$ is the number of moles. The roots of this equation tell you the volume of the gas at those conditions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># numerical values of the constants</span>
@@ -646,7 +694,7 @@ document.write(`
 </div>
 </div>
 <p>Note that only one root is real (and even then, we have to interpret 0.j as not being imaginary. Also, in a cubic polynomial, there can only be two imaginary roots). In this case that means there is only one phase present.</p>
-<p>Remember fsolve? Two of these roots are not accessible in fsolve because they are imaginary.</p>
+<p>Remember root? Two of these roots are not accessible in root because they are imaginary.</p>
 </section>
 <section id="other-useful-things-to-remember-about-polynomials">
 <h2>Other useful things to remember about polynomials<a class="headerlink" href="#other-useful-things-to-remember-about-polynomials" title="Permalink to this heading">#</a></h2>
@@ -658,8 +706,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p><span class="math notranslate nohighlight">\(y = x^2 + 8x + 16\)</span></p>
-<p><span class="math notranslate nohighlight">\(y'(x) = 2x + 8\)</span></p>
+<p>$y = x^2 + 8x + 16$</p>
+<p>$y’(x) = 2x + 8$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
@@ -916,18 +964,19 @@ document.write(`
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="systems-of-nonlinear-equations">
+<section id="systems-of-nonlinear-equations">
 <h1>Systems of nonlinear equations<a class="headerlink" href="#systems-of-nonlinear-equations" title="Permalink to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>There is also <code class="docutils literal notranslate"><span class="pre">scipy.optimize.fsolve</span></code> which can also be used to solve nonlinear equations. This is an older function, and <code class="docutils literal notranslate"><span class="pre">root</span></code> is preferred for new code.</p>
 </div>
-<p>Analogously to systems of ordinary differential equations, with systems of nonlinear equations we define functions that will return a zero for each equation in the system. Then we have to pass an initial guess for each variable to fsolve, and it will return an array of values, one for each variable.</p>
+<p>Analogously to systems of ordinary differential equations, with systems of nonlinear equations we define functions that will return a zero for each equation in the system. Then we have to pass an initial guess for each variable to root, and it will return an array of values, one for each variable.</p>
 <p>It is considerably more difficult to visualize systems of nonlinear equations. With two equations and two unknowns it is sometimes easy to plot solutions, but not always.</p>
-<p>\begin{align}
-y &amp;=&amp; x^2 \
+<div class="amsmath math notranslate nohighlight" id="equation-fe899800-e560-4e19-a374-5dfab28f8a67">
+<span class="eqno">(1)<a class="headerlink" href="#equation-fe899800-e560-4e19-a374-5dfab28f8a67" title="Permalink to this equation">#</a></span>\[\begin{align}
+y &amp;=&amp; x^2 \\
 y &amp;=&amp; 8 - x^2
-\end{align}</p>
+\end{align}\]</div>
 <p>One approach to visualizing this is to plot the two curves.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1049,14 +1098,14 @@ y &amp;=&amp; 8 - x^2
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="a-harder-example">
+<section id="a-harder-example">
 <h1>A harder example<a class="headerlink" href="#a-harder-example" title="Permalink to this heading">#</a></h1>
 <p>It is not always easy to solve for one variable in terms of the other though. In that case, we can resort to an alternate graphical approach where we evaluate the objective function over a range of the variables, and look for regions where they overlap.</p>
 <p>Consider the solution to these equations (adapted from <a class="reference external" href="https://www.mathworks.com/help/optim/ug/fsolve.html">https://www.mathworks.com/help/optim/ug/fsolve.html</a>):</p>
-<p><span class="math notranslate nohighlight">\(e^{-e^{-(x_1 + x_2)}} = x_2 (1 + x_1^2)\)</span></p>
+<p>$e^{-e^{-(x_1 + x_2)}} = x_2 (1 + x_1^2)$</p>
 <p>and</p>
-<p><span class="math notranslate nohighlight">\(x_1 \cos(x_2) + x_2 \sin(x_1) = 1/2\)</span></p>
-<p>It is not possible to solve either one for one variable in terms of the other. So instead, we will compute the objective function for a range of <span class="math notranslate nohighlight">\(x_1, x_2\)</span> values, and then use a contour plot of each equation to see where there might be a solution.</p>
+<p>$x_1 \cos(x_2) + x_2 \sin(x_1) = 1/2$</p>
+<p>It is not possible to solve either one for one variable in terms of the other. So instead, we will compute the objective function for a range of $x_1, x_2$ values, and then use a contour plot of each equation to see where there might be a solution.</p>
 <p>The key to this visualization is where we draw the contours. A good choice is to highlight only the part of the solutions that bracket zero. Then we can see where they intersect, because there is probably a solution in that neighborhood.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1101,7 +1150,7 @@ y &amp;=&amp; 8 - x^2
 </div>
 </div>
 </div>
-<p>There is an intersection near <span class="math notranslate nohighlight">\(x_1=0.4\)</span>, and <span class="math notranslate nohighlight">\(x_2 = 0.6\)</span>. We can use that as an initial guess.</p>
+<p>There is an intersection near $x_1=0.4$, and $x_2 = 0.6$. We can use that as an initial guess.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">root</span>
@@ -1200,7 +1249,7 @@ y &amp;=&amp; 8 - x^2
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<section id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>We learned about a special class of nonlinear functions that are polynomials, and a series of useful functions to manipulate them.</p></li>
@@ -1209,7 +1258,7 @@ y &amp;=&amp; 8 - x^2
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Technically the polynomial functions here are not preferred anymore (<a class="reference external" href="https://numpy.org/doc/stable/reference/routines.polynomials.html">https://numpy.org/doc/stable/reference/routines.polynomials.html</a>). Instead, there is a new <code class="docutils literal notranslate"><span class="pre">numpy.polynomial</span></code> package that is preferred. This new package is more complete, and supposed to be more convenient. However, it introduces some surprising conventions, especially in polynomial fitting, that make it inconvenient in my opinion. That is why I do not recommend them here as the first entrypoint in using polynomials.</p>
+<p>Technically the polynomial functions here are not preferred anymore (https://numpy.org/doc/stable/reference/routines.polynomials.html). Instead, there is a new <code class="docutils literal notranslate"><span class="pre">numpy.polynomial</span></code> package that is preferred. This new package is more complete, and supposed to be more convenient. However, it introduces some surprising conventions, especially in polynomial fitting, that make it inconvenient in my opinion. That is why I do not recommend them here as the first entrypoint in using polynomials.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1219,13 +1268,13 @@ y &amp;=&amp; 8 - x^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="lhpznzROHiih" data-shufflequestions="False"
+<div class="output text_html"><div id="mOEqWbGKiRUP" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#lhpznzROHiih {
+#mOEqWbGKiRUP {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1395,7 +1444,249 @@ y &amp;=&amp; 8 - x^2
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionslhpznzROHiih=[{"question": "What will be the input to np.roots() to find the roots of the equation:<br>$5x^4 - 10x^2 + 20x - 50 = 0$", "type": "multiple_choice", "answers": [{"answer": "[5, -10, 20, -50]", "correct": false}, {"answer": "[1, -2, 4, 10]", "correct": false}, {"answer": "[5, -10, 20, -50, 0]", "correct": false}, {"answer": "[5, 0, -10, 20, -50]", "correct": true}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "p = [1, -5, 6]<br>x = np.linspace(0, 10, 20)<br>y = np.polyval(p, x)<br>y.shape = ?", "type": "multiple_choice", "answers": [{"answer": "(50,)", "correct": false}, {"answer": "(20,)", "correct": true}, {"answer": "(10,)", "correct": false}, {"answer": "(3,)", "correct": false}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "What will be the output of:<br>np.polyder([5, 0, 3, 5])", "type": "multiple_choice", "answers": [{"answer": "np.array([15, 2, 3])", "correct": false}, {"answer": "np.array([15, 3])", "correct": false}, {"answer": "np.array([15, 3, 0])", "correct": false}, {"answer": "np.array([15, 0, 3])", "correct": true}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "What will be the output of:<br>p = [1]<br>pint = np.polyint(p, 2, [1, 4])<br>print(pint)", "type": "multiple_choice", "answers": [{"answer": "[1.0, 1.0]", "correct": false}, {"answer": "[0.5, 1.0, 4.0]", "correct": true}, {"answer": "[0.167, 1.0, 4.0]", "correct": false}, {"answer": "Error", "correct": false}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "If 'p = np.poly1d([1, -5, 6])'<br>then 'print(p.r)' will output", "type": "multiple_choice", "answers": [{"answer": "[3, 2]", "correct": true}, {"answer": "Error", "correct": false}, {"answer": "False", "correct": false}, {"answer": "True", "correct": false}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "What will be a possible solution for<br>y = 3x^2 + 6<br>y = 6cos(x)", "type": "multiple_choice", "answers": [{"answer": "(0, 0)", "correct": false}, {"answer": "(6, 1)", "correct": false}, {"answer": "(0, 6)", "correct": true}, {"answer": "(6, 3)", "correct": false}], "tag": "matplotlib", "lecture_file": "08_nla_2"}, {"question": "How many contour lines will be plotted with:<br>plt.contour(X, Y, Z, levels = 10)", "type": "multiple_choice", "answers": [{"answer": "11", "correct": true}, {"answer": "10", "correct": false}, {"answer": "9", "correct": false}, {"answer": "50", "correct": false}], "tag": "matplotlib contour", "lecture_file": "08_nla_2"}, {"question": "<p>What is missing from the following objective function to solve a set of linear equations using root:</p>\n<pre><code>def f(P):\n    z1 = 3p + 6 - q + r\n    z2 = 5p + 5 - 2q + r\n    z3 = p - q + 2r\n    return np.array([z1, z2, z3])\n</code></pre>", "type": "multiple_choice", "answers": [{"answer": "z1, z2, z3 = P", "correct": false}, {"answer": "z1+z2+z3 = P", "correct": false}, {"answer": "p, q, r = P", "correct": true}, {"answer": "P = p, q, r", "correct": false}], "tag": "scipy", "lecture_file": "08_nla_2"}, {"question": "<p>Using <code>root(f, initial_guess)</code> with the following objective function to solve a set of linear equations:</p>\n<pre><code>def f(p, q, r):\n    z1 = 3p + 6 - q + r\n    z2 = 5p + 5 - 2q + r\n    z3 = p - q + 2r\n    return np.array([z1, z2, z3])\n</code></pre>", "type": "multiple_choice", "answers": [{"answer": "Will give an error", "correct": true}, {"answer": "The code would work but give the wrong answer.", "correct": false}, {"answer": "The code would work and give the correct  answer.", "correct": false}, {"answer": "The code will give the correct answer if we use: 'fsolve(f, p, args = (q, r))'", "correct": false}], "tag": "scipy", "lecture_file": "08_nla_2"}, {"question": "<p>How many contour lines will be plotted with:</p>\n<pre><code class=\"language-python\">plt.contour(X, Y, Z, levels = np.array([0.1, 0.2, 0.3, -0.1, -0.2, -0.3]))\n</code></pre>", "type": "multiple_choice", "answers": [{"answer": "6", "correct": false}, {"answer": "5", "correct": false}, {"answer": "7", "correct": false}, {"answer": "Error", "correct": true}], "tag": "matplotlib contour", "lecture_file": "08_nla_2"}];
+</style></div><script type="application/javascript">var questionsmOEqWbGKiRUP=[
+  {
+    "question": "What will be the input to np.roots() to find the roots of the equation:<br>$5x^4 - 10x^2 + 20x - 50 = 0$",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "[5, -10, 20, -50]",
+        "correct": false
+      },
+      {
+        "answer": "[1, -2, 4, 10]",
+        "correct": false
+      },
+      {
+        "answer": "[5, -10, 20, -50, 0]",
+        "correct": false
+      },
+      {
+        "answer": "[5, 0, -10, 20, -50]",
+        "correct": true
+      }
+    ],
+    "tag": "numpy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "p = [1, -5, 6]<br>x = np.linspace(0, 10, 20)<br>y = np.polyval(p, x)<br>y.shape = ?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "(50,)",
+        "correct": false
+      },
+      {
+        "answer": "(20,)",
+        "correct": true
+      },
+      {
+        "answer": "(10,)",
+        "correct": false
+      },
+      {
+        "answer": "(3,)",
+        "correct": false
+      }
+    ],
+    "tag": "numpy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "What will be the output of:<br>np.polyder([5, 0, 3, 5])",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "np.array([15, 2, 3])",
+        "correct": false
+      },
+      {
+        "answer": "np.array([15, 3])",
+        "correct": false
+      },
+      {
+        "answer": "np.array([15, 3, 0])",
+        "correct": false
+      },
+      {
+        "answer": "np.array([15, 0, 3])",
+        "correct": true
+      }
+    ],
+    "tag": "numpy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "What will be the output of:<br>p = [1]<br>pint = np.polyint(p, 2, [1, 4])<br>print(pint)",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "[1.0, 1.0]",
+        "correct": false
+      },
+      {
+        "answer": "[0.5, 1.0, 4.0]",
+        "correct": true
+      },
+      {
+        "answer": "[0.167, 1.0, 4.0]",
+        "correct": false
+      },
+      {
+        "answer": "Error",
+        "correct": false
+      }
+    ],
+    "tag": "numpy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "If 'p = np.poly1d([1, -5, 6])'<br>then 'print(p.r)' will output",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "[3, 2]",
+        "correct": true
+      },
+      {
+        "answer": "Error",
+        "correct": false
+      },
+      {
+        "answer": "False",
+        "correct": false
+      },
+      {
+        "answer": "True",
+        "correct": false
+      }
+    ],
+    "tag": "numpy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "What will be a possible solution for<br>y = 3x^2 + 6<br>y = 6cos(x)",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "(0, 0)",
+        "correct": false
+      },
+      {
+        "answer": "(6, 1)",
+        "correct": false
+      },
+      {
+        "answer": "(0, 6)",
+        "correct": true
+      },
+      {
+        "answer": "(6, 3)",
+        "correct": false
+      }
+    ],
+    "tag": "matplotlib",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "How many contour lines will be plotted with:<br>plt.contour(X, Y, Z, levels = 10)",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "11",
+        "correct": true
+      },
+      {
+        "answer": "10",
+        "correct": false
+      },
+      {
+        "answer": "9",
+        "correct": false
+      },
+      {
+        "answer": "50",
+        "correct": false
+      }
+    ],
+    "tag": "matplotlib contour",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "<p>What is missing from the following objective function to solve a set of linear equations using root:</p>\n<pre><code>def f(P):\n    z1 = 3p + 6 - q + r\n    z2 = 5p + 5 - 2q + r\n    z3 = p - q + 2r\n    return np.array([z1, z2, z3])\n</code></pre>",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "z1, z2, z3 = P",
+        "correct": false
+      },
+      {
+        "answer": "z1+z2+z3 = P",
+        "correct": false
+      },
+      {
+        "answer": "p, q, r = P",
+        "correct": true
+      },
+      {
+        "answer": "P = p, q, r",
+        "correct": false
+      }
+    ],
+    "tag": "scipy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "<p>Using <code>root(f, initial_guess)</code> with the following objective function to solve a set of linear equations:</p>\n<pre><code>def f(p, q, r):\n    z1 = 3p + 6 - q + r\n    z2 = 5p + 5 - 2q + r\n    z3 = p - q + 2r\n    return np.array([z1, z2, z3])\n</code></pre>",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Will give an error",
+        "correct": true
+      },
+      {
+        "answer": "The code would work but give the wrong answer.",
+        "correct": false
+      },
+      {
+        "answer": "The code would work and give the correct  answer.",
+        "correct": false
+      },
+      {
+        "answer": "The code will give the correct answer if we use: 'root(f, p, args = (q, r))'",
+        "correct": false
+      }
+    ],
+    "tag": "scipy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "<p>How many contour lines will be plotted with:</p>\n<pre><code class=\"language-python\">plt.contour(X, Y, Z, levels = np.array([0.1, 0.2, 0.3, -0.1, -0.2, -0.3]))\n</code></pre>",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "6",
+        "correct": false
+      },
+      {
+        "answer": "5",
+        "correct": false
+      },
+      {
+        "answer": "7",
+        "correct": false
+      },
+      {
+        "answer": "Error",
+        "correct": true
+      }
+    ],
+    "tag": "matplotlib contour",
+    "lecture_file": "08_nla_2"
+  }
+]
+;
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2144,8 +2435,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("lhpznzROHiih")) {
-            show_questions(questionslhpznzROHiih,  lhpznzROHiih); 
+          if(document.getElementById("mOEqWbGKiRUP")) {
+            show_questions(questionsmOEqWbGKiRUP,  mOEqWbGKiRUP); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2154,8 +2445,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("lhpznzROHiih");
-        // console.log(document.getElementById("lhpznzROHiih"));
+        //console.log("mOEqWbGKiRUP");
+        // console.log(document.getElementById("mOEqWbGKiRUP"));
 
         try_show();
         }

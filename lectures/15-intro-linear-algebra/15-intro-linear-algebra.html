@@ -61,8 +61,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/15-intro-linear-algebra/15-intro-linear-algebra';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -291,6 +290,55 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub-dev.cheme.cmu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jkitchin/f23-06623&urlpath=lab/tree/f23-06623/docs/lectures/15-intro-linear-algebra/15-intro-linear-algebra.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jkitchin/f23-06623/blob/main/docs/lectures/15-intro-linear-algebra/15-intro-linear-algebra.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -472,7 +520,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-linear-algebra">
+<section id="introduction-to-linear-algebra">
 <h1>Introduction to Linear algebra<a class="headerlink" href="#introduction-to-linear-algebra" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>KEYWORDS: numpy.transpose, numpy.eye, numpy.diag, numpy.tri, &#64;, numpy.transpose, numpy.allclose, numpy.linalg.det, numpy.linalg.inv, numpy.linalg.matrix_rank, numpy.linalg.cond, numpy.linalg.solve</p></li>
@@ -483,7 +531,7 @@ document.write(`
 </div>
 <p><img alt="image" src="https://drive.google.com/uc?id=1kcH91Ew81vL4pQcrpFN5ExzLu8aNKHXy" /></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="multidimensional-arrays">
+<section id="multidimensional-arrays">
 <h1>Multidimensional arrays<a class="headerlink" href="#multidimensional-arrays" title="Permalink to this heading">#</a></h1>
 <p>The foundation of linear algebra in Python is in multidimensional arrays.</p>
 <div class="cell docutils container">
@@ -1119,9 +1167,9 @@ document.write(`
 <section id="matrix-algebra">
 <h2>Matrix algebra<a class="headerlink" href="#matrix-algebra" title="Permalink to this heading">#</a></h2>
 <p>To do matrix multiplication you use the &#64; operator (This is new in Python 3.5), or the <code class="docutils literal notranslate"><span class="pre">numpy.dot</span></code> function. If you are not familiar with the idea of matrix multiplication you should review it at <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">https://en.wikipedia.org/wiki/Matrix_multiplication</a>.</p>
-<p>We write matrix multiplication as: <span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{B}\)</span>. We cannot multiply any two arrays; their shapes must follow some rules. We can multiply any two arrays with these shapes:</p>
+<p>We write matrix multiplication as: $\mathbf{A} \mathbf{B}$. We cannot multiply any two arrays; their shapes must follow some rules. We can multiply any two arrays with these shapes:</p>
 <p>(m, c) * (c, n) = (m, n)</p>
-<p>In other words the number of columns in the first array must equal the number of rows in the second array. This means it is not generally true that <span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{B} = \mathbf{B} \mathbf{A}\)</span>.</p>
+<p>In other words the number of columns in the first array must equal the number of rows in the second array. This means it is not generally true that $\mathbf{A} \mathbf{B} = \mathbf{B} \mathbf{A}$.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span>
@@ -1190,10 +1238,10 @@ document.write(`
 </div>
 <p>These rules are true:</p>
 <ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\((k \mathbf{A})\mathbf{B} = k(\mathbf{A} \mathbf{B}) = \mathbf{A}(k\mathbf{B})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbf{A}(\mathbf{B}\mathbf{C}) = (\mathbf{A}\mathbf{B})\mathbf{C}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((\mathbf{A} + \mathbf{B})\mathbf{C} = \mathbf{A}\mathbf{B} + \mathbf{A}\mathbf{C}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbf{C}(\mathbf{A} + \mathbf{B}) = \mathbf{C}\mathbf{A} + \mathbf{C}\mathbf{B}\)</span></p></li>
+<li><p>$(k \mathbf{A})\mathbf{B} = k(\mathbf{A} \mathbf{B}) = \mathbf{A}(k\mathbf{B})$</p></li>
+<li><p>$\mathbf{A}(\mathbf{B}\mathbf{C}) = (\mathbf{A}\mathbf{B})\mathbf{C}$</p></li>
+<li><p>$(\mathbf{A} + \mathbf{B})\mathbf{C} = \mathbf{A}\mathbf{B} + \mathbf{A}\mathbf{C}$</p></li>
+<li><p>$\mathbf{C}(\mathbf{A} + \mathbf{B}) = \mathbf{C}\mathbf{A} + \mathbf{C}\mathbf{B}$</p></li>
 </ol>
 <p><strong>Exercise</strong> construct examples of each of these rules.</p>
 <div class="cell docutils container">
@@ -1289,13 +1337,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="YexHhQElLlJj" data-shufflequestions="False"
+<div class="output text_html"><div id="szXzIEsgZJDC" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#YexHhQElLlJj {
+#szXzIEsgZJDC {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1465,7 +1513,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsYexHhQElLlJj=[{"question": "<p>What will be the output of the following code:</p><br><p><code>x = np.array([4, 3, 2, 1])<br>for I in x:<br>    print(I)</code></p>", "type": "multiple_choice", "answers": [{"answer": "error", "correct": false}, {"answer": "4, 3, 2, 1", "correct": true}, {"answer": "1, 2, 3, 4", "correct": false}, {"answer": "I, I, I, I", "correct": false}], "tag": "arrays", "lecture_file": "02_integration_1"}, {"question": "For x = np.array([1, 2, 3, 4, 5]), what is x[-2]", "type": "multiple_choice", "answers": [{"answer": "-1", "correct": false}, {"answer": "1", "correct": false}, {"answer": "4", "correct": true}, {"answer": "5", "correct": false}], "tag": "arrays", "lecture_file": "02_integration_1"}, {"question": "For x = np.array([1, 2, 3, 4, 5]), what is x[::-1]", "type": "multiple_choice", "answers": [{"answer": "array([5])", "correct": false}, {"answer": "array([5, 4, ,3, 2, 1])", "correct": true}, {"answer": "array([5, 5, 5, 5, 5 ])", "correct": false}, {"answer": "array([-1])", "correct": false}], "tag": "arrays", "lecture_file": "02_integration_1"}, {"question": "<p>Given</p><br><pre><code>a = np.linspace(0, 5, 2)<br>b = np.linspace(5, 10, 3)<br>c = np.linspace(10, 15, 5)<br><br>A, _ = np.meshgrid(a, b, c)<br></code></pre><br><p>What is the shape of the array A?</p>", "type": "multiple_choice", "answers": [{"answer": "(3, 2, 5)", "correct": true}, {"answer": "(5, 5, 5)", "correct": false}, {"answer": "(2, 3, 5)", "correct": false}, {"answer": "(5, 3, 2)", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "<pre><code>A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])<br>B = np.array([1, 1, 1])<br></code></pre><br><p>What is the shape of 'A+B'?</p>", "type": "multiple_choice", "answers": [{"answer": "(3, 3)", "correct": true}, {"answer": "(1, 3)", "correct": false}, {"answer": "(3, 1)", "correct": false}, {"answer": "(1, 1)", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "<pre><code>A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])<br>B = np.array([1])<br></code></pre><br><p>What is the value of 'A+B'?</p>", "type": "multiple_choice", "answers": [{"answer": "np.array([[2, 2, 3], [5, 5, 6], [8, 8, 9]])", "correct": false}, {"answer": "ValueError: operands could not be broadcast together with shapes (3,3) (1,) ", "correct": false}, {"answer": "np.array([[2, 3, 4], [5, 6, 7], [8, 9, 10]])", "correct": true}, {"answer": "np.array([[2, 3, 4], [4, 5, 6], [7, 8, 9]])", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "What will be the value of b: <br><br>a = np.linspace(6, 10, 5)<br>b = *a", "type": "multiple_choice", "answers": [{"answer": "Memory address of 'a'", "correct": false}, {"answer": "6.0  7.0  8.0  9.0  10.0", "correct": false}, {"answer": "SyntaxError", "correct": true}, {"answer": "np.array([6.0, 7.0, 8.0, 9.0, 10.0])", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "What is the output of:<br><br>a = np.linspace(6, 10, 5)<br>print(*a)", "type": "multiple_choice", "answers": [{"answer": "Memory address of 'a'", "correct": false}, {"answer": "6.0  7.0  8.0  9.0  10.0", "correct": true}, {"answer": "SyntaxError", "correct": false}, {"answer": "np.array([6.0, 7.0, 8.0, 9.0, 10.0])", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "What will be the output of X[:, 2], where<br>X = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])", "type": "multiple_choice", "answers": [{"answer": "array([4, 5, 6])", "correct": false}, {"answer": "array([2, 5, 8])", "correct": false}, {"answer": "array([1, 2])", "correct": false}, {"answer": "array([3, 6, 9])", "correct": true}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "A = np.array([[12, 15], [18, 21]])<br>B = np.array([6, 3])<br>A / B = ?", "type": "multiple_choice", "answers": [{"answer": "np.array([[2, 5], [18, 21]])", "correct": false}, {"answer": "np.array([[12, 15], [3, 7]])", "correct": false}, {"answer": "Error", "correct": false}, {"answer": "np.array([[2, 5], [3, 7]])", "correct": true}], "tag": "arrays", "lecture_file": "15_intro_linear_algebra"}];
+</style></div><script type="application/javascript">var questionsszXzIEsgZJDC=[{"question": "<p>What will be the output of the following code:</p><br><p><code>x = np.array([4, 3, 2, 1])<br>for I in x:<br>    print(I)</code></p>", "type": "multiple_choice", "answers": [{"answer": "error", "correct": false}, {"answer": "4, 3, 2, 1", "correct": true}, {"answer": "1, 2, 3, 4", "correct": false}, {"answer": "I, I, I, I", "correct": false}], "tag": "arrays", "lecture_file": "02_integration_1"}, {"question": "For x = np.array([1, 2, 3, 4, 5]), what is x[-2]", "type": "multiple_choice", "answers": [{"answer": "-1", "correct": false}, {"answer": "1", "correct": false}, {"answer": "4", "correct": true}, {"answer": "5", "correct": false}], "tag": "arrays", "lecture_file": "02_integration_1"}, {"question": "For x = np.array([1, 2, 3, 4, 5]), what is x[::-1]", "type": "multiple_choice", "answers": [{"answer": "array([5])", "correct": false}, {"answer": "array([5, 4, ,3, 2, 1])", "correct": true}, {"answer": "array([5, 5, 5, 5, 5 ])", "correct": false}, {"answer": "array([-1])", "correct": false}], "tag": "arrays", "lecture_file": "02_integration_1"}, {"question": "<p>Given</p><br><pre><code>a = np.linspace(0, 5, 2)<br>b = np.linspace(5, 10, 3)<br>c = np.linspace(10, 15, 5)<br><br>A, _ = np.meshgrid(a, b, c)<br></code></pre><br><p>What is the shape of the array A?</p>", "type": "multiple_choice", "answers": [{"answer": "(3, 2, 5)", "correct": true}, {"answer": "(5, 5, 5)", "correct": false}, {"answer": "(2, 3, 5)", "correct": false}, {"answer": "(5, 3, 2)", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "<pre><code>A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])<br>B = np.array([1, 1, 1])<br></code></pre><br><p>What is the shape of 'A+B'?</p>", "type": "multiple_choice", "answers": [{"answer": "(3, 3)", "correct": true}, {"answer": "(1, 3)", "correct": false}, {"answer": "(3, 1)", "correct": false}, {"answer": "(1, 1)", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "<pre><code>A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])<br>B = np.array([1])<br></code></pre><br><p>What is the value of 'A+B'?</p>", "type": "multiple_choice", "answers": [{"answer": "np.array([[2, 2, 3], [5, 5, 6], [8, 8, 9]])", "correct": false}, {"answer": "ValueError: operands could not be broadcast together with shapes (3,3) (1,) ", "correct": false}, {"answer": "np.array([[2, 3, 4], [5, 6, 7], [8, 9, 10]])", "correct": true}, {"answer": "np.array([[2, 3, 4], [4, 5, 6], [7, 8, 9]])", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "What will be the value of b: <br><br>a = np.linspace(6, 10, 5)<br>b = *a", "type": "multiple_choice", "answers": [{"answer": "Memory address of 'a'", "correct": false}, {"answer": "6.0  7.0  8.0  9.0  10.0", "correct": false}, {"answer": "SyntaxError", "correct": true}, {"answer": "np.array([6.0, 7.0, 8.0, 9.0, 10.0])", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "What is the output of:<br><br>a = np.linspace(6, 10, 5)<br>print(*a)", "type": "multiple_choice", "answers": [{"answer": "Memory address of 'a'", "correct": false}, {"answer": "6.0  7.0  8.0  9.0  10.0", "correct": true}, {"answer": "SyntaxError", "correct": false}, {"answer": "np.array([6.0, 7.0, 8.0, 9.0, 10.0])", "correct": false}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "What will be the output of X[:, 2], where<br>X = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])", "type": "multiple_choice", "answers": [{"answer": "array([4, 5, 6])", "correct": false}, {"answer": "array([2, 5, 8])", "correct": false}, {"answer": "array([1, 2])", "correct": false}, {"answer": "array([3, 6, 9])", "correct": true}], "tag": "arrays", "lecture_file": "04_fode_2"}, {"question": "A = np.array([[12, 15], [18, 21]])<br>B = np.array([6, 3])<br>A / B = ?", "type": "multiple_choice", "answers": [{"answer": "np.array([[2, 5], [18, 21]])", "correct": false}, {"answer": "np.array([[12, 15], [3, 7]])", "correct": false}, {"answer": "Error", "correct": false}, {"answer": "np.array([[2, 5], [3, 7]])", "correct": true}], "tag": "arrays", "lecture_file": "15_intro_linear_algebra"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2214,8 +2262,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("YexHhQElLlJj")) {
-            show_questions(questionsYexHhQElLlJj,  YexHhQElLlJj); 
+          if(document.getElementById("szXzIEsgZJDC")) {
+            show_questions(questionsszXzIEsgZJDC,  szXzIEsgZJDC); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2224,8 +2272,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("YexHhQElLlJj");
-        // console.log(document.getElementById("YexHhQElLlJj"));
+        //console.log("szXzIEsgZJDC");
+        // console.log(document.getElementById("szXzIEsgZJDC"));
 
         try_show();
         }
@@ -2233,12 +2281,12 @@ if (typeof version == 'undefined') {
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="linear-algebra-functions-of-arrays">
+<section id="linear-algebra-functions-of-arrays">
 <h1>Linear algebra functions of arrays<a class="headerlink" href="#linear-algebra-functions-of-arrays" title="Permalink to this heading">#</a></h1>
 <section id="the-transpose">
 <h2>The transpose<a class="headerlink" href="#the-transpose" title="Permalink to this heading">#</a></h2>
-<p>In the transpose operation you swap the rows and columns of an array. The transpose of A is denoted <span class="math notranslate nohighlight">\(\mathbf{A}^T\)</span>.</p>
-<p><a class="reference external" href="https://jamboard.google.com/d/16zPBsWOnT_Vkh106vWozsrT_sGYoJ5gPo_ZzyTIenE4/viewer?f=3">https://jamboard.google.com/d/16zPBsWOnT_Vkh106vWozsrT_sGYoJ5gPo_ZzyTIenE4/viewer?f=3</a></p>
+<p>In the transpose operation you swap the rows and columns of an array. The transpose of A is denoted $\mathbf{A}^T$.</p>
+<p>https://jamboard.google.com/d/16zPBsWOnT_Vkh106vWozsrT_sGYoJ5gPo_ZzyTIenE4/viewer?f=3</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span>
@@ -2293,7 +2341,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 </div>
-<p>A matrix is called <em>symmetric</em> if it is equal to its transpose: <span class="math notranslate nohighlight">\(\mathbf{A} == \mathbf{A}^T\)</span>.</p>
+<p>A matrix is called <em>symmetric</em> if it is equal to its transpose: $\mathbf{A} == \mathbf{A}^T$.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
@@ -2308,7 +2356,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 </div>
-<p>A matrix is called <em>skew symmetric</em> if <span class="math notranslate nohighlight">\(\mathbf{A}^T = -\mathbf{A}\)</span>.</p>
+<p>A matrix is called <em>skew symmetric</em> if $\mathbf{A}^T = -\mathbf{A}$.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
@@ -2323,7 +2371,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 </div>
-<p>A matrix is called <em>orthogonal</em> if this equation is true: <span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{A}^T = \mathbf{I}\)</span>. Here is an example of an orthogonal matrix:</p>
+<p>A matrix is called <em>orthogonal</em> if this equation is true: $\mathbf{A} \mathbf{A}^T = \mathbf{I}$. Here is an example of an orthogonal matrix:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
@@ -2343,10 +2391,10 @@ if (typeof version == 'undefined') {
 </div>
 <p>Here are the four rules for matrix multiplication and transposition</p>
 <ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\((\mathbf{A}^T)^T = \mathbf{A}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((\mathbf{A}+\mathbf{B})^T = \mathbf{A}^T+\mathbf{B}^T\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((\mathit{c}\mathbf{A})^T = \mathit{c}\mathbf{A}^T\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((\mathbf{AB})^T = \mathbf{B}^T\mathbf{A}^T\)</span></p></li>
+<li><p>$(\mathbf{A}^T)^T = \mathbf{A}$</p></li>
+<li><p>$(\mathbf{A}+\mathbf{B})^T = \mathbf{A}^T+\mathbf{B}^T$</p></li>
+<li><p>$(\mathit{c}\mathbf{A})^T = \mathit{c}\mathbf{A}^T$</p></li>
+<li><p>$(\mathbf{AB})^T = \mathbf{B}^T\mathbf{A}^T$</p></li>
 </ol>
 <p><strong>Exercise</strong> Come up with an example for each rule.</p>
 </section>
@@ -2382,7 +2430,7 @@ if (typeof version == 'undefined') {
 <section id="the-inverse">
 <h2>The inverse<a class="headerlink" href="#the-inverse" title="Permalink to this heading">#</a></h2>
 <p>A matrix is invertible if and only if the determinant of the matrix is non-zero.</p>
-<p>The inverse is defined by: <span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{A}^{-1} = \mathbf{I}\)</span>.</p>
+<p>The inverse is defined by: $\mathbf{A} \mathbf{A}^{-1} = \mathbf{I}$.</p>
 <p>We compute the inverse as:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2437,12 +2485,12 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 </div>
-<p>Another way to define an orthogonal matrix is <span class="math notranslate nohighlight">\(\mathbf{A}^T = \mathbf{A}^{-1}\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{A}^T = \mathbf{I}\)</span>.</p>
-<p>Now left multiply each side by <span class="math notranslate nohighlight">\(\mathbf{A}^{-1}\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(\mathbf{A}^{-1} \mathbf{A} \mathbf{A}^T = \mathbf{A}^{-1} \mathbf{I}\)</span>.</p>
+<p>Another way to define an orthogonal matrix is $\mathbf{A}^T = \mathbf{A}^{-1}$.</p>
+<p>$\mathbf{A} \mathbf{A}^T = \mathbf{I}$.</p>
+<p>Now left multiply each side by $\mathbf{A}^{-1}$.</p>
+<p>$\mathbf{A}^{-1} \mathbf{A} \mathbf{A}^T = \mathbf{A}^{-1} \mathbf{I}$.</p>
 <p>which leads to:
-<span class="math notranslate nohighlight">\(\mathbf{A}^T = \mathbf{A}^{-1}\)</span></p>
+$\mathbf{A}^T = \mathbf{A}^{-1}$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="mi">12</span>
@@ -2509,7 +2557,7 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <p>Here is an example of a rank-deficient array. The last row is a linear combination of the first two rows.</p>
-<p><a class="reference external" href="https://jamboard.google.com/d/16zPBsWOnT_Vkh106vWozsrT_sGYoJ5gPo_ZzyTIenE4/viewer?f=3">https://jamboard.google.com/d/16zPBsWOnT_Vkh106vWozsrT_sGYoJ5gPo_ZzyTIenE4/viewer?f=3</a></p>
+<p>https://jamboard.google.com/d/16zPBsWOnT_Vkh106vWozsrT_sGYoJ5gPo_ZzyTIenE4/viewer?f=3</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
@@ -2648,18 +2696,19 @@ if (typeof version == 'undefined') {
 <p>What all of these mean is that we only have two independent rows in the array.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="solving-linear-algebraic-equations">
+<section id="solving-linear-algebraic-equations">
 <h1>Solving linear algebraic equations<a class="headerlink" href="#solving-linear-algebraic-equations" title="Permalink to this heading">#</a></h1>
 <p>One of the key reasons to develop the tools above is for solving linear equations. Let’s consider an example.</p>
 <p>Given these equations, find [x1, x2, x3]</p>
-<p>\begin{eqnarray}
-x_1 - x_2 + x_3 &amp;=&amp; 0 \
-10 x_2 + 25 x_3 &amp;=&amp; 90 \
+<div class="amsmath math notranslate nohighlight" id="equation-93266544-c532-4c82-90b6-40983c15c097">
+<span class="eqno">(3)<a class="headerlink" href="#equation-93266544-c532-4c82-90b6-40983c15c097" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+x_1 - x_2 + x_3 &amp;=&amp; 0 \\
+10 x_2 + 25 x_3 &amp;=&amp; 90 \\
 20 x_1 + 10 x_2 &amp;=&amp; 80
-\end{eqnarray}</p>
+\end{eqnarray}\]</div>
 <p>reference: Kreysig, Advanced Engineering Mathematics, 9th ed. Sec. 7.3</p>
-<p>First, we express this in the form <span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{x} = \mathbf{b}\)</span>.</p>
-<p><a class="reference external" href="https://jamboard.google.com/d/16zPBsWOnT_Vkh106vWozsrT_sGYoJ5gPo_ZzyTIenE4/viewer?f=4">https://jamboard.google.com/d/16zPBsWOnT_Vkh106vWozsrT_sGYoJ5gPo_ZzyTIenE4/viewer?f=4</a></p>
+<p>First, we express this in the form $\mathbf{A} \mathbf{x} = \mathbf{b}$.</p>
+<p>https://jamboard.google.com/d/16zPBsWOnT_Vkh106vWozsrT_sGYoJ5gPo_ZzyTIenE4/viewer?f=4</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
@@ -2694,10 +2743,10 @@ x_1 - x_2 + x_3 &amp;=&amp; 0 \
 </div>
 </div>
 </div>
-<p>Now, if we <em>left</em> multiply by <span class="math notranslate nohighlight">\(\mathbf{A}^{-1}\)</span> then we get:</p>
-<p><span class="math notranslate nohighlight">\(\mathbf{A}^{-1} \mathbf{A} \mathbf{x} = \mathbf{A}^{-1} \mathbf{b}\)</span> which simplifies to:</p>
-<p><span class="math notranslate nohighlight">\(\mathbf{x} = \mathbf{A}^{-1} \mathbf{b}\)</span></p>
-<p>How do we know if there should be a solution?  First we make the augmented matrix <span class="math notranslate nohighlight">\(\mathbf{A} | \mathbf{b}\)</span>. Note for this we need <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> as a column vector. Here is one way to make that happen. We make it a row in a 2D array, and transpose that to make it a column.</p>
+<p>Now, if we <em>left</em> multiply by $\mathbf{A}^{-1}$ then we get:</p>
+<p>$\mathbf{A}^{-1} \mathbf{A} \mathbf{x} = \mathbf{A}^{-1} \mathbf{b}$ which simplifies to:</p>
+<p>$\mathbf{x} = \mathbf{A}^{-1} \mathbf{b}$</p>
+<p>How do we know if there should be a solution?  First we make the augmented matrix $\mathbf{A} | \mathbf{b}$. Note for this we need $\mathbf{b}$ as a column vector. Here is one way to make that happen. We make it a row in a 2D array, and transpose that to make it a column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Awiggle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">A</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">b</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">])</span>
@@ -2727,7 +2776,7 @@ x_1 - x_2 + x_3 &amp;=&amp; 0 \
 </div>
 </div>
 </div>
-<p>If the rank of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and the rank of <span class="math notranslate nohighlight">\(\mathbf{\tilde{A}}\)</span> are the same, then we will have one unique solution. if the rank is less than the number of unknowns, there maybe an infinite number of solutions.</p>
+<p>If the rank of $\mathbf{A}$ and the rank of $\mathbf{\tilde{A}}$ are the same, then we will have one unique solution. if the rank is less than the number of unknowns, there maybe an infinite number of solutions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">Awiggle</span><span class="p">)</span>
@@ -2740,7 +2789,7 @@ x_1 - x_2 + x_3 &amp;=&amp; 0 \
 </div>
 </div>
 </div>
-<p>If <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> is not all zeros, we can also use the fact that a non-zero determinant leads to a unique solution.</p>
+<p>If $\mathbf{b}$ is not all zeros, we can also use the fact that a non-zero determinant leads to a unique solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -2807,7 +2856,7 @@ x_1 - x_2 + x_3 &amp;=&amp; 0 \
 </div>
 </div>
 </div>
-<p>The formula we used above to solve for <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is not commonly used. It turns out computing the inverse of a matrix is moderately expensive. For small systems it is negligible, but the time to compute the inverse grows as <span class="math notranslate nohighlight">\(N^3\)</span>, and there are more efficient ways to solve these when the number of equations grows large.</p>
+<p>The formula we used above to solve for $\mathbf{x}$ is not commonly used. It turns out computing the inverse of a matrix is moderately expensive. For small systems it is negligible, but the time to compute the inverse grows as $N^3$, and there are more efficient ways to solve these when the number of equations grows large.</p>
 <p>This next block takes a while to run (tens of seconds).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2831,7 +2880,7 @@ x_1 - x_2 + x_3 &amp;=&amp; 0 \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/99e679222e3e2ed44bbc3a2d2d3a119624e0e59219ba8c04a76f58dcd0e2c1b0.png" src="../../_images/99e679222e3e2ed44bbc3a2d2d3a119624e0e59219ba8c04a76f58dcd0e2c1b0.png" />
+<img alt="../../_images/c5ed4fc9136d7be8b24eafe0c8c1c608c6dda9e6cbfa1b3e8ea92312488003f0.png" src="../../_images/c5ed4fc9136d7be8b24eafe0c8c1c608c6dda9e6cbfa1b3e8ea92312488003f0.png" />
 </div>
 </div>
 <p>As usual, there is a function we can use to solve this.</p>
@@ -2874,7 +2923,7 @@ x_1 - x_2 + x_3 &amp;=&amp; 0 \
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/41ac24137e61821563f6741b59ef3609d68bf2f70a4df881e934509192970fe4.png" src="../../_images/41ac24137e61821563f6741b59ef3609d68bf2f70a4df881e934509192970fe4.png" />
+<img alt="../../_images/1c2f90ff7aeed394d27f11e2308527aab6b11176a0475a1828784a680cf5301a.png" src="../../_images/1c2f90ff7aeed394d27f11e2308527aab6b11176a0475a1828784a680cf5301a.png" />
 </div>
 </div>
 <p>You can see by inspection that solve must not be using an inverse to solve these equations; if it did, it would take much longer to solve them. It is remarkable that we can solve ~5000 simultaneous equations here in about 1-2 seconds!</p>
@@ -2888,13 +2937,13 @@ x_1 - x_2 + x_3 &amp;=&amp; 0 \
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="SqzkdiuWKLVI" data-shufflequestions="False"
+<div class="output text_html"><div id="PPnxTkgAvFuX" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#SqzkdiuWKLVI {
+#PPnxTkgAvFuX {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -3064,7 +3113,7 @@ x_1 - x_2 + x_3 &amp;=&amp; 0 \
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsSqzkdiuWKLVI=[{"question": "A = np.array([[1, 2, 3], [3, 2, 1]])<br>B = np.array([4, 5, 6])<br>A @ B  = C<br>We can say that", "type": "multiple_choice", "answers": [{"answer": "C is a linear combination of the columns in A", "correct": true}, {"answer": "C is a linear combination of the rows in A", "correct": false}, {"answer": "The operation would give an error.", "correct": false}, {"answer": "Shape of C = (1, 2)", "correct": false}], "tag": "matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "A = np.array([1, 1, 1])<br>B = np.array([[1], [1], [1]])<br>(A @ B).shape = ?", "type": "multiple_choice", "answers": [{"answer": "(1, 3)", "correct": false}, {"answer": "(1)", "correct": true}, {"answer": "(3, 1)", "correct": false}, {"answer": "(3, 3)", "correct": false}], "tag": "matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "What would be the inverse of the matrix:<br>np.array([[3, -6], [2, -4]])", "type": "multiple_choice", "answers": [{"answer": "Inverse does not exist", "correct": true}, {"answer": "np.array([[2, -4], [3, -6]])", "correct": false}, {"answer": "np.array([[-3, 6],  [-2, 4]])", "correct": false}, {"answer": "np.array([[6, -9],  [3, -4]])", "correct": false}], "tag": "matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "What will be the shape of the final matrix, if the 4 matrices below are multiplied in the way shown:<br>np.array([1, 1]) @ np.array([[1, 2], [3, 4], [5, 6]).T @ np.array([1, 2, 3]).T", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": false}, {"answer": "(1)", "correct": true}, {"answer": "(1, 3)", "correct": false}, {"answer": "(2, 3)", "correct": false}], "tag": "matrices", "lecture_file": "16_linear_algebra"}, {"question": "What will be the shape of the final matrix, if the 4 matrices below are multiplied in the way shown:<br>np.array([1, 1]) @ np.array([[1, 2], [3, 4], [5, 6]).T @ np.array([1, 2, 3])", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": true}, {"answer": "(1)", "correct": false}, {"answer": "(1, 3)", "correct": false}, {"answer": "(2, 3)", "correct": false}], "tag": "matrices", "lecture_file": "16_linear_algebra"}, {"question": "Which of the following statements is true about the below matrix:<br>np.array([[1, 2, 3], [2, 2, 2], [1, 1, 1]])", "type": "multiple_choice", "answers": [{"answer": "It is a non-singular matrix", "correct": false}, {"answer": "Rank of the matrix is 3", "correct": false}, {"answer": "It is a singular matrix", "correct": true}, {"answer": "The inverse of the matrix is real and finite", "correct": false}], "tag": "matrices", "lecture_file": "16_linear_algebra"}];
+</style></div><script type="application/javascript">var questionsPPnxTkgAvFuX=[{"question": "A = np.array([[1, 2, 3], [3, 2, 1]])<br>B = np.array([4, 5, 6])<br>A @ B  = C<br>We can say that", "type": "multiple_choice", "answers": [{"answer": "C is a linear combination of the columns in A", "correct": true}, {"answer": "C is a linear combination of the rows in A", "correct": false}, {"answer": "The operation would give an error.", "correct": false}, {"answer": "Shape of C = (1, 2)", "correct": false}], "tag": "matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "A = np.array([1, 1, 1])<br>B = np.array([[1], [1], [1]])<br>(A @ B).shape = ?", "type": "multiple_choice", "answers": [{"answer": "(1, 3)", "correct": false}, {"answer": "(1)", "correct": true}, {"answer": "(3, 1)", "correct": false}, {"answer": "(3, 3)", "correct": false}], "tag": "matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "What would be the inverse of the matrix:<br>np.array([[3, -6], [2, -4]])", "type": "multiple_choice", "answers": [{"answer": "Inverse does not exist", "correct": true}, {"answer": "np.array([[2, -4], [3, -6]])", "correct": false}, {"answer": "np.array([[-3, 6],  [-2, 4]])", "correct": false}, {"answer": "np.array([[6, -9],  [3, -4]])", "correct": false}], "tag": "matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "What will be the shape of the final matrix, if the 4 matrices below are multiplied in the way shown:<br>np.array([1, 1]) @ np.array([[1, 2], [3, 4], [5, 6]).T @ np.array([1, 2, 3]).T", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": false}, {"answer": "(1)", "correct": true}, {"answer": "(1, 3)", "correct": false}, {"answer": "(2, 3)", "correct": false}], "tag": "matrices", "lecture_file": "16_linear_algebra"}, {"question": "What will be the shape of the final matrix, if the 4 matrices below are multiplied in the way shown:<br>np.array([1, 1]) @ np.array([[1, 2], [3, 4], [5, 6]).T @ np.array([1, 2, 3])", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": true}, {"answer": "(1)", "correct": false}, {"answer": "(1, 3)", "correct": false}, {"answer": "(2, 3)", "correct": false}], "tag": "matrices", "lecture_file": "16_linear_algebra"}, {"question": "Which of the following statements is true about the below matrix:<br>np.array([[1, 2, 3], [2, 2, 2], [1, 1, 1]])", "type": "multiple_choice", "answers": [{"answer": "It is a non-singular matrix", "correct": false}, {"answer": "Rank of the matrix is 3", "correct": false}, {"answer": "It is a singular matrix", "correct": true}, {"answer": "The inverse of the matrix is real and finite", "correct": false}], "tag": "matrices", "lecture_file": "16_linear_algebra"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -3813,8 +3862,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("SqzkdiuWKLVI")) {
-            show_questions(questionsSqzkdiuWKLVI,  SqzkdiuWKLVI); 
+          if(document.getElementById("PPnxTkgAvFuX")) {
+            show_questions(questionsPPnxTkgAvFuX,  PPnxTkgAvFuX); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -3823,15 +3872,15 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("SqzkdiuWKLVI");
-        // console.log(document.getElementById("SqzkdiuWKLVI"));
+        //console.log("PPnxTkgAvFuX");
+        // console.log(document.getElementById("PPnxTkgAvFuX"));
 
         try_show();
         }
         </script></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<section id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>Today we introduced many functions used in linear algebra. One of the main applications of linear algebra is solving linear equations. These arise in many engineering applications like mass balances, reaction network analysis, etc. Because we can solve them directly (not iteratively with a guess like with non-linear algebra) it is highly desirable to formulate problems as linear ones where possible.</p>
 <p>There are many more specialized routines at <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.15.1/reference/routines.linalg.html">https://docs.scipy.org/doc/numpy-1.15.1/reference/routines.linalg.html</a>.</p>
@@ -3842,13 +3891,13 @@ if (typeof version == 'undefined') {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="JdwbAJTJPDxL" data-shufflequestions="False"
+<div class="output text_html"><div id="tMCZvabauNUy" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#JdwbAJTJPDxL {
+#tMCZvabauNUy {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -4018,7 +4067,7 @@ if (typeof version == 'undefined') {
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsJdwbAJTJPDxL=[{"question": "np.tri(2, k = 1) + np.diag([1, 2]) = ?", "type": "multiple_choice", "answers": [{"answer": "np.array([[2, 0], [1, 3]])", "correct": false}, {"answer": "np.array([[1, 2], [1, 1]])", "correct": false}, {"answer": "np.array([[2, 1], [1, 3]])", "correct": true}, {"answer": "np.array([[1, 0], [1, 3]])", "correct": false}], "tag": "numpy arrays", "lecture_file": "15_intro_linear_algebra"}, {"question": "np.diag([[1, 2, 3], [4, 5, 6], [7, 8, 9]], k = -1) = ?", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": false}, {"answer": "np.array([1, 5, 9])", "correct": false}, {"answer": "np.array([2, 6])", "correct": false}, {"answer": "np.array([4, 8])", "correct": true}], "tag": "numpy arrays", "lecture_file": "15_intro_linear_algebra"}, {"question": "A = np.ones(shape = [2, 2])<br>A + np.array([1, 1]) = ?", "type": "multiple_choice", "answers": [{"answer": "np.array([[2, 2], [1, 1]])", "correct": false}, {"answer": "np.array([[2, 1], [2, 1]])", "correct": false}, {"answer": "np.array([[2, 2], [2, 2]])", "correct": true}, {"answer": "np.array([[1, 2], [1, 2]])", "correct": false}], "tag": "numpy arrays", "lecture_file": "15_intro_linear_algebra"}, {"question": "A = np.array([[12, 15], [18, 21]])<br>B = np.array([6, 3])<br>A / B = ?", "type": "multiple_choice", "answers": [{"answer": "np.array([[2, 5], [18, 21]])", "correct": false}, {"answer": "np.array([[12, 15], [3, 7]])", "correct": false}, {"answer": "Error", "correct": false}, {"answer": "np.array([[2, 5], [3, 7]])", "correct": true}], "tag": "arrays", "lecture_file": "15_intro_linear_algebra"}, {"question": "When np.transpose(A) = np.linalg.inv(A); then A is a ", "type": "multiple_choice", "answers": [{"answer": "symmetric matrix", "correct": false}, {"answer": "skew-symmetric matrix", "correct": false}, {"answer": "orthogonal matrix", "correct": true}, {"answer": "identity matrix", "correct": false}], "tag": "matrices numpy", "lecture_file": "15_intro_linear_algebra"}, {"question": "A = np.array([[1, 2, 3], [3, 2, 1]])<br>B = np.array([4, 5, 6])<br>A @ B  = C<br>We can say that", "type": "multiple_choice", "answers": [{"answer": "C is a linear combination of the columns in A", "correct": true}, {"answer": "C is a linear combination of the rows in A", "correct": false}, {"answer": "The operation would give an error.", "correct": false}, {"answer": "Shape of C = (1, 2)", "correct": false}], "tag": "matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "A = np.array([1, 1, 1])<br>B = np.array([[1], [1], [1]])<br>(A @ B).shape = ?", "type": "multiple_choice", "answers": [{"answer": "(1, 3)", "correct": false}, {"answer": "(1)", "correct": true}, {"answer": "(3, 1)", "correct": false}, {"answer": "(3, 3)", "correct": false}], "tag": "matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "What would be the inverse of the matrix:<br>np.array([[3, -6], [2, -4]])", "type": "multiple_choice", "answers": [{"answer": "Inverse does not exist", "correct": true}, {"answer": "np.array([[2, -4], [3, -6]])", "correct": false}, {"answer": "np.array([[-3, 6],  [-2, 4]])", "correct": false}, {"answer": "np.array([[6, -9],  [3, -4]])", "correct": false}], "tag": "matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "The rank of a matrix determines the", "type": "multiple_choice", "answers": [{"answer": "number of linearly independent rows", "correct": false}, {"answer": "number of linearly independent columns", "correct": false}, {"answer": "All of the above", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "rank matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "A = np.array([1, 2])<br>B = np.array([3, 4, 5])<br>np.hstack([A, B]) = ?", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": false}, {"answer": "np.array([1, 2, 3, 4, 5])", "correct": true}, {"answer": "np.array([[1, 3, 4, 5], [2, 3, 4, 5]])", "correct": false}, {"answer": "np.array([[1, 2, 3], [1, 2, 4], [1, 2, 5]])", "correct": false}], "tag": "numpy matrices", "lecture_file": "15_intro_linear_algebra"}];
+</style></div><script type="application/javascript">var questionstMCZvabauNUy=[{"question": "np.tri(2, k = 1) + np.diag([1, 2]) = ?", "type": "multiple_choice", "answers": [{"answer": "np.array([[2, 0], [1, 3]])", "correct": false}, {"answer": "np.array([[1, 2], [1, 1]])", "correct": false}, {"answer": "np.array([[2, 1], [1, 3]])", "correct": true}, {"answer": "np.array([[1, 0], [1, 3]])", "correct": false}], "tag": "numpy arrays", "lecture_file": "15_intro_linear_algebra"}, {"question": "np.diag([[1, 2, 3], [4, 5, 6], [7, 8, 9]], k = -1) = ?", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": false}, {"answer": "np.array([1, 5, 9])", "correct": false}, {"answer": "np.array([2, 6])", "correct": false}, {"answer": "np.array([4, 8])", "correct": true}], "tag": "numpy arrays", "lecture_file": "15_intro_linear_algebra"}, {"question": "A = np.ones(shape = [2, 2])<br>A + np.array([1, 1]) = ?", "type": "multiple_choice", "answers": [{"answer": "np.array([[2, 2], [1, 1]])", "correct": false}, {"answer": "np.array([[2, 1], [2, 1]])", "correct": false}, {"answer": "np.array([[2, 2], [2, 2]])", "correct": true}, {"answer": "np.array([[1, 2], [1, 2]])", "correct": false}], "tag": "numpy arrays", "lecture_file": "15_intro_linear_algebra"}, {"question": "A = np.array([[12, 15], [18, 21]])<br>B = np.array([6, 3])<br>A / B = ?", "type": "multiple_choice", "answers": [{"answer": "np.array([[2, 5], [18, 21]])", "correct": false}, {"answer": "np.array([[12, 15], [3, 7]])", "correct": false}, {"answer": "Error", "correct": false}, {"answer": "np.array([[2, 5], [3, 7]])", "correct": true}], "tag": "arrays", "lecture_file": "15_intro_linear_algebra"}, {"question": "When np.transpose(A) = np.linalg.inv(A); then A is a ", "type": "multiple_choice", "answers": [{"answer": "symmetric matrix", "correct": false}, {"answer": "skew-symmetric matrix", "correct": false}, {"answer": "orthogonal matrix", "correct": true}, {"answer": "identity matrix", "correct": false}], "tag": "matrices numpy", "lecture_file": "15_intro_linear_algebra"}, {"question": "A = np.array([[1, 2, 3], [3, 2, 1]])<br>B = np.array([4, 5, 6])<br>A @ B  = C<br>We can say that", "type": "multiple_choice", "answers": [{"answer": "C is a linear combination of the columns in A", "correct": true}, {"answer": "C is a linear combination of the rows in A", "correct": false}, {"answer": "The operation would give an error.", "correct": false}, {"answer": "Shape of C = (1, 2)", "correct": false}], "tag": "matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "A = np.array([1, 1, 1])<br>B = np.array([[1], [1], [1]])<br>(A @ B).shape = ?", "type": "multiple_choice", "answers": [{"answer": "(1, 3)", "correct": false}, {"answer": "(1)", "correct": true}, {"answer": "(3, 1)", "correct": false}, {"answer": "(3, 3)", "correct": false}], "tag": "matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "What would be the inverse of the matrix:<br>np.array([[3, -6], [2, -4]])", "type": "multiple_choice", "answers": [{"answer": "Inverse does not exist", "correct": true}, {"answer": "np.array([[2, -4], [3, -6]])", "correct": false}, {"answer": "np.array([[-3, 6],  [-2, 4]])", "correct": false}, {"answer": "np.array([[6, -9],  [3, -4]])", "correct": false}], "tag": "matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "The rank of a matrix determines the", "type": "multiple_choice", "answers": [{"answer": "number of linearly independent rows", "correct": false}, {"answer": "number of linearly independent columns", "correct": false}, {"answer": "All of the above", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "rank matrices", "lecture_file": "15_intro_linear_algebra"}, {"question": "A = np.array([1, 2])<br>B = np.array([3, 4, 5])<br>np.hstack([A, B]) = ?", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": false}, {"answer": "np.array([1, 2, 3, 4, 5])", "correct": true}, {"answer": "np.array([[1, 3, 4, 5], [2, 3, 4, 5]])", "correct": false}, {"answer": "np.array([[1, 2, 3], [1, 2, 4], [1, 2, 5]])", "correct": false}], "tag": "numpy matrices", "lecture_file": "15_intro_linear_algebra"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -4767,8 +4816,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("JdwbAJTJPDxL")) {
-            show_questions(questionsJdwbAJTJPDxL,  JdwbAJTJPDxL); 
+          if(document.getElementById("tMCZvabauNUy")) {
+            show_questions(questionstMCZvabauNUy,  tMCZvabauNUy); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -4777,20 +4826,20 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("JdwbAJTJPDxL");
-        // console.log(document.getElementById("JdwbAJTJPDxL"));
+        //console.log("tMCZvabauNUy");
+        // console.log(document.getElementById("tMCZvabauNUy"));
 
         try_show();
         }
         </script></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="coding-questions">
+<section id="coding-questions">
 <h1>Coding Questions<a class="headerlink" href="#coding-questions" title="Permalink to this heading">#</a></h1>
 <p>Q1. Find the solution to the following set of equations:</p>
-<p><span class="math notranslate nohighlight">\(x_1 + x_2 - x_3 = 9\)</span></p>
-<p><span class="math notranslate nohighlight">\(3x_1 - x_2 + 2x_3 = 14\)</span></p>
-<p><span class="math notranslate nohighlight">\(x_1 + 2x_2 - 3x_3 = 10\)</span></p>
+<p>$x_1 + x_2 - x_3 = 9$</p>
+<p>$3x_1 - x_2 + 2x_3 = 14$</p>
+<p>$x_1 + 2x_2 - 3x_3 = 10$</p>
 <p>Q2. Find the rank and determinant of the matrix in the code cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

@@ -61,8 +61,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/02-integration-1/02-integration-1';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -291,6 +289,55 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub-dev.cheme.cmu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jkitchin/f23-06623&urlpath=lab/tree/f23-06623/docs/lectures/02-integration-1/02-integration-1.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jkitchin/f23-06623/blob/main/docs/lectures/02-integration-1/02-integration-1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -468,7 +515,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="integration-in-python">
+<section id="integration-in-python">
 <h1>Integration in Python<a class="headerlink" href="#integration-in-python" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>KEYWORDS: integration, trapz, cumtrapz, quad</p></li>
@@ -483,9 +530,9 @@ document.write(`
 <p><img alt="image.png" src="../../_images/integral-table.png" /></p>
 <p>There are a limited number of known analytical integrals, and for everything else, we have to resort to numerical/computational approaches to evaluate them.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="numerical-integration-of-data">
+<section id="numerical-integration-of-data">
 <h1>Numerical integration of data<a class="headerlink" href="#numerical-integration-of-data" title="Permalink to this heading">#</a></h1>
-<p>Data can be used to represent functions. Suppose we have the function <span class="math notranslate nohighlight">\(y=x^2\)</span>, and 5 <span class="math notranslate nohighlight">\(x\)</span> values evenly spaced from 1 to 4. We can represent this function numerically with data like this.</p>
+<p>Data can be used to represent functions. Suppose we have the function $y=x^2$, and 5 $x$ values evenly spaced from 1 to 4. We can represent this function numerically with data like this.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>By data, we mean a smallish set of (x, y) points, for example. This is different than having a function which is continuous, and where you compute y-values from x-values.</p>
@@ -510,9 +557,9 @@ document.write(`
 </div>
 </div>
 <p>If we want the area under this curve, it is represented by:</p>
-<p><span class="math notranslate nohighlight">\(A = \int_1^4 x^2 dx\)</span></p>
+<p>$A = \int_1^4 x^2 dx$</p>
 <p>We could analytically evaluate this as:</p>
-<p><span class="math notranslate nohighlight">\(A = \frac{1}{3} (4^3 - 1^3)\)</span>.</p>
+<p>$A = \frac{1}{3} (4^3 - 1^3)$.</p>
 <p>Here is the analytical answer for future reference:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -527,7 +574,7 @@ document.write(`
 </div>
 </div>
 <p>It will not always be the case that we can evaluate the integrals analytically, and sometimes we just have the data, and not the analytical function it represents (e.g. if you have measured the data).</p>
-<p>The classical way to compute the area under this curve is to use the trapezoid method. We know the area of a trapezoid is <span class="math notranslate nohighlight">\(A = 0.5 * width * (y_1 + y_2)\)</span>. In this example, we have four trapezoids to compute the areas of.</p>
+<p>The classical way to compute the area under this curve is to use the trapezoid method. We know the area of a trapezoid is $A = 0.5 * width * (y_1 + y_2)$. In this example, we have four trapezoids to compute the areas of.</p>
 <p>To make this easier to compute, we need a few new ideas. First, it would be convenient to know how many elements are in the array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -750,15 +797,15 @@ The exact area is 21.0
 </div>
 <p>The trapezoid method is only exact for lines. For everything else, it is an approximation. For functions (or regions) that are concave up, the trapezoid method will over-estimate the integral, and for regions that are concave down, the method will underestimate the true integral.</p>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Trapezoidal_rule#Error_analysis">error</a> in this method is formally:</p>
-<p><span class="math notranslate nohighlight">\(error = - \frac{(b - a)^3}{12 N^2} f''(\xi)\)</span></p>
-<p>In this formula, <span class="math notranslate nohighlight">\(\xi\)</span> is some number between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, in other words the error is related to the second derivative of the function evaluated somewhere in the interval.</p>
+<p>$error = - \frac{(b - a)^3}{12 N^2} f’’(\xi)$</p>
+<p>In this formula, $\xi$ is some number between $a$ and $b$, in other words the error is related to the second derivative of the function evaluated somewhere in the interval.</p>
 <p>Practically, we only use this method for integrating data where we do not know the function it represents, so we cannot reliably estimate the error in the integral.</p>
 </section>
 <section id="simpson-s-rule">
 <h2>Simpson’s rule<a class="headerlink" href="#simpson-s-rule" title="Permalink to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>in scipy 1.4.1, Simpson’s is in scipy.integrate.simps, but as of 1.7.1 it is in scipy.integrate.simpson. (<a class="reference external" href="https://docs.scipy.org/doc/scipy-1.7.1/reference/reference/generated/scipy.integrate.simpson.html#scipy.integrate.simpson">https://docs.scipy.org/doc/scipy-1.7.1/reference/reference/generated/scipy.integrate.simpson.html#scipy.integrate.simpson</a>)</p>
+<p>in scipy 1.4.1, Simpson’s is in scipy.integrate.simps, but as of 1.7.1 it is in scipy.integrate.simpson. (https://docs.scipy.org/doc/scipy-1.7.1/reference/reference/generated/scipy.integrate.simpson.html#scipy.integrate.simpson)</p>
 <p>This is a common occurence in code where things get reorganized, and it sometimes breaks older code.</p>
 </div>
 <div class="cell docutils container">
@@ -770,7 +817,7 @@ The exact area is 21.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.11.1&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.11.2&#39;
 </pre></div>
 </div>
 </div>
@@ -798,9 +845,9 @@ The exact area is 21.0
 <section id="estimating-the-volume-of-a-solid">
 <h3>Estimating the volume of a solid<a class="headerlink" href="#estimating-the-volume-of-a-solid" title="Permalink to this heading">#</a></h3>
 <p>We can use integrals to compute the volume of solids. If we know how the cross-sectional area of a solid varies in some direction, we simply evaluate the following integral:</p>
-<p><span class="math notranslate nohighlight">\(\int_{x0}^{x1} A(x) dx\)</span></p>
+<p>$\int_{x0}^{x1} A(x) dx$</p>
 <p>For a sphere, we can derive:</p>
-<p><span class="math notranslate nohighlight">\(A(x) = \pi (1 - x^2)\)</span></p>
+<p>$A(x) = \pi (1 - x^2)$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="mi">1</span>
@@ -829,8 +876,8 @@ Exact volume = 4.1888
 <section id="estimating-the-volume-of-a-plug-flow-reactor">
 <h3>Estimating the volume of a plug flow reactor<a class="headerlink" href="#estimating-the-volume-of-a-plug-flow-reactor" title="Permalink to this heading">#</a></h3>
 <p>Adapted from Fogler example 2.7. The volume of a plug flow reactor is defined by this integral:</p>
-<p><span class="math notranslate nohighlight">\(\int_{X_0}^{X_1} \frac{F_{A_0}}{-r_A} dX\)</span></p>
-<p>where <span class="math notranslate nohighlight">\(F_{A_0}\)</span> is the inlet molar flow of species A, <span class="math notranslate nohighlight">\(X\)</span> is the conversion, and <span class="math notranslate nohighlight">\(-r_A\)</span> is the rate of generation of species A per unit volume. <span class="math notranslate nohighlight">\(r_A\)</span>  is a function of conversion. We often do not know what the function is, but we can measure the rate of generation. Below is some tabulated data of the rate of generation of species A as a function of conversion.</p>
+<p>$\int_{X_0}^{X_1} \frac{F_{A_0}}{-r_A} dX$</p>
+<p>where $F_{A_0}$ is the inlet molar flow of species A, $X$ is the conversion, and $-r_A$ is the rate of generation of species A per unit volume. $r_A$  is a function of conversion. We often do not know what the function is, but we can measure the rate of generation. Below is some tabulated data of the rate of generation of species A as a function of conversion.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>X</p></th>
@@ -1024,13 +1071,13 @@ At X=0.65 V=0.701 m^3
 </section>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="numerical-quadrature-or-integration-of-functions">
+<section id="numerical-quadrature-or-integration-of-functions">
 <h1>Numerical quadrature - or integration of functions<a class="headerlink" href="#numerical-quadrature-or-integration-of-functions" title="Permalink to this heading">#</a></h1>
 <p>When you have a function and you know its analytical form we can use quadrature to estimate integrals of it. In quadrature, we approximate the integral as a weighted sum of function values. By increasing the number values used, we can systematically improve the integral estimates.</p>
-<p>To motivate the idea, let’s consider the function integral of <span class="math notranslate nohighlight">\(y(x) = 7 x^3 - 8 x^2 - 3x +3\)</span> from -1 to 1.</p>
+<p>To motivate the idea, let’s consider the function integral of $y(x) = 7 x^3 - 8 x^2 - 3x +3$ from -1 to 1.</p>
 <p>This is a third order polynomial, so we can in this case replace the integral with a sum of two points:</p>
-<p><span class="math notranslate nohighlight">\(\int f(x) dx = w_1 f(x_1) + w_2 f(x_2)\)</span></p>
-<p>provided we can find the weights, and the right values of <span class="math notranslate nohighlight">\(x\)</span> to use. These are derived and tabulated (e.g. at <a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_quadrature">https://en.wikipedia.org/wiki/Gaussian_quadrature</a>), which tells us for this case, the weights are simply equal to one, and we should use <span class="math notranslate nohighlight">\(\pm \sqrt{1/3}\)</span> for x.</p>
+<p>$\int f(x) dx = w_1 f(x_1) + w_2 f(x_2)$</p>
+<p>provided we can find the weights, and the right values of $x$ to use. These are derived and tabulated (e.g. at <a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_quadrature">https://en.wikipedia.org/wiki/Gaussian_quadrature</a>), which tells us for this case, the weights are simply equal to one, and we should use $\pm \sqrt{1/3}$ for x.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1059,7 +1106,7 @@ At X=0.65 V=0.701 m^3
 </div>
 <p>This example is special in several ways:</p>
 <ol class="arabic simple">
-<li><p>The formula was derived for <span class="math notranslate nohighlight">\(n^{th}\)</span> order polynomials, here we had a 3rd order polynomial, so <span class="math notranslate nohighlight">\(n-1\)</span> points are needed to exactly compute the integral. The formula is not exact for non-polynomial functions.
+<li><p>The formula was derived for $n^{th}$ order polynomials, here we had a 3rd order polynomial, so $n-1$ points are needed to exactly compute the integral. The formula is not exact for non-polynomial functions.
 For non-polynomial functions, the formula is an approximation to the integral and you have to use more than two points to estimate the integral. When you use more points, the weights change, but they can be looked up in the table, or computed.</p></li>
 </ol>
 <p>I show this example mostly to motivate the idea that given a function, you can perform an integral by evaluating the function at special points, and weighting those function values appropriately. In practice, we don’t do this manually. It has been coded already into robust libraries that we can reuse.</p>
@@ -1108,7 +1155,7 @@ For non-polynomial functions, the formula is an approximation to the integral an
 </div>
 </div>
 </div>
-<p>We can recompute the volume of a sphere much more precisely, and easily now. Recall <span class="math notranslate nohighlight">\(A(x) = \pi (1 - x^2)\)</span> and that <span class="math notranslate nohighlight">\(V = \int_{-1}^{1} A(x) dx\)</span>. Here is the implementation.</p>
+<p>We can recompute the volume of a sphere much more precisely, and easily now. Recall $A(x) = \pi (1 - x^2)$ and that $V = \int_{-1}^{1} A(x) dx$. Here is the implementation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cross_section</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -1139,7 +1186,7 @@ For non-polynomial functions, the formula is an approximation to the integral an
 </div>
 </div>
 <p>We can integrate to infinity.</p>
-<p><span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} \frac{1}{x^2 + 1} = \pi\)</span>.</p>
+<p>$\int_{-\infty}^{\infty} \frac{1}{x^2 + 1} = \pi$.</p>
 <p>Let us verify this. You can use ± ∞ as limits.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1158,7 +1205,7 @@ For non-polynomial functions, the formula is an approximation to the integral an
 </div>
 </div>
 <p>Not all integrals are finite. For example</p>
-<p><span class="math notranslate nohighlight">\(\int_1^\infty \frac{dx}{x} = \infty\)</span></p>
+<p>$\int_1^\infty \frac{dx}{x} = \infty$</p>
 <p>Here we get an IntegrationWarning that a maximum number of subdivisions has been achieved.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1176,7 +1223,7 @@ For non-polynomial functions, the formula is an approximation to the integral an
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The answer is 40.996012819169536!!!
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1962/2765388034.py:5: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2001/2765388034.py:5: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
   If increasing the limit yields no improvement it is advised to analyze 
   the integrand in order to determine the difficulties.  If the position of a 
   local difficulty can be determined (singularity, discontinuity) one will 
@@ -1228,9 +1275,9 @@ For non-polynomial functions, the formula is an approximation to the integral an
 </div>
 <section id="find-the-volume-of-a-pfr">
 <h2>Find the volume of a PFR<a class="headerlink" href="#find-the-volume-of-a-pfr" title="Permalink to this heading">#</a></h2>
-<p>For a single reaction that consumes a species A at a rate of <span class="math notranslate nohighlight">\(-r_A = k C_A\)</span>, a mole balance leads to an equation for the volume as a function of conversion <span class="math notranslate nohighlight">\(X\)</span> as:</p>
-<p><span class="math notranslate nohighlight">\(V = \int_0^X \frac{F_{A_0}}{-r_A(X)} dX\)</span></p>
-<p><span class="math notranslate nohighlight">\(F_{A_0}\)</span> is the inlet molar flow of species A, which is equal to the inlet concentration times the inlet volumetric flow. The concentration of A in the reactor is a function of the conversion, and is given by  <span class="math notranslate nohighlight">\(C_A = C_{A_0} (1 - X)\)</span>. If <span class="math notranslate nohighlight">\(k = 0.23\)</span> 1/min, <span class="math notranslate nohighlight">\(C_{A_0} = 1\)</span> mol/L, and the volumetric flow is 1 L/min, what is the reactor volume required to achieve a conversion of 50%?</p>
+<p>For a single reaction that consumes a species A at a rate of $-r_A = k C_A$, a mole balance leads to an equation for the volume as a function of conversion $X$ as:</p>
+<p>$V = \int_0^X \frac{F_{A_0}}{-r_A(X)} dX$</p>
+<p>$F_{A_0}$ is the inlet molar flow of species A, which is equal to the inlet concentration times the inlet volumetric flow. The concentration of A in the reactor is a function of the conversion, and is given by  $C_A = C_{A_0} (1 - X)$. If $k = 0.23$ 1/min, $C_{A_0} = 1$ mol/L, and the volumetric flow is 1 L/min, what is the reactor volume required to achieve a conversion of 50%?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
@@ -1283,9 +1330,9 @@ For non-polynomial functions, the formula is an approximation to the integral an
 <section id="diffusion">
 <h2>Diffusion<a class="headerlink" href="#diffusion" title="Permalink to this heading">#</a></h2>
 <p>When the surface concentration of a solute is constant, and the solute diffused into a semi-infinite solid, the concentration of the solute in the solid varies with space and time according to:
-<span class="math notranslate nohighlight">\(C_A(x, t) = C_{As} - (C_{As} - C_{A0}) erf\left(\frac{x}{\sqrt{4 D t}}\right)\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(C_{As}\)</span> is the concentration of the diffusing species at <span class="math notranslate nohighlight">\(x=0\)</span>, and <span class="math notranslate nohighlight">\(C_{A0}\)</span> is the initial concentration of the species in the semi-infinite body.</p>
-<p>and <span class="math notranslate nohighlight">\(erf(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-\xi^2} d\xi\)</span></p>
+$C_A(x, t) = C_{As} - (C_{As} - C_{A0}) erf\left(\frac{x}{\sqrt{4 D t}}\right)$.</p>
+<p>$C_{As}$ is the concentration of the diffusing species at $x=0$, and $C_{A0}$ is the initial concentration of the species in the semi-infinite body.</p>
+<p>and $erf(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-\xi^2} d\xi$</p>
 <p>This integral arises from the solution to the differential equation describing diffusion. The integral does not have an analytical solution, but it can be solved numerically.</p>
 <p>Suppose we have a steel sample #1 that initially contains 0.02% Carbon in it, and it is put in contact with another steel containing 1.2% carbon. If the diffusion coefficient of carbon is 1.54e-6 cm^2/s, what will the concentration of carbon in sample #1 be after 24 hours at x = 0.15 cm?</p>
 <div class="cell docutils container">
@@ -1350,7 +1397,7 @@ For non-polynomial functions, the formula is an approximation to the integral an
 </div>
 </div>
 </div>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Error_function">error function</a>, <span class="math notranslate nohighlight">\(erf(x)\)</span> is such an important function it is implemented as a special function in scipy.special.</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Error_function">error function</a>, $erf(x)$ is such an important function it is implemented as a special function in scipy.special.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">erf</span>
@@ -1370,7 +1417,7 @@ For non-polynomial functions, the formula is an approximation to the integral an
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<section id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>The main points of this lecture were on</p>
 <ul class="simple">
@@ -1660,7 +1707,7 @@ For non-polynomial functions, the formula is an approximation to the integral an
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="fwDSuLUgfTwa" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="fwDSuLUgfTwa-next" onclick="window.checkFlip('fwDSuLUgfTwa')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="sPhQosmBpvdo" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="sPhQosmBpvdo-next" onclick="window.checkFlip('sPhQosmBpvdo')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -2007,14 +2054,14 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("fwDSuLUgfTwa")) {
-            createCards("fwDSuLUgfTwa", "True", "False");
+          if(document.getElementById("sPhQosmBpvdo")) {
+            createCards("sPhQosmBpvdo", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsfwDSuLUgfTwa=[
+var cardssPhQosmBpvdo=[
     {
         "front": "np.trapz",
         "back": "Trapezoid method for data integration"
@@ -2032,9 +2079,9 @@ var cardsfwDSuLUgfTwa=[
         "back": "Gaussian quadrature to integrate functions<br>Returns integrand, error estimate"
     }
 ];
-var frontColorsfwDSuLUgfTwa= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsfwDSuLUgfTwa= ["var(--dark-blue-gray)" ];
-var textColorsfwDSuLUgfTwa= ["var(--snow)" ];
+var frontColorssPhQosmBpvdo= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorssPhQosmBpvdo= ["var(--dark-blue-gray)" ];
+var textColorssPhQosmBpvdo= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <div class="cell docutils container">
@@ -2045,13 +2092,13 @@ try_create(); </script></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="yFhAKsrsiYby" data-shufflequestions="False"
+<div class="output text_html"><div id="OcRHDNmGPBNh" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#yFhAKsrsiYby {
+#OcRHDNmGPBNh {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -2221,7 +2268,7 @@ try_create(); </script></div>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsyFhAKsrsiYby=[
+</style></div><script type="application/javascript">var questionsOcRHDNmGPBNh=[
   {
     "question": "Which is the correct argument in matplotlib to plot data using black circles connected with a solid line?",
     "type": "multiple_choice",
@@ -3212,8 +3259,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("yFhAKsrsiYby")) {
-            show_questions(questionsyFhAKsrsiYby,  yFhAKsrsiYby); 
+          if(document.getElementById("OcRHDNmGPBNh")) {
+            show_questions(questionsOcRHDNmGPBNh,  OcRHDNmGPBNh); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -3222,8 +3269,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("yFhAKsrsiYby");
-        // console.log(document.getElementById("yFhAKsrsiYby"));
+        //console.log("OcRHDNmGPBNh");
+        // console.log(document.getElementById("OcRHDNmGPBNh"));
 
         try_show();
         }

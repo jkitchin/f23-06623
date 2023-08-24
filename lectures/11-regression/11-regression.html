@@ -61,8 +61,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/11-regression/11-regression';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -291,6 +289,55 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub-dev.cheme.cmu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jkitchin/f23-06623&urlpath=lab/tree/f23-06623/docs/lectures/11-regression/11-regression.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jkitchin/f23-06623/blob/main/docs/lectures/11-regression/11-regression.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -460,14 +507,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-nonlinear-regression">
+<section id="introduction-to-nonlinear-regression">
 <h1>Introduction to nonlinear regression<a class="headerlink" href="#introduction-to-nonlinear-regression" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>KEYWORDS: scipy.optimize.minimize, scipy.optimize.curve_fit, pycse.nlinfit</p></li>
 </ul>
 <p><img alt="curve-fitting" src="https://imgs.xkcd.com/comics/curve_fitting.png" /></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="regression-of-data-is-a-form-of-function-minimization">
+<section id="regression-of-data-is-a-form-of-function-minimization">
 <h1>Regression of data is a form of function minimization<a class="headerlink" href="#regression-of-data-is-a-form-of-function-minimization" title="Permalink to this heading">#</a></h1>
 <p>When we say regression, we really mean find some parameters of a model that best reproduces some known data. By “best reproduces” we mean the sum of all the errors between the values predicted by the model, and the real data is minimized.</p>
 <p>Suppose we have the following data that shows how the energy of a material depends on the volume of the material.</p>
@@ -490,7 +537,7 @@ document.write(`
 </div>
 </div>
 <p>In Materials Science we often want to fit an equation of state to this data. We will use this equation:</p>
-<p><span class="math notranslate nohighlight">\(E = E_0 + \frac{B_0 V}{B_0'}\left(\frac{(V_0 / V)^{B_0'}}{B_0' - 1} + 1 \right) - \frac{V_0 B_0}{B_0' - 1}\)</span></p>
+<p>$E = E_0 + \frac{B_0 V}{B_0’}\left(\frac{(V_0 / V)^{B_0’}}{B_0’ - 1} + 1 \right) - \frac{V_0 B_0}{B_0’ - 1}$</p>
 <p>from <a class="reference external" href="https://journals.aps.org/prb/pdf/10.1103/PhysRevB.28.5480">https://journals.aps.org/prb/pdf/10.1103/PhysRevB.28.5480</a>. In this model there are four parameters:</p>
 <table class="table">
 <thead>
@@ -595,7 +642,7 @@ document.write(`
 </div>
 <p>Finally,  we need an initial guess to start the minimization. As with all minimization problems, this can be the most difficult step. It is always a good idea to use properties of the model and data where possible to make these guesses. We have no way to plot anything in four dimensions, so we use analysis instead.</p>
 <p>We can derive some of these from the data we have. First, we can get the minimum in energy and the corresponding volume that we know from the data. These are not the final answer, but they are a good guess for it.</p>
-<p>The B<sub>0</sub> parameter is related to the curvature at the minimum, which is the second derivative. We get that from repeated calls to <code class="docutils literal notranslate"><span class="pre">numpy.gradient</span></code>. Finally, <span class="math notranslate nohighlight">\(B_0'\)</span> is related to the derivative of <span class="math notranslate nohighlight">\(B\)</span> at the minimum, so we estimate that too.</p>
+<p>The B<sub>0</sub> parameter is related to the curvature at the minimum, which is the second derivative. We get that from repeated calls to <code class="docutils literal notranslate"><span class="pre">numpy.gradient</span></code>. Finally, $B_0’$ is related to the derivative of $B$ at the minimum, so we estimate that too.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">energies</span><span class="p">)</span>
@@ -728,7 +775,7 @@ document.write(`
 <li><p>Properties of the model - because the properties mean something</p></li>
 </ol>
 <p>In this particular case, we can do both. Some of the parameters are directly meaningful, like the E0, and V0 are the energy at the minimum, and the corresponding volume. B0 is also meaningful, it is called the bulk modulus, and it is a material property.</p>
-<p>Now that we have a model though we can also define properties of it, e.g. <em>in this case</em> we have from thermodynamics that <span class="math notranslate nohighlight">\(P = -dE/dV\)</span>. We can use our model to define this derivative. I use <code class="docutils literal notranslate"><span class="pre">numdifftools.Derivative</span></code> for this for convenience. The only issue with it is that the energy function has arguments that are not in the right order for the derivative, so I make a proxy function here that just reverses the order of the arguments.</p>
+<p>Now that we have a model though we can also define properties of it, e.g. <em>in this case</em> we have from thermodynamics that $P = -dE/dV$. We can use our model to define this derivative. I use <code class="docutils literal notranslate"><span class="pre">numdifftools.Derivative</span></code> for this for convenience. The only issue with it is that the energy function has arguments that are not in the right order for the derivative, so I make a proxy function here that just reverses the order of the arguments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numdifftools</span> <span class="kn">import</span> <span class="n">Derivative</span>
@@ -765,7 +812,7 @@ document.write(`
 <p>The result above shows that it takes positive pressure to compress the material, the pressure is zero at the minimum, and it takes negative pressure to cause it to expand.</p>
 <p>This example is just meant to illustrate what one can do with a model once you have it.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="parameter-confidence-intervals">
+<section id="parameter-confidence-intervals">
 <h1>Parameter confidence intervals<a class="headerlink" href="#parameter-confidence-intervals" title="Permalink to this heading">#</a></h1>
 <p>We have left out an important topic in the discussion above: How certain are we of the parameters we estimated? This is a complicated question that requires moderately sophisticated statistics to answer. We will build up to the solution in steps.</p>
 <p>First, we recall that in a statistical sense we are <em>estimating</em> the values of the parameters. Specifically, we estimate the <em>mean</em> of the parameters, from a fixed number of data points.</p>
@@ -825,8 +872,8 @@ curve_fit<span class="o">?</span>
 <section id="an-example-with-curve-fit">
 <h2>An example with curve_fit<a class="headerlink" href="#an-example-with-curve-fit" title="Permalink to this heading">#</a></h2>
 <p>Given the data below, fit the following curve:</p>
-<p><span class="math notranslate nohighlight">\(y(x) = \frac{a x}{b + x}\)</span> to it.</p>
-<p>That means, estimate the values of <span class="math notranslate nohighlight">\(a, b\)</span> that best fit the data.</p>
+<p>$y(x) = \frac{a x}{b + x}$ to it.</p>
+<p>That means, estimate the values of $a, b$ that best fit the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -844,7 +891,7 @@ curve_fit<span class="o">?</span>
 <img alt="../../_images/b547580086fbc43dc2cebd59ea1cff6ae3b249bcf8af0066ce301c5c449371b7.png" src="../../_images/b547580086fbc43dc2cebd59ea1cff6ae3b249bcf8af0066ce301c5c449371b7.png" />
 </div>
 </div>
-<p>What should we use for an initial guess? At <span class="math notranslate nohighlight">\(x=0\)</span>, <span class="math notranslate nohighlight">\(y = 0\)</span>, which isn’t that helpful. At large <span class="math notranslate nohighlight">\(x\)</span>, we have <span class="math notranslate nohighlight">\(y=a\)</span>. From the data, we can guess that <span class="math notranslate nohighlight">\(a \approx 1.2\)</span>. For small x, we have <span class="math notranslate nohighlight">\(y = a/b x\)</span>. So, if we estimate the slope, we can estimate b. We arrive at these guesses by thoughtful inspection of the data, and the model that we use to fit it.</p>
+<p>What should we use for an initial guess? At $x=0$, $y = 0$, which isn’t that helpful. At large $x$, we have $y=a$. From the data, we can guess that $a \approx 1.2$. For small x, we have $y = a/b x$. So, if we estimate the slope, we can estimate b. We arrive at these guesses by thoughtful inspection of the data, and the model that we use to fit it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a0</span> <span class="o">=</span> <span class="mf">1.2</span>
@@ -992,7 +1039,7 @@ nlinfit<span class="o">??</span>
 </section>
 <section id="what-about-uncertainty-on-the-predictions">
 <h2>What about uncertainty on the predictions?<a class="headerlink" href="#what-about-uncertainty-on-the-predictions" title="Permalink to this heading">#</a></h2>
-<p>Consider the fit again, and extrapolate it to larger <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<p>Consider the fit again, and extrapolate it to larger $x$:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;bo&quot;</span><span class="p">)</span>
@@ -1024,7 +1071,7 @@ nlinfit<span class="o">??</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5ef1068291c0f1648ef3e520e90903f455f150fb2d958561bb268f7312bd077e.png" src="../../_images/5ef1068291c0f1648ef3e520e90903f455f150fb2d958561bb268f7312bd077e.png" />
+<img alt="../../_images/0174acab80b0d56e85a601d4e367ff31530c7da93352557e6d23c8b06dc96859.png" src="../../_images/0174acab80b0d56e85a601d4e367ff31530c7da93352557e6d23c8b06dc96859.png" />
 </div>
 </div>
 <p>So the idea is we can generate a distribution of the parameters</p>
@@ -1040,10 +1087,10 @@ nlinfit<span class="o">??</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.3205521512373624, 0.009705472317988826)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.320517129365826, 0.009709391509434851)
 </pre></div>
 </div>
-<img alt="../../_images/23531829504d7fea616c0fa718d3ad74412a2ab9886afbe5b5d4b9b60116d42f.png" src="../../_images/23531829504d7fea616c0fa718d3ad74412a2ab9886afbe5b5d4b9b60116d42f.png" />
+<img alt="../../_images/b072cbee702a8f4e1c450fb65e3f0dd8dfd3600afaa663c2ff2eab05160fde2b.png" src="../../_images/b072cbee702a8f4e1c450fb65e3f0dd8dfd3600afaa663c2ff2eab05160fde2b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1058,7 +1105,7 @@ nlinfit<span class="o">??</span>
 </div>
 </div>
 </div>
-<p>Well, in 20/20 hindsight, we might have guessed the uncertainty in the asymptote would be just like the uncertainty in the <span class="math notranslate nohighlight">\(a\)</span> parameter. In this case, it is appropriate to use three significant figures given the uncertainty on the answer. A useful guideline is that the 95% confidence interval is about ± 2 σ. At ± 1 σ you only have about a 60% confidence interval.</p>
+<p>Well, in 20/20 hindsight, we might have guessed the uncertainty in the asymptote would be just like the uncertainty in the $a$ parameter. In this case, it is appropriate to use three significant figures given the uncertainty on the answer. A useful guideline is that the 95% confidence interval is about ± 2 σ. At ± 1 σ you only have about a 60% confidence interval.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
@@ -1103,7 +1150,7 @@ nlpredict<span class="o">?</span>
 <p>This is much easier to do than the Monte Carlo approach, but is a little more black box.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<section id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>We covered a lot of ground today. The key points are:</p>
 <ol class="arabic simple">
@@ -1119,13 +1166,13 @@ nlpredict<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="pgUwdoCbGRKF" data-shufflequestions="False"
+<div class="output text_html"><div id="QzfwKoGzqXUK" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#pgUwdoCbGRKF {
+#QzfwKoGzqXUK {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1295,7 +1342,7 @@ nlpredict<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionspgUwdoCbGRKF=[{"question": "When using minimize() for regression, which of the following objective functions would cause the model to shift towards the outliers to a greater extent than the rest:<br>a: (y_pred - y)^2<br>b: (y_pred - y)<br>c: |ypred - y|", "type": "multiple_choice", "answers": [{"answer": "a", "correct": true}, {"answer": "b", "correct": false}, {"answer": "c", "correct": false}, {"answer": "All will equally affect the model", "correct": false}], "tag": "objective_function regression", "lecture_file": "11_regression"}, {"question": "Which of the following is a linear regression model:", "type": "multiple_choice", "answers": [{"answer": "y = e^x + x", "correct": false}, {"answer": "y = sin(x) + 5", "correct": false}, {"answer": "y = x + x^2", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "A linear regression model which can correctly generalise the trend in the data has", "type": "multiple_choice", "answers": [{"answer": "sum squared errors = 0", "correct": false}, {"answer": "lowest possible sum squared errors but not necessarily zero", "correct": true}, {"answer": "highest sum squared error", "correct": false}, {"answer": "sum of errors = 0", "correct": false}], "tag": "regression objective_function", "lecture_file": "11_regression"}, {"question": "Regression is a useful method to find a model which generalizes a data set because", "type": "multiple_choice", "answers": [{"answer": "It provides parameters which can have physical significance", "correct": false}, {"answer": "It can help to identify the important variables affecting a system ", "correct": false}, {"answer": "It is not a black-box model", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "Which of the following statements are true:<br>Linear regression is limiting beacause:<br>a: It assumes a linear relationship between the variables which may not always be the case<br>b: It is affected by outliers<br>c: It is overly simplistic and would always fit to noisy observations", "type": "multiple_choice", "answers": [{"answer": "a, b", "correct": true}, {"answer": "a, b, c", "correct": false}, {"answer": "a, c", "correct": false}, {"answer": "b, c", "correct": false}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "initial_guess = [a0, b0, c0, d0]<br>pars, pcov = curve_fit(func, x, y, p0=initial_guess)<br><br>What is the variance for the parameter 'c'?", "type": "multiple_choice", "answers": [{"answer": "np.sqrt(np.diag(pars))[2]", "correct": false}, {"answer": "np.sqrt(np.diag(pcov))[2]", "correct": false}, {"answer": "np.diag(pcov)[2]", "correct": true}, {"answer": "np.diag(pars)[2]", "correct": false}], "tag": "scipy uncertainty variance", "lecture_file": "11_regression"}, {"question": "An increase in the number of measurements (data points) will result in", "type": "multiple_choice", "answers": [{"answer": "Narrower confidence intervals for the average value", "correct": true}, {"answer": "An increase in the uncertainty of the average value", "correct": false}, {"answer": "Broader confidence intervals for the average value", "correct": false}, {"answer": "No effect on the confidence intervals", "correct": false}], "tag": "uncertainty", "lecture_file": "11_regression"}, {"question": "Monte Carlo Propagation of Errors has a limited reliability because", "type": "multiple_choice", "answers": [{"answer": "It assumes the parameters are drawn from a normal distribution", "correct": false}, {"answer": "It assumes that the parameter errors are independent of each other", "correct": false}, {"answer": "All of the above", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "uncertainty monte_carlo", "lecture_file": "11_regression"}, {"question": "Calculate the degrees of freedom for the model:<br>y = 5 + x1 + 10x2 + 5x3;<br>if we have 10 sample data points", "type": "multiple_choice", "answers": [{"answer": "5", "correct": false}, {"answer": "6", "correct": true}, {"answer": "7", "correct": false}, {"answer": "4", "correct": false}], "tag": "uncertainty dof", "lecture_file": "11_regression"}, {"question": "The size of the confidence interval depends on", "type": "multiple_choice", "answers": [{"answer": "Chosen confidence level", "correct": false}, {"answer": "Number of parameters", "correct": false}, {"answer": "Number of data points", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "uncertainty confidence_interval", "lecture_file": "11_regression"}];
+</style></div><script type="application/javascript">var questionsQzfwKoGzqXUK=[{"question": "When using minimize() for regression, which of the following objective functions would cause the model to shift towards the outliers to a greater extent than the rest:<br>a: (y_pred - y)^2<br>b: (y_pred - y)<br>c: |ypred - y|", "type": "multiple_choice", "answers": [{"answer": "a", "correct": true}, {"answer": "b", "correct": false}, {"answer": "c", "correct": false}, {"answer": "All will equally affect the model", "correct": false}], "tag": "objective_function regression", "lecture_file": "11_regression"}, {"question": "Which of the following is a linear regression model:", "type": "multiple_choice", "answers": [{"answer": "y = e^x + x", "correct": false}, {"answer": "y = sin(x) + 5", "correct": false}, {"answer": "y = x + x^2", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "A linear regression model which can correctly generalise the trend in the data has", "type": "multiple_choice", "answers": [{"answer": "sum squared errors = 0", "correct": false}, {"answer": "lowest possible sum squared errors but not necessarily zero", "correct": true}, {"answer": "highest sum squared error", "correct": false}, {"answer": "sum of errors = 0", "correct": false}], "tag": "regression objective_function", "lecture_file": "11_regression"}, {"question": "Regression is a useful method to find a model which generalizes a data set because", "type": "multiple_choice", "answers": [{"answer": "It provides parameters which can have physical significance", "correct": false}, {"answer": "It can help to identify the important variables affecting a system ", "correct": false}, {"answer": "It is not a black-box model", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "Which of the following statements are true:<br>Linear regression is limiting beacause:<br>a: It assumes a linear relationship between the variables which may not always be the case<br>b: It is affected by outliers<br>c: It is overly simplistic and would always fit to noisy observations", "type": "multiple_choice", "answers": [{"answer": "a, b", "correct": true}, {"answer": "a, b, c", "correct": false}, {"answer": "a, c", "correct": false}, {"answer": "b, c", "correct": false}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "initial_guess = [a0, b0, c0, d0]<br>pars, pcov = curve_fit(func, x, y, p0=initial_guess)<br><br>What is the variance for the parameter 'c'?", "type": "multiple_choice", "answers": [{"answer": "np.sqrt(np.diag(pars))[2]", "correct": false}, {"answer": "np.sqrt(np.diag(pcov))[2]", "correct": false}, {"answer": "np.diag(pcov)[2]", "correct": true}, {"answer": "np.diag(pars)[2]", "correct": false}], "tag": "scipy uncertainty variance", "lecture_file": "11_regression"}, {"question": "An increase in the number of measurements (data points) will result in", "type": "multiple_choice", "answers": [{"answer": "Narrower confidence intervals for the average value", "correct": true}, {"answer": "An increase in the uncertainty of the average value", "correct": false}, {"answer": "Broader confidence intervals for the average value", "correct": false}, {"answer": "No effect on the confidence intervals", "correct": false}], "tag": "uncertainty", "lecture_file": "11_regression"}, {"question": "Monte Carlo Propagation of Errors has a limited reliability because", "type": "multiple_choice", "answers": [{"answer": "It assumes the parameters are drawn from a normal distribution", "correct": false}, {"answer": "It assumes that the parameter errors are independent of each other", "correct": false}, {"answer": "All of the above", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "uncertainty monte_carlo", "lecture_file": "11_regression"}, {"question": "Calculate the degrees of freedom for the model:<br>y = 5 + x1 + 10x2 + 5x3;<br>if we have 10 sample data points", "type": "multiple_choice", "answers": [{"answer": "5", "correct": false}, {"answer": "6", "correct": true}, {"answer": "7", "correct": false}, {"answer": "4", "correct": false}], "tag": "uncertainty dof", "lecture_file": "11_regression"}, {"question": "The size of the confidence interval depends on", "type": "multiple_choice", "answers": [{"answer": "Chosen confidence level", "correct": false}, {"answer": "Number of parameters", "correct": false}, {"answer": "Number of data points", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "uncertainty confidence_interval", "lecture_file": "11_regression"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2044,8 +2091,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("pgUwdoCbGRKF")) {
-            show_questions(questionspgUwdoCbGRKF,  pgUwdoCbGRKF); 
+          if(document.getElementById("QzfwKoGzqXUK")) {
+            show_questions(questionsQzfwKoGzqXUK,  QzfwKoGzqXUK); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2054,8 +2101,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("pgUwdoCbGRKF");
-        // console.log(document.getElementById("pgUwdoCbGRKF"));
+        //console.log("QzfwKoGzqXUK");
+        // console.log(document.getElementById("QzfwKoGzqXUK"));
 
         try_show();
         }

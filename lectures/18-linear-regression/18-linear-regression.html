@@ -61,8 +61,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/18-linear-regression/18-linear-regression';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -291,6 +289,55 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyterhub-dev.cheme.cmu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jkitchin/f23-06623&urlpath=lab/tree/f23-06623/docs/lectures/18-linear-regression/18-linear-regression.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jkitchin/f23-06623/blob/main/docs/lectures/18-linear-regression/18-linear-regression.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -446,7 +493,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization">Regularization</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression">Ridge regression</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso-regression">LASSO regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-selection-of-lambda">Advanced selection of <span class="math notranslate nohighlight">\(\lambda\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-selection-of-lambda">Advanced selection of $\lambda$</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
@@ -463,22 +510,22 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="linear-regression">
+<section id="linear-regression">
 <h1>Linear regression<a class="headerlink" href="#linear-regression" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>KEYWORDS: numpy.linalg.solve</p></li>
 </ul>
 <p><img alt="regression" src="https://pbs.twimg.com/media/C4Nt99aWIAAO6rB?format=jpg&amp;name=large" /></p>
-<p>In linear regression, we seek to find models in the form <span class="math notranslate nohighlight">\(y = a_{0} f_{0}(x) + a_{1} f_{1}(x) + ... + a_{n} f_{n}(x) + \epsilon\)</span>, where <span class="math notranslate nohighlight">\(a_{i}\)</span> are coefficients to be determined, and ε are the residual errors. We call this linear regression because the model is linear in the unknown coefficients <span class="math notranslate nohighlight">\(a_{i}\)</span>. The functions can be any function of <span class="math notranslate nohighlight">\(x\)</span>. In the function <code class="docutils literal notranslate"><span class="pre">numpy.polyfit</span></code> these functions are polynomials in <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>In linear regression, we seek to find models in the form $y = a_{0} f_{0}(x) + a_{1} f_{1}(x) + … + a_{n} f_{n}(x) + \epsilon$, where $a_{i}$ are coefficients to be determined, and ε are the residual errors. We call this linear regression because the model is linear in the unknown coefficients $a_{i}$. The functions can be any function of $x$. In the function <code class="docutils literal notranslate"><span class="pre">numpy.polyfit</span></code> these functions are polynomials in $x$.</p>
 <p>If we are given some data as pairs of (x, y), we can construct a set of equations of the form:</p>
-<p><span class="math notranslate nohighlight">\([f_{0}(x_{i}), f_{1}(x_{i}), ..., f_{n}(x_{i})]\cdot[a_{0}, a_{1}, ...,  a_{n}]^T = y_{i}\)</span></p>
+<p>$[f_{0}(x_{i}), f_{1}(x_{i}), …, f_{n}(x_{i})]\cdot[a_{0}, a_{1}, …,  a_{n}]^T = y_{i}$</p>
 <p>There will be one of these equations for every data point, so we end up with a matrix equation that looks like:</p>
-<p><span class="math notranslate nohighlight">\(\mathbf{X} \mathbf{a} = \mathbf{y}\)</span></p>
-<p>There are <em>usually</em> more data points than in the vector of <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>, so the shapes of these arrays are not suitable to solve directly. You can of course set up an objective function and use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code>, but there is a better approach.</p>
-<p>To be a little more specific, suppose we have <span class="math notranslate nohighlight">\(m\)</span> pairs of <span class="math notranslate nohighlight">\((x, y)\)</span> data points, and we want to fit a model containing <span class="math notranslate nohighlight">\(n\)</span> parameters. Then, the dimensions of the <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> will be <span class="math notranslate nohighlight">\((m, n)\)</span>, the dimensions of <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> will be <span class="math notranslate nohighlight">\((n, 1)\)</span>, and the dimensions of <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> will be <span class="math notranslate nohighlight">\((m, 1)\)</span>.  We have more equations than unknowns here, and we cannot use <code class="docutils literal notranslate"><span class="pre">numpy.linalg.solve</span></code> because <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is not square. Note that if it was square, we would be doing the kind of interpolation we described in the last lecture.</p>
-<p>We can modify the equation though if we <em>left multiply</em> each side of the equation by <span class="math notranslate nohighlight">\(\mathbf{X}^T\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(\mathbf{X}^T \mathbf{X} \mathbf{a} = \mathbf{X}^T \mathbf{y}\)</span></p>
-<p>The array <span class="math notranslate nohighlight">\(\mathbf{X}^T \mathbf{X}\)</span> now has the shape <span class="math notranslate nohighlight">\((n, m) * (m, n) = (n, n)\)</span>. The right hand side <span class="math notranslate nohighlight">\(\mathbf{X}^T \mathbf{y}\)</span> has a shape of <span class="math notranslate nohighlight">\((n, m) * (n, 1) = (n, 1)\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> is still <span class="math notranslate nohighlight">\((n, 1)\)</span>. This new matrix equation can be solved efficiently with <code class="docutils literal notranslate"><span class="pre">numpy.linalg.solve</span></code>. We will not prove this, but solving this modified equation <em>is equivalent</em> to finding the set of parameters that minimizes the summed squared errors: <span class="math notranslate nohighlight">\(\sum (\mathbf{X} \cdot \mathbf{a} - \mathbf{y})^2\)</span>.</p>
+<p>$\mathbf{X} \mathbf{a} = \mathbf{y}$</p>
+<p>There are <em>usually</em> more data points than in the vector of $\mathbf{a}$, so the shapes of these arrays are not suitable to solve directly. You can of course set up an objective function and use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code>, but there is a better approach.</p>
+<p>To be a little more specific, suppose we have $m$ pairs of $(x, y)$ data points, and we want to fit a model containing $n$ parameters. Then, the dimensions of the $\mathbf{X}$ will be $(m, n)$, the dimensions of $\mathbf{a}$ will be $(n, 1)$, and the dimensions of $\mathbf{y}$ will be $(m, 1)$.  We have more equations than unknowns here, and we cannot use <code class="docutils literal notranslate"><span class="pre">numpy.linalg.solve</span></code> because $\mathbf{X}$ is not square. Note that if it was square, we would be doing the kind of interpolation we described in the last lecture.</p>
+<p>We can modify the equation though if we <em>left multiply</em> each side of the equation by $\mathbf{X}^T$.</p>
+<p>$\mathbf{X}^T \mathbf{X} \mathbf{a} = \mathbf{X}^T \mathbf{y}$</p>
+<p>The array $\mathbf{X}^T \mathbf{X}$ now has the shape $(n, m) * (m, n) = (n, n)$. The right hand side $\mathbf{X}^T \mathbf{y}$ has a shape of $(n, m) * (n, 1) = (n, 1)$, and $\mathbf{a}$ is still $(n, 1)$. This new matrix equation can be solved efficiently with <code class="docutils literal notranslate"><span class="pre">numpy.linalg.solve</span></code>. We will not prove this, but solving this modified equation <em>is equivalent</em> to finding the set of parameters that minimizes the summed squared errors: $\sum (\mathbf{X} \cdot \mathbf{a} - \mathbf{y})^2$.</p>
 <p>The parameters are then found by:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -487,9 +534,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p>An alternative form is called the normal equation: <span class="math notranslate nohighlight">\(\mathbf{a} = (\mathbf{X}^T\cdot\mathbf{X})^{-1}\mathbf{X}^T \mathbf{y}\)</span>. This is symbolically correct, but relies on the inverse which is expensive to compute for large systems. It is not used practically, instead the equations are solved efficiently using a different algorithm.</p>
+<p>An alternative form is called the normal equation: $\mathbf{a} = (\mathbf{X}^T\cdot\mathbf{X})^{-1}\mathbf{X}^T \mathbf{y}$. This is symbolically correct, but relies on the inverse which is expensive to compute for large systems. It is not used practically, instead the equations are solved efficiently using a different algorithm.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="an-example-of-polynomial-fitting">
+<section id="an-example-of-polynomial-fitting">
 <h1>An example of polynomial fitting<a class="headerlink" href="#an-example-of-polynomial-fitting" title="Permalink to this heading">#</a></h1>
 <p>Our goal in this example is to fit a polynomial to some time-dependent concentration data.</p>
 <div class="cell docutils container">
@@ -503,7 +550,7 @@ document.write(`
 </div>
 </div>
 <p>Fit a fourth order polynomial to this data and determine the confidence interval for each parameter. This data is from example 5-1 in Fogler, Elements of Chemical Reaction Engineering.</p>
-<p>We want the equation <span class="math notranslate nohighlight">\(Ca(t) = b0 + b1*t + b2*t^2 + b3*t^3 + b4*t^4\)</span> fit to the data in the least squares sense. We can write this in a linear algebra form as: <span class="math notranslate nohighlight">\(\mathbf{T} \mathbf{p} = \mathbf{Ca}\)</span> where <span class="math notranslate nohighlight">\(\mathbf{T}\)</span> is a matrix of columns <span class="math notranslate nohighlight">\([1, t, t^2, t^3, t^4]\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> is a column vector of the fitting parameters. We want to solve for the <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> vector and estimate the confidence intervals.</p>
+<p>We want the equation $Ca(t) = b0 + b1<em>t + b2</em>t^2 + b3<em>t^3 + b4</em>t^4$ fit to the data in the least squares sense. We can write this in a linear algebra form as: $\mathbf{T} \mathbf{p} = \mathbf{Ca}$ where $\mathbf{T}$ is a matrix of columns $[1, t, t^2, t^3, t^4]$, and $\mathbf{p}$ is a column vector of the fitting parameters. We want to solve for the $\mathbf{p}$ vector and estimate the confidence intervals.</p>
 <p>First, we setup the array of function values, and then we solve for the parameters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -758,9 +805,9 @@ document.write(`
 <h2>Confidence intervals on the parameters<a class="headerlink" href="#confidence-intervals-on-the-parameters" title="Permalink to this heading">#</a></h2>
 <p>The confidence intervals reflect the range of values we are confident the true parameter lies in. Remember we are only <em>estimating</em> these parameters from a small amount of data.</p>
 <p>The degrees of freedom is roughly equal to the number of data points minus the number of parameters.</p>
-<p>We define <span class="math notranslate nohighlight">\(\sigma^2 = SSE / dof\)</span> where <span class="math notranslate nohighlight">\(SSE\)</span> is the summed squared error, and <span class="math notranslate nohighlight">\(dof\)</span> is the degrees of freedom.</p>
-<p>The covariance matrix is defined as <span class="math notranslate nohighlight">\((\mathbf{X}^T \mathbf{X})^{-1}\)</span>. Finally, we compute the standard error on the parameters as:</p>
-<p><span class="math notranslate nohighlight">\(\mathbf{se} = \sqrt{diag(\sigma^2 cov)}\)</span>.</p>
+<p>We define $\sigma^2 = SSE / dof$ where $SSE$ is the summed squared error, and $dof$ is the degrees of freedom.</p>
+<p>The covariance matrix is defined as $(\mathbf{X}^T \mathbf{X})^{-1}$. Finally, we compute the standard error on the parameters as:</p>
+<p>$\mathbf{se} = \sqrt{diag(\sigma^2 cov)}$.</p>
 <p>This will be an array with one element for each parameter. You can think of this standard error as the uncertainty in the mean value of each parameter.</p>
 <p>The confidence intervals are finally computed by calculating a student t-value that accounts for the additional uncertainty we have because of the small number of degrees of freedom.</p>
 <div class="cell docutils container">
@@ -815,7 +862,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>It is also common to estimate an <span class="math notranslate nohighlight">\(R^2\)</span> value, where values close to one mean the model accounts for most of the variance in the data.</p>
+<p>It is also common to estimate an $R^2$ value, where values close to one mean the model accounts for most of the variance in the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SS_tot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">Ca</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Ca</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
@@ -943,13 +990,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="YawXrepZcLUt" data-shufflequestions="False"
+<div class="output text_html"><div id="cczseDWCayoO" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#YawXrepZcLUt {
+#cczseDWCayoO {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1119,7 +1166,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsYawXrepZcLUt=[{"question": "Which of the following is a linear regression model:", "type": "multiple_choice", "answers": [{"answer": "y = e^x + x", "correct": false}, {"answer": "y = sin(x) + 5", "correct": false}, {"answer": "y = x + x^2", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "Regression is a useful method to find a model which generalizes a data set because", "type": "multiple_choice", "answers": [{"answer": "It provides parameters which can have physical significance", "correct": false}, {"answer": "It can help to identify the important variables affecting a system ", "correct": false}, {"answer": "It is not a black-box model", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "Which of the following statements are true:<br>Linear regression is limiting beacause:<br>a: It assumes a linear relationship between the variables which may not always be the case<br>b: It is affected by outliers<br>c: It is overly simplistic and would always fit to noisy observations", "type": "multiple_choice", "answers": [{"answer": "a, b", "correct": true}, {"answer": "a, b, c", "correct": false}, {"answer": "a, c", "correct": false}, {"answer": "b, c", "correct": false}], "tag": "regression", "lecture_file": "11_regression"}];
+</style></div><script type="application/javascript">var questionscczseDWCayoO=[{"question": "Which of the following is a linear regression model:", "type": "multiple_choice", "answers": [{"answer": "y = e^x + x", "correct": false}, {"answer": "y = sin(x) + 5", "correct": false}, {"answer": "y = x + x^2", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "Regression is a useful method to find a model which generalizes a data set because", "type": "multiple_choice", "answers": [{"answer": "It provides parameters which can have physical significance", "correct": false}, {"answer": "It can help to identify the important variables affecting a system ", "correct": false}, {"answer": "It is not a black-box model", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "Which of the following statements are true:<br>Linear regression is limiting beacause:<br>a: It assumes a linear relationship between the variables which may not always be the case<br>b: It is affected by outliers<br>c: It is overly simplistic and would always fit to noisy observations", "type": "multiple_choice", "answers": [{"answer": "a, b", "correct": true}, {"answer": "a, b, c", "correct": false}, {"answer": "a, c", "correct": false}, {"answer": "b, c", "correct": false}], "tag": "regression", "lecture_file": "11_regression"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1868,8 +1915,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("YawXrepZcLUt")) {
-            show_questions(questionsYawXrepZcLUt,  YawXrepZcLUt); 
+          if(document.getElementById("cczseDWCayoO")) {
+            show_questions(questionscczseDWCayoO,  cczseDWCayoO); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1878,8 +1925,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("YawXrepZcLUt");
-        // console.log(document.getElementById("YawXrepZcLUt"));
+        //console.log("cczseDWCayoO");
+        // console.log(document.getElementById("cczseDWCayoO"));
 
         try_show();
         }
@@ -1887,7 +1934,7 @@ if (typeof version == 'undefined') {
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="regularization">
+<section id="regularization">
 <h1>Regularization<a class="headerlink" href="#regularization" title="Permalink to this heading">#</a></h1>
 <p>When we do linear regression we get a coefficient for every function in the model. However, there can be bad behavior with regular regression, especially for certain classes of functions, and when the functions are correlated with each other. To explore why this happens, we will look at some regression models of varying complexity. We start by looking at some data.</p>
 <div class="cell docutils container">
@@ -1947,16 +1994,16 @@ if (typeof version == 'undefined') {
 <section id="ridge-regression">
 <h2>Ridge regression<a class="headerlink" href="#ridge-regression" title="Permalink to this heading">#</a></h2>
 <p>In ridge regression we define our objective function to minimize the summed squared error as usual, and add a term proportional to the sum of the squared parameters.</p>
-<p>So, if our regression model looks like <span class="math notranslate nohighlight">\(\mathbf{X} \mathbf{p} = \mathbf{y}\)</span> we seek to minimize:</p>
-<p><span class="math notranslate nohighlight">\((\mathbf{y} - \mathbf{X} \mathbf{p})^T (\mathbf{y} - \mathbf{X} \mathbf{p}) + \lambda ||\mathbf{p}||_2^2\)</span></p>
-<p>Where <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> are the fitting parameters, and <span class="math notranslate nohighlight">\(\lambda\)</span> is the proportionality constant.</p>
+<p>So, if our regression model looks like $\mathbf{X} \mathbf{p} = \mathbf{y}$ we seek to minimize:</p>
+<p>$(\mathbf{y} - \mathbf{X} \mathbf{p})^T (\mathbf{y} - \mathbf{X} \mathbf{p}) + \lambda ||\mathbf{p}||_2^2$</p>
+<p>Where $\mathbf{p}$ are the fitting parameters, and $\lambda$ is the proportionality constant.</p>
 <p>Finding the parameters is done by solving this modified normal equation:</p>
-<p>(<span class="math notranslate nohighlight">\(\mathbf{Z}^T \mathbf{Z} + \lambda \mathbf{I}) \mathbf{p} = \mathbf{Z}^T \mathbf{w}\)</span></p>
+<p>($\mathbf{Z}^T \mathbf{Z} + \lambda \mathbf{I}) \mathbf{p} = \mathbf{Z}^T \mathbf{w}$</p>
 <p>We have changed variable names because it is considered important to standardize our variables:</p>
-<p><span class="math notranslate nohighlight">\(\mathbf{Z} = (\mathbf{X} - mean(\mathbf{X})) / std(\mathbf{X})\)</span></p>
+<p>$\mathbf{Z} = (\mathbf{X} - mean(\mathbf{X})) / std(\mathbf{X})$</p>
 <p>Standardization means that the variable has a mean of 0 and a standard deviation of 1.
 and</p>
-<p><span class="math notranslate nohighlight">\(\mathbf{w} = (\mathbf{y} - mean(\mathbf{y})) / std(\mathbf{y})\)</span></p>
+<p>$\mathbf{w} = (\mathbf{y} - mean(\mathbf{y})) / std(\mathbf{y})$</p>
 <p>λ is a parameter that affects the amount of <em>regularization</em>.</p>
 <p>It is common to <em>standardize</em> the input/output variables which means we make the average of each column equal to zero and scale them to have unit variance. Doing this eliminates the intercept from the model since it would then go through the point (0, 0).</p>
 <div class="cell docutils container">
@@ -3536,7 +3583,7 @@ and</p>
 <img alt="../../_images/b6fee2ba499844f47e91e894b1fa80e87c9f85fafad232a48bf6f042b22333f8.png" src="../../_images/b6fee2ba499844f47e91e894b1fa80e87c9f85fafad232a48bf6f042b22333f8.png" />
 </div>
 </div>
-<p>One way people have evaluated a reasonable value of λ is to look at how the coefficients vary with λ using a <em>ridge plot</em>. In this plot, you look for a range that balances the large swings associated with regular unconstrained regression and the damping caused by large values of λ. Here a value of <span class="math notranslate nohighlight">\(10^{-6} \le \lambda \le 10^{-8}\)</span> would be considered reasonable.</p>
+<p>One way people have evaluated a reasonable value of λ is to look at how the coefficients vary with λ using a <em>ridge plot</em>. In this plot, you look for a range that balances the large swings associated with regular unconstrained regression and the damping caused by large values of λ. Here a value of $10^{-6} \le \lambda \le 10^{-8}$ would be considered reasonable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lambdas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="mf">1e-8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -3617,20 +3664,20 @@ and</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lambda      x^11         x^10         x^9          x^8          x^7          x^6          x^5          x^4          x^3          x^2          x^1          
-       0       132.06     -289.84       -2.09      286.50      105.85     -319.54     -170.93      506.15     -331.61       91.20       -8.53
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   1e-05        58.34     -135.27       -7.54      176.15       15.34     -161.28      -88.98      295.64     -206.97       59.01       -5.23
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       0       132.06     -289.84       -2.09      286.50      105.85     -319.54     -170.93      506.15     -331.61       91.20       -8.53
+   1e-05        58.34     -135.27       -7.54      176.15       15.34     -161.28      -88.98      295.64     -206.97       59.01       -5.23
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.00032         0.02       -0.00       -0.05       -0.01       -0.38        0.55        2.22        0.27       -4.28       -0.80        1.70
-    0.01        -0.01       -0.17        0.00       -0.00        0.74        0.68        0.01        0.01       -1.75       -2.16        1.89
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.01        -0.01       -0.17        0.00       -0.00        0.74        0.68        0.01        0.01       -1.75       -2.16        1.89
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    0.32         0.38        0.19        0.00        0.00        0.00       -0.00        0.00       -0.00       -1.97       -0.00        0.60
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      10         0.00       -0.00       -0.02        0.00       -0.02       -0.01       -0.04       -0.02       -0.07       -0.55       -0.00
+      10         0.00       -0.00       -0.02        0.00       -0.02       -0.01       -0.04       -0.02       -0.07       -0.55       -0.00
 </pre></div>
 </div>
 <img alt="../../_images/7f6e4eb006d454dc164bc887b7004b67083120f8e46a3befd26328a03063419c.png" src="../../_images/7f6e4eb006d454dc164bc887b7004b67083120f8e46a3befd26328a03063419c.png" />
@@ -3641,12 +3688,12 @@ and</p>
 <p>The disadvantages, however, are that we cannot use linear algebra to find the parameters. The penalty imposes a nonlinear behavior to the objective function, so we must use an iterative solver. For features that are correlated, we have no control over which feature is eliminated. Different initial guesses may lead to different feature elimination. If the features are really correlated, this will not affect the fit quality, but it will mean some models favor one feature over another. This is less of a problem in polynomial models, but often a problem in models based on physical properties that are correlated, e.g. high melting points of materials tend to be correlated with how hard they are. With LASSO, one model could favor the melting point and another could favor the hardness.</p>
 </section>
 <section id="advanced-selection-of-lambda">
-<h2>Advanced selection of <span class="math notranslate nohighlight">\(\lambda\)</span><a class="headerlink" href="#advanced-selection-of-lambda" title="Permalink to this heading">#</a></h2>
-<p>A more advanced way to select a value of λ is called k-fold validation. It is complex to code this, and the standard method to do it is in <a class="reference external" href="https://scikit-learn.org/stable/index.html">scikit-learn</a>, see specifically the <a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression">ridge regression example</a> and the  <a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#lasso">LASSO example</a>. The basic idea is that you split your data set into <span class="math notranslate nohighlight">\(k\)</span> <em>folds</em>, and then you fit <span class="math notranslate nohighlight">\(k-1\)</span> folds to get the paramters. On the remaining fold (which was not used for fitting) you estimate the model errors. Initially with no regularization, the errors will be high due to overfitting. As you add regularization, the errors will begin decrease. Eventually though, the model will start underfitting, and the errors will go back up. The λ that provides the lowest test errors is usually considered the best choice.</p>
+<h2>Advanced selection of $\lambda$<a class="headerlink" href="#advanced-selection-of-lambda" title="Permalink to this heading">#</a></h2>
+<p>A more advanced way to select a value of λ is called k-fold validation. It is complex to code this, and the standard method to do it is in <a class="reference external" href="https://scikit-learn.org/stable/index.html">scikit-learn</a>, see specifically the <a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression">ridge regression example</a> and the  <a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#lasso">LASSO example</a>. The basic idea is that you split your data set into $k$ <em>folds</em>, and then you fit $k-1$ folds to get the paramters. On the remaining fold (which was not used for fitting) you estimate the model errors. Initially with no regularization, the errors will be high due to overfitting. As you add regularization, the errors will begin decrease. Eventually though, the model will start underfitting, and the errors will go back up. The λ that provides the lowest test errors is usually considered the best choice.</p>
 <p>We will not cover these more advanced methods as they rely on learning the scikit-learn API in depth, and some other higher level Python libraries we have not covered like Pandas. These are more appropriate in a data science/machine learning focused course.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<section id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>In this lecture we introduced the concept of linear regression. In the normal linear regression, we simply solve linear equations that ultimately minimize the summed squared errors between the model and data. With some additional linear algebra, we can also estimate the confidence intervals on the parameters.</p>
 <p>One issue with normal linear regression is that the parameters are unconstrained, which can lead to some functions having undesirably large parameters. We introduced two types of <em>regularization</em> to mitigate this issue: ridge regression and LASSO regression. In both cases, a penalty function is added to the objective function being minimized. In ridge regression the penalty is an L2 norm on the parameters which penalizes large parameters, leading to a reduction in their magnitude. In LASSO reduction the penalty is an L1 norm, which drives parameters towards zero. Both methods rely on a hyperparameter λ that determines how much regularization is applied. With both regularization approaches we have to use some judgment in how much regularization to apply (the magnitude of λ), and we only provided a heuristic approach to doing this.</p>
@@ -3657,13 +3704,13 @@ and</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="XMsRycGHXzGR" data-shufflequestions="False"
+<div class="output text_html"><div id="CEPkxSTOrQqz" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#XMsRycGHXzGR {
+#CEPkxSTOrQqz {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -3833,7 +3880,7 @@ and</p>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsXMsRycGHXzGR=[{"question": "For a linear regression model represented as y = b0 + b1.x1 + b2x2; with 10 data points (x, y), what will be the shape of the matrix X in X.b = y.", "type": "multiple_choice", "answers": [{"answer": "(10,3)", "correct": true}, {"answer": "(3, 1)", "correct": false}, {"answer": "(10, 1)", "correct": false}, {"answer": "(10, 10)", "correct": false}], "tag": "regression matrices", "lecture_file": "18_linear_regression"}, {"question": "Determine true or false:<br>Linear regression using numpy.linalg.lstsq() minimizes the errors, which also means it minimizes the residuals.", "type": "multiple_choice", "answers": [{"answer": "False ", "correct": false}, {"answer": "True ", "correct": true}, {"answer": "-", "correct": false}, {"answer": "-", "correct": false}], "tag": "regression numpy error residual", "lecture_file": "18_linear_regression"}, {"question": "Determine true or false:<br>When using numpy.linalg.lstsq(X, y), the X matrix must necessarily be a square matrix.", "type": "multiple_choice", "answers": [{"answer": "True ", "correct": false}, {"answer": "False ", "correct": true}, {"answer": "-", "correct": false}, {"answer": "-", "correct": false}], "tag": "regression numpy matrices", "lecture_file": "18_linear_regression"}, {"question": "For 2 linear regression models for the same data set, R-squared value of model-1 is 95% and that of model-2 is 65%. Which of the following statements are true?", "type": "multiple_choice", "answers": [{"answer": "Model 1 is a better represenation of the data set", "correct": false}, {"answer": "Model 2 is a better representation of the data set", "correct": false}, {"answer": "Both are equally good.", "correct": false}, {"answer": "Cannot say which model is better based on the R-squared values.", "correct": true}], "tag": "R_squared regression", "lecture_file": "18_linear_regression"}, {"question": "What will be the shape of the covariance matrix for a system which has 100 data points and is represented with the model: y = b0 + b1x1 + b2x2 + b3x3", "type": "multiple_choice", "answers": [{"answer": "(4, 4)", "correct": true}, {"answer": "(100, 100)", "correct": false}, {"answer": "(4, 100)", "correct": false}, {"answer": "(100, 4)", "correct": false}], "tag": "regression covariance", "lecture_file": "18_linear_regression"}, {"question": "To eliminate the least contributing independent variables in a linear regression model using regularization, a good choice can be to use", "type": "multiple_choice", "answers": [{"answer": "L2 regularization", "correct": false}, {"answer": "L1 regularization", "correct": true}, {"answer": "Both can work equally efficiently", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "regularization ridge lasso", "lecture_file": "18_linear_regression"}, {"question": "When using L1 regularization, if the value of lambda is extremely large as compared to the sum squared errors, then", "type": "multiple_choice", "answers": [{"answer": "We will get the most accurate model", "correct": false}, {"answer": "All the parameters might get reduced to zero", "correct": true}, {"answer": "It will have no effect on the regularization", "correct": false}, {"answer": "All the parameters will be reduced but never to zero", "correct": false}], "tag": "regularization lasso", "lecture_file": "18_linear_regression"}, {"question": "Standardizing the input variables", "type": "multiple_choice", "answers": [{"answer": "Results in average value of each variable equal to zero", "correct": false}, {"answer": "Eliminates the intercept", "correct": false}, {"answer": "Eliminates the effects of difference in absolute values of the variables", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "standardization", "lecture_file": "18_linear_regression"}, {"question": "Ridge regularization can be useful in", "type": "multiple_choice", "answers": [{"answer": "Eliminating the non-contributing features", "correct": false}, {"answer": "Reducing the errors arising from least-contributing features", "correct": true}, {"answer": "Reducing the penalty on the non-contributing coefficients as compared with Lasso", "correct": false}, {"answer": "All of the above", "correct": false}], "tag": "regularization ridge", "lecture_file": "18_linear_regression"}, {"question": "When using Ridge regularization, if the value of lambda = 0, then", "type": "multiple_choice", "answers": [{"answer": "All the coefficients will go to zero", "correct": false}, {"answer": "All the coefficients will go to infinity", "correct": false}, {"answer": "The final model is the same as a non-regularized linear regression model", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "regularization ridge", "lecture_file": "18_linear_regression"}];
+</style></div><script type="application/javascript">var questionsCEPkxSTOrQqz=[{"question": "For a linear regression model represented as y = b0 + b1.x1 + b2x2; with 10 data points (x, y), what will be the shape of the matrix X in X.b = y.", "type": "multiple_choice", "answers": [{"answer": "(10,3)", "correct": true}, {"answer": "(3, 1)", "correct": false}, {"answer": "(10, 1)", "correct": false}, {"answer": "(10, 10)", "correct": false}], "tag": "regression matrices", "lecture_file": "18_linear_regression"}, {"question": "Determine true or false:<br>Linear regression using numpy.linalg.lstsq() minimizes the errors, which also means it minimizes the residuals.", "type": "multiple_choice", "answers": [{"answer": "False ", "correct": false}, {"answer": "True ", "correct": true}, {"answer": "-", "correct": false}, {"answer": "-", "correct": false}], "tag": "regression numpy error residual", "lecture_file": "18_linear_regression"}, {"question": "Determine true or false:<br>When using numpy.linalg.lstsq(X, y), the X matrix must necessarily be a square matrix.", "type": "multiple_choice", "answers": [{"answer": "True ", "correct": false}, {"answer": "False ", "correct": true}, {"answer": "-", "correct": false}, {"answer": "-", "correct": false}], "tag": "regression numpy matrices", "lecture_file": "18_linear_regression"}, {"question": "For 2 linear regression models for the same data set, R-squared value of model-1 is 95% and that of model-2 is 65%. Which of the following statements are true?", "type": "multiple_choice", "answers": [{"answer": "Model 1 is a better represenation of the data set", "correct": false}, {"answer": "Model 2 is a better representation of the data set", "correct": false}, {"answer": "Both are equally good.", "correct": false}, {"answer": "Cannot say which model is better based on the R-squared values.", "correct": true}], "tag": "R_squared regression", "lecture_file": "18_linear_regression"}, {"question": "What will be the shape of the covariance matrix for a system which has 100 data points and is represented with the model: y = b0 + b1x1 + b2x2 + b3x3", "type": "multiple_choice", "answers": [{"answer": "(4, 4)", "correct": true}, {"answer": "(100, 100)", "correct": false}, {"answer": "(4, 100)", "correct": false}, {"answer": "(100, 4)", "correct": false}], "tag": "regression covariance", "lecture_file": "18_linear_regression"}, {"question": "To eliminate the least contributing independent variables in a linear regression model using regularization, a good choice can be to use", "type": "multiple_choice", "answers": [{"answer": "L2 regularization", "correct": false}, {"answer": "L1 regularization", "correct": true}, {"answer": "Both can work equally efficiently", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "regularization ridge lasso", "lecture_file": "18_linear_regression"}, {"question": "When using L1 regularization, if the value of lambda is extremely large as compared to the sum squared errors, then", "type": "multiple_choice", "answers": [{"answer": "We will get the most accurate model", "correct": false}, {"answer": "All the parameters might get reduced to zero", "correct": true}, {"answer": "It will have no effect on the regularization", "correct": false}, {"answer": "All the parameters will be reduced but never to zero", "correct": false}], "tag": "regularization lasso", "lecture_file": "18_linear_regression"}, {"question": "Standardizing the input variables", "type": "multiple_choice", "answers": [{"answer": "Results in average value of each variable equal to zero", "correct": false}, {"answer": "Eliminates the intercept", "correct": false}, {"answer": "Eliminates the effects of difference in absolute values of the variables", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "standardization", "lecture_file": "18_linear_regression"}, {"question": "Ridge regularization can be useful in", "type": "multiple_choice", "answers": [{"answer": "Eliminating the non-contributing features", "correct": false}, {"answer": "Reducing the errors arising from least-contributing features", "correct": true}, {"answer": "Reducing the penalty on the non-contributing coefficients as compared with Lasso", "correct": false}, {"answer": "All of the above", "correct": false}], "tag": "regularization ridge", "lecture_file": "18_linear_regression"}, {"question": "When using Ridge regularization, if the value of lambda = 0, then", "type": "multiple_choice", "answers": [{"answer": "All the coefficients will go to zero", "correct": false}, {"answer": "All the coefficients will go to infinity", "correct": false}, {"answer": "The final model is the same as a non-regularized linear regression model", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "regularization ridge", "lecture_file": "18_linear_regression"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -4582,8 +4629,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("XMsRycGHXzGR")) {
-            show_questions(questionsXMsRycGHXzGR,  XMsRycGHXzGR); 
+          if(document.getElementById("CEPkxSTOrQqz")) {
+            show_questions(questionsCEPkxSTOrQqz,  CEPkxSTOrQqz); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -4592,8 +4639,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("XMsRycGHXzGR");
-        // console.log(document.getElementById("XMsRycGHXzGR"));
+        //console.log("CEPkxSTOrQqz");
+        // console.log(document.getElementById("CEPkxSTOrQqz"));
 
         try_show();
         }
@@ -4676,7 +4723,7 @@ if (typeof version == 'undefined') {
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization">Regularization</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression">Ridge regression</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso-regression">LASSO regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-selection-of-lambda">Advanced selection of <span class="math notranslate nohighlight">\(\lambda\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-selection-of-lambda">Advanced selection of $\lambda$</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
