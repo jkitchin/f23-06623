@@ -1,1 +1,242 @@
-[{"question": "What will be the input to np.roots() to find the roots of the equation:<br>$5x^4 - 10x^2 + 20x - 50 = 0$", "type": "multiple_choice", "answers": [{"answer": "[5, -10, 20, -50]", "correct": false}, {"answer": "[1, -2, 4, 10]", "correct": false}, {"answer": "[5, -10, 20, -50, 0]", "correct": false}, {"answer": "[5, 0, -10, 20, -50]", "correct": true}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "p = [1, -5, 6]<br>x = np.linspace(0, 10, 20)<br>y = np.polyval(p, x)<br>y.shape = ?", "type": "multiple_choice", "answers": [{"answer": "(50,)", "correct": false}, {"answer": "(20,)", "correct": true}, {"answer": "(10,)", "correct": false}, {"answer": "(3,)", "correct": false}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "What will be the output of:<br>np.polyder([5, 0, 3, 5])", "type": "multiple_choice", "answers": [{"answer": "np.array([15, 2, 3])", "correct": false}, {"answer": "np.array([15, 3])", "correct": false}, {"answer": "np.array([15, 3, 0])", "correct": false}, {"answer": "np.array([15, 0, 3])", "correct": true}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "What will be the output of:<br>p = [1]<br>pint = np.polyint(p, 2, [1, 4])<br>print(pint)", "type": "multiple_choice", "answers": [{"answer": "[1.0, 1.0]", "correct": false}, {"answer": "[0.5, 1.0, 4.0]", "correct": true}, {"answer": "[0.167, 1.0, 4.0]", "correct": false}, {"answer": "Error", "correct": false}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "If 'p = np.poly1d([1, -5, 6])'<br>then 'print(p.r)' will output", "type": "multiple_choice", "answers": [{"answer": "[3, 2]", "correct": true}, {"answer": "Error", "correct": false}, {"answer": "False", "correct": false}, {"answer": "True", "correct": false}], "tag": "numpy", "lecture_file": "08_nla_2"}, {"question": "What will be a possible solution for<br>y = 3x^2 + 6<br>y = 6cos(x)", "type": "multiple_choice", "answers": [{"answer": "(0, 0)", "correct": false}, {"answer": "(6, 1)", "correct": false}, {"answer": "(0, 6)", "correct": true}, {"answer": "(6, 3)", "correct": false}], "tag": "matplotlib", "lecture_file": "08_nla_2"}, {"question": "How many contour lines will be plotted with:<br>plt.contour(X, Y, Z, levels = 10)", "type": "multiple_choice", "answers": [{"answer": "11", "correct": true}, {"answer": "10", "correct": false}, {"answer": "9", "correct": false}, {"answer": "50", "correct": false}], "tag": "matplotlib contour", "lecture_file": "08_nla_2"}, {"question": "<p>What is missing from the following objective function to solve a set of linear equations using root:</p>\n<pre><code>def f(P):\n    z1 = 3p + 6 - q + r\n    z2 = 5p + 5 - 2q + r\n    z3 = p - q + 2r\n    return np.array([z1, z2, z3])\n</code></pre>", "type": "multiple_choice", "answers": [{"answer": "z1, z2, z3 = P", "correct": false}, {"answer": "z1+z2+z3 = P", "correct": false}, {"answer": "p, q, r = P", "correct": true}, {"answer": "P = p, q, r", "correct": false}], "tag": "scipy", "lecture_file": "08_nla_2"}, {"question": "<p>Using <code>root(f, initial_guess)</code> with the following objective function to solve a set of linear equations:</p>\n<pre><code>def f(p, q, r):\n    z1 = 3p + 6 - q + r\n    z2 = 5p + 5 - 2q + r\n    z3 = p - q + 2r\n    return np.array([z1, z2, z3])\n</code></pre>", "type": "multiple_choice", "answers": [{"answer": "Will give an error", "correct": true}, {"answer": "The code would work but give the wrong answer.", "correct": false}, {"answer": "The code would work and give the correct  answer.", "correct": false}, {"answer": "The code will give the correct answer if we use: 'fsolve(f, p, args = (q, r))'", "correct": false}], "tag": "scipy", "lecture_file": "08_nla_2"}, {"question": "<p>How many contour lines will be plotted with:</p>\n<pre><code class=\"language-python\">plt.contour(X, Y, Z, levels = np.array([0.1, 0.2, 0.3, -0.1, -0.2, -0.3]))\n</code></pre>", "type": "multiple_choice", "answers": [{"answer": "6", "correct": false}, {"answer": "5", "correct": false}, {"answer": "7", "correct": false}, {"answer": "Error", "correct": true}], "tag": "matplotlib contour", "lecture_file": "08_nla_2"}]
+[
+  {
+    "question": "What will be the input to np.roots() to find the roots of the equation:<br>$5x^4 - 10x^2 + 20x - 50 = 0$",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "[5, -10, 20, -50]",
+        "correct": false
+      },
+      {
+        "answer": "[1, -2, 4, 10]",
+        "correct": false
+      },
+      {
+        "answer": "[5, -10, 20, -50, 0]",
+        "correct": false
+      },
+      {
+        "answer": "[5, 0, -10, 20, -50]",
+        "correct": true
+      }
+    ],
+    "tag": "numpy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "p = [1, -5, 6]<br>x = np.linspace(0, 10, 20)<br>y = np.polyval(p, x)<br>y.shape = ?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "(50,)",
+        "correct": false
+      },
+      {
+        "answer": "(20,)",
+        "correct": true
+      },
+      {
+        "answer": "(10,)",
+        "correct": false
+      },
+      {
+        "answer": "(3,)",
+        "correct": false
+      }
+    ],
+    "tag": "numpy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "What will be the output of:<br>np.polyder([5, 0, 3, 5])",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "np.array([15, 2, 3])",
+        "correct": false
+      },
+      {
+        "answer": "np.array([15, 3])",
+        "correct": false
+      },
+      {
+        "answer": "np.array([15, 3, 0])",
+        "correct": false
+      },
+      {
+        "answer": "np.array([15, 0, 3])",
+        "correct": true
+      }
+    ],
+    "tag": "numpy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "What will be the output of:<br>p = [1]<br>pint = np.polyint(p, 2, [1, 4])<br>print(pint)",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "[1.0, 1.0]",
+        "correct": false
+      },
+      {
+        "answer": "[0.5, 1.0, 4.0]",
+        "correct": true
+      },
+      {
+        "answer": "[0.167, 1.0, 4.0]",
+        "correct": false
+      },
+      {
+        "answer": "Error",
+        "correct": false
+      }
+    ],
+    "tag": "numpy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "If 'p = np.poly1d([1, -5, 6])'<br>then 'print(p.r)' will output",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "[3, 2]",
+        "correct": true
+      },
+      {
+        "answer": "Error",
+        "correct": false
+      },
+      {
+        "answer": "False",
+        "correct": false
+      },
+      {
+        "answer": "True",
+        "correct": false
+      }
+    ],
+    "tag": "numpy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "What will be a possible solution for<br>y = 3x^2 + 6<br>y = 6cos(x)",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "(0, 0)",
+        "correct": false
+      },
+      {
+        "answer": "(6, 1)",
+        "correct": false
+      },
+      {
+        "answer": "(0, 6)",
+        "correct": true
+      },
+      {
+        "answer": "(6, 3)",
+        "correct": false
+      }
+    ],
+    "tag": "matplotlib",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "How many contour lines will be plotted with:<br>plt.contour(X, Y, Z, levels = 10)",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "11",
+        "correct": true
+      },
+      {
+        "answer": "10",
+        "correct": false
+      },
+      {
+        "answer": "9",
+        "correct": false
+      },
+      {
+        "answer": "50",
+        "correct": false
+      }
+    ],
+    "tag": "matplotlib contour",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "<p>What is missing from the following objective function to solve a set of linear equations using root:</p>\n<pre><code>def f(P):\n    z1 = 3p + 6 - q + r\n    z2 = 5p + 5 - 2q + r\n    z3 = p - q + 2r\n    return np.array([z1, z2, z3])\n</code></pre>",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "z1, z2, z3 = P",
+        "correct": false
+      },
+      {
+        "answer": "z1+z2+z3 = P",
+        "correct": false
+      },
+      {
+        "answer": "p, q, r = P",
+        "correct": true
+      },
+      {
+        "answer": "P = p, q, r",
+        "correct": false
+      }
+    ],
+    "tag": "scipy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "<p>Using <code>root(f, initial_guess)</code> with the following objective function to solve a set of linear equations:</p>\n<pre><code>def f(p, q, r):\n    z1 = 3p + 6 - q + r\n    z2 = 5p + 5 - 2q + r\n    z3 = p - q + 2r\n    return np.array([z1, z2, z3])\n</code></pre>",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Will give an error",
+        "correct": true
+      },
+      {
+        "answer": "The code would work but give the wrong answer.",
+        "correct": false
+      },
+      {
+        "answer": "The code would work and give the correct  answer.",
+        "correct": false
+      },
+      {
+        "answer": "The code will give the correct answer if we use: 'root(f, p, args = (q, r))'",
+        "correct": false
+      }
+    ],
+    "tag": "scipy",
+    "lecture_file": "08_nla_2"
+  },
+  {
+    "question": "<p>How many contour lines will be plotted with:</p>\n<pre><code class=\"language-python\">plt.contour(X, Y, Z, levels = np.array([0.1, 0.2, 0.3, -0.1, -0.2, -0.3]))\n</code></pre>",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "6",
+        "correct": false
+      },
+      {
+        "answer": "5",
+        "correct": false
+      },
+      {
+        "answer": "7",
+        "correct": false
+      },
+      {
+        "answer": "Error",
+        "correct": true
+      }
+    ],
+    "tag": "matplotlib contour",
+    "lecture_file": "08_nla_2"
+  }
+]

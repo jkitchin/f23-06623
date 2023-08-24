@@ -176,7 +176,7 @@
         "correct": false
       },
       {
-        "answer": "With fsolve() and an integration function if we have a good initial guess",
+        "answer": "With root() and an integration function if we have a good initial guess",
         "correct": false
       },
       {

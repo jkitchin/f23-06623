@@ -35,3 +35,15 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - amsmath
+    
+launch_buttons:
+  notebook_interface        : jupyterlab  # The interface interactive links will activate ["classic", "jupyterlab"]
+  # Note this requires configuration of the "repository" above to work. 
+  jupyterhub_url            : "https://jupyterhub-dev.cheme.cmu.edu"  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)  
+  colab_url                 : "https://colab.research.google.com" # The URL of Google Colab (https://colab.research.google.com)
