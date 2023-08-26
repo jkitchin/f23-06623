@@ -298,7 +298,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://jupyterhub-dev.cheme.cmu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jkitchin/f23-06623&urlpath=lab/tree/f23-06623/docs/lectures/19-introduction-to-autograd/19-introduction-to-jax.ipynb&branch=main" target="_blank"
+      <li><a href="https://jupyterhub-dev.cheme.cmu.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/jkitchin/f23-06623&urlpath=lab/tree/f23-06623/f23-06623/lectures/19-introduction-to-autograd/19-introduction-to-jax.ipynb&branch=main" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -316,7 +316,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/jkitchin/f23-06623/blob/main/docs/lectures/19-introduction-to-autograd/19-introduction-to-jax.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/jkitchin/f23-06623/blob/main/f23-06623/lectures/19-introduction-to-autograd/19-introduction-to-jax.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -758,7 +758,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.6361342 , 0.70565806]), array(-65.06194123))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.62809475, 0.70828406]), array(53.80805607))
 </pre></div>
 </div>
 </div>
@@ -771,7 +771,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/364a87b9b911a5b1f23793725e930b5991158898458e4f20a1d88e6f24934a3c.png" src="../../_images/364a87b9b911a5b1f23793725e930b5991158898458e4f20a1d88e6f24934a3c.png" />
+<img alt="../../_images/bb7ac11df5b66ac3a62d8815767b61f4bea9db80b8263d837359106e432c85ba.png" src="../../_images/bb7ac11df5b66ac3a62d8815767b61f4bea9db80b8263d837359106e432c85ba.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -786,7 +786,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1a374745a54260b728b532fc6407702ac33fc094d4a476512992be4f48d4567f.png" src="../../_images/1a374745a54260b728b532fc6407702ac33fc094d4a476512992be4f48d4567f.png" />
+<img alt="../../_images/87649aa3394727ee267236eb0369c43d50fcf0424b71903eb08d49ecfe8e3b2b.png" src="../../_images/87649aa3394727ee267236eb0369c43d50fcf0424b71903eb08d49ecfe8e3b2b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -796,7 +796,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3ba4eb48e4eed57e513f242398f8ae5ecf0822627db222f8c01ff914617da3a1.png" src="../../_images/3ba4eb48e4eed57e513f242398f8ae5ecf0822627db222f8c01ff914617da3a1.png" />
+<img alt="../../_images/2dadbc8ad31e06600ff3c6c33c1f812d8c7161c8e7ea6b3031064a0e91d416f3.png" src="../../_images/2dadbc8ad31e06600ff3c6c33c1f812d8c7161c8e7ea6b3031064a0e91d416f3.png" />
 </div>
 </div>
 </section>
@@ -1214,8 +1214,8 @@ example:</p>
 <p>$f_1(x, y) = x^2 y$</p>
 <p>$f_2(x, y) = 5 x + \sin(y)$</p>
 <p>The Jacobian of this system is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c64174cd-3793-4c30-ba66-b2fa6d032ef3">
-<span class="eqno">(4)<a class="headerlink" href="#equation-c64174cd-3793-4c30-ba66-b2fa6d032ef3" title="Permalink to this equation">#</a></span>\[\begin{equation} \left[\begin{array}{cc} 2 x y &amp; x^2 \\ 5 &amp; \cos y \\
+<div class="amsmath math notranslate nohighlight" id="equation-c39e1068-c739-4293-a620-332243bbe90a">
+<span class="eqno">(4)<a class="headerlink" href="#equation-c39e1068-c739-4293-a620-332243bbe90a" title="Permalink to this equation">#</a></span>\[\begin{equation} \left[\begin{array}{cc} 2 x y &amp; x^2 \\ 5 &amp; \cos y \\
 \end{array}\right] \end{equation}\]</div>
 <p>There are two Jacobian functions, <code class="docutils literal notranslate"><span class="pre">jacfwd</span></code> and <code class="docutils literal notranslate"><span class="pre">jacref</span></code>. In theory they do the same thing, but one of them will usually be faster for some systems. <code class="docutils literal notranslate"><span class="pre">jacfwd</span></code> uses a forward pass through the code to compute the Jacobian, while <code class="docutils literal notranslate"><span class="pre">jacrev</span></code> uses a reverse pass. The <a class="reference external" href="https://jax.readthedocs.io/en/latest/notebooks/autodiff_cookbook.html#jacobians-and-hessians-using-jacfwd-and-jacrev">documentation</a> recommends using jacfwd for “tall” Jacobians and jacref for “wide” jacobians. For square jacobians, it does not matter. It is fine to be practical, and try both to see if one is faster than other.</p>
 <div class="cell docutils container">
@@ -1557,13 +1557,13 @@ regression and conclude with an introduction to machine learning.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="ACvIiJpryyOq" data-shufflequestions="False"
+<div class="output text_html"><div id="RnZywTcPaOdd" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#ACvIiJpryyOq {
+#RnZywTcPaOdd {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1733,7 +1733,7 @@ regression and conclude with an introduction to machine learning.</p>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsACvIiJpryyOq=[
+</style></div><script type="application/javascript">var questionsRnZywTcPaOdd=[
   {
     "question": "Derivatives have useful applications in determining",
     "type": "multiple_choice",
@@ -2724,8 +2724,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("ACvIiJpryyOq")) {
-            show_questions(questionsACvIiJpryyOq,  ACvIiJpryyOq); 
+          if(document.getElementById("RnZywTcPaOdd")) {
+            show_questions(questionsRnZywTcPaOdd,  RnZywTcPaOdd); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2734,8 +2734,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("ACvIiJpryyOq");
-        // console.log(document.getElementById("ACvIiJpryyOq"));
+        //console.log("RnZywTcPaOdd");
+        // console.log(document.getElementById("RnZywTcPaOdd"));
 
         try_show();
         }
