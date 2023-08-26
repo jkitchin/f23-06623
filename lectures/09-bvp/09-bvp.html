@@ -526,8 +526,8 @@ document.write(`
 <p>$y’’(x) \approx \frac{y_{i-1} - 2 y_i + y_{i+1}}{h^2} $</p>
 <p>$y’(x) \approx \frac{y_{i+1} - y_{i-1}}{2 h} $</p>
 <p>We define a function $y’’(x) = F(x, y, y’)$. At each node in our discretized region, we will have an equation that looks like $y’’(x) - F(x, y, y’) = 0$, which will be nonlinear in the unknown solution $y$. The set of equations to solve is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3db71cd6-86de-43a4-8464-9f90f790f1cb">
-<span class="eqno">(2)<a class="headerlink" href="#equation-3db71cd6-86de-43a4-8464-9f90f790f1cb" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-66561a33-2e7d-4e23-b6e8-81f1731157c5">
+<span class="eqno">(2)<a class="headerlink" href="#equation-66561a33-2e7d-4e23-b6e8-81f1731157c5" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 y_0 - \alpha &amp;=&amp; 0 \\
 \frac{y_{i-1} - 2 y_i + y_{i+1}}{h^2} + (3 y_i) \left(\frac{y_{i+1} - y_{i-1}}{2 h}\right) &amp;=&amp; 0 \\
 y_L - \beta &amp;=&amp;0
@@ -838,7 +838,7 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-2.00000000e+02,  2.00000000e+01, -4.70357789e-16])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-2.00000000e+02,  2.00000000e+01, -3.84592537e-16])
 </pre></div>
 </div>
 </div>
@@ -854,7 +854,7 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-4.70357789e-16,  3.99833403e-02,  7.83007080e-02,  1.14952103e-01,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3.84592537e-16,  3.99833403e-02,  7.83007080e-02,  1.14952103e-01,
         1.49937526e-01,  1.83256976e-01,  2.14910454e-01,  2.44897959e-01,
         2.73219492e-01,  2.99875052e-01,  3.24864640e-01,  3.48188255e-01,
         3.69845898e-01,  3.89837568e-01,  4.08163265e-01,  4.24822990e-01,
@@ -866,7 +866,7 @@ solve_bvp<span class="o">?</span>
         3.89837568e-01,  3.69845898e-01,  3.48188255e-01,  3.24864640e-01,
         2.99875052e-01,  2.73219492e-01,  2.44897959e-01,  2.14910454e-01,
         1.83256976e-01,  1.49937526e-01,  1.14952103e-01,  7.83007080e-02,
-        3.99833403e-02,  5.95456315e-16])
+        3.99833403e-02,  3.25950198e-16])
 </pre></div>
 </div>
 </div>
@@ -919,7 +919,7 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/16bcf55c529937f251e931ec2a37bc69ae7d67d0d931f34be922f892f7bbf5ec.png" src="../../_images/16bcf55c529937f251e931ec2a37bc69ae7d67d0d931f34be922f892f7bbf5ec.png" />
+<img alt="../../_images/ae5ac0b723b48accba8a5170c84974f6cdaa379222b9b78f99cfa4fb52ab01c0.png" src="../../_images/ae5ac0b723b48accba8a5170c84974f6cdaa379222b9b78f99cfa4fb52ab01c0.png" />
 </div>
 </div>
 <p>Now, we are ready to solve the BVP. Let’s check that all the functions work correctly, e.g. they don’t result in errors and return the right things.</p>
@@ -962,7 +962,7 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-4.703577888813712e-16, 5.954563147587792e-16]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-3.845925372767128e-16, 3.259501984833874e-16]
 </pre></div>
 </div>
 </div>
@@ -1047,7 +1047,7 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/84e4f8d99acf70b192fbdc467ef6fdcbe8ab6b702728066b4ff4db42e36144f7.png" src="../../_images/84e4f8d99acf70b192fbdc467ef6fdcbe8ab6b702728066b4ff4db42e36144f7.png" />
+<img alt="../../_images/f1bfa4b175805053206c0f4624fff9c766b84cd0b7c4ccb601383069b6cb5230.png" src="../../_images/f1bfa4b175805053206c0f4624fff9c766b84cd0b7c4ccb601383069b6cb5230.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1068,7 +1068,7 @@ solve_bvp<span class="o">?</span>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The algorithm converged to the desired accuracy.
 </pre></div>
 </div>
-<img alt="../../_images/e131f3b757af12e0f3d8bbbd0608bd77d77154272b20bab6434f8f20792610c0.png" src="../../_images/e131f3b757af12e0f3d8bbbd0608bd77d77154272b20bab6434f8f20792610c0.png" />
+<img alt="../../_images/ffd7bd4e30ca3505aad31f375a7d602a4ea639e56ece2ee79fa0615c29bab8c0.png" src="../../_images/ffd7bd4e30ca3505aad31f375a7d602a4ea639e56ece2ee79fa0615c29bab8c0.png" />
 </div>
 </div>
 <p><strong>exercise</strong> Try using different guesses, e.g. lines, or triangle shapes, etc. What else looks like this shape? Half a cycle of a sin wave? A semi-circle?</p>
@@ -1181,8 +1181,8 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.016528962860989843
-0.0163346209448209
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.016528962860989864
+0.01633462094482092
 </pre></div>
 </div>
 </div>
@@ -1215,7 +1215,7 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.016329985883573477, 9.761482248609782e-09)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.016329985883573497, 9.761482252156627e-09)
 </pre></div>
 </div>
 </div>
@@ -1276,13 +1276,13 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="mxPBemjFbpdD" data-shufflequestions="False"
+<div class="output text_html"><div id="NfuKrLkwVvrl" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#mxPBemjFbpdD {
+#NfuKrLkwVvrl {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1452,7 +1452,7 @@ solve_bvp<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsmxPBemjFbpdD=[
+</style></div><script type="application/javascript">var questionsNfuKrLkwVvrl=[
   {
     "question": "Using finite difference method, find the values of y', <br>if y = [3.,  5.,  7.,  9., 11., 13.]<br>h = 0.2, and the end points are at 1, 15.",
     "type": "multiple_choice",
@@ -2443,8 +2443,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("mxPBemjFbpdD")) {
-            show_questions(questionsmxPBemjFbpdD,  mxPBemjFbpdD); 
+          if(document.getElementById("NfuKrLkwVvrl")) {
+            show_questions(questionsNfuKrLkwVvrl,  NfuKrLkwVvrl); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2453,8 +2453,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("mxPBemjFbpdD");
-        // console.log(document.getElementById("mxPBemjFbpdD"));
+        //console.log("NfuKrLkwVvrl");
+        // console.log(document.getElementById("NfuKrLkwVvrl"));
 
         try_show();
         }
