@@ -29,6 +29,9 @@ parts:
     - file: lectures/21-machine-learning/21-machine-learning-jax.ipynb
     - file: lectures/22-ml-2/22-ml-2-jax.ipynb
     - file: lectures/23-gp/23-gp.ipynb
+- caption: Assignments
+  chapters:
+    - glob: assignments/*/*.ipynb
 - caption: About the book
   chapters:
     - file: execution-statistics.md    
