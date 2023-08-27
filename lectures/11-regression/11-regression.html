@@ -702,19 +702,19 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: Optimization terminated successfully.
   success: True
    status: 0
-      fun: 1.4912984000626383e-05
+      fun: 1.4913119072413729e-05
         x: [-5.647e+01  5.723e-01  2.742e+00  1.656e+01]
-      nit: 28
-      jac: [-2.419e-06 -8.417e-07  3.751e-08  8.639e-07]
- hess_inv: [[ 3.081e-01 -2.983e+00  7.646e+01 -2.454e+00]
-            [-2.983e+00  5.047e+01 -1.534e+03  4.746e+01]
-            [ 7.646e+01 -1.534e+03  6.851e+04 -2.867e+03]
-            [-2.454e+00  4.746e+01 -2.867e+03  1.553e+02]]
-     nfev: 175
-     njev: 35
+      nit: 33
+      jac: [ 9.261e-06  2.763e-06  2.200e-07  3.515e-06]
+ hess_inv: [[ 3.111e-01 -3.048e+00  7.794e+01 -2.443e+00]
+            [-3.048e+00  5.124e+01 -1.544e+03  4.646e+01]
+            [ 7.794e+01 -1.544e+03  6.887e+04 -2.894e+03]
+            [-2.443e+00  4.646e+01 -2.894e+03  1.609e+02]]
+     nfev: 185
+     njev: 37
 </pre></div>
 </div>
-<img alt="../../_images/d1ca2d89b34c6c066ea81653698e8d9812573f544f01e9f8e4b651902733f4f8.png" src="../../_images/d1ca2d89b34c6c066ea81653698e8d9812573f544f01e9f8e4b651902733f4f8.png" />
+<img alt="../../_images/7508d1105244b5e40c1c2505d5b012a372c70e995a5749eb1810156b2e4ff497.png" src="../../_images/7508d1105244b5e40c1c2505d5b012a372c70e995a5749eb1810156b2e4ff497.png" />
 </div>
 </div>
 <p>That looks pretty good. We should ask ourselves, how do we know we got a minimum? We should see that the objective function is really at a minimum <em>for each of the parameters</em>. Here, we show that it is a minimum for the first parameter.</p>
@@ -746,7 +746,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3ca2baad3a2f2b720d1dc6a068d03521948de45bef95c04063213b238262a817.png" src="../../_images/3ca2baad3a2f2b720d1dc6a068d03521948de45bef95c04063213b238262a817.png" />
+<img alt="../../_images/930f402a1142e4ded666de360c2c2356c0e4594ec638719ed460c670226af7be.png" src="../../_images/930f402a1142e4ded666de360c2c2356c0e4594ec638719ed460c670226af7be.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -765,7 +765,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/21a5fc7f8a8ac9d45eeb24ada62e059d560d10d6823b9dcdc307a6ebae5de155.png" src="../../_images/21a5fc7f8a8ac9d45eeb24ada62e059d560d10d6823b9dcdc307a6ebae5de155.png" />
+<img alt="../../_images/4ce68256b8c2e2bc71ae24aeb2c7141bcdf13a369631df437d09de10f0a8a546.png" src="../../_images/4ce68256b8c2e2bc71ae24aeb2c7141bcdf13a369631df437d09de10f0a8a546.png" />
 </div>
 </div>
 <p>You can see visually that the error goes up on each side of the parameter estimate.</p>
@@ -806,7 +806,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.02060957709869471, -4.1495524381492945e-13, -0.0426805050199939)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.02061142218087396, -2.7597626722550528e-14, -0.042677817939905424)
 </pre></div>
 </div>
 </div>
@@ -1073,7 +1073,7 @@ nlinfit<span class="o">??</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/320eff5f7f1ede3480a5f7e52d918d3e22722cf8dac264b54332500c35ab626e.png" src="../../_images/320eff5f7f1ede3480a5f7e52d918d3e22722cf8dac264b54332500c35ab626e.png" />
+<img alt="../../_images/4b9020e7ea9405273424053f6ec4b56aff12dc7a45bdd58132a2829bdcd18282.png" src="../../_images/4b9020e7ea9405273424053f6ec4b56aff12dc7a45bdd58132a2829bdcd18282.png" />
 </div>
 </div>
 <p>So the idea is we can generate a distribution of the parameters</p>
@@ -1089,10 +1089,10 @@ nlinfit<span class="o">??</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.3205625100964022, 0.009643262358648728)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.3205681307996942, 0.009658818430163463)
 </pre></div>
 </div>
-<img alt="../../_images/582b1d69acc3d390d93cd435b7738bac076833fe139e1a27f54c2a3507292939.png" src="../../_images/582b1d69acc3d390d93cd435b7738bac076833fe139e1a27f54c2a3507292939.png" />
+<img alt="../../_images/6891af7e9ab67fdb914318617f2558cc26308f20b3a82cda6594c5dbaa9c4d58.png" src="../../_images/6891af7e9ab67fdb914318617f2558cc26308f20b3a82cda6594c5dbaa9c4d58.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1168,13 +1168,13 @@ nlpredict<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="gsvFwXXkviJm" data-shufflequestions="False"
+<div class="output text_html"><div id="yIBIgsZtKFZP" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#gsvFwXXkviJm {
+#yIBIgsZtKFZP {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1344,7 +1344,7 @@ nlpredict<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsgsvFwXXkviJm=[{"question": "When using minimize() for regression, which of the following objective functions would cause the model to shift towards the outliers to a greater extent than the rest:<br>a: (y_pred - y)^2<br>b: (y_pred - y)<br>c: |ypred - y|", "type": "multiple_choice", "answers": [{"answer": "a", "correct": true}, {"answer": "b", "correct": false}, {"answer": "c", "correct": false}, {"answer": "All will equally affect the model", "correct": false}], "tag": "objective_function regression", "lecture_file": "11_regression"}, {"question": "Which of the following is a linear regression model:", "type": "multiple_choice", "answers": [{"answer": "y = e^x + x", "correct": false}, {"answer": "y = sin(x) + 5", "correct": false}, {"answer": "y = x + x^2", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "A linear regression model which can correctly generalise the trend in the data has", "type": "multiple_choice", "answers": [{"answer": "sum squared errors = 0", "correct": false}, {"answer": "lowest possible sum squared errors but not necessarily zero", "correct": true}, {"answer": "highest sum squared error", "correct": false}, {"answer": "sum of errors = 0", "correct": false}], "tag": "regression objective_function", "lecture_file": "11_regression"}, {"question": "Regression is a useful method to find a model which generalizes a data set because", "type": "multiple_choice", "answers": [{"answer": "It provides parameters which can have physical significance", "correct": false}, {"answer": "It can help to identify the important variables affecting a system ", "correct": false}, {"answer": "It is not a black-box model", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "Which of the following statements are true:<br>Linear regression is limiting beacause:<br>a: It assumes a linear relationship between the variables which may not always be the case<br>b: It is affected by outliers<br>c: It is overly simplistic and would always fit to noisy observations", "type": "multiple_choice", "answers": [{"answer": "a, b", "correct": true}, {"answer": "a, b, c", "correct": false}, {"answer": "a, c", "correct": false}, {"answer": "b, c", "correct": false}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "initial_guess = [a0, b0, c0, d0]<br>pars, pcov = curve_fit(func, x, y, p0=initial_guess)<br><br>What is the variance for the parameter 'c'?", "type": "multiple_choice", "answers": [{"answer": "np.sqrt(np.diag(pars))[2]", "correct": false}, {"answer": "np.sqrt(np.diag(pcov))[2]", "correct": false}, {"answer": "np.diag(pcov)[2]", "correct": true}, {"answer": "np.diag(pars)[2]", "correct": false}], "tag": "scipy uncertainty variance", "lecture_file": "11_regression"}, {"question": "An increase in the number of measurements (data points) will result in", "type": "multiple_choice", "answers": [{"answer": "Narrower confidence intervals for the average value", "correct": true}, {"answer": "An increase in the uncertainty of the average value", "correct": false}, {"answer": "Broader confidence intervals for the average value", "correct": false}, {"answer": "No effect on the confidence intervals", "correct": false}], "tag": "uncertainty", "lecture_file": "11_regression"}, {"question": "Monte Carlo Propagation of Errors has a limited reliability because", "type": "multiple_choice", "answers": [{"answer": "It assumes the parameters are drawn from a normal distribution", "correct": false}, {"answer": "It assumes that the parameter errors are independent of each other", "correct": false}, {"answer": "All of the above", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "uncertainty monte_carlo", "lecture_file": "11_regression"}, {"question": "Calculate the degrees of freedom for the model:<br>y = 5 + x1 + 10x2 + 5x3;<br>if we have 10 sample data points", "type": "multiple_choice", "answers": [{"answer": "5", "correct": false}, {"answer": "6", "correct": true}, {"answer": "7", "correct": false}, {"answer": "4", "correct": false}], "tag": "uncertainty dof", "lecture_file": "11_regression"}, {"question": "The size of the confidence interval depends on", "type": "multiple_choice", "answers": [{"answer": "Chosen confidence level", "correct": false}, {"answer": "Number of parameters", "correct": false}, {"answer": "Number of data points", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "uncertainty confidence_interval", "lecture_file": "11_regression"}];
+</style></div><script type="application/javascript">var questionsyIBIgsZtKFZP=[{"question": "When using minimize() for regression, which of the following objective functions would cause the model to shift towards the outliers to a greater extent than the rest:<br>a: (y_pred - y)^2<br>b: (y_pred - y)<br>c: |ypred - y|", "type": "multiple_choice", "answers": [{"answer": "a", "correct": true}, {"answer": "b", "correct": false}, {"answer": "c", "correct": false}, {"answer": "All will equally affect the model", "correct": false}], "tag": "objective_function regression", "lecture_file": "11_regression"}, {"question": "Which of the following is a linear regression model:", "type": "multiple_choice", "answers": [{"answer": "y = e^x + x", "correct": false}, {"answer": "y = sin(x) + 5", "correct": false}, {"answer": "y = x + x^2", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "A linear regression model which can correctly generalise the trend in the data has", "type": "multiple_choice", "answers": [{"answer": "sum squared errors = 0", "correct": false}, {"answer": "lowest possible sum squared errors but not necessarily zero", "correct": true}, {"answer": "highest sum squared error", "correct": false}, {"answer": "sum of errors = 0", "correct": false}], "tag": "regression objective_function", "lecture_file": "11_regression"}, {"question": "Regression is a useful method to find a model which generalizes a data set because", "type": "multiple_choice", "answers": [{"answer": "It provides parameters which can have physical significance", "correct": false}, {"answer": "It can help to identify the important variables affecting a system ", "correct": false}, {"answer": "It is not a black-box model", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "Which of the following statements are true:<br>Linear regression is limiting beacause:<br>a: It assumes a linear relationship between the variables which may not always be the case<br>b: It is affected by outliers<br>c: It is overly simplistic and would always fit to noisy observations", "type": "multiple_choice", "answers": [{"answer": "a, b", "correct": true}, {"answer": "a, b, c", "correct": false}, {"answer": "a, c", "correct": false}, {"answer": "b, c", "correct": false}], "tag": "regression", "lecture_file": "11_regression"}, {"question": "initial_guess = [a0, b0, c0, d0]<br>pars, pcov = curve_fit(func, x, y, p0=initial_guess)<br><br>What is the variance for the parameter 'c'?", "type": "multiple_choice", "answers": [{"answer": "np.sqrt(np.diag(pars))[2]", "correct": false}, {"answer": "np.sqrt(np.diag(pcov))[2]", "correct": false}, {"answer": "np.diag(pcov)[2]", "correct": true}, {"answer": "np.diag(pars)[2]", "correct": false}], "tag": "scipy uncertainty variance", "lecture_file": "11_regression"}, {"question": "An increase in the number of measurements (data points) will result in", "type": "multiple_choice", "answers": [{"answer": "Narrower confidence intervals for the average value", "correct": true}, {"answer": "An increase in the uncertainty of the average value", "correct": false}, {"answer": "Broader confidence intervals for the average value", "correct": false}, {"answer": "No effect on the confidence intervals", "correct": false}], "tag": "uncertainty", "lecture_file": "11_regression"}, {"question": "Monte Carlo Propagation of Errors has a limited reliability because", "type": "multiple_choice", "answers": [{"answer": "It assumes the parameters are drawn from a normal distribution", "correct": false}, {"answer": "It assumes that the parameter errors are independent of each other", "correct": false}, {"answer": "All of the above", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "uncertainty monte_carlo", "lecture_file": "11_regression"}, {"question": "Calculate the degrees of freedom for the model:<br>y = 5 + x1 + 10x2 + 5x3;<br>if we have 10 sample data points", "type": "multiple_choice", "answers": [{"answer": "5", "correct": false}, {"answer": "6", "correct": true}, {"answer": "7", "correct": false}, {"answer": "4", "correct": false}], "tag": "uncertainty dof", "lecture_file": "11_regression"}, {"question": "The size of the confidence interval depends on", "type": "multiple_choice", "answers": [{"answer": "Chosen confidence level", "correct": false}, {"answer": "Number of parameters", "correct": false}, {"answer": "Number of data points", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "uncertainty confidence_interval", "lecture_file": "11_regression"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2093,8 +2093,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("gsvFwXXkviJm")) {
-            show_questions(questionsgsvFwXXkviJm,  gsvFwXXkviJm); 
+          if(document.getElementById("yIBIgsZtKFZP")) {
+            show_questions(questionsyIBIgsZtKFZP,  yIBIgsZtKFZP); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2103,8 +2103,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("gsvFwXXkviJm");
-        // console.log(document.getElementById("gsvFwXXkviJm"));
+        //console.log("yIBIgsZtKFZP");
+        // console.log(document.getElementById("yIBIgsZtKFZP"));
 
         try_show();
         }
