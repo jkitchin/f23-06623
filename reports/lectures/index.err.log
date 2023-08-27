@@ -26,7 +26,7 @@ Cell [0;32mIn[1], line 2[0m
 [1;32m      1[0m get_ipython()[38;5;241m.[39mrun_line_magic([38;5;124m'[39m[38;5;124mrun[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124m./generate_index.ipynb[39m[38;5;124m'[39m)
 [0;32m----> 2[0m [43mgenerate_index[49m[43m([49m[43m)[49m
 
-File [0;32m/tmp/ipykernel_2522/1151926238.py:18[0m, in [0;36mgenerate_index[0;34m()[0m
+File [0;32m/tmp/ipykernel_2544/1151926238.py:18[0m, in [0;36mgenerate_index[0;34m()[0m
 [1;32m     15[0m                 [38;5;28;01mif[39;00m [38;5;124m'[39m[38;5;124mKEYWORDS[39m[38;5;124m'[39m [38;5;129;01min[39;00m line:
 [1;32m     16[0m                     keywords [38;5;241m=[39m [x[38;5;241m.[39mstrip() [38;5;28;01mfor[39;00m x [38;5;129;01min[39;00m line[38;5;241m.[39mreplace([38;5;124m'[39m[38;5;124m- KEYWORDS:[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124m'[39m)[38;5;241m.[39mstrip()[38;5;241m.[39msplit([38;5;124m'[39m[38;5;124m,[39m[38;5;124m'[39m)]
 [0;32m---> 18[0m     index[ipynb] [38;5;241m=[39m [43mkeywords[49m
