@@ -545,8 +545,11 @@ document.write(`
 <ol class="arabic simple">
 <li><p>A</p></li>
 <li><p>Numbered</p></li>
-<li><p>List</p></li>
-<li><p>sublists are indented</p></li>
+<li><p>List</p>
+<ol class="arabic simple">
+<li><p>sublists are indented by 4 spaces. Note even though numbered in Markdown, a letter is used when rendered.</p></li>
+</ol>
+</li>
 </ol>
 <p>You can also make bulleted lists:</p>
 <ul class="simple">
@@ -684,10 +687,11 @@ Settings -&gt; Advanced Settings Editor</p>
 <p>It is important to have a basic understanding of how the notebooks work. The browser displays the notebook. The actual computations are run on a server on your computer. When you “run” a code cell, the code is sent to the server, and the server sends the results back to the browser where they are rendered.</p>
 <p>When you first open a notebook, <em>nothing</em> has been executed. If you try to execute cells out of order, you will get errors if anything in the cell depends on a previous cell. You should run the cells in order. Here are some ways to do that.</p>
 <ol class="arabic simple">
-<li><p>Starting in the first cell, click the Kernel menu and Restart Kernel and Run all button .</p></li>
-<li><p>Starting in the first cell, type shift-Enter to run each cell and move to the next one.</p></li>
+<li><p>Starting in the first cell, type shift-Enter to run each cell and move to the next one, or in the <a class="reference external" href="https://miro.com/app/board/uXjVMrCsQck=/?moveToWidget=3458764562505789659&amp;cot=14">tab toolbar, click ▸</a>.</p></li>
+<li><p>Click the <a class="reference external" href="https://miro.com/app/board/uXjVMrCsQck=/?moveToWidget=3458764562506057193&amp;cot=14">Kernel menu and Restart Kernel and Run all item</a>.</p></li>
+<li><p>In the <a class="reference external" href="https://miro.com/app/board/uXjVMrCsQck=/?moveToWidget=3458764562505948643&amp;cot=14">tab toolbar, click the ▸▸ button</a>.</p></li>
 </ol>
-<p>Occasionally, you may want to restart the server and rerun all the cells. Select the menu: Kernel -&gt; Restart Kernel. If you run cells out of order, or something seems messed up for some reason, sometimes this fixes it. It also makes sure the output of each cell is consistent with running them in order from scratch.</p>
+<p>Occasionally while working, you may want to restart the server and rerun all the cells. Use the Kernel menu: Kernel -&gt; Restart Kernel, or one of the other options. If you run cells out of order, or something seems messed up for some reason, sometimes this fixes it. It also makes sure the output of each cell is consistent with running them in order from scratch.</p>
 <p>These cells are used to show what happens when you run things out of order.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
