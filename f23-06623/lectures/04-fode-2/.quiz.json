@@ -1,1 +1,98 @@
-[{"question": "Which is the correct argument in matplotlib to plot data using black circles connected with a solid line?", "type": "multiple_choice", "answers": [{"answer": "ko-", "correct": true}, {"answer": "bo-", "correct": false}, {"answer": "blo-", "correct": false}, {"answer": "bko-", "correct": false}], "tag": "matplotlib", "lecture_file": "02_integration_1"}, {"question": "How to plot the legend in the lower left corner of a matplotlib plot?", "type": "multiple_choice", "answers": [{"answer": "plt.legend(loc = 3)", "correct": true}, {"answer": "plt.lower_left('legend')", "correct": false}, {"answer": "plt.loc('lower left')", "correct": false}, {"answer": "plt.legend('3')", "correct": false}], "tag": "matplotlib", "lecture_file": "03_fode_1"}, {"question": "Which of the following is true about matplotlib.pyplot.quiver()?", "type": "multiple_choice", "answers": [{"answer": "plt.quiver() requires the values of X and Y both for arrow locations", "correct": false}, {"answer": "cannot be used in 3D", "correct": true}, {"answer": "requires normalized derivative values", "correct": false}, {"answer": "can be used in 2D and 3D both", "correct": false}], "tag": "matplotlib", "lecture_file": "04_fode_2"}, {"question": "What will be a possible solution for<br>y = 3x^2 + 6<br>y = 6cos(x)", "type": "multiple_choice", "answers": [{"answer": "(0, 0)", "correct": false}, {"answer": "(6, 1)", "correct": false}, {"answer": "(0, 6)", "correct": true}, {"answer": "(6, 3)", "correct": false}], "tag": "matplotlib", "lecture_file": "08_nla_2"}]
+[
+  {
+    "question": "Which is the correct argument in matplotlib to plot data using black circles connected with a solid line?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "ko-",
+        "correct": true
+      },
+      {
+        "answer": "bo-",
+        "correct": false
+      },
+      {
+        "answer": "blo-",
+        "correct": false
+      },
+      {
+        "answer": "bko-",
+        "correct": false
+      }
+    ],
+    "tag": "matplotlib",
+    "lecture_file": "02_integration_1"
+  },
+  {
+    "question": "How to plot the legend in the lower left corner of a matplotlib plot?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "plt.legend(loc = 3)",
+        "correct": true
+      },
+      {
+        "answer": "plt.lower_left('legend')",
+        "correct": false
+      },
+      {
+        "answer": "plt.loc('lower left')",
+        "correct": false
+      },
+      {
+        "answer": "plt.legend('3')",
+        "correct": false
+      }
+    ],
+    "tag": "matplotlib",
+    "lecture_file": "03_fode_1"
+  },
+  {
+    "question": "Which of the following is true about matplotlib.pyplot.quiver()?",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "plt.quiver() requires the values of X and Y both for arrow locations",
+        "correct": false
+      },
+      {
+        "answer": "cannot be used in 3D",
+        "correct": true
+      },
+      {
+        "answer": "requires normalized derivative values",
+        "correct": false
+      },
+      {
+        "answer": "can be used in 2D and 3D both",
+        "correct": false
+      }
+    ],
+    "tag": "matplotlib",
+    "lecture_file": "04_fode_2"
+  },
+  {
+    "question": "What will be a possible solution for<br>y = 3x^2 + 6<br>y = 6cos(x)",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "(0, 0)",
+        "correct": false
+      },
+      {
+        "answer": "(6, 1)",
+        "correct": false
+      },
+      {
+        "answer": "(0, 6)",
+        "correct": true
+      },
+      {
+        "answer": "(6, 3)",
+        "correct": false
+      }
+    ],
+    "tag": "matplotlib",
+    "lecture_file": "08_nla_2"
+  }
+]
