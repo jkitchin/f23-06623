@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/21-machine-learning/21-machine-learning-jax';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -505,7 +507,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
-<section id="introduction-to-machine-learning">
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-machine-learning">
 <h1>Introduction to machine learning<a class="headerlink" href="#introduction-to-machine-learning" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>KEYWORDS: autograd, jax</p></li>
@@ -514,9 +516,9 @@ document.write(`
 <section id="flexible-nonlinear-models-for-regression">
 <h2>Flexible nonlinear models for regression<a class="headerlink" href="#flexible-nonlinear-models-for-regression" title="Permalink to this heading">#</a></h2>
 <p>Today we are going to take a meandering path to using autograd to train a neural network for regression. First let us consider this very general looking nonlinear model that we might fit to data. There are 10 parameters in it, so we should expect we can get it to fit some data pretty well.</p>
-<p>$y = b_1 + w_{10} tanh(w_{00} x + b_{00}) + w_{11} tanh(w_{01} x + b_{01}) + w_{12} tanh(w_{02} x + b_{02})$</p>
+<p><span class="math notranslate nohighlight">\(y = b_1 + w_{10} tanh(w_{00} x + b_{00}) + w_{11} tanh(w_{01} x + b_{01}) + w_{12} tanh(w_{02} x + b_{02})\)</span></p>
 <p>For now let us not concern ourselves with how we chose this particular model. We will return to the choices later.</p>
-<p>We will use it to fit data that is generated from $y = x^\frac{1}{3}$. First, we just do a least_squares fit. This function is similar to <code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit</span></code>.</p>
+<p>We will use it to fit data that is generated from <span class="math notranslate nohighlight">\(y = x^\frac{1}{3}\)</span>. First, we just do a least_squares fit. This function is similar to <code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jax.config</span> <span class="kn">import</span> <span class="n">config</span>
@@ -553,7 +555,7 @@ document.write(`
 </div>
 </div>
 <p>We have to define a function for our model, and then another one for the residuals. For now, we stick with a syntax we are familiar with, and one that works with <code class="docutils literal notranslate"><span class="pre">least_squares</span></code>.</p>
-<p>$y = b_1 + w_{10} tanh(w_{00} x + b_{00}) + w_{11} tanh(w_{01} x + b_{01}) + w_{12} tanh(w_{02} x + b_{02})$</p>
+<p><span class="math notranslate nohighlight">\(y = b_1 + w_{10} tanh(w_{00} x + b_{00}) + w_{11} tanh(w_{01} x + b_{01}) + w_{12} tanh(w_{02} x + b_{02})\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">pars</span><span class="p">):</span>
@@ -692,7 +694,7 @@ document.write(`
 <img alt="../../_images/af9139d7d0e54bbd473648f1c39cebf0979b99829f2f0b8f39955529e2a66f7b.png" src="../../_images/af9139d7d0e54bbd473648f1c39cebf0979b99829f2f0b8f39955529e2a66f7b.png" />
 </div>
 </div>
-<p>$y = b_1 + w_{10} tanh(w_{00} x + b_{00}) + w_{11} tanh(w_{01} x + b_{01}) + w_{12} tanh(w_{02} x + b_{02})$</p>
+<p><span class="math notranslate nohighlight">\(y = b_1 + w_{10} tanh(w_{00} x + b_{00}) + w_{11} tanh(w_{01} x + b_{01}) + w_{12} tanh(w_{02} x + b_{02})\)</span></p>
 <p>Welcome to the machine (learning).</p>
 <p>Evidently, we just have not reached the required tolerances for least_squares to claim success.</p>
 <p>Let’s inspect the parameter values. They sometimes vary by some orders of magnitude. This should make you think about using some regularization.</p>
@@ -736,7 +738,7 @@ document.write(`
 <img alt="../../_images/ce6005bc65b615ca7ff4170e7631f8e43a729602326f4d710946a5d79f444af5.png" src="../../_images/ce6005bc65b615ca7ff4170e7631f8e43a729602326f4d710946a5d79f444af5.png" />
 </div>
 </div>
-<p>You can see that this model starts failing at $x&gt;1$. At very large $x$ it will start to level out. What defines large $x$ is unclear though, in this specific example, it is around 400. That might be anticipated from knowledge of the <code class="docutils literal notranslate"><span class="pre">np.tanh</span></code> function, it also saturates at large values of $x$.</p>
+<p>You can see that this model starts failing at <span class="math notranslate nohighlight">\(x&gt;1\)</span>. At very large <span class="math notranslate nohighlight">\(x\)</span> it will start to level out. What defines large <span class="math notranslate nohighlight">\(x\)</span> is unclear though, in this specific example, it is around 400. That might be anticipated from knowledge of the <code class="docutils literal notranslate"><span class="pre">np.tanh</span></code> function, it also saturates at large values of <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>Try negative numbers too. The real function becomes imaginary, but not our fitted one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -751,7 +753,7 @@ document.write(`
 <img alt="../../_images/8efafbf1ee70c8984010ef620e8693830ec54e5b0b0386002dd8779bd9ed1e33.png" src="../../_images/8efafbf1ee70c8984010ef620e8693830ec54e5b0b0386002dd8779bd9ed1e33.png" />
 </div>
 </div>
-<p>$y = b_1 + w_{10} tanh(w_{00} x + b_{00}) + w_{11} tanh(w_{01} x + b_{01}) + w_{12} tanh(w_{02} x + b_{02})$</p>
+<p><span class="math notranslate nohighlight">\(y = b_1 + w_{10} tanh(w_{00} x + b_{00}) + w_{11} tanh(w_{01} x + b_{01}) + w_{12} tanh(w_{02} x + b_{02})\)</span></p>
 <p>Up to here, this is mostly review for us. It is just a nonlinear regression (admittedly to a strange looking function), and analysis of the resulting model. Note that the model is very flexible, and it can be used to fit a variety of other functions.</p>
 <p>I did not pull that model out of nowhere. Let’s rewrite it in a few steps. If we think of <code class="docutils literal notranslate"><span class="pre">tanh</span></code> as a function that operates element-wise on a vector, we could write that equation more compactly at:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                              [w00 * x + b01]
@@ -763,7 +765,7 @@ y = [w10, w11, w12] @ np.tanh([w01 * x + b01]) + b1
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>y = w1 @ np.tanh(w0 @ x + b0) + b1
 </pre></div>
 </div>
-<p>Another way to read these equations is that we have an input of $x$. We multiply the input by a vector weights ($\mathbf{w0}$), add a vector of offsets (biases), $\mathbf{b0}$, <em>activate</em> that by the nonlinear <code class="docutils literal notranslate"><span class="pre">tanh</span></code> function, then multiply that by a new set of weights, and add a final bias. We typically call this kind of model a <em>neural network</em>. There is an input layer, one hidden layer with 3 neurons that are activated by <code class="docutils literal notranslate"><span class="pre">tanh</span></code>, and one output layer with linear activation.</p>
+<p>Another way to read these equations is that we have an input of <span class="math notranslate nohighlight">\(x\)</span>. We multiply the input by a vector weights (<span class="math notranslate nohighlight">\(\mathbf{w0}\)</span>), add a vector of offsets (biases), <span class="math notranslate nohighlight">\(\mathbf{b0}\)</span>, <em>activate</em> that by the nonlinear <code class="docutils literal notranslate"><span class="pre">tanh</span></code> function, then multiply that by a new set of weights, and add a final bias. We typically call this kind of model a <em>neural network</em>. There is an input layer, one hidden layer with 3 neurons that are activated by <code class="docutils literal notranslate"><span class="pre">tanh</span></code>, and one output layer with linear activation.</p>
 <p>A conventional graphical representation of this function as a neural network is shown here:</p>
 <p><img alt="img" src="../../_images/nn.png" /></p>
 <p>These models are called neural networks because they were originally modeled after neurons. Neurons take input, and if the input is large enough the neuron is activated and has an output. The <code class="docutils literal notranslate"><span class="pre">tanh</span></code> function approximates this behavior in a smooth, differentiable way. Remarkably, neural networks have been shown to be universal function approximators and hence they are extremely useful.</p>
@@ -777,11 +779,11 @@ y = [w10, w11, w12] @ np.tanh([w01 * x + b01]) + b1
 <section id="another-interpretation-of-neural-networks">
 <h3>Another interpretation of neural networks<a class="headerlink" href="#another-interpretation-of-neural-networks" title="Permalink to this heading">#</a></h3>
 <p>In this section we consider another interpretation of what a neural network is. We start with a partial Fourier series expansion of a periodic function (<a class="reference external" href="http://mathworld.wolfram.com/FourierSeries.html">http://mathworld.wolfram.com/FourierSeries.html</a>). This expansion can fit any even periodic function in the infinite limit, and can approximate that function otherwise.</p>
-<p>$f(x) = \frac{1}{2} a_0 + \sum_{n=1}^{\infty} a_n \cos(n x)$</p>
-<p>We use a partial series (leaving out the sin terms) just for simplicity of notation here. Next, we write this in a vector form. In the Fourier series, the $a_n$ have formal definitions: $a_n = \int_{-\pi}^{\pi} f(x) cos(n x) dx$.  Let $\mathbf{a} = [a_0, a_1, a_2, …, a_n]$, and $\mathbf{n} = [1, 2, .., n]$ Then, we can replace the sum as $\mathbf{a} \cdot \cos(\mathbf{n} x)$. We can for now imagine that $n$ could go to $\infty$, but it is not critical; if we truncate the expansion, then we just have an approximate expansion.</p>
+<p><span class="math notranslate nohighlight">\(f(x) = \frac{1}{2} a_0 + \sum_{n=1}^{\infty} a_n \cos(n x)\)</span></p>
+<p>We use a partial series (leaving out the sin terms) just for simplicity of notation here. Next, we write this in a vector form. In the Fourier series, the <span class="math notranslate nohighlight">\(a_n\)</span> have formal definitions: <span class="math notranslate nohighlight">\(a_n = \int_{-\pi}^{\pi} f(x) cos(n x) dx\)</span>.  Let <span class="math notranslate nohighlight">\(\mathbf{a} = [a_0, a_1, a_2, ..., a_n]\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{n} = [1, 2, .., n]\)</span> Then, we can replace the sum as <span class="math notranslate nohighlight">\(\mathbf{a} \cdot \cos(\mathbf{n} x)\)</span>. We can for now imagine that <span class="math notranslate nohighlight">\(n\)</span> could go to <span class="math notranslate nohighlight">\(\infty\)</span>, but it is not critical; if we truncate the expansion, then we just have an approximate expansion.</p>
 <p>We can represent this in a graph form like a neural network:</p>
 <p><img alt="ft" src="../../_images/ft.png" /></p>
-<p>To get to a neural network, we relax a few things. First, we let $n$ take on continuous values that are determined by fitting, not just integer values. Second, we let $a_n$ become a fitting parameter, rather than computing it from the definition. Third, we allow other functions than $\cos$ to “activate” the layers. In this sense, we can see that a single layer neural network is like an expansion in a basis set of the activation functions, with a more flexible definition of their form.</p>
+<p>To get to a neural network, we relax a few things. First, we let <span class="math notranslate nohighlight">\(n\)</span> take on continuous values that are determined by fitting, not just integer values. Second, we let <span class="math notranslate nohighlight">\(a_n\)</span> become a fitting parameter, rather than computing it from the definition. Third, we allow other functions than <span class="math notranslate nohighlight">\(\cos\)</span> to “activate” the layers. In this sense, we can see that a single layer neural network is like an expansion in a basis set of the activation functions, with a more flexible definition of their form.</p>
 <p>A network can have multiple layers, and we interpret these as a composition of functions, e.g. f(g(x)), where the second layer serves to nonlinearly transform the output of the first layer.  Thus, “deep learning” provides a nonlinear transform of your input space to a new space with different dimensionality where the output is linear in this new space.</p>
 </section>
 </section>
@@ -987,13 +989,13 @@ y = [w10, w11, w12] @ np.tanh([w01 * x + b01]) + b1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="qXyjQbSRBwqu" data-shufflequestions="False"
+<div class="output text_html"><div id="pVwUfZLychQY" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#qXyjQbSRBwqu {
+#pVwUfZLychQY {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1163,7 +1165,7 @@ y = [w10, w11, w12] @ np.tanh([w01 * x + b01]) + b1
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsqXyjQbSRBwqu=[{"question": "Neural networks are", "type": "multiple_choice", "answers": [{"answer": "Linear models", "correct": false}, {"answer": "Non-linear models", "correct": true}, {"answer": "Linear regression models", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "A data set can be represented with only a unique neural network model", "type": "multiple_choice", "answers": [{"answer": "FALSE", "correct": true}, {"answer": "TRUE", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "Neural networks are very useful models because", "type": "multiple_choice", "answers": [{"answer": "They accurately represent biological neurons", "correct": false}, {"answer": "Theoretically, they can fit to any data set", "correct": true}, {"answer": "You don\u2019t need to train them", "correct": false}, {"answer": "They can extrapolate in an accurate manner", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "The nature of extrapolation from a neural network depends a lot on", "type": "multiple_choice", "answers": [{"answer": "the activation functions", "correct": true}, {"answer": "size of the data set", "correct": false}, {"answer": "number of hidden layers", "correct": false}, {"answer": "number of neurons", "correct": false}], "tag": "activation_function hyperparameters", "lecture_file": "21_machine_learning"}, {"question": "The hyperparameters for a neural network are", "type": "multiple_choice", "answers": [{"answer": "The number of neurons in a layer", "correct": false}, {"answer": "The activation function", "correct": false}, {"answer": "Number of hidden layers", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "hyperparameters", "lecture_file": "21_machine_learning"}, {"question": "Gradient descent updates the hyperparameters after each", "type": "multiple_choice", "answers": [{"answer": "Epoch", "correct": true}, {"answer": "layer", "correct": false}, {"answer": "data point", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "gradient_descent algorithm", "lecture_file": "21_machine_learning"}, {"question": "For a neural network with the architecture:<br>Input layer = 3 features<br>first layer = 3 neurons<br>second layer = 5 neurons<br>output layer = 1 output variable<br>How many weights are involved between the first and second layer?", "type": "multiple_choice", "answers": [{"answer": "9", "correct": false}, {"answer": "3", "correct": false}, {"answer": "15", "correct": true}, {"answer": "5", "correct": false}], "tag": "weights_biases algorithm", "lecture_file": "21_machine_learning"}, {"question": "The gradient descent algorithm leads to at least a local minimum of", "type": "multiple_choice", "answers": [{"answer": "weights and biases", "correct": false}, {"answer": "output", "correct": false}, {"answer": "The objective function", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "gradient_descent algorithm", "lecture_file": "21_machine_learning"}, {"question": "What is the value of the count of total weights and biases for a neural network which has 2 hidden layers (3 neurons in each) between the input (2 inputs) and output (1 output)?", "type": "multiple_choice", "answers": [{"answer": "10", "correct": false}, {"answer": "81", "correct": false}, {"answer": "25", "correct": true}, {"answer": "18", "correct": false}], "tag": "weights_biases algorithm", "lecture_file": "21_machine_learning"}, {"question": "The statement: 'A higher learning rate will result in quickly reaching the optimum parameters of a neural network', is", "type": "multiple_choice", "answers": [{"answer": "Never true", "correct": false}, {"answer": "Always true", "correct": false}, {"answer": "Can be true only for learning rates above a certain threshold", "correct": false}, {"answer": "Can be true, but can also cause the solver to not converge.", "correct": true}], "tag": "learning_rate", "lecture_file": "21_machine_learning"}];
+</style></div><script type="application/javascript">var questionspVwUfZLychQY=[{"question": "Neural networks are", "type": "multiple_choice", "answers": [{"answer": "Linear models", "correct": false}, {"answer": "Non-linear models", "correct": true}, {"answer": "Linear regression models", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "A data set can be represented with only a unique neural network model", "type": "multiple_choice", "answers": [{"answer": "FALSE", "correct": true}, {"answer": "TRUE", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "Neural networks are very useful models because", "type": "multiple_choice", "answers": [{"answer": "They accurately represent biological neurons", "correct": false}, {"answer": "Theoretically, they can fit to any data set", "correct": true}, {"answer": "You don\u2019t need to train them", "correct": false}, {"answer": "They can extrapolate in an accurate manner", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "The nature of extrapolation from a neural network depends a lot on", "type": "multiple_choice", "answers": [{"answer": "the activation functions", "correct": true}, {"answer": "size of the data set", "correct": false}, {"answer": "number of hidden layers", "correct": false}, {"answer": "number of neurons", "correct": false}], "tag": "activation_function hyperparameters", "lecture_file": "21_machine_learning"}, {"question": "The hyperparameters for a neural network are", "type": "multiple_choice", "answers": [{"answer": "The number of neurons in a layer", "correct": false}, {"answer": "The activation function", "correct": false}, {"answer": "Number of hidden layers", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "hyperparameters", "lecture_file": "21_machine_learning"}, {"question": "Gradient descent updates the hyperparameters after each", "type": "multiple_choice", "answers": [{"answer": "Epoch", "correct": true}, {"answer": "layer", "correct": false}, {"answer": "data point", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "gradient_descent algorithm", "lecture_file": "21_machine_learning"}, {"question": "For a neural network with the architecture:<br>Input layer = 3 features<br>first layer = 3 neurons<br>second layer = 5 neurons<br>output layer = 1 output variable<br>How many weights are involved between the first and second layer?", "type": "multiple_choice", "answers": [{"answer": "9", "correct": false}, {"answer": "3", "correct": false}, {"answer": "15", "correct": true}, {"answer": "5", "correct": false}], "tag": "weights_biases algorithm", "lecture_file": "21_machine_learning"}, {"question": "The gradient descent algorithm leads to at least a local minimum of", "type": "multiple_choice", "answers": [{"answer": "weights and biases", "correct": false}, {"answer": "output", "correct": false}, {"answer": "The objective function", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "gradient_descent algorithm", "lecture_file": "21_machine_learning"}, {"question": "What is the value of the count of total weights and biases for a neural network which has 2 hidden layers (3 neurons in each) between the input (2 inputs) and output (1 output)?", "type": "multiple_choice", "answers": [{"answer": "10", "correct": false}, {"answer": "81", "correct": false}, {"answer": "25", "correct": true}, {"answer": "18", "correct": false}], "tag": "weights_biases algorithm", "lecture_file": "21_machine_learning"}, {"question": "The statement: 'A higher learning rate will result in quickly reaching the optimum parameters of a neural network', is", "type": "multiple_choice", "answers": [{"answer": "Never true", "correct": false}, {"answer": "Always true", "correct": false}, {"answer": "Can be true only for learning rates above a certain threshold", "correct": false}, {"answer": "Can be true, but can also cause the solver to not converge.", "correct": true}], "tag": "learning_rate", "lecture_file": "21_machine_learning"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1912,8 +1914,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("qXyjQbSRBwqu")) {
-            show_questions(questionsqXyjQbSRBwqu,  qXyjQbSRBwqu); 
+          if(document.getElementById("pVwUfZLychQY")) {
+            show_questions(questionspVwUfZLychQY,  pVwUfZLychQY); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1922,8 +1924,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("qXyjQbSRBwqu");
-        // console.log(document.getElementById("qXyjQbSRBwqu"));
+        //console.log("pVwUfZLychQY");
+        // console.log(document.getElementById("pVwUfZLychQY"));
 
         try_show();
         }

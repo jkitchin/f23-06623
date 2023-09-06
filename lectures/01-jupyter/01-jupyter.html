@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/01-jupyter/01-jupyter';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -525,7 +527,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
-<section id="jupyter-lab">
+<section class="tex2jax_ignore mathjax_ignore" id="jupyter-lab">
 <h1>Jupyter Lab<a class="headerlink" href="#jupyter-lab" title="Permalink to this heading">#</a></h1>
 <p><img alt="roadmap" src="../../_images/06623-roadmap.png" /></p>
 <p>Goals today:</p>
@@ -538,7 +540,7 @@ document.write(`
 <p>There are two kinds of cells in Jupyter notebooks: Markdown and Code.</p>
 <p>If you have this cell selected you can either press shift-enter to go to the next cell, or the down arrow key.</p>
 </section>
-<section id="markdown">
+<section class="tex2jax_ignore mathjax_ignore" id="markdown">
 <h1>Markdown<a class="headerlink" href="#markdown" title="Permalink to this heading">#</a></h1>
 <p>#Markdown is a lightweight markup language for text that is meant for humans to read. Select this cell and either double-click on it, or press Enter to see the source.</p>
 <p>Double click on this cell to see how to make:</p>
@@ -569,11 +571,11 @@ document.write(`
 <p>Text that is <strong>bold</strong>, <em>italics</em>, <del>crossed-out</del>. Some <font color="red">red text</font>.</p>
 <p>Math is written in LaTeX format (<a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">https://en.wikibooks.org/wiki/LaTeX/Mathematics</a>). Here are a few examples:</p>
 <ul class="simple">
-<li><p>this fraction $\frac{1}{2}$,</p></li>
-<li><p>square root $\sqrt{3}$</p></li>
-<li><p>sum $\sum_{i=1}^{10} t_i$</p></li>
-<li><p>A chemical formula: H$_2$O</p></li>
-<li><p>An integral $\int_a^b f(x)dx$</p></li>
+<li><p>this fraction <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>,</p></li>
+<li><p>square root <span class="math notranslate nohighlight">\(\sqrt{3}\)</span></p></li>
+<li><p>sum <span class="math notranslate nohighlight">\(\sum_{i=1}^{10} t_i\)</span></p></li>
+<li><p>A chemical formula: H<span class="math notranslate nohighlight">\(_2\)</span>O</p></li>
+<li><p>An integral <span class="math notranslate nohighlight">\(\int_a^b f(x)dx\)</span></p></li>
 </ul>
 <hr class="docutils" />
 <p>You can see more details at <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html">https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html</a>.</p>
@@ -638,7 +640,7 @@ document.write(`
 </section>
 </section>
 </section>
-<section id="participation-break">
+<section class="tex2jax_ignore mathjax_ignore" id="participation-break">
 <h1>Participation break<a class="headerlink" href="#participation-break" title="Permalink to this heading">#</a></h1>
 <p>For fun, open this <a class="reference internal" href="markdown_practice.html"><span class="doc std std-doc">file</span></a>, run the cell and answer the questions. I will check that you have done this later.</p>
 <section id="keyboard-shortcuts">
@@ -652,7 +654,7 @@ Settings -&gt; Advanced Settings Editor</p>
 <p>You do not need to learn these if you don’t want to; you can always use the mouse and menus.</p>
 </section>
 </section>
-<section id="running-code">
+<section class="tex2jax_ignore mathjax_ignore" id="running-code">
 <h1>Running code<a class="headerlink" href="#running-code" title="Permalink to this heading">#</a></h1>
 <p>Jupyter notebooks serve two purposes:</p>
 <ol class="arabic simple">
@@ -711,7 +713,7 @@ Settings -&gt; Advanced Settings Editor</p>
 </div>
 </div>
 <p>While debugging a cell, you should use the run button in the cell or  C-Enter to run the cell so that you see the output, but your cursor stays in the cell so you can continue editing it. To go back to editing the cell, just press Enter. It is good practice to run cells whenever you think they should work correctly, because it is easier to debug the last few lines you wrote than a long block of lines. Let’s work an example.</p>
-<p>Create a code cell that defines two variables $x=5$ and $y=4$, and then compute $x^2 + y^2$.</p>
+<p>Create a code cell that defines two variables <span class="math notranslate nohighlight">\(x=5\)</span> and <span class="math notranslate nohighlight">\(y=4\)</span>, and then compute <span class="math notranslate nohighlight">\(x^2 + y^2\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># work out the code line by line here</span>
@@ -729,7 +731,7 @@ Settings -&gt; Advanced Settings Editor</p>
 <p>Jupyter notebooks can act in unexpected ways if you evaluate the cells out of order. It can be very difficult to debug this. When that happens, you are often best off if you restart the kernel and execute the cells from the beginning.</p>
 </section>
 </section>
-<section id="functions">
+<section class="tex2jax_ignore mathjax_ignore" id="functions">
 <h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h1>
 <p>Functions are an important part of any programming language. They allow you to reuse code, and make programs more readable.</p>
 <section id="minimal-definition-of-a-function-with-one-input">
@@ -1352,7 +1354,7 @@ None
 </div>
 </section>
 </section>
-<section id="strings">
+<section class="tex2jax_ignore mathjax_ignore" id="strings">
 <h1>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h1>
 <p>We will use strings a lot to present the output of our work. Suppose Amy has 10 apples, and she gives Bob 3 apples. How many apples does Amy have left?</p>
 <p>You could solve it like this:</p>
@@ -1494,7 +1496,7 @@ She has 7 left.
 <p>There are many ways to use these, and you should use the method that is most readable.</p>
 <p>We will see many examples of this in the class. For complete reference on the formatting codes see <a class="reference external" href="https://docs.python.org/3.6/library/string.html#format-specification-mini-language">https://docs.python.org/3.6/library/string.html#format-specification-mini-language</a>.</p>
 </section>
-<section id="printing-arrays">
+<section class="tex2jax_ignore mathjax_ignore" id="printing-arrays">
 <h1>Printing arrays<a class="headerlink" href="#printing-arrays" title="Permalink to this heading">#</a></h1>
 <p>Arrays are printed in full accuracy by default. This often results in hard to read outputs. Consider this array.</p>
 <div class="cell docutils container">
@@ -1627,7 +1629,7 @@ She has 7 left.
 </div>
 </div>
 </section>
-<section id="summary">
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>You should get comfortable with:</p>
 <ul class="simple">

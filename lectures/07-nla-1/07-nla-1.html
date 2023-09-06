@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/07-nla-1/07-nla-1';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -513,20 +515,20 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
-<section id="introduction-to-nonlinear-algebra">
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-nonlinear-algebra">
 <h1>Introduction to nonlinear algebra<a class="headerlink" href="#introduction-to-nonlinear-algebra" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>KEYWORDS: scipy.optimize.root, scipy.misc.derivative, list comprehension</p></li>
 </ul>
-<p>In non-linear algebra, we seek solutions to the equation $f(x) = 0$ where $f(x)$ is <em>non-linear</em> in $x$. These are examples of non-linear algebraic equations:</p>
+<p>In non-linear algebra, we seek solutions to the equation <span class="math notranslate nohighlight">\(f(x) = 0\)</span> where <span class="math notranslate nohighlight">\(f(x)\)</span> is <em>non-linear</em> in <span class="math notranslate nohighlight">\(x\)</span>. These are examples of non-linear algebraic equations:</p>
 <ul class="simple">
-<li><p>$e^x=4$</p></li>
-<li><p>$x^2 + x - 1 = 0$</p></li>
-<li><p>$f(F_A) = F_{A0} - F_{A} - k (F_A / \nu)^2  V = 0$</p></li>
+<li><p><span class="math notranslate nohighlight">\(e^x=4\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x^2 + x - 1 = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(F_A) = F_{A0} - F_{A} - k (F_A / \nu)^2  V = 0\)</span></p></li>
 </ul>
 <p>Sometimes you can derive an analytical solution for these, and that is desirable because then we just evaluate the solution. Often it is not easy to do that, and we need solutions anyway.</p>
 <p>In some cases we can tell how many solutions there will be. For example, we know how many roots a polynomial will have, the same number as the polynomial order. In other cases though, there is not a general theory for whether there is a solution, multiple solutions, or no solution to nonlinear algebraic equations. For example,</p>
-<p>$sin(x) = 2$ has no solution. We define $f(x) = sin(x) - 2$ and plot it. You can see there no intersections with the x-axis at y=0, meaning no solutions.</p>
+<p><span class="math notranslate nohighlight">\(sin(x) = 2\)</span> has no solution. We define <span class="math notranslate nohighlight">\(f(x) = sin(x) - 2\)</span> and plot it. You can see there no intersections with the x-axis at y=0, meaning no solutions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -550,7 +552,7 @@ document.write(`
 <img alt="../../_images/dd13b1ce6076b62de259a6da943ece53fc39b69c9a0b3e0b9027bb831e9b3b77.png" src="../../_images/dd13b1ce6076b62de259a6da943ece53fc39b69c9a0b3e0b9027bb831e9b3b77.png" />
 </div>
 </div>
-<p>In contrast, $sin(x) = 0.5$ will have an infinite number of solutions, everywhere the function intersects the x-axis.</p>
+<p>In contrast, <span class="math notranslate nohighlight">\(sin(x) = 0.5\)</span> will have an infinite number of solutions, everywhere the function intersects the x-axis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -568,7 +570,7 @@ document.write(`
 <img alt="../../_images/f3a8b1bfec854f352b64d33b233b6c9b9c3beee8f088ca6d634ab4a343e861f9.png" src="../../_images/f3a8b1bfec854f352b64d33b233b6c9b9c3beee8f088ca6d634ab4a343e861f9.png" />
 </div>
 </div>
-<p>Finally, $sin(x) = x - 1$ has only one solution.</p>
+<p>Finally, <span class="math notranslate nohighlight">\(sin(x) = x - 1\)</span> has only one solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -587,7 +589,7 @@ document.write(`
 <img alt="../../_images/02a8716c7459409e8f0c38faf5d7a96fe81fb603f1c5cd40ed64b6f8074668c2.png" src="../../_images/02a8716c7459409e8f0c38faf5d7a96fe81fb603f1c5cd40ed64b6f8074668c2.png" />
 </div>
 </div>
-<p>The equation $e^{-0.5 x} \sin(x) = 0.5$, evidently has two solutions, but other versions of this equation might have 0, 1, multiple or infinite solutions.</p>
+<p>The equation <span class="math notranslate nohighlight">\(e^{-0.5 x} \sin(x) = 0.5\)</span>, evidently has two solutions, but other versions of this equation might have 0, 1, multiple or infinite solutions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -611,7 +613,7 @@ document.write(`
 <p><strong>exercise</strong> modify the equation to see 0, 1, many or infinite solutions.</p>
 <p>Graphical methods like this are invaluable to visually assess if there are any solutions, and if so how many solutions at least over some range of solutions. Sometimes, this is the fastest way to estimate a solution. Here we focus on nonlinear algebra problems that cannot be analytically solved. These kinds of problems require an iterative solution approach.</p>
 </section>
-<section id="root-finding-with-solve-ivp">
+<section class="tex2jax_ignore mathjax_ignore" id="root-finding-with-solve-ivp">
 <h1>Root finding with <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code><a class="headerlink" href="#root-finding-with-solve-ivp" title="Permalink to this heading">#</a></h1>
 <p>When we find solutions to these equations, it is called root finding. Typically we look for roots where the function is equal to zero, and set up the function so that these are solutions we want. We previously saw in a homework that you can use <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> for this by deriving the derivative of the function, then integrating with an initial condition and an event function to detect the zeros.</p>
 <p>This approach has advantages:</p>
@@ -628,14 +630,14 @@ document.write(`
 <p>Notes adapted from <a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">https://en.wikipedia.org/wiki/Newton%27s_method</a>.</p>
 <p>The key idea is that we start with a guess that is close to the solution, and then the function is approximated by a line tangent to the function to find where the line intersects the x-axis. For well-behaved functions, this is a better estimate of where the function equals zero than the first guess. Then, we repeat this until we get sufficiently close to zero.</p>
 <p><img alt="image.png" src="../../_images/newton-raphson.png" /></p>
-<p>So, we start with the point $(x_0, f(x_0))$, and we compute $f’(x_0)$, which is the slope of the line tangent to $f(x_0)$. We can express an equation for this line as: $y - f(x_0) = f’(x_0)(x - x_0)$ If we now solve this for the $x$ where $y=0$ leads to:</p>
-<p>$0 = f’(x_0)(x - x_0) + f(x_0)$</p>
+<p>So, we start with the point <span class="math notranslate nohighlight">\((x_0, f(x_0))\)</span>, and we compute <span class="math notranslate nohighlight">\(f'(x_0)\)</span>, which is the slope of the line tangent to <span class="math notranslate nohighlight">\(f(x_0)\)</span>. We can express an equation for this line as: <span class="math notranslate nohighlight">\(y - f(x_0) = f'(x_0)(x - x_0)\)</span> If we now solve this for the <span class="math notranslate nohighlight">\(x\)</span> where <span class="math notranslate nohighlight">\(y=0\)</span> leads to:</p>
+<p><span class="math notranslate nohighlight">\(0 = f'(x_0)(x - x_0) + f(x_0)\)</span></p>
 <p>which leads to</p>
-<p>$x = x_0 - f(x_0) / f’(x_0)$</p>
+<p><span class="math notranslate nohighlight">\(x = x_0 - f(x_0) / f'(x_0)\)</span></p>
 <p>To implement this, we need to decide what is the tolerance for defining 0, and what is the maximum number of iterations we want to consider?</p>
-<p>We will first consider what is the square root of 612? This is equivalent to finding a solution to $x^2 = 612$</p>
-<p>$f(x) = x^2 - 612$</p>
-<p>Let’s start with a guess of x=25, since we know $x^2=625$. We also know $f’(x) = 2x$.</p>
+<p>We will first consider what is the square root of 612? This is equivalent to finding a solution to <span class="math notranslate nohighlight">\(x^2 = 612\)</span></p>
+<p><span class="math notranslate nohighlight">\(f(x) = x^2 - 612\)</span></p>
+<p>Let’s start with a guess of x=25, since we know <span class="math notranslate nohighlight">\(x^2=625\)</span>. We also know <span class="math notranslate nohighlight">\(f'(x) = 2x\)</span>.</p>
 <p>The approach is iterative, so we will specify the maximum number of steps to iterate to, and a criteria for stopping.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -649,7 +651,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>I like to plot and visualize where the solutions might be. Here we see two solutions (intersections with zero) near $\pm 24$.</p>
+<p>I like to plot and visualize where the solutions might be. Here we see two solutions (intersections with zero) near <span class="math notranslate nohighlight">\(\pm 24\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
@@ -783,7 +785,7 @@ document.write(`
 <p><strong>Exercise:</strong> Try several initial guesses, and see which ones converge.</p>
 <p>You can also run into problems when:</p>
 <ul class="simple">
-<li><p>$f’(x) = 0$ at the initial guess, or a subsequent update, then you get a singularity in the update.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f'(x) = 0\)</span> at the initial guess, or a subsequent update, then you get a singularity in the update.</p></li>
 <li><p>The first derivative is discontinuous at the root. Then you may not converge because the update can bounce back and forth.</p></li>
 <li><p>The first derivative is undefined at the root</p></li>
 </ul>
@@ -918,7 +920,7 @@ nd.Derivative<span class="o">?</span>
 </div>
 </div>
 <p>Let’s see the simplest example.</p>
-<p>Solve $e^x = 2$.</p>
+<p>Solve <span class="math notranslate nohighlight">\(e^x = 2\)</span>.</p>
 <p>It is a good idea to plot this to get a good initial guess.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1030,10 +1032,11 @@ nd.Derivative<span class="o">?</span>
 </section>
 <section id="a-worked-example">
 <h2>A worked example<a class="headerlink" href="#a-worked-example" title="Permalink to this heading">#</a></h2>
-<p>We can integrate <code class="docutils literal notranslate"><span class="pre">root</span></code> with a variety of other problems. For example, here is an integral equation we need to solve in engineering problems. The volume of a plug flow reactor can be defined by this equation: $V = \int_{Fa(V=0)}^{Fa} \frac{1}{r_a} dFa$ where $r_a$ is the rate law. Suppose we know the reactor volume is 100 L, the inlet concentration of A is 1 mol/L, the volumetric flow is 10 L/min, and $r_a = -k Ca$, with $k=0.23$ 1/min. What is the exit molar flow rate? We need to solve the following equation:</p>
-<p>$$100 = \int_{Fa(V=0)}^{Fa} \frac{1}{-k Fa/\nu} dFa$$</p>
+<p>We can integrate <code class="docutils literal notranslate"><span class="pre">root</span></code> with a variety of other problems. For example, here is an integral equation we need to solve in engineering problems. The volume of a plug flow reactor can be defined by this equation: <span class="math notranslate nohighlight">\(V = \int_{Fa(V=0)}^{Fa} \frac{1}{r_a} dFa\)</span> where <span class="math notranslate nohighlight">\(r_a\)</span> is the rate law. Suppose we know the reactor volume is 100 L, the inlet concentration of A is 1 mol/L, the volumetric flow is 10 L/min, and <span class="math notranslate nohighlight">\(r_a = -k Ca\)</span>, with <span class="math notranslate nohighlight">\(k=0.23\)</span> 1/min. What is the exit molar flow rate? We need to solve the following equation:</p>
+<div class="math notranslate nohighlight">
+\[100 = \int_{Fa(V=0)}^{Fa} \frac{1}{-k Fa/\nu} dFa\]</div>
 <p>The equation to solve here is:</p>
-<p>$f(Fa) = 100 - \int_{Fa(V=0)}^{Fa} \frac{1}{-k Fa/\nu} dFa = 0$.</p>
+<p><span class="math notranslate nohighlight">\(f(Fa) = 100 - \int_{Fa(V=0)}^{Fa} \frac{1}{-k Fa/\nu} dFa = 0\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This is a good example of a problem where it would be tedious (but not impossible) to compute a derivative. You would have to employ <a class="reference external" href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus">the fundamental theorem of Calculus</a> to do that here.</p>
@@ -1069,7 +1072,7 @@ nd.Derivative<span class="o">?</span>
 </div>
 </div>
 </div>
-<p>To make a plot, there is a subtlety. We cannot integrate an array of $F_A$ values. Previously, we used a for loop to get around this. There is another syntax called <em>list comprehension</em> that we can also use:</p>
+<p>To make a plot, there is a subtlety. We cannot integrate an array of <span class="math notranslate nohighlight">\(F_A\)</span> values. Previously, we used a for loop to get around this. There is another syntax called <em>list comprehension</em> that we can also use:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">objective</span><span class="p">(</span><span class="n">fa</span><span class="p">)</span> <span class="k">for</span> <span class="n">fa</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
@@ -1202,7 +1205,7 @@ nd.Derivative<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2095/250610355.py:19: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2084/250610355.py:19: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
   fa_exit[i] = sol.x
 </pre></div>
 </div>
@@ -1258,13 +1261,13 @@ nd.Derivative<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="vsvjwHnTOGZi" data-shufflequestions="False"
+<div class="output text_html"><div id="NmAnoXlGNlot" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#vsvjwHnTOGZi {
+#NmAnoXlGNlot {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1434,7 +1437,7 @@ nd.Derivative<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsvsvjwHnTOGZi=[
+</style></div><script type="application/javascript">var questionsNmAnoXlGNlot=[
   {
     "question": "Which matplotlib function plots a vertical line at a given x-coordinate?",
     "type": "multiple_choice",
@@ -2425,8 +2428,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("vsvjwHnTOGZi")) {
-            show_questions(questionsvsvjwHnTOGZi,  vsvjwHnTOGZi); 
+          if(document.getElementById("NmAnoXlGNlot")) {
+            show_questions(questionsNmAnoXlGNlot,  NmAnoXlGNlot); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2435,8 +2438,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("vsvjwHnTOGZi");
-        // console.log(document.getElementById("vsvjwHnTOGZi"));
+        //console.log("NmAnoXlGNlot");
+        // console.log(document.getElementById("NmAnoXlGNlot"));
 
         try_show();
         }

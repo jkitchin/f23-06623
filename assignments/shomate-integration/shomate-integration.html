@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/shomate-integration/shomate-integration';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -497,13 +499,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p>Before you turn this problem in, make sure everything runs as expected. First, <strong>restart the kernel</strong> (in the menubar, select Kernel$\rightarrow$Restart) and then <strong>run all cells</strong> (in the menubar, select Cell$\rightarrow$Run All).</p>
+  <p>Before you turn this problem in, make sure everything runs as expected. First, <strong>restart the kernel</strong> (in the menubar, select Kernel<span class="math notranslate nohighlight">\(\rightarrow\)</span>Restart) and then <strong>run all cells</strong> (in the menubar, select Cell<span class="math notranslate nohighlight">\(\rightarrow\)</span>Run All).</p>
 <p>Make sure you fill in any place that says <code class="docutils literal notranslate"><span class="pre">YOUR</span> <span class="pre">CODE</span> <span class="pre">HERE</span></code> or “YOUR ANSWER HERE”, as well as your name and collaborators below:</p>
-<p>From thermodynamics, the heat capacity is defined as $C_p = \left(\frac{dH}{dT}\right)_P$. That means we can calculate the heat required to change the temperature of some material from the following integral:</p>
-<p>$H_2 - H_1 = Q = \int_{T_1}^{T_2} C_p(T) dT$</p>
+<p>From thermodynamics, the heat capacity is defined as <span class="math notranslate nohighlight">\(C_p = \left(\frac{dH}{dT}\right)_P\)</span>. That means we can calculate the heat required to change the temperature of some material from the following integral:</p>
+<p><span class="math notranslate nohighlight">\(H_2 - H_1 = Q = \int_{T_1}^{T_2} C_p(T) dT\)</span></p>
 <p>In the range of 298-1200K, the heat capacity of CO<sub>2</sub> is given by a <a class="reference external" href="https://webbook.nist.gov/cgi/cbook.cgi?ID=C124389&amp;Units=SI&amp;Mask=1#Thermo-Gas">Shomate polynomial</a>:</p>
-<p>$C_p(t) = A + B t + C t^2 + D t^3 + E/t^2$ with units of J/mol/K.</p>
-<p>where $t = T / 1000$, and $T$ is the temperature in K. The constants in the equation are</p>
+<p><span class="math notranslate nohighlight">\(C_p(t) = A + B t + C t^2 + D t^3 + E/t^2\)</span> with units of J/mol/K.</p>
+<p>where <span class="math notranslate nohighlight">\(t = T / 1000\)</span>, and <span class="math notranslate nohighlight">\(T\)</span> is the temperature in K. The constants in the equation are</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
@@ -539,8 +541,8 @@ document.write(`
 </table>
 <p>Use this information to compute the energy (Q in kJ/mol) required to raise the temperature of CO<sub>2</sub> from 300K to 600K. You should use scipy.integrate.quad to perform the integration.</p>
 <p>The change in enthalpy (in kJ / mol) from standard state is</p>
-<p>$dH − dH_{298.15}= A t + B t^2/2 + C t^3/3 + D t^4/4 − E/t + F − H$</p>
-<p>again, $t = T / 1000$.</p>
+<p><span class="math notranslate nohighlight">\(dH − dH_{298.15}= A t + B t^2/2 + C t^3/3 + D t^4/4 − E/t + F − H\)</span></p>
+<p>again, <span class="math notranslate nohighlight">\(t = T / 1000\)</span>.</p>
 <p>Use this equation to compute the change in enthalpy when you increase the temperature from 300 K to 600 K. Hint: You should get the same answer as before.</p>
 <p>When you are done, download a PDF and turn it in on Canvas. Make sure to save your notebook, then run this cell and click on the download link.</p>
 <div class="cell tag_raises-exception tag_remove-output docutils container">

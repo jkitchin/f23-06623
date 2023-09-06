@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/integrals-1/integrals-1';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -487,16 +489,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p>Before you turn this problem in, make sure everything runs as expected. First, <strong>restart the kernel</strong> (in the menubar, select Kernel$\rightarrow$Restart) and then <strong>run all cells</strong> (in the menubar, select Cell$\rightarrow$Run All).</p>
+  <p>Before you turn this problem in, make sure everything runs as expected. First, <strong>restart the kernel</strong> (in the menubar, select Kernel<span class="math notranslate nohighlight">\(\rightarrow\)</span>Restart) and then <strong>run all cells</strong> (in the menubar, select Cell<span class="math notranslate nohighlight">\(\rightarrow\)</span>Run All).</p>
 <p>Make sure you fill in any place that says <code class="docutils literal notranslate"><span class="pre">YOUR</span> <span class="pre">CODE</span> <span class="pre">HERE</span></code> or “YOUR ANSWER HERE”, as well as your name and collaborators below:</p>
-<section id="even-and-odd-functions">
+<section class="tex2jax_ignore mathjax_ignore" id="even-and-odd-functions">
 <h1>Even and odd functions<a class="headerlink" href="#even-and-odd-functions" title="Permalink to this heading">#</a></h1>
-<p>An odd function $o(x)$ satisfies $o(x)=-o(-x)$ for all $x$. Therefore, for any finite $t$:</p>
-<p>$\int_{-t}^{t}o(x) dx=0$.</p>
-<p>An even function $e(x)$ satisfies $e(x) = e(-x)$ for all $x$. Therefore, for any $t$:</p>
-<p>$\int_{-t}^{t}e(x) dx=2 \int_{0}^{t}e(x) dx$.</p>
+<p>An odd function <span class="math notranslate nohighlight">\(o(x)\)</span> satisfies <span class="math notranslate nohighlight">\(o(x)=-o(-x)\)</span> for all <span class="math notranslate nohighlight">\(x\)</span>. Therefore, for any finite <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\int_{-t}^{t}o(x) dx=0\)</span>.</p>
+<p>An even function <span class="math notranslate nohighlight">\(e(x)\)</span> satisfies <span class="math notranslate nohighlight">\(e(x) = e(-x)\)</span> for all <span class="math notranslate nohighlight">\(x\)</span>. Therefore, for any <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\int_{-t}^{t}e(x) dx=2 \int_{0}^{t}e(x) dx\)</span>.</p>
 <p>The complementary error function is defined by this integral:</p>
-<p>$erfc(x) = \frac{2}{\sqrt{\pi}} \int_x^\infty e^{-t^2} dt$</p>
+<p><span class="math notranslate nohighlight">\(erfc(x) = \frac{2}{\sqrt{\pi}} \int_x^\infty e^{-t^2} dt\)</span></p>
 <p>determine if it is even or odd using both the criteria described above and using Python.</p>
 <p>When you are done, download a PDF and turn it in on Canvas. Make sure to save your notebook, then run this cell and click on the download link.</p>
 <div class="cell tag_raises-exception tag_remove-output docutils container">

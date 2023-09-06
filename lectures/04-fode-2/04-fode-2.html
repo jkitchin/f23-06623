@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/04-fode-2/04-fode-2';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -513,11 +515,11 @@ document.write(`
 <ul class="simple">
 <li><p>KEYWORDS: solve_ivp, meshgrid, quiver</p></li>
 </ul>
-<section id="families-of-solutions-to-fodes">
+<section class="tex2jax_ignore mathjax_ignore" id="families-of-solutions-to-fodes">
 <h1>Families of solutions to FODEs<a class="headerlink" href="#families-of-solutions-to-fodes" title="Permalink to this heading">#</a></h1>
-<p>Consider $y’ = x - y$.</p>
+<p>Consider <span class="math notranslate nohighlight">\(y' = x - y\)</span>.</p>
 <p>We can interpret this equation as one that defines a direction field. That is, at any given point (x, y) we can compute the derivative of a solution at that point. We will consider how to make a plot that shows this field, and that will help us estimate what solutions to the ODE might look like for different initial values.</p>
-<p>To do this, we should compute the derivative on an array of regularly spaced points in both $x$ and $y$, and then make a plot of that data.</p>
+<p>To do this, we should compute the derivative on an array of regularly spaced points in both <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, and then make a plot of that data.</p>
 <p>We need to see a couple of new ideas to make this plot efficiently. What we want is a 2-d plot of a regular grid of (x, y) points, and at each of those points the derivative (dx/dx, dy/dx).</p>
 <p><img alt="" src="../../_images/dydx.png" /></p>
 <p>First, we will need to create four arrays:</p>
@@ -654,7 +656,7 @@ document.write(`
 <img alt="../../_images/0ec9ffe645ab66bb9c387b10240b24227a3bddf1a39e596b99429b14d9d6d56b.png" src="../../_images/0ec9ffe645ab66bb9c387b10240b24227a3bddf1a39e596b99429b14d9d6d56b.png" />
 </div>
 </div>
-<p>If you pick a point, the arrows show you which way the solution goes from there. You just follow the arrows to get an approximate solution to this equation. Let’s consider some specific solutions. Suppose we start with the initial condition that $y(-1) = 0$. You can trace the arrows to estimate where the solution goes.</p>
+<p>If you pick a point, the arrows show you which way the solution goes from there. You just follow the arrows to get an approximate solution to this equation. Let’s consider some specific solutions. Suppose we start with the initial condition that <span class="math notranslate nohighlight">\(y(-1) = 0\)</span>. You can trace the arrows to estimate where the solution goes.</p>
 <p>Let us use a numerical solver to see how it works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -727,7 +729,7 @@ document.write(`
 </div>
 <p>You can see the solution looks different depending on the initial condition, but in each case the solution follows the direction field.</p>
 <p>Direction field plots can be very helpful to visualize what nearby solutions might look like, or to get a qualitative idea of what a solution might look like, or to see if anything unusual happens in the solution space. We will see them again when we consider systems of differential equations.</p>
-<p><strong>Exercise:</strong> Make a direction field plot for $y’=-y$ for the range of x from 0 to 4. What does the direction field tell you? How does this compare to what you know from the solution?</p>
+<p><strong>Exercise:</strong> Make a direction field plot for <span class="math notranslate nohighlight">\(y'=-y\)</span> for the range of x from 0 to 4. What does the direction field tell you? How does this compare to what you know from the solution?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
@@ -758,13 +760,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="qEGQwwnGFsWN" data-shufflequestions="False"
+<div class="output text_html"><div id="SxwqNoxXzzVy" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#qEGQwwnGFsWN {
+#SxwqNoxXzzVy {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -934,7 +936,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsqEGQwwnGFsWN=[
+</style></div><script type="application/javascript">var questionsSxwqNoxXzzVy=[
   {
     "question": "Which is the correct argument in matplotlib to plot data using black circles connected with a solid line?",
     "type": "multiple_choice",
@@ -1781,8 +1783,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("qEGQwwnGFsWN")) {
-            show_questions(questionsqEGQwwnGFsWN,  qEGQwwnGFsWN); 
+          if(document.getElementById("SxwqNoxXzzVy")) {
+            show_questions(questionsSxwqNoxXzzVy,  SxwqNoxXzzVy); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1791,8 +1793,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("qEGQwwnGFsWN");
-        // console.log(document.getElementById("qEGQwwnGFsWN"));
+        //console.log("SxwqNoxXzzVy");
+        // console.log(document.getElementById("SxwqNoxXzzVy"));
 
         try_show();
         }
@@ -1857,10 +1859,10 @@ Net flow into B = 0.0 gal/min
 </div>
 </div>
 <p>You can see the net volumetric flow in each tank is 0, so we do not have to worry about the volumes changing.</p>
-<p>We seek solutions for $S_A(t)$ and $S_B(t)$ where $S_x(t)$ represents the concentration (in oz/gal). Since these change with time, we need to solve the mass balances:</p>
-<p>$\frac{dS_A}{dt} = \frac{1}{V_A}(f_A C_A - f_{AB} S_A(t) + f_{BA} S_B(t))$</p>
+<p>We seek solutions for <span class="math notranslate nohighlight">\(S_A(t)\)</span> and <span class="math notranslate nohighlight">\(S_B(t)\)</span> where <span class="math notranslate nohighlight">\(S_x(t)\)</span> represents the concentration (in oz/gal). Since these change with time, we need to solve the mass balances:</p>
+<p><span class="math notranslate nohighlight">\(\frac{dS_A}{dt} = \frac{1}{V_A}(f_A C_A - f_{AB} S_A(t) + f_{BA} S_B(t))\)</span></p>
 <p>and</p>
-<p>$\frac{dS_B}{dt} = \frac{1}{V_B}(f_B C_B + f_{AB} S_A(t) - f_{BA} S_B(t) - f_{Bexit} S_B(t))$</p>
+<p><span class="math notranslate nohighlight">\(\frac{dS_B}{dt} = \frac{1}{V_B}(f_B C_B + f_{AB} S_A(t) - f_{BA} S_B(t) - f_{Bexit} S_B(t))\)</span></p>
 <p>Before we get into the solution, what should we expect to happen here? The concentration of salt into tank A is less than the initial concentration, and the initial concentration in Tank B is also lower than in Tank A, so we expect the concentration in Tank A to start decreasing. Similarly, we expect the concentration in Tank B to start rising since the concentration in each incoming stream is higher than the initial concentration.</p>
 <p>At some point, the two tanks will reach a steady state, but it is not evident how we will approach that steady state. Since the concentration of one stream is higher than all the other concentrations, it is possible for the concentration to go up and then down.</p>
 <div class="cell docutils container">
@@ -1895,7 +1897,7 @@ Net flow into B = 0.0 gal/min
         t: [ 0.000e+00  1.606e-01 ...  1.972e+02  2.000e+02]
         y: [[ 1.833e+00  1.823e+00 ...  1.401e+00  1.400e+00]
             [ 1.300e+00  1.326e+00 ...  1.798e+00  1.799e+00]]
-      sol: &lt;scipy.integrate._ivp.common.OdeSolution object at 0x7fb1d9561de0&gt;
+      sol: &lt;scipy.integrate._ivp.common.OdeSolution object at 0x7f6fd0e95de0&gt;
  t_events: None
  y_events: None
      nfev: 134
@@ -1997,7 +1999,7 @@ Net flow into B = 0.0 gal/min
 </div>
 </div>
 </div>
-<p>How would you find the maximum concentration of salt in tank B? One way is with an event. We look for an event where $dSb/dt = 0$, and we can get that value from the system of ODEs that we defined like this.</p>
+<p>How would you find the maximum concentration of salt in tank B? One way is with an event. We look for an event where <span class="math notranslate nohighlight">\(dSb/dt = 0\)</span>, and we can get that value from the system of ODEs that we defined like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">event</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">S</span><span class="p">):</span>
@@ -2046,17 +2048,17 @@ Net flow into B = 0.0 gal/min
 <h3>Brief review<a class="headerlink" href="#brief-review" title="Permalink to this heading">#</a></h3>
 <p>For systems of first order differential equations, you need to:</p>
 <ol class="arabic simple">
-<li><p>Define a function $y’(t, y)$ where $y$ will be an array of values. The function must return an array that is the same shape as $y$. For example, if you have two equations, $y$ will contain the two function values, and $y’$ must return two derivative values.</p></li>
-<li><p>You also need two initial conditions, one for each function, at the same value of $t$.</p></li>
+<li><p>Define a function <span class="math notranslate nohighlight">\(y'(t, y)\)</span> where <span class="math notranslate nohighlight">\(y\)</span> will be an array of values. The function must return an array that is the same shape as <span class="math notranslate nohighlight">\(y\)</span>. For example, if you have two equations, <span class="math notranslate nohighlight">\(y\)</span> will contain the two function values, and <span class="math notranslate nohighlight">\(y'\)</span> must return two derivative values.</p></li>
+<li><p>You also need two initial conditions, one for each function, at the same value of <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
 <li><p>The solution from solve_ivp will return an array for the y-values, with each function in <em>a row</em> of that array. You can either extract the rows to plot them, or transpose the array and plot them all.</p></li>
 </ol>
 </section>
 <section id="predator-prey-model-example">
 <h3>Predator-prey model example<a class="headerlink" href="#predator-prey-model-example" title="Permalink to this heading">#</a></h3>
-<p>The Lotka-Volterra model can be used to simulate predator-prey populations. Suppose we have $u$ preys (e.g. rabbits) and $v$ predators (e.g. foxes). Then, we can do a “mass balance” on each species as</p>
-<p>$\frac{du}{dt} = a u - b u v$</p>
-<p>$\frac{dv}{dt} = -c v + d b u v$</p>
-<p>Here $a$ is the natural growth rate of rabbits with no foxes. $b$ is the rate that foxes eat rabbits. $c$ is the rate that foxes die, and $d$ describes how many new foxes result from the rabbits that are eaten. Suppose we start with 10 rabbits and 5 foxes. Plot the number of each species from t=0 to t=15.</p>
+<p>The Lotka-Volterra model can be used to simulate predator-prey populations. Suppose we have <span class="math notranslate nohighlight">\(u\)</span> preys (e.g. rabbits) and <span class="math notranslate nohighlight">\(v\)</span> predators (e.g. foxes). Then, we can do a “mass balance” on each species as</p>
+<p><span class="math notranslate nohighlight">\(\frac{du}{dt} = a u - b u v\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{dv}{dt} = -c v + d b u v\)</span></p>
+<p>Here <span class="math notranslate nohighlight">\(a\)</span> is the natural growth rate of rabbits with no foxes. <span class="math notranslate nohighlight">\(b\)</span> is the rate that foxes eat rabbits. <span class="math notranslate nohighlight">\(c\)</span> is the rate that foxes die, and <span class="math notranslate nohighlight">\(d\)</span> describes how many new foxes result from the rabbits that are eaten. Suppose we start with 10 rabbits and 5 foxes. Plot the number of each species from t=0 to t=15.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rate parameters</span>
@@ -2140,16 +2142,16 @@ Net flow into B = 0.0 gal/min
 </section>
 </section>
 </section>
-<section id="summary">
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>Systems of first order differential equations are solved the same way as single first order differential equations. The main difference is the system must be defined as:</p>
-<p>$Y’(t) = f(x, Y)$</p>
-<p>where $Y’$ is a vector/array of first derivatives, and $Y$ is a vector/array of function values.</p>
+<p><span class="math notranslate nohighlight">\(Y'(t) = f(x, Y)\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(Y'\)</span> is a vector/array of first derivatives, and <span class="math notranslate nohighlight">\(Y\)</span> is a vector/array of function values.</p>
 <p>You still use <code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code> to solve the equations, but you need an initial condition for each equation.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>There are other ode integrators in scipy that have different function signatures than <code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code>.</p>
-<p>For example, <code class="docutils literal notranslate"><span class="pre">scipy.integrate.odeint</span></code> requires functions like $y’ = f(y, t)$ which is the opposite of <code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code>. You <strong>have</strong> to keep track of which one you are using.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">scipy.integrate.odeint</span></code> requires functions like <span class="math notranslate nohighlight">\(y' = f(y, t)\)</span> which is the opposite of <code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code>. You <strong>have</strong> to keep track of which one you are using.</p>
 <p><code class="docutils literal notranslate"><span class="pre">scipy.integrate.odeint</span></code> is older than <code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code>, but it has fewer features (e.g. no events, fewer solver options).</p>
 </div>
 <div class="cell docutils container">
@@ -2159,13 +2161,13 @@ Net flow into B = 0.0 gal/min
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="jERvRfdNQPWi" data-shufflequestions="False"
+<div class="output text_html"><div id="qYLznKjYtaVF" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#jERvRfdNQPWi {
+#qYLznKjYtaVF {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -2335,7 +2337,7 @@ Net flow into B = 0.0 gal/min
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsjERvRfdNQPWi=[
+</style></div><script type="application/javascript">var questionsqYLznKjYtaVF=[
   {
     "question": "<p>Given</p><br><pre><code>a = np.linspace(0, 5, 2)<br>b = np.linspace(5, 10, 3)<br>c = np.linspace(10, 15, 5)<br><br>A, _,  _ = np.meshgrid(a, b, c)<br></code></pre><br><p>What is the shape of the array A?</p>",
     "type": "multiple_choice",
@@ -3326,8 +3328,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("jERvRfdNQPWi")) {
-            show_questions(questionsjERvRfdNQPWi,  jERvRfdNQPWi); 
+          if(document.getElementById("qYLznKjYtaVF")) {
+            show_questions(questionsqYLznKjYtaVF,  qYLznKjYtaVF); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -3336,8 +3338,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("jERvRfdNQPWi");
-        // console.log(document.getElementById("jERvRfdNQPWi"));
+        //console.log("qYLznKjYtaVF");
+        // console.log(document.getElementById("qYLznKjYtaVF"));
 
         try_show();
         }

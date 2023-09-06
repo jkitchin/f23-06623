@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/17-linear-algebra-2/17-linear-algebra-2';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -510,7 +512,7 @@ document.write(`
                   
   <p>Opening song from <a class="reference external" href="https://en.wikipedia.org/wiki/The_Matrix">The Matrix</a> and is called <a class="reference external" href="https://www.youtube.com/watch?v=wauzrPn0cfg">Wake up</a>.</p>
 <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
-<section id="advanced-topics-in-linear-algebra">
+<section class="tex2jax_ignore mathjax_ignore" id="advanced-topics-in-linear-algebra">
 <h1>Advanced topics in linear algebra<a class="headerlink" href="#advanced-topics-in-linear-algebra" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>KEYWORDS: numpy.linalg.solve, scipy.interpolate.interp1d, numpy.linalg.eigvals, numpy.linalg.eig, numpy.argsort</p></li>
@@ -519,9 +521,9 @@ document.write(`
 <p>https://aperiodical.com/2018/10/this-matrix-joke-is-only-barely-worth-your-time/</p>
 <p>Is it true?</p>
 </section>
-<section id="interpolating-between-data-points">
+<section class="tex2jax_ignore mathjax_ignore" id="interpolating-between-data-points">
 <h1>Interpolating between data points<a class="headerlink" href="#interpolating-between-data-points" title="Permalink to this heading">#</a></h1>
-<p>It is a common need to interpolate between data points, especially when we don’t have knowledge of the function relating the data. There are a variety of approaches you can use for interpolation. We will consider a few approaches that use linear algebra here. Given $N$ points, construct an $N^{th}$ order polynomial that goes through all the points, and that can be used to estimate new values between the points.</p>
+<p>It is a common need to interpolate between data points, especially when we don’t have knowledge of the function relating the data. There are a variety of approaches you can use for interpolation. We will consider a few approaches that use linear algebra here. Given <span class="math notranslate nohighlight">\(N\)</span> points, construct an <span class="math notranslate nohighlight">\(N^{th}\)</span> order polynomial that goes through all the points, and that can be used to estimate new values between the points.</p>
 <p>First we consider some data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -540,12 +542,12 @@ document.write(`
 <img alt="../../_images/78b7f9cdde2ddba0daa733fe492cbd87cc4b83e8892807bd27261e95b95ebdff.png" src="../../_images/78b7f9cdde2ddba0daa733fe492cbd87cc4b83e8892807bd27261e95b95ebdff.png" />
 </div>
 </div>
-<p>We would like an equation like $y(x) = a_2 x^2 + a_1 x + a_0$. If we write these out for each data point we get:</p>
-<p>$y_0 = a_2 x_0^2 + a_1 x_0 + a_0$</p>
-<p>$y_1 = a_2 x_1^2 + a_1 x_1 + a_0$</p>
-<p>and so on. Here, the things we don’t know are the parameters $\mathbf{a} [a_2, a_1, a_0]$. We can write these as:</p>
-<p>$\mathbf{X} \mathbf{a} = \mathbf{y}$</p>
-<p>Where $\mathbf{X} = [\mathbf{x^2}, \mathbf{x}, \mathbf{1}]$, and is called a Vandermonde matrix. We can readily create these with <code class="docutils literal notranslate"><span class="pre">numpy.vander</span></code>.</p>
+<p>We would like an equation like <span class="math notranslate nohighlight">\(y(x) = a_2 x^2 + a_1 x + a_0\)</span>. If we write these out for each data point we get:</p>
+<p><span class="math notranslate nohighlight">\(y_0 = a_2 x_0^2 + a_1 x_0 + a_0\)</span></p>
+<p><span class="math notranslate nohighlight">\(y_1 = a_2 x_1^2 + a_1 x_1 + a_0\)</span></p>
+<p>and so on. Here, the things we don’t know are the parameters <span class="math notranslate nohighlight">\(\mathbf{a} [a_2, a_1, a_0]\)</span>. We can write these as:</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{X} \mathbf{a} = \mathbf{y}\)</span></p>
+<p>Where <span class="math notranslate nohighlight">\(\mathbf{X} = [\mathbf{x^2}, \mathbf{x}, \mathbf{1}]\)</span>, and is called a Vandermonde matrix. We can readily create these with <code class="docutils literal notranslate"><span class="pre">numpy.vander</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.vander<span class="o">?</span>
@@ -567,7 +569,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The first column is $x^2$, the second column is $x$, and the last column is all ones. To compute the polynomial coefficients, we just make the $\mathbf{X}$ array and solve the equations.</p>
+<p>The first column is <span class="math notranslate nohighlight">\(x^2\)</span>, the second column is <span class="math notranslate nohighlight">\(x\)</span>, and the last column is all ones. To compute the polynomial coefficients, we just make the <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> array and solve the equations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
@@ -611,7 +613,7 @@ document.write(`
 <img alt="../../_images/e8b08b4fd0a5c20083f9f7d105e344855ce4de37f2251d89f0f669ebeca639f6.png" src="../../_images/e8b08b4fd0a5c20083f9f7d105e344855ce4de37f2251d89f0f669ebeca639f6.png" />
 </div>
 </div>
-<p>What we have done here is fit an N<sup>th</sup> order polynomial to $N$ data points. There is a possibility that we have overfit this data, and extrapolation is not reliable. However, interpolation by this method may be useful. We will return to this for larger data sets where $N$ is much larger than the order of the polynomial when we talk about linear regression next week.</p>
+<p>What we have done here is fit an N<sup>th</sup> order polynomial to <span class="math notranslate nohighlight">\(N\)</span> data points. There is a possibility that we have overfit this data, and extrapolation is not reliable. However, interpolation by this method may be useful. We will return to this for larger data sets where <span class="math notranslate nohighlight">\(N\)</span> is much larger than the order of the polynomial when we talk about linear regression next week.</p>
 <p>we previously looked at polyfit for this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -749,17 +751,17 @@ interp1d<span class="o">?</span>
 <p>There are multidimensional interpolation functions in <code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code>,</p>
 </section>
 </section>
-<section id="eigenvalues">
+<section class="tex2jax_ignore mathjax_ignore" id="eigenvalues">
 <h1>Eigenvalues<a class="headerlink" href="#eigenvalues" title="Permalink to this heading">#</a></h1>
-<p>Eigenvalues and eigenvectors form an important class of linear algebra problems. They are an unusual class of problems though. Recall that we can interpret the equation $\mathbf{A}\mathbf{x} = \mathbf{b}$ as a linear transformation of the vector $\mathbf{x}$ into the vector $\mathbf{b}$. This will in general lead to rotation and stretching of the input vector. <em>Sometimes</em> though the new vector $\mathbf{b}$ is simply a rescaling of the original vector, i.e. $\mathbf{b} = \lambda \mathbf{x}$. λ is the scaling factor, and it just changes the magnitude of the $\mathbf{x}$ vector. In this case, we call λ an <em>eigenvalue</em>, and $\mathbf{x}$ and <em>eigenvector</em> of the matrix $\mathbf{A}$.</p>
+<p>Eigenvalues and eigenvectors form an important class of linear algebra problems. They are an unusual class of problems though. Recall that we can interpret the equation <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{x} = \mathbf{b}\)</span> as a linear transformation of the vector <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> into the vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>. This will in general lead to rotation and stretching of the input vector. <em>Sometimes</em> though the new vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> is simply a rescaling of the original vector, i.e. <span class="math notranslate nohighlight">\(\mathbf{b} = \lambda \mathbf{x}\)</span>. λ is the scaling factor, and it just changes the magnitude of the <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> vector. In this case, we call λ an <em>eigenvalue</em>, and <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <em>eigenvector</em> of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p>
 <p>When you see a problem in the form:</p>
-<p>$\mathbf{A}\mathbf{x} = \lambda \mathbf{x}$</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{x} = \lambda \mathbf{x}\)</span></p>
 <p>It is called an eigenvalue problem. It is conventional to write it in the following form:</p>
-<p>$(\mathbf{A} - \lambda \mathbf{I})\mathbf{x} = \mathbf{0}$</p>
-<p>Based on this equation, since $\mathbf{x}$ can be anything, it is necessary for the determinant of the matrix on the left to be zero. The eigenvalues of $\mathbf{A}$ are the ones that are solutions to</p>
-<p>$det(\mathbf{A} - \lambda \mathbf{I}) = 0$</p>
+<p><span class="math notranslate nohighlight">\((\mathbf{A} - \lambda \mathbf{I})\mathbf{x} = \mathbf{0}\)</span></p>
+<p>Based on this equation, since <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> can be anything, it is necessary for the determinant of the matrix on the left to be zero. The eigenvalues of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> are the ones that are solutions to</p>
+<p><span class="math notranslate nohighlight">\(det(\mathbf{A} - \lambda \mathbf{I}) = 0\)</span></p>
 <p>Computing the determinant leads to a <em>characteristic polynomial</em> in λ, and the roots of this polynomial are the eigenvalues of the matrix.</p>
-<p>For an $N \times N$ array there will be $N$ eigenvalues, although some may be degenerate. The eigenvalues can be real or complex. For some matrices, we know some properties of the eigenvalues. We will consider some of them here.</p>
+<p>For an <span class="math notranslate nohighlight">\(N \times N\)</span> array there will be <span class="math notranslate nohighlight">\(N\)</span> eigenvalues, although some may be degenerate. The eigenvalues can be real or complex. For some matrices, we know some properties of the eigenvalues. We will consider some of them here.</p>
 <p>For example, the eigenvalues of a symmetric matrix are always real. We can make a symmetric matrix with some algebra:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -818,7 +820,7 @@ interp1d<span class="o">?</span>
 </div>
 </div>
 <p>It is a property that the sum of the eigenvalues is equal to the trace:</p>
-<p>$trace \mathbf{A} = \sum \lambda_k$</p>
+<p><span class="math notranslate nohighlight">\(trace \mathbf{A} = \sum \lambda_k\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
@@ -832,7 +834,7 @@ interp1d<span class="o">?</span>
 </div>
 </div>
 <p>It is also true that the product of the eigenvalues is equal to the determinant:</p>
-<p>$det \mathbf{A} = \prod \lambda_k$</p>
+<p><span class="math notranslate nohighlight">\(det \mathbf{A} = \prod \lambda_k\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -948,7 +950,7 @@ interp1d<span class="o">?</span>
 </div>
 </div>
 </div>
-<p>The eigenvectors are in columns in the order corresponding to the order of the eigenvalues (these are not necessarily sorted). Here, we show that the eigenvalue/eigenvector pairs satisfy $\mathbf{A} \mathbf{v} = \lambda \mathbf{v}$.</p>
+<p>The eigenvectors are in columns in the order corresponding to the order of the eigenvalues (these are not necessarily sorted). Here, we show that the eigenvalue/eigenvector pairs satisfy <span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{v} = \lambda \mathbf{v}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">@</span> <span class="n">v</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
@@ -1102,7 +1104,7 @@ True [-1.77022954 -1.68275159 -1.73736055] [-1.77022954 -1.68275159 -1.73736055]
 </div>
 </div>
 </section>
-<section id="application-to-roots-of-a-polynomial">
+<section class="tex2jax_ignore mathjax_ignore" id="application-to-roots-of-a-polynomial">
 <h1>Application to roots of a polynomial<a class="headerlink" href="#application-to-roots-of-a-polynomial" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1113,18 +1115,18 @@ True [-1.77022954 -1.68275159 -1.73736055] [-1.77022954 -1.68275159 -1.73736055]
 </div>
 <p>The eigenvalues of a matrix are related to the roots of the characteristic polynomial of the matrix. We can leverage this to find the roots of a polynomial by constructing a matrix that has as its characteristic polynomial the polynomial we want the roots for. Then, the roots of the polynomial are just the eigenvalues of that matrix.</p>
 <p>This example is adapted from <a class="reference external" href="http://www.math.utah.edu/~gustafso/s2018/2270/labs/lab7-polyroot-qrmethod.pdf">http://www.math.utah.edu/~gustafso/s2018/2270/labs/lab7-polyroot-qrmethod.pdf</a></p>
-<p>First, we construct the <em>companion matrix</em>. For the polynomial $p(x) = a_0 + a_1 x + … + a_{n-1} x^{n-1} + x^n$ we construct:</p>
-<p>$C = \left[\begin{array}{ccccc}
-0 &amp; 1 &amp; 0 &amp; … &amp; 0\
-0 &amp; 0 &amp; 1 &amp; … &amp; 0\
-… &amp; … &amp; … &amp; \ddots &amp; \vdots \
-0 &amp; 0 &amp; 0 &amp; … &amp; 1\
--a_0 &amp; -a_1 &amp; -a_2 &amp; … &amp; -a_{n-1}
-\end{array}\right]$</p>
+<p>First, we construct the <em>companion matrix</em>. For the polynomial <span class="math notranslate nohighlight">\(p(x) = a_0 + a_1 x + ... + a_{n-1} x^{n-1} + x^n\)</span> we construct:</p>
+<p><span class="math notranslate nohighlight">\(C = \left[\begin{array}{ccccc}
+ 0 &amp; 1 &amp; 0 &amp; ... &amp; 0\\
+ 0 &amp; 0 &amp; 1 &amp; ... &amp; 0\\
+ ... &amp; ... &amp; ... &amp; \ddots &amp; \vdots \\
+ 0 &amp; 0 &amp; 0 &amp; ... &amp; 1\\
+ -a_0 &amp; -a_1 &amp; -a_2 &amp; ... &amp; -a_{n-1}
+ \end{array}\right]\)</span></p>
 <p>Then, the eigenvalues of this matrix are equal to the roots of the polynomial. This matrix has ones on the diagonal above the main diagonal, and the coefficients up to the leading power on the bottom row. Note the coefficients are in the opposite order as we usually define them for <code class="docutils literal notranslate"><span class="pre">np.roots</span></code>.</p>
 <p>The main diagonal has <code class="docutils literal notranslate"><span class="pre">N-1</span></code> elements in it, and the diagonal above that has <code class="docutils literal notranslate"><span class="pre">N-2</span></code> elements in it.</p>
 <p>There are a few ways to reverse the coefficients, here we use <code class="docutils literal notranslate"><span class="pre">numpy.flipud</span></code> which reverses the elements.</p>
-<p>Let $p(x) = 4 x^2 + 3x - 1$. We write the coefficient vector in the same order as used in np.roots.</p>
+<p>Let <span class="math notranslate nohighlight">\(p(x) = 4 x^2 + 3x - 1\)</span>. We write the coefficient vector in the same order as used in np.roots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Two different ways to reverse an array</span>
@@ -1242,7 +1244,7 @@ True [-1.77022954 -1.68275159 -1.73736055] [-1.77022954 -1.68275159 -1.73736055]
 </div>
 </div>
 </section>
-<section id="applications-to-optimization">
+<section class="tex2jax_ignore mathjax_ignore" id="applications-to-optimization">
 <h1>Applications to optimization<a class="headerlink" href="#applications-to-optimization" title="Permalink to this heading">#</a></h1>
 <p>We can use eigenvalues to detect what kind of stationary point (f’(x) = 0) we are at. We have to know the <a class="reference external" href="https://en.wikipedia.org/wiki/Hessian_matrix">Hessian matrix</a> at the stationary point. The eigenvalues of this matrix tell us about the stationary point.</p>
 <ol class="arabic simple">
@@ -1331,7 +1333,7 @@ True [-1.77022954 -1.68275159 -1.73736055] [-1.77022954 -1.68275159 -1.73736055]
 <p>Note the order of the eigenvalues is not important.</p>
 <p>We will see more about numerical tools for computing Hessians and derivatives after Thanksgiving.</p>
 </section>
-<section id="summary">
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>Today we introduced the ideas behind interpolation which is a data-driven approach to model building that involves locally fitting functions to a few data points. We also introduced eigenvalues and eigenvectors, and some applications of how they are used.</p>
 <p>Next week we will conclude linear algebra with linear regression.</p>
@@ -1343,13 +1345,13 @@ True [-1.77022954 -1.68275159 -1.73736055] [-1.77022954 -1.68275159 -1.73736055]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="fUzcvgUdenHt" data-shufflequestions="False"
+<div class="output text_html"><div id="BIwLddOprKnY" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#fUzcvgUdenHt {
+#BIwLddOprKnY {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1519,7 +1521,7 @@ True [-1.77022954 -1.68275159 -1.73736055] [-1.77022954 -1.68275159 -1.73736055]
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsfUzcvgUdenHt=[{"question": "Which of the following matrices can be solved using np.linalg.solve(A, B)", "type": "multiple_choice", "answers": [{"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4]])<br>B = np.array([b1, b2, b3])", "correct": false}, {"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4], [a3, a4 ,a5]])<br>B = np.array([b1, b2])", "correct": false}, {"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4], [a3, a4, a5]])<br>B = np.array([b1, b2, b3])", "correct": true}, {"answer": "A = np.array([[a1, a2], [a2, a3], [a3, a4]])<br>B = np.array([b1, b2])", "correct": false}], "tag": "numpy applications", "lecture_file": "17_linear_algebra_2"}, {"question": "If B and X are row vectors, then the expression $b_1 x_1 + b_2 x_2 + b_3 x_3$ can be expressed as", "type": "multiple_choice", "answers": [{"answer": "B.T . X.T", "correct": false}, {"answer": "B . X", "correct": false}, {"answer": "B.T . X", "correct": false}, {"answer": "B . X.T", "correct": true}], "tag": "vectors applications", "lecture_file": "17_linear_algebra_2"}, {"question": "x = np.linspace(1, 5, 3); y = np.array([3, 9, 27])<br>Y = interp1d(x, y, kind='quadratic', bounds_error=False)<br>xfit = np.linspace(-1, 8)<br>print(Y(xfit))<br><br>The above code will", "type": "multiple_choice", "answers": [{"answer": "Raise an error", "correct": false}, {"answer": "Print Y() values for the x-range (-1, 8)", "correct": false}, {"answer": "Print Y() values for the x-range (1, 5) and NaN for the rest", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "scipy applications", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvalues of matrix A are complex, then we can be certain that the matrix A", "type": "multiple_choice", "answers": [{"answer": "is symmetric", "correct": false}, {"answer": "is a non-square matrix", "correct": false}, {"answer": "has all the elements as complex numbers", "correct": false}, {"answer": "is non-symmetric", "correct": true}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "For a 2 x 2 matrix with all values being real, and having 2 eigenvalues, if 1-2j is one of the eigenvalues, what is the other eigenvalue", "type": "multiple_choice", "answers": [{"answer": "1 + 2j", "correct": true}, {"answer": "-2j", "correct": false}, {"answer": "-1 -2j", "correct": false}, {"answer": "-1+2j", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "For an N x N matrix, the number of eigenvalues", "type": "multiple_choice", "answers": [{"answer": "will always be equal to N", "correct": false}, {"answer": "can never be more than N", "correct": true}, {"answer": "can be less or more than N", "correct": false}, {"answer": "will always be less than N", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "Find the product of the eigenvalues for the matrix:<br>np.array([[1, 2, 3], [3, 2, 1], [2, 1, 0]])", "type": "multiple_choice", "answers": [{"answer": "-8", "correct": false}, {"answer": "Need more information", "correct": false}, {"answer": "0", "correct": true}, {"answer": "1", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "Find the sum of all the eigenvalues of the matrix:<br>np.array([[1, 2, 3], [3, 2, 1], [2, 0, 1]])", "type": "multiple_choice", "answers": [{"answer": "0", "correct": false}, {"answer": "4", "correct": true}, {"answer": "Need more information", "correct": false}, {"answer": "6", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvalues of the Hessian matrix for a function are all negative, then we are at a", "type": "multiple_choice", "answers": [{"answer": "minimum", "correct": false}, {"answer": "saddle point", "correct": false}, {"answer": "maximum", "correct": true}, {"answer": "Need more information", "correct": false}], "tag": "eigenvalues hessian eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvectors of a matrix A are orthogonal, then we can be certain  that matrix A is a ", "type": "multiple_choice", "answers": [{"answer": "symmetric matrix", "correct": true}, {"answer": "asymmetric matrix", "correct": false}, {"answer": "lower triangular matrix", "correct": false}, {"answer": "There is no inference", "correct": false}], "tag": "eigenvectors eigen", "lecture_file": "17_linear_algebra_2"}];
+</style></div><script type="application/javascript">var questionsBIwLddOprKnY=[{"question": "Which of the following matrices can be solved using np.linalg.solve(A, B)", "type": "multiple_choice", "answers": [{"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4]])<br>B = np.array([b1, b2, b3])", "correct": false}, {"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4], [a3, a4 ,a5]])<br>B = np.array([b1, b2])", "correct": false}, {"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4], [a3, a4, a5]])<br>B = np.array([b1, b2, b3])", "correct": true}, {"answer": "A = np.array([[a1, a2], [a2, a3], [a3, a4]])<br>B = np.array([b1, b2])", "correct": false}], "tag": "numpy applications", "lecture_file": "17_linear_algebra_2"}, {"question": "If B and X are row vectors, then the expression $b_1 x_1 + b_2 x_2 + b_3 x_3$ can be expressed as", "type": "multiple_choice", "answers": [{"answer": "B.T . X.T", "correct": false}, {"answer": "B . X", "correct": false}, {"answer": "B.T . X", "correct": false}, {"answer": "B . X.T", "correct": true}], "tag": "vectors applications", "lecture_file": "17_linear_algebra_2"}, {"question": "x = np.linspace(1, 5, 3); y = np.array([3, 9, 27])<br>Y = interp1d(x, y, kind='quadratic', bounds_error=False)<br>xfit = np.linspace(-1, 8)<br>print(Y(xfit))<br><br>The above code will", "type": "multiple_choice", "answers": [{"answer": "Raise an error", "correct": false}, {"answer": "Print Y() values for the x-range (-1, 8)", "correct": false}, {"answer": "Print Y() values for the x-range (1, 5) and NaN for the rest", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "scipy applications", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvalues of matrix A are complex, then we can be certain that the matrix A", "type": "multiple_choice", "answers": [{"answer": "is symmetric", "correct": false}, {"answer": "is a non-square matrix", "correct": false}, {"answer": "has all the elements as complex numbers", "correct": false}, {"answer": "is non-symmetric", "correct": true}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "For a 2 x 2 matrix with all values being real, and having 2 eigenvalues, if 1-2j is one of the eigenvalues, what is the other eigenvalue", "type": "multiple_choice", "answers": [{"answer": "1 + 2j", "correct": true}, {"answer": "-2j", "correct": false}, {"answer": "-1 -2j", "correct": false}, {"answer": "-1+2j", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "For an N x N matrix, the number of eigenvalues", "type": "multiple_choice", "answers": [{"answer": "will always be equal to N", "correct": false}, {"answer": "can never be more than N", "correct": true}, {"answer": "can be less or more than N", "correct": false}, {"answer": "will always be less than N", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "Find the product of the eigenvalues for the matrix:<br>np.array([[1, 2, 3], [3, 2, 1], [2, 1, 0]])", "type": "multiple_choice", "answers": [{"answer": "-8", "correct": false}, {"answer": "Need more information", "correct": false}, {"answer": "0", "correct": true}, {"answer": "1", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "Find the sum of all the eigenvalues of the matrix:<br>np.array([[1, 2, 3], [3, 2, 1], [2, 0, 1]])", "type": "multiple_choice", "answers": [{"answer": "0", "correct": false}, {"answer": "4", "correct": true}, {"answer": "Need more information", "correct": false}, {"answer": "6", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvalues of the Hessian matrix for a function are all negative, then we are at a", "type": "multiple_choice", "answers": [{"answer": "minimum", "correct": false}, {"answer": "saddle point", "correct": false}, {"answer": "maximum", "correct": true}, {"answer": "Need more information", "correct": false}], "tag": "eigenvalues hessian eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvectors of a matrix A are orthogonal, then we can be certain  that matrix A is a ", "type": "multiple_choice", "answers": [{"answer": "symmetric matrix", "correct": true}, {"answer": "asymmetric matrix", "correct": false}, {"answer": "lower triangular matrix", "correct": false}, {"answer": "There is no inference", "correct": false}], "tag": "eigenvectors eigen", "lecture_file": "17_linear_algebra_2"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2268,8 +2270,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("fUzcvgUdenHt")) {
-            show_questions(questionsfUzcvgUdenHt,  fUzcvgUdenHt); 
+          if(document.getElementById("BIwLddOprKnY")) {
+            show_questions(questionsBIwLddOprKnY,  BIwLddOprKnY); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2278,8 +2280,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("fUzcvgUdenHt");
-        // console.log(document.getElementById("fUzcvgUdenHt"));
+        //console.log("BIwLddOprKnY");
+        // console.log(document.getElementById("BIwLddOprKnY"));
 
         try_show();
         }

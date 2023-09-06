@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/13-constrained-optimization/13-constrained-optimization';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -509,17 +511,17 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
-<section id="constrained-minimization">
+<section class="tex2jax_ignore mathjax_ignore" id="constrained-minimization">
 <h1>Constrained minimization<a class="headerlink" href="#constrained-minimization" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>KEYWORDS: scipy.optimize.minimize</p></li>
 </ul>
 <p><img alt="img" src="../../_images/constrained.png" /></p>
 </section>
-<section id="id1">
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>Constrained minimization<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <p>So far we have predominantly focused on unconstrained minimization. Sometimes, however, we seek to minimize an objective function and find solutions that meet some kind of constraint.</p>
-<p>The volume of a cylindrical can is $V = (\pi/4) D^2 L$. The cost of the top/bottom of the can is \$0.025 / cm<sup>2</sup>, and the cost of the sides is \$0.043 / cm<sup>2</sup>. If we require a volume of 355 cm<sup>3</sup>, what is the optimal length and diameter to minimize the cost of the can?</p>
+<p>The volume of a cylindrical can is <span class="math notranslate nohighlight">\(V = (\pi/4) D^2 L\)</span>. The cost of the top/bottom of the can is \<span class="math notranslate nohighlight">\(0.025 / cm&lt;sup&gt;2&lt;/sup&gt;, and the cost of the sides is \\\)</span>0.043 / cm<sup>2</sup>. If we require a volume of 355 cm<sup>3</sup>, what is the optimal length and diameter to minimize the cost of the can?</p>
 <p>This is a constrained minimization; we want to minimize the cost by changing the height of the can and the diameter of the top while maintaining the volume.</p>
 <p>The key to solving this problem is recognizing that the equality constraint means the can length and diameter are not independent because of the equation for the volume. This allows us to solve for one, and then use it in the cost function.</p>
 <div class="cell docutils container">
@@ -726,8 +728,8 @@ The optimal diameter is 9.20 cm. The optimal length is 5.35 cm. The cost is $9.9
 <section id="equality-constraints">
 <h2>Equality constraints<a class="headerlink" href="#equality-constraints" title="Permalink to this heading">#</a></h2>
 <p>We first repeat the problem we did before.</p>
-<p>The volume of a cylindrical can is $V = (\pi/4) D^2 L$. The cost of the top/bottom of the can is \$0.025 / cm<sup>2</sup>, and the cost of the sides is \$0.043 / cm<sup>2</sup>. If we require a volume of 355 cm<sup>3</sup>, what is the optimal length and diameter to minimize the cost of the can?</p>
-<p>We have two variables to modify: $D, L$, but there is an equality constraint in this problem that is described in the volume equation. We codify this in a function that returns zero when the constraint is satisfied. We also define a variable for the constraints dictionary.</p>
+<p>The volume of a cylindrical can is <span class="math notranslate nohighlight">\(V = (\pi/4) D^2 L\)</span>. The cost of the top/bottom of the can is \<span class="math notranslate nohighlight">\(0.025 / cm&lt;sup&gt;2&lt;/sup&gt;, and the cost of the sides is \\\)</span>0.043 / cm<sup>2</sup>. If we require a volume of 355 cm<sup>3</sup>, what is the optimal length and diameter to minimize the cost of the can?</p>
+<p>We have two variables to modify: <span class="math notranslate nohighlight">\(D, L\)</span>, but there is an equality constraint in this problem that is described in the volume equation. We codify this in a function that returns zero when the constraint is satisfied. We also define a variable for the constraints dictionary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -822,7 +824,7 @@ The optimal diameter is 9.20 cm. The optimal length is 5.35 cm. The cost is $9.9
 <img alt="../../_images/e15925e7dff5794678a42b522acebf9aeee7082d7494ebf086e910d99dae9eaf.png" src="../../_images/e15925e7dff5794678a42b522acebf9aeee7082d7494ebf086e910d99dae9eaf.png" />
 </div>
 </div>
-<p>You can have multiple equality constraints, you just make a list of dictionaries. Suppose we seek to minimize $x1 + x2 + x3^2$ subject to the equality constraints $x1=1$, and $x1^2 + x2^2 = 1$. Some analysis suggests that this really means x1=1, x2=0, and then x3 must also be zero to minimize the function, which has a minimum value of 1.</p>
+<p>You can have multiple equality constraints, you just make a list of dictionaries. Suppose we seek to minimize <span class="math notranslate nohighlight">\(x1 + x2 + x3^2\)</span> subject to the equality constraints <span class="math notranslate nohighlight">\(x1=1\)</span>, and <span class="math notranslate nohighlight">\(x1^2 + x2^2 = 1\)</span>. Some analysis suggests that this really means x1=1, x2=0, and then x3 must also be zero to minimize the function, which has a minimum value of 1.</p>
 <p>Here we can set this up as a minimization problem:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -869,7 +871,7 @@ The optimal diameter is 9.20 cm. The optimal length is 5.35 cm. The cost is $9.9
 <section id="inequality-constraints">
 <h2>Inequality constraints<a class="headerlink" href="#inequality-constraints" title="Permalink to this heading">#</a></h2>
 <p>Inequality constraints are those where some part of the solution is greater than or less than a value. In <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> we codify this by writing functions that are non-negative, i.e. <strong>greater than or equal to zero at the solution</strong>.</p>
-<p>Maximize $x^3 - 3x$ subject to $x \le 2.5$. First, recall we can rewrite the inequality as $-x \ge -2.5$, and again as $-x + 2.5 \ge 0$. That means for our solution we require $-x+2.5$ to be positive. Also, since we are maximizing the function, our objective is multiplied by -1. When possible, it is always a good idea to visualize the problem:</p>
+<p>Maximize <span class="math notranslate nohighlight">\(x^3 - 3x\)</span> subject to <span class="math notranslate nohighlight">\(x \le 2.5\)</span>. First, recall we can rewrite the inequality as <span class="math notranslate nohighlight">\(-x \ge -2.5\)</span>, and again as <span class="math notranslate nohighlight">\(-x + 2.5 \ge 0\)</span>. That means for our solution we require <span class="math notranslate nohighlight">\(-x+2.5\)</span> to be positive. Also, since we are maximizing the function, our objective is multiplied by -1. When possible, it is always a good idea to visualize the problem:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -950,14 +952,14 @@ The optimal diameter is 9.20 cm. The optimal length is 5.35 cm. The cost is $9.9
 </section>
 <section id="an-application">
 <h2>An application<a class="headerlink" href="#an-application" title="Permalink to this heading">#</a></h2>
-<p>Let us suppose that a merry farmer has 75 roods (4 roods = 1 acre) on which to plant two crops: wheat and corn. To produce these crops, it costs the farmer (for seed, water, fertilizer, etc. ) \$120 per rood for the wheat, and \$210 per rood for the corn. The farmer has \$15,000 available for expenses, but after the harvest the farmer must store the crops while awaiting favorable or good market conditions. The farmer has storage space for 4,000 bushels. Each rood yields an average of 110 bushels of wheat or 30 bushels of corn. If the net profit per bushel of wheat (after all the expenses) is \$1.30 and for corn is \$2.00, how should the merry farmer plant the 75 roods to maximize profit?</p>
+<p>Let us suppose that a merry farmer has 75 roods (4 roods = 1 acre) on which to plant two crops: wheat and corn. To produce these crops, it costs the farmer (for seed, water, fertilizer, etc. ) \<span class="math notranslate nohighlight">\(120 per rood for the wheat, and \\\)</span>210 per rood for the corn. The farmer has \<span class="math notranslate nohighlight">\(15,000 available for expenses, but after the harvest the farmer must store the crops while awaiting favorable or good market conditions. The farmer has storage space for 4,000 bushels. Each rood yields an average of 110 bushels of wheat or 30 bushels of corn. If the net profit per bushel of wheat (after all the expenses) is \\\)</span>1.30 and for corn is \$2.00, how should the merry farmer plant the 75 roods to maximize profit?</p>
 <p>It is not obvious what to do. Wheat is cheaper to plant, and yields more per rood, but it is less profitable.</p>
-<p>Let $x$ be the number of roods of wheat planted, and $y$ be the number of roods of corn planted. The profit function is: $ P = (110)($1.3)x + (30)($2)y = 143x + 60y $</p>
+<p>Let <span class="math notranslate nohighlight">\(x\)</span> be the number of roods of wheat planted, and <span class="math notranslate nohighlight">\(y\)</span> be the number of roods of corn planted. The profit function is: <span class="math notranslate nohighlight">\( P = (110)(\)</span>1.3)x + (30)(<span class="math notranslate nohighlight">\(2)y = 143x + 60y \)</span></p>
 <p>There are some constraint inequalities, specified by the limits on expenses, storage and roodage. They are:</p>
-<p>$$120x + $210y &lt;= $15000$ (The total amount spent cannot exceed the amount the farm has)</p>
-<p>$110x + 30y &lt;= 4000$ (The amount generated should not exceed storage space.)</p>
-<p>$x + y &lt;= 75$ (We cannot plant more space than we have.)</p>
-<p>$0 &lt;= x$ and $0 &lt;= y $ (all amounts of planted land must be positive.)</p>
+<p><span class="math notranslate nohighlight">\(\$120x + \$210y &lt;= \$15000\)</span> (The total amount spent cannot exceed the amount the farm has)</p>
+<p><span class="math notranslate nohighlight">\(110x + 30y &lt;= 4000\)</span> (The amount generated should not exceed storage space.)</p>
+<p><span class="math notranslate nohighlight">\(x + y &lt;= 75\)</span> (We cannot plant more space than we have.)</p>
+<p><span class="math notranslate nohighlight">\(0 &lt;= x\)</span> and <span class="math notranslate nohighlight">\(0 &lt;= y \)</span> (all amounts of planted land must be positive.)</p>
 <p>To solve this problem, we cast it as minimization problem, which minimizes a function f(X) subject to some constraints. We create a proxy function for the negative of profit, which we seek to minimize.</p>
 <p>Note we use inequality constraints here. You could put some as equality, e.g. if you want to make sure you spend all $15000, or if you want to ensure you fill up your storage. It could be a mistake to require both of those though, as it may be infeasible.</p>
 <div class="cell docutils container">
@@ -1083,7 +1085,7 @@ We will store 4000 bushels.
 <p>You can see we did not need to spend all the money because we do not have enough storage space to accommodate more crops. It would be a mistake to make these both equality constraints, because then there would be no feasible solution.</p>
 </section>
 </section>
-<section id="summary">
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> provides a convenient interface to solving a broad set of optimization problems both unconstrained and constrained. There is a significant body of knowledge hidden from us under this interface. For example there are 14 choices for different optimization algorithms in the interface, and the default one is chosen for you depending on arguments passed to it. It is easy to tell if the defaults are suitable; if you get a solution they are. If you don’t get a solution, then you have to assess whether there is a solution, and whether a better algorithm would be appropriate. The details of these algorithms are the subject of dedicated courses in optimization.</p>
 <div class="cell docutils container">
@@ -1094,13 +1096,13 @@ We will store 4000 bushels.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="ESYszARZUksz" data-shufflequestions="False"
+<div class="output text_html"><div id="QVPwgxtBUHkD" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#ESYszARZUksz {
+#QVPwgxtBUHkD {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1270,7 +1272,7 @@ We will store 4000 bushels.
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsESYszARZUksz=[{"question": "What will be the output of:<br>a = dict()<br>a['one'] = 1<br>print(a)", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": false}, {"answer": "['one': 1]", "correct": false}, {"answer": "{'one': 1}", "correct": true}, {"answer": "{'one': '1'}", "correct": false}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "Which of the following is not a correct entry in a python dictionary", "type": "multiple_choice", "answers": [{"answer": "{1:'1'}", "correct": false}, {"answer": "{'a': 1}", "correct": false}, {"answer": "{5.23: 5}", "correct": false}, {"answer": "{[1, 2]: 'ab'}", "correct": true}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "Which of the following can be a way of printing the 'n'-th key in a dictionary 'dict'", "type": "multiple_choice", "answers": [{"answer": "dict.keys()[n]", "correct": false}, {"answer": "dict.keys(n)", "correct": false}, {"answer": "list(dict.keys())[n]", "correct": true}, {"answer": "dict.items()[n]", "correct": false}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "What can be a way of accessing the 'n'-th key and value separately from a dictionary", "type": "multiple_choice", "answers": [{"answer": "dict.keys()[n], dict.values()[n]", "correct": false}, {"answer": "d.items()[n]", "correct": false}, {"answer": "dict.keys(n), dict.values(n)", "correct": false}, {"answer": "for key, value in dict.items():<br>    print(key, value)", "correct": true}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "Constraints in scipy.optimize.minimize need to be functions which", "type": "multiple_choice", "answers": [{"answer": "always return zero when satisfied", "correct": false}, {"answer": "can return zero or are greater than zero when satisfied", "correct": true}, {"answer": "can return zero or are less than zero when satisfied", "correct": false}, {"answer": "can only return values which are less than zero", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "For multiple constraints, the argument 'constraints' in scipy.optimize.minimize needs to be", "type": "multiple_choice", "answers": [{"answer": "a dictionary", "correct": false}, {"answer": "a list", "correct": false}, {"answer": "a list of dictionaries", "correct": true}, {"answer": "a dictionary of lists", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "<pre><code class=\"language-python\">def f(X):\n    return -X[0]\n\nconstraints = {'type':'ineq', 'fun': f}\n</code></pre>\n<p>is a </p>", "type": "multiple_choice", "answers": [{"answer": "negativity constraint", "correct": true}, {"answer": "positivity constraint", "correct": false}, {"answer": "equality constraint", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "Which equation from the options can be expressed as the following constraint function:<br><br>def f(X):<br>    x, y = X<br>    return -(2x + 3y - 11)<br>constraints = {'type':'ineq', 'fun':f}", "type": "multiple_choice", "answers": [{"answer": "2x + 3y + 11 <= 0", "correct": false}, {"answer": "2x + 3y <= 11", "correct": true}, {"answer": "2x + 3y >=11", "correct": false}, {"answer": "-2x-3y <=11", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "Which of the following solvers cannot be used with constraints in scipy.optimize.minimize", "type": "multiple_choice", "answers": [{"answer": "BFGS", "correct": true}, {"answer": "SLSQP", "correct": false}, {"answer": "trust-constr", "correct": false}, {"answer": "COBYLA", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "The default solver in scipy.optimize.minimize when using constraints is", "type": "multiple_choice", "answers": [{"answer": "BFGS", "correct": false}, {"answer": "SLSQP", "correct": true}, {"answer": "trust-constr", "correct": false}, {"answer": "COBYLA", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}];
+</style></div><script type="application/javascript">var questionsQVPwgxtBUHkD=[{"question": "What will be the output of:<br>a = dict()<br>a['one'] = 1<br>print(a)", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": false}, {"answer": "['one': 1]", "correct": false}, {"answer": "{'one': 1}", "correct": true}, {"answer": "{'one': '1'}", "correct": false}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "Which of the following is not a correct entry in a python dictionary", "type": "multiple_choice", "answers": [{"answer": "{1:'1'}", "correct": false}, {"answer": "{'a': 1}", "correct": false}, {"answer": "{5.23: 5}", "correct": false}, {"answer": "{[1, 2]: 'ab'}", "correct": true}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "Which of the following can be a way of printing the 'n'-th key in a dictionary 'dict'", "type": "multiple_choice", "answers": [{"answer": "dict.keys()[n]", "correct": false}, {"answer": "dict.keys(n)", "correct": false}, {"answer": "list(dict.keys())[n]", "correct": true}, {"answer": "dict.items()[n]", "correct": false}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "What can be a way of accessing the 'n'-th key and value separately from a dictionary", "type": "multiple_choice", "answers": [{"answer": "dict.keys()[n], dict.values()[n]", "correct": false}, {"answer": "d.items()[n]", "correct": false}, {"answer": "dict.keys(n), dict.values(n)", "correct": false}, {"answer": "for key, value in dict.items():<br>    print(key, value)", "correct": true}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "Constraints in scipy.optimize.minimize need to be functions which", "type": "multiple_choice", "answers": [{"answer": "always return zero when satisfied", "correct": false}, {"answer": "can return zero or are greater than zero when satisfied", "correct": true}, {"answer": "can return zero or are less than zero when satisfied", "correct": false}, {"answer": "can only return values which are less than zero", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "For multiple constraints, the argument 'constraints' in scipy.optimize.minimize needs to be", "type": "multiple_choice", "answers": [{"answer": "a dictionary", "correct": false}, {"answer": "a list", "correct": false}, {"answer": "a list of dictionaries", "correct": true}, {"answer": "a dictionary of lists", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "<pre><code class=\"language-python\">def f(X):\n    return -X[0]\n\nconstraints = {'type':'ineq', 'fun': f}\n</code></pre>\n<p>is a </p>", "type": "multiple_choice", "answers": [{"answer": "negativity constraint", "correct": true}, {"answer": "positivity constraint", "correct": false}, {"answer": "equality constraint", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "Which equation from the options can be expressed as the following constraint function:<br><br>def f(X):<br>    x, y = X<br>    return -(2x + 3y - 11)<br>constraints = {'type':'ineq', 'fun':f}", "type": "multiple_choice", "answers": [{"answer": "2x + 3y + 11 <= 0", "correct": false}, {"answer": "2x + 3y <= 11", "correct": true}, {"answer": "2x + 3y >=11", "correct": false}, {"answer": "-2x-3y <=11", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "Which of the following solvers cannot be used with constraints in scipy.optimize.minimize", "type": "multiple_choice", "answers": [{"answer": "BFGS", "correct": true}, {"answer": "SLSQP", "correct": false}, {"answer": "trust-constr", "correct": false}, {"answer": "COBYLA", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "The default solver in scipy.optimize.minimize when using constraints is", "type": "multiple_choice", "answers": [{"answer": "BFGS", "correct": false}, {"answer": "SLSQP", "correct": true}, {"answer": "trust-constr", "correct": false}, {"answer": "COBYLA", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2019,8 +2021,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("ESYszARZUksz")) {
-            show_questions(questionsESYszARZUksz,  ESYszARZUksz); 
+          if(document.getElementById("QVPwgxtBUHkD")) {
+            show_questions(questionsQVPwgxtBUHkD,  QVPwgxtBUHkD); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2029,8 +2031,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("ESYszARZUksz");
-        // console.log(document.getElementById("ESYszARZUksz"));
+        //console.log("QVPwgxtBUHkD");
+        // console.log(document.getElementById("QVPwgxtBUHkD"));
 
         try_show();
         }

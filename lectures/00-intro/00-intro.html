@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/00-intro/00-intro';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -510,7 +512,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
-<section id="introduction-to-06-623-and-jupyter-lab">
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-06-623-and-jupyter-lab">
 <h1>Introduction to 06-623 and Jupyter Lab<a class="headerlink" href="#introduction-to-06-623-and-jupyter-lab" title="Permalink to this heading">#</a></h1>
 <p>You are looking at a Jupyter notebook. This is an interactive computational environment that runs in your browser. We will use it all semester for lectures and assignments. This document is just a high level introduction to what they can do.</p>
 <p>Jupyter notebooks are an interactive, browser-based tool for running Python. We will use them exclusively in this class.</p>
@@ -542,8 +544,8 @@ document.write(`
 </div>
 </div>
 <p>This is a text cell. It is not executable, but is for people to read. You can embed narrative text, images, equations, etc in them.</p>
-<p>Let’s describe a simple equation that we seek to solve. What is the value of $a$ that satisfies the equation $a + 4 = 5$?</p>
-<p>We can document our solution here, e.g. we find $x$ by algebra. If we subtract 4 from each side of the equation, $a$ will be isolated, and equal to the value of the right hand side of the equation.</p>
+<p>Let’s describe a simple equation that we seek to solve. What is the value of <span class="math notranslate nohighlight">\(a\)</span> that satisfies the equation <span class="math notranslate nohighlight">\(a + 4 = 5\)</span>?</p>
+<p>We can document our solution here, e.g. we find <span class="math notranslate nohighlight">\(x\)</span> by algebra. If we subtract 4 from each side of the equation, <span class="math notranslate nohighlight">\(a\)</span> will be isolated, and equal to the value of the right hand side of the equation.</p>
 <div class="alert alert-warning">
 You can double-click on any text block (or press Enter if the text cell is selected) to see what the Markdown is that generates it. Press ESC (or shift-Enter) to exit and to re-render the cell and jump to the next cell.</div>
 <p>Here is the code that implements that explanation:</p>
@@ -780,7 +782,7 @@ Remember this cell. You will use it almost every time you make a plot.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7efc8819f970&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2450b0ba60&gt;
 </pre></div>
 </div>
 <img alt="../../_images/eacac4e2ff278c49e9f93ba61562c2dfc377e887006abb535e8c31774f03bece.png" src="../../_images/eacac4e2ff278c49e9f93ba61562c2dfc377e887006abb535e8c31774f03bece.png" />
@@ -790,7 +792,7 @@ Remember this cell. You will use it almost every time you make a plot.
 <section id="scipy">
 <h2>scipy<a class="headerlink" href="#scipy" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://www.scipy.org">scipy</a> contains numerous libraries for a broad range of scientific computing needs.</p>
-<p>Suppose we want to perform the <a class="reference external" href="https://docs.scipy.org/doc/scipy/tutorial/integrate.html#general-integration-quad">following integral</a>: $I = \int_0^{4.5} J_{2.5}(x) dx$. The function $J_{2.5}$ is a special function known as a Bessel function. scipy provides both the integration function, and an implementation of the special function we can use.</p>
+<p>Suppose we want to perform the <a class="reference external" href="https://docs.scipy.org/doc/scipy/tutorial/integrate.html#general-integration-quad">following integral</a>: <span class="math notranslate nohighlight">\(I = \int_0^{4.5} J_{2.5}(x) dx\)</span>. The function <span class="math notranslate nohighlight">\(J_{2.5}\)</span> is a special function known as a Bessel function. scipy provides both the integration function, and an implementation of the special function we can use.</p>
 <p>This is not code you need to memorize now; it is an example of the kind of code we will learn to write.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -848,13 +850,13 @@ Remember this cell. You will use it almost every time you make a plot.
 <p>Next time we will dig into defining functions more deeply, and how to print formatted strings containing results.</p>
 </section>
 </section>
-<section id="getting-a-pdf-from-a-jupyter-notebook">
+<section class="tex2jax_ignore mathjax_ignore" id="getting-a-pdf-from-a-jupyter-notebook">
 <h1>Getting a PDF from a Jupyter notebook<a class="headerlink" href="#getting-a-pdf-from-a-jupyter-notebook" title="Permalink to this heading">#</a></h1>
 <p>The first thing you have to do is open a Terminal. This will trigger the installation of Chromium, which is used to convert HTML to PDF. You only have to do this once.</p>
 <p>Go to the File-&gt;Save and Export Notebook As-&gt;Webpdf</p>
 <p>A PDF file should automatically be created and download in your browser in a new tab. Note you can also use PDF instead; this uses LaTeX to create a PDF. It may be nicer looking, but it is more fragile and does not always work.</p>
 </section>
-<section id="additional-resources">
+<section class="tex2jax_ignore mathjax_ignore" id="additional-resources">
 <h1>Additional resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading">#</a></h1>
 <ol class="arabic simple">
 <li><p>Check out the <a class="reference external" href="https://www.youtube.com/playlist?list=PL0sMmOaE_gs2yzwy54kLZk5c1ZH-Nh-62">pycse playlist on YouTube</a>.</p></li>
@@ -862,7 +864,7 @@ Remember this cell. You will use it almost every time you make a plot.
 <li><p>Explore the Help menu in Jupyter Lab.</p></li>
 </ol>
 </section>
-<section id="some-review-material">
+<section class="tex2jax_ignore mathjax_ignore" id="some-review-material">
 <h1>Some review material<a class="headerlink" href="#some-review-material" title="Permalink to this heading">#</a></h1>
 <p>Below you will find a quiz, and some flash cards. When you run the cells, you will get an interactive widget you can use to test your understanding. The results are not persistent, and they will disappear when you close the notebook.</p>
 <div class="cell docutils container">
@@ -873,13 +875,13 @@ Remember this cell. You will use it almost every time you make a plot.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="ZKkPUdxbDTwe" data-shufflequestions="False"
+<div class="output text_html"><div id="jUZXcyUfzYtX" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#ZKkPUdxbDTwe {
+#jUZXcyUfzYtX {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1049,7 +1051,7 @@ Remember this cell. You will use it almost every time you make a plot.
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsZKkPUdxbDTwe=  [{
+</style></div><script type="application/javascript">var questionsjUZXcyUfzYtX=  [{
         "question": "Choose all of the following that can be included in Jupyter notebooks?",
         "type": "many_choice",
         "answers": [
@@ -1829,8 +1831,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("ZKkPUdxbDTwe")) {
-            show_questions(questionsZKkPUdxbDTwe,  ZKkPUdxbDTwe); 
+          if(document.getElementById("jUZXcyUfzYtX")) {
+            show_questions(questionsjUZXcyUfzYtX,  jUZXcyUfzYtX); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1839,8 +1841,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("ZKkPUdxbDTwe");
-        // console.log(document.getElementById("ZKkPUdxbDTwe"));
+        //console.log("jUZXcyUfzYtX");
+        // console.log(document.getElementById("jUZXcyUfzYtX"));
 
         try_show();
         }
@@ -2113,7 +2115,7 @@ if (typeof version == 'undefined') {
 
 }
 
-</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="jWDVMUMkTCRd" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="jWDVMUMkTCRd-next" onclick="window.checkFlip('jWDVMUMkTCRd')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
+</style></div><div class="output text_html"><div style="height:40px"></div><div class="flip-container" id="KmBGUtHaZzeG" tabindex="0" style="outline:none;"></div><div style="height:40px"></div><div class="next" id="KmBGUtHaZzeG-next" onclick="window.checkFlip('KmBGUtHaZzeG')"> </div> <div style="height:40px"></div></div><script type="application/javascript">/*!
  * swiped-events.js - v1.1.4
  * Pure JavaScript swipe events
  * https://github.com/john-doherty/swiped-events
@@ -2460,14 +2462,14 @@ function createCards(id, keyControl, grabFocus) {
 
 
         function try_create() {
-          if(document.getElementById("jWDVMUMkTCRd")) {
-            createCards("jWDVMUMkTCRd", "True", "False");
+          if(document.getElementById("KmBGUtHaZzeG")) {
+            createCards("KmBGUtHaZzeG", "True", "False");
           } else {
              setTimeout(try_create, 200);
           }
         };
     
-var cardsjWDVMUMkTCRd=[
+var cardsKmBGUtHaZzeG=[
     {
         "front": "numpy",
         "back": "Numerical python for arrays<br>import numpy as np"
@@ -2481,9 +2483,9 @@ var cardsjWDVMUMkTCRd=[
         "back": "Scientific python. ODEs, optimization, root finding, etc. "
     }
 ];
-var frontColorsjWDVMUMkTCRd= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
-var backColorsjWDVMUMkTCRd= ["var(--dark-blue-gray)" ];
-var textColorsjWDVMUMkTCRd= ["var(--snow)" ];
+var frontColorsKmBGUtHaZzeG= ["var(--asparagus)", "var(--terra-cotta)", "var(--cyan-process)" ];
+var backColorsKmBGUtHaZzeG= ["var(--dark-blue-gray)" ];
+var textColorsKmBGUtHaZzeG= ["var(--snow)" ];
 try_create(); </script></div>
 </div>
 <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>

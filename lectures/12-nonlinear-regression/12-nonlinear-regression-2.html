@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/12-nonlinear-regression/12-nonlinear-regression-2';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -509,7 +511,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><img alt="out-liar" src="https://i2.wp.com/oklahomaanalytics.com/wp-content/uploads/2016/12/outlier-pic-1.jpg?w=589" /></p>
-<section id="uncertainty-estimates-from-curvefit-and-scipy-optimize-minimize">
+<section class="tex2jax_ignore mathjax_ignore" id="uncertainty-estimates-from-curvefit-and-scipy-optimize-minimize">
 <h1>Uncertainty estimates from curvefit and scipy.optimize.minimize<a class="headerlink" href="#uncertainty-estimates-from-curvefit-and-scipy-optimize-minimize" title="Permalink to this heading">#</a></h1>
 <p>We previously examined how to estimate uncertainty from the covariance matrix returned from curve_fit. Recall we need the diagonal of the covariance matrix, which is estimated during the fitting.  The covariance matrix is related to the inverse Hessian matrix. We will explore how these are related here.</p>
 <p>We will consider fitting a line to the following data.</p>
@@ -541,7 +543,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> does not return the covariance matrix; with <em>some</em> of the methods, it returns an estimate of the inverse Hessian matrix. In theory, the covariance matrix and the inverse hessian are related to each other with $cov = 0.5 * H^{-1}$. Note this relationship is specific to the minimization of the summed squared errors.</p>
+<p><code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> does not return the covariance matrix; with <em>some</em> of the methods, it returns an estimate of the inverse Hessian matrix. In theory, the covariance matrix and the inverse hessian are related to each other with <span class="math notranslate nohighlight">\(cov = 0.5 * H^{-1}\)</span>. Note this relationship is specific to the minimization of the summed squared errors.</p>
 <p>Here we solve this problem again with minimize.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -626,15 +628,15 @@ document.write(`
 </div>
 </div>
 <p>Let’s work out the analytical solution.</p>
-<p>$SSE = \sum (y - (m x + b))^2$</p>
-<p>$\frac{\partial SSE}{\partial m} = \sum 2 (y - (m x + b)) * (-x)$</p>
-<p>$\frac{\partial SSE}{\partial b} = \sum 2 (y - (m x + b)) * (-1)$</p>
+<p><span class="math notranslate nohighlight">\(SSE = \sum (y - (m x + b))^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial SSE}{\partial m} = \sum 2 (y - (m x + b)) * (-x)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial SSE}{\partial b} = \sum 2 (y - (m x + b)) * (-1)\)</span></p>
 <p>NExt you need the four second derivatives (the off diagonals are the same because it does not matter which order you differentiate in).</p>
-<p>$\frac{\partial^2 SSE}{\partial m^2} = \sum 2 x^2$</p>
-<p>$\frac{\partial^2 SSE}{\partial m b} = \sum 2 x$</p>
-<p>$\frac{\partial^2 SSE}{\partial b^2} = \sum 2 $</p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial^2 SSE}{\partial m^2} = \sum 2 x^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial^2 SSE}{\partial m b} = \sum 2 x\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial^2 SSE}{\partial b^2} = \sum 2 \)</span></p>
 <p>The last one is a little tricky to implement, we need a sum of the value 2 for each data point, so we have to create an array of 2s to add up.</p>
-<p>You can see here that the analytical solution is equivalent to the one from <code class="docutils literal notranslate"><span class="pre">numdifftools</span></code> (and also, that it does not depend on the values of $m,b$! That is actually a feature of this model being linear.</p>
+<p>You can see here that the analytical solution is equivalent to the one from <code class="docutils literal notranslate"><span class="pre">numdifftools</span></code> (and also, that it does not depend on the values of <span class="math notranslate nohighlight">\(m,b\)</span>! That is actually a feature of this model being linear.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aH</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">)],</span>
@@ -660,7 +662,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">numdifftools</span></code> (<a class="reference external" href="https://pypi.org/project/numdifftools/">https://pypi.org/project/numdifftools/</a>) is a numerical differentiation package. It is more sophisticated than <code class="docutils literal notranslate"><span class="pre">scipy.misc.derivative</span></code> but is fundamentally still a numerical approximation to the derivatives. Now you can use these to estimate the uncertainties even for optimizers that don’t provide the estimated inverse Hessian.</p>
 <p>Later we will learn about one more approach to getting the derivatives that is used in machine learning called automatic differentiation.</p>
 </section>
-<section id="effects-of-outliers-on-regression">
+<section class="tex2jax_ignore mathjax_ignore" id="effects-of-outliers-on-regression">
 <h1>Effects of outliers on regression<a class="headerlink" href="#effects-of-outliers-on-regression" title="Permalink to this heading">#</a></h1>
 <p>Outliers can have a significant effect on the fit of a model to data. Let’s consider this example, where we want to fit a line to some data that has an outlier in it. This is just a linear regression, and we start out using <code class="docutils literal notranslate"><span class="pre">numpy.polyfit</span></code>.</p>
 <div class="cell docutils container">
@@ -727,7 +729,7 @@ document.write(`
 <p>Least squares regression is also called L<sub>2</sub> norm regression, that is we minimize the L<sub>2</sub> norm of the error vector.</p>
 <p>Sum of error squared = dot(err, err) = err &#64; err</p>
 </section>
-<section id="minimizing-the-summed-absolute-errors">
+<section class="tex2jax_ignore mathjax_ignore" id="minimizing-the-summed-absolute-errors">
 <h1>Minimizing the summed absolute errors<a class="headerlink" href="#minimizing-the-summed-absolute-errors" title="Permalink to this heading">#</a></h1>
 <p>We can choose to minimize another objective function, for example the summed absolute value of the errors. This will reduce the emphasis on large errors. This is  also called L<sub>1</sub> norm regression.</p>
 <div class="cell docutils container">
@@ -755,8 +757,8 @@ document.write(`
 </div>
 <p>There is a historical reason this is not done a lot, and that is the absolute value function has a discontinuity in its first derivative at the origin which can be problematic in some optimization algorithms. It is obviously not a problem here, and you can see that the outlier has less of an effect on the fitted line in this case.</p>
 <p>Finally, we can generalize these ideas to something called L<sub>p</sub> norm regressions where we seek to minimize:</p>
-<p>$\sum |\epsilon_i|^p$</p>
-<p>In <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/00401706.1972.10488892">this paper</a> a value of $p=1.5$ is recommended for general use. Note this is less than two, and greater than one, so it is expected to have an intermediate effect compared to L<sub>1</sub> and L<sub>2</sub> norm regression.</p>
+<p><span class="math notranslate nohighlight">\(\sum |\epsilon_i|^p\)</span></p>
+<p>In <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/00401706.1972.10488892">this paper</a> a value of <span class="math notranslate nohighlight">\(p=1.5\)</span> is recommended for general use. Note this is less than two, and greater than one, so it is expected to have an intermediate effect compared to L<sub>1</sub> and L<sub>2</sub> norm regression.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="n">pars</span><span class="p">):</span>
@@ -847,7 +849,7 @@ document.write(`
 <img alt="../../_images/1e3839fbe90aae20316f499856fec8ee0ec3e96a0def8fd54e1a897ca78d18cf.png" src="../../_images/1e3839fbe90aae20316f499856fec8ee0ec3e96a0def8fd54e1a897ca78d18cf.png" />
 </div>
 </div>
-<p>The aim of this work is to fit a nonlinear model $y= a (1 - e^{-b x})$ to this data. We first consider a standard minimization of the sum squared errors. Inspection of the model suggests at large x, $a$ is a plateau value, which we can read from the graph. For the value of $b$, we might estimate a half-life at about one day and solve $110 = 240(1 - e^{-b})$</p>
+<p>The aim of this work is to fit a nonlinear model <span class="math notranslate nohighlight">\(y= a (1 - e^{-b x})\)</span> to this data. We first consider a standard minimization of the sum squared errors. Inspection of the model suggests at large x, <span class="math notranslate nohighlight">\(a\)</span> is a plateau value, which we can read from the graph. For the value of <span class="math notranslate nohighlight">\(b\)</span>, we might estimate a half-life at about one day and solve <span class="math notranslate nohighlight">\(110 = 240(1 - e^{-b})\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">110</span> <span class="o">/</span> <span class="mi">240</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
@@ -1020,7 +1022,7 @@ document.write(`
 </div>
 </section>
 </section>
-<section id="summary">
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>Regression is an important technical skill required in modern engineering. It is the method which we use to convert data into models. Sometimes it is the parameters that are important, e.g. when they represent properties of a system that we are interested in. Sometimes it is the model that is interesting, e.g. when we need to use it for optimization or predictions.</p>
 <p>At the core, regression involves minimization of some error function. The standard method is to minimize the summed squared error between the model and data. There are some benefits to this method: it is straight forward and there are well established methods to estimate the uncertainty in the parameters. However, it is known to be sensitive to outliers.</p>
@@ -1033,13 +1035,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="TUDaVvOvlEFR" data-shufflequestions="False"
+<div class="output text_html"><div id="axvJQipkGgbV" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#TUDaVvOvlEFR {
+#axvJQipkGgbV {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1209,7 +1211,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsTUDaVvOvlEFR=[{"question": "The Hessian matrix obtained using scipy.minimize() can be made more accurate by", "type": "multiple_choice", "answers": [{"answer": "Decreasing the tolerance", "correct": false}, {"answer": "Using the SLSQP solver", "correct": false}, {"answer": "Increasing the tolerance", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "scipy hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "The relation: Hessian_inverse = 2*Covariance is valid only in the case of ", "type": "multiple_choice", "answers": [{"answer": "minimization using sum squared errors", "correct": true}, {"answer": "minimization using absolute sum of errors", "correct": false}, {"answer": "always valid", "correct": false}, {"answer": "always valid for high tolerance solvers", "correct": false}], "tag": "hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "np.linalg.inv(A) requires", "type": "multiple_choice", "answers": [{"answer": "A to be a non-singular matrix", "correct": false}, {"answer": "Determinant of A not equal to zero", "correct": false}, {"answer": "A to be a square matrix", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "numpy matrices hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "Which norm regression approach among the following will be more resistant to outliers", "type": "multiple_choice", "answers": [{"answer": "L2", "correct": false}, {"answer": "L1", "correct": true}, {"answer": "Both L1 and L2 will be equally resistant", "correct": false}, {"answer": "L1.5", "correct": false}], "tag": "outliers robust_regression", "lecture_file": "12_nonlinear_regression"}, {"question": "For an array([1, 2, 3, 4, 5, 6, 7]), an additional entry of value 20 to the array, will", "type": "multiple_choice", "answers": [{"answer": "Not affect the median but will change the mean value", "correct": false}, {"answer": "Change the mean and median both, but will have less impact on the mean", "correct": false}, {"answer": "Change the mean and median both, but will have less impact on the median", "correct": true}, {"answer": "Not affect the mean but will change the median value", "correct": false}], "tag": "mean_median", "lecture_file": "12_nonlinear_regression"}, {"question": "For an array([1, 2, 3, 4, 5, 6, 7]), an additional entry of value 8 to the array, will", "type": "multiple_choice", "answers": [{"answer": "Will equally change the median and mean", "correct": true}, {"answer": "Change the mean and median both, but will have less impact on the mean", "correct": false}, {"answer": "Change the mean and median both, but will have less impact on the median", "correct": false}, {"answer": "Not affect the median or the mean", "correct": false}], "tag": "mean_median", "lecture_file": "12_nonlinear_regression"}, {"question": "Using L2 norm instead of L1 to minimize errors will affect the regression model in what way", "type": "multiple_choice", "answers": [{"answer": "The model will move towards the outliers", "correct": true}, {"answer": "The model will move away from the outliers", "correct": false}, {"answer": "The model will remain unaffected", "correct": false}, {"answer": "Can't say", "correct": false}], "tag": "robust_regression norm_regression", "lecture_file": "12_nonlinear_regression"}, {"question": "Find the median of the following set (1, 2, 3, 5, 7, 9, 13, 18, 30)", "type": "multiple_choice", "answers": [{"answer": "15.5", "correct": false}, {"answer": "7", "correct": true}, {"answer": "9.7", "correct": false}, {"answer": "13", "correct": false}], "tag": "mean_median", "lecture_file": "12_nonlinear_regression"}, {"question": "A Hessian of a scalar-valued function consists of", "type": "multiple_choice", "answers": [{"answer": "first-order partial derivatives", "correct": false}, {"answer": "first-order total derivatives", "correct": false}, {"answer": "second-order total derivatives", "correct": false}, {"answer": "second-order partial derivatives", "correct": true}], "tag": "hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "To fit a model to a set of data points which were recorded using an instrument which loses precision over time, the best choice, among the following, would be to use", "type": "multiple_choice", "answers": [{"answer": "weighted regression with weights increasing for newer points", "correct": false}, {"answer": "weighted regression with weights decreasing for newer points", "correct": true}, {"answer": "regular regression without weights", "correct": false}, {"answer": "all would give the same results", "correct": false}], "tag": "robust_regression weighted_regression", "lecture_file": "12_nonlinear_regression"}];
+</style></div><script type="application/javascript">var questionsaxvJQipkGgbV=[{"question": "The Hessian matrix obtained using scipy.minimize() can be made more accurate by", "type": "multiple_choice", "answers": [{"answer": "Decreasing the tolerance", "correct": false}, {"answer": "Using the SLSQP solver", "correct": false}, {"answer": "Increasing the tolerance", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "scipy hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "The relation: Hessian_inverse = 2*Covariance is valid only in the case of ", "type": "multiple_choice", "answers": [{"answer": "minimization using sum squared errors", "correct": true}, {"answer": "minimization using absolute sum of errors", "correct": false}, {"answer": "always valid", "correct": false}, {"answer": "always valid for high tolerance solvers", "correct": false}], "tag": "hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "np.linalg.inv(A) requires", "type": "multiple_choice", "answers": [{"answer": "A to be a non-singular matrix", "correct": false}, {"answer": "Determinant of A not equal to zero", "correct": false}, {"answer": "A to be a square matrix", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "numpy matrices hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "Which norm regression approach among the following will be more resistant to outliers", "type": "multiple_choice", "answers": [{"answer": "L2", "correct": false}, {"answer": "L1", "correct": true}, {"answer": "Both L1 and L2 will be equally resistant", "correct": false}, {"answer": "L1.5", "correct": false}], "tag": "outliers robust_regression", "lecture_file": "12_nonlinear_regression"}, {"question": "For an array([1, 2, 3, 4, 5, 6, 7]), an additional entry of value 20 to the array, will", "type": "multiple_choice", "answers": [{"answer": "Not affect the median but will change the mean value", "correct": false}, {"answer": "Change the mean and median both, but will have less impact on the mean", "correct": false}, {"answer": "Change the mean and median both, but will have less impact on the median", "correct": true}, {"answer": "Not affect the mean but will change the median value", "correct": false}], "tag": "mean_median", "lecture_file": "12_nonlinear_regression"}, {"question": "For an array([1, 2, 3, 4, 5, 6, 7]), an additional entry of value 8 to the array, will", "type": "multiple_choice", "answers": [{"answer": "Will equally change the median and mean", "correct": true}, {"answer": "Change the mean and median both, but will have less impact on the mean", "correct": false}, {"answer": "Change the mean and median both, but will have less impact on the median", "correct": false}, {"answer": "Not affect the median or the mean", "correct": false}], "tag": "mean_median", "lecture_file": "12_nonlinear_regression"}, {"question": "Using L2 norm instead of L1 to minimize errors will affect the regression model in what way", "type": "multiple_choice", "answers": [{"answer": "The model will move towards the outliers", "correct": true}, {"answer": "The model will move away from the outliers", "correct": false}, {"answer": "The model will remain unaffected", "correct": false}, {"answer": "Can't say", "correct": false}], "tag": "robust_regression norm_regression", "lecture_file": "12_nonlinear_regression"}, {"question": "Find the median of the following set (1, 2, 3, 5, 7, 9, 13, 18, 30)", "type": "multiple_choice", "answers": [{"answer": "15.5", "correct": false}, {"answer": "7", "correct": true}, {"answer": "9.7", "correct": false}, {"answer": "13", "correct": false}], "tag": "mean_median", "lecture_file": "12_nonlinear_regression"}, {"question": "A Hessian of a scalar-valued function consists of", "type": "multiple_choice", "answers": [{"answer": "first-order partial derivatives", "correct": false}, {"answer": "first-order total derivatives", "correct": false}, {"answer": "second-order total derivatives", "correct": false}, {"answer": "second-order partial derivatives", "correct": true}], "tag": "hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "To fit a model to a set of data points which were recorded using an instrument which loses precision over time, the best choice, among the following, would be to use", "type": "multiple_choice", "answers": [{"answer": "weighted regression with weights increasing for newer points", "correct": false}, {"answer": "weighted regression with weights decreasing for newer points", "correct": true}, {"answer": "regular regression without weights", "correct": false}, {"answer": "all would give the same results", "correct": false}], "tag": "robust_regression weighted_regression", "lecture_file": "12_nonlinear_regression"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1958,8 +1960,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("TUDaVvOvlEFR")) {
-            show_questions(questionsTUDaVvOvlEFR,  TUDaVvOvlEFR); 
+          if(document.getElementById("axvJQipkGgbV")) {
+            show_questions(questionsaxvJQipkGgbV,  axvJQipkGgbV); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1968,8 +1970,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("TUDaVvOvlEFR");
-        // console.log(document.getElementById("TUDaVvOvlEFR"));
+        //console.log("axvJQipkGgbV");
+        // console.log(document.getElementById("axvJQipkGgbV"));
 
         try_show();
         }

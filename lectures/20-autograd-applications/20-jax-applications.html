@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/20-autograd-applications/20-jax-applications';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -514,22 +516,22 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a class="reference internal" href="../toc.html"><span class="doc std std-doc">TOC</span></a></p>
-<section id="applications-of-automatic-differentiation">
+<section class="tex2jax_ignore mathjax_ignore" id="applications-of-automatic-differentiation">
 <h1>Applications of automatic differentiation<a class="headerlink" href="#applications-of-automatic-differentiation" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>KEYWORDS: jax</p></li>
 </ul>
 <p><img alt="img" src="../../_images/autograd.png" /></p>
 </section>
-<section id="mathematical-scientific-and-engineering-applications-of-jax">
+<section class="tex2jax_ignore mathjax_ignore" id="mathematical-scientific-and-engineering-applications-of-jax">
 <h1>Mathematical, scientific and engineering applications of jax<a class="headerlink" href="#mathematical-scientific-and-engineering-applications-of-jax" title="Permalink to this heading">#</a></h1>
 <section id="evaluating-line-integrals">
 <h2>Evaluating line integrals<a class="headerlink" href="#evaluating-line-integrals" title="Permalink to this heading">#</a></h2>
-<p>A line integral is an integral of a function along a curve in space. We usually represent the curve by a parametric equation, e.g. $\mathbf{r}(t) = [x(t), y(t), z(t)] = x(t)\mathbf{i} + y(t)\mathbf{j} + z(t)\mathbf{k}$.  So, in general the curve will be a vector function, and the function we want to integrate will also be a vector function.</p>
+<p>A line integral is an integral of a function along a curve in space. We usually represent the curve by a parametric equation, e.g. <span class="math notranslate nohighlight">\(\mathbf{r}(t) = [x(t), y(t), z(t)] = x(t)\mathbf{i} + y(t)\mathbf{j} + z(t)\mathbf{k}\)</span>.  So, in general the curve will be a vector function, and the function we want to integrate will also be a vector function.</p>
 <p>Then, we can write the line integral definition as:</p>
-<p>$\int_C \mathbf{F(r)} \cdot d\mathbf{r} = \int_a^b \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r’}(t) dt$ where $\mathbf{r’}(t) = \frac{d\mathbf{r}}{dt}$. This integrand is a scalar function, because of the dot product.</p>
+<p><span class="math notranslate nohighlight">\(\int_C \mathbf{F(r)} \cdot d\mathbf{r} = \int_a^b \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r'}(t) dt\)</span> where <span class="math notranslate nohighlight">\(\mathbf{r'}(t) = \frac{d\mathbf{r}}{dt}\)</span>. This integrand is a scalar function, because of the dot product.</p>
 <p>The following examples are adapted from Chapter 10 in Advanced Engineering Mathematics by Kreysig.</p>
-<p>The first example is the evaluation of  a line integral in the plane. We want to evaluate the integral of $\mathbf{F(r)}=[-y, -xy]$ on the curve $\mathbf{r(t)}=[-sin(t), cos(t)]$ from t=0 to t = π/2. The answer in the book is given as 0.4521. Here we evaluate this numerically, using jax for the relevant derivative. Since the curve has multiple outputs, we have to use the jacobian function to get the derivatives. After that, it is a simple bit of matrix multiplication, and a call to the quad function.</p>
+<p>The first example is the evaluation of  a line integral in the plane. We want to evaluate the integral of <span class="math notranslate nohighlight">\(\mathbf{F(r)}=[-y, -xy]\)</span> on the curve <span class="math notranslate nohighlight">\(\mathbf{r(t)}=[-sin(t), cos(t)]\)</span> from t=0 to t = π/2. The answer in the book is given as 0.4521. Here we evaluate this numerically, using jax for the relevant derivative. Since the curve has multiple outputs, we have to use the jacobian function to get the derivatives. After that, it is a simple bit of matrix multiplication, and a call to the quad function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jax.config</span> <span class="kn">import</span> <span class="n">config</span>
@@ -624,7 +626,7 @@ document.write(`
 </section>
 <section id="constrained-optimization-with-lagrange-multipliers-and-jax">
 <h2>Constrained optimization with Lagrange multipliers and jax<a class="headerlink" href="#constrained-optimization-with-lagrange-multipliers-and-jax" title="Permalink to this heading">#</a></h2>
-<p>Constrained optimization is common in engineering problems solving. A prototypical example (from Greenberg, Advanced Engineering Mathematics, Ch 13.7) is to find the point on a plane that is closest to the origin. The plane is defined by the equation $2x - y + z = 3$, and we seek to minimize $x^2 + y^2 + z^2$ subject to the equality constraint defined by the plane. <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> provides a pretty convenient interface to solve a problem like this, as shown here.</p>
+<p>Constrained optimization is common in engineering problems solving. A prototypical example (from Greenberg, Advanced Engineering Mathematics, Ch 13.7) is to find the point on a plane that is closest to the origin. The plane is defined by the equation <span class="math notranslate nohighlight">\(2x - y + z = 3\)</span>, and we seek to minimize <span class="math notranslate nohighlight">\(x^2 + y^2 + z^2\)</span> subject to the equality constraint defined by the plane. <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> provides a pretty convenient interface to solve a problem like this, as shown here.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
@@ -662,9 +664,9 @@ document.write(`
 </div>
 <p>I like the minimize function a lot, although I do not love how the constraints are provided.
 Sometimes, it might be desirable to go back to basics though, especially if you are unaware of the <code class="docutils literal notranslate"><span class="pre">minimize</span></code> function or perhaps suspect it is not working right and want an independent answer. Next we look at how to construct this constrained optimization problem using Lagrange multipliers. This converts the problem into an augmented unconstrained optimization problem we can use <code class="docutils literal notranslate"><span class="pre">root</span></code> on. The gist of this method is we formulate a new problem:</p>
-<p>$F(L) = f(X) - \lambda g(X)$</p>
+<p><span class="math notranslate nohighlight">\(F(L) = f(X) - \lambda g(X)\)</span></p>
 <p>and then solve the simultaneous resulting equations:</p>
-<p>$F_x(L) = F_y(L) = F_z(L) = g(X) = 0$ where $F_x$ is the derivative of $F(L)$ with respect to $x$, and $g(X)$ is the equality constraint written so it is equal to zero. Since we end up with four equations that equal zero, we can simply use <code class="docutils literal notranslate"><span class="pre">root</span></code> to get the solution. Many <a class="reference external" href="http://kitchingroup.cheme.cmu.edu/blog/2013/02/03/Using-Lagrange-multipliers-in-optimization/">years ago</a> I used a finite difference approximation to the derivatives. Today we use jax to get the desired derivatives. Here it is.</p>
+<p><span class="math notranslate nohighlight">\(F_x(L) = F_y(L) = F_z(L) = g(X) = 0\)</span> where <span class="math notranslate nohighlight">\(F_x\)</span> is the derivative of <span class="math notranslate nohighlight">\(F(L)\)</span> with respect to <span class="math notranslate nohighlight">\(x\)</span>, and <span class="math notranslate nohighlight">\(g(X)\)</span> is the equality constraint written so it is equal to zero. Since we end up with four equations that equal zero, we can simply use <code class="docutils literal notranslate"><span class="pre">root</span></code> to get the solution. Many <a class="reference external" href="http://kitchingroup.cheme.cmu.edu/blog/2013/02/03/Using-Lagrange-multipliers-in-optimization/">years ago</a> I used a finite difference approximation to the derivatives. Today we use jax to get the desired derivatives. Here it is.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">grad</span>
@@ -788,14 +790,14 @@ Sometimes, it might be desirable to go back to basics though, especially if you 
 <section id="getting-derivatives-from-implicit-functions-with-jax">
 <h2>Getting derivatives from implicit functions with jax<a class="headerlink" href="#getting-derivatives-from-implicit-functions-with-jax" title="Permalink to this heading">#</a></h2>
 <p>This equation is explict: y = f(x)</p>
-<p>This one is implicit: $sin y = e ^ {x * y}$</p>
-<p>If we have an implicit function: $f(x, y(x)) = 0$, but we want to compute the derivative $dy/dx$ we can use the chain rule to derive:</p>
-<p>$\frac{df}{dx} + \frac{df}{dy} * \frac{dy}{dx} = 0$</p>
-<p>We can then solve for $dy/dx$:</p>
-<p>$\frac{dy}{dx} = -\frac{\frac{df}{dx}}{\frac{df}{dy}}$</p>
-<p>to get the desired derivative. The interesting point of this is that we can get the two derivatives on the right hand side of this equation using automatic differentiation of the function $f(x, y)$! There are a few examples of analytical approaches to derivatives from implicit functions <a class="reference external" href="https://www.math.ucdavis.edu/~kouba/CalcOneDIRECTORY/implicitdiffdirectory/ImplicitDiff.html">here</a> we will use for example.</p>
-<p>In the following examples, we will assume that $y$ is a function of $x$ and that $x$ is independent. We will consider a series of implicit equations, compute $dy/dx$ using jax from the formula above, and compare them to the analytical results in the web page referenced above.</p>
-<p>The $dy/dx$ functions generally depend on both $x$, and $y$. Technically, these are the derivatives along the curve $y(x)$, but since we can evaluate them at any points, we will use some random points for $x$ and $y$ to test for equality between the analytical derivatives and the jax derivatives. This isn’t a rigorous proof of equality, but it is the only thing that makes sense to do for now. It is assumed that if these points are ok, all the others are too. That might be a broad claim, since we only sample $x$ and $y$ from 0 to 1 here but the approach is general. Here are the imports and the random test points for all the examples that follow.</p>
+<p>This one is implicit: <span class="math notranslate nohighlight">\(sin y = e ^ {x * y}\)</span></p>
+<p>If we have an implicit function: <span class="math notranslate nohighlight">\(f(x, y(x)) = 0\)</span>, but we want to compute the derivative <span class="math notranslate nohighlight">\(dy/dx\)</span> we can use the chain rule to derive:</p>
+<p><span class="math notranslate nohighlight">\(\frac{df}{dx} + \frac{df}{dy} * \frac{dy}{dx} = 0\)</span></p>
+<p>We can then solve for <span class="math notranslate nohighlight">\(dy/dx\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\frac{dy}{dx} = -\frac{\frac{df}{dx}}{\frac{df}{dy}}\)</span></p>
+<p>to get the desired derivative. The interesting point of this is that we can get the two derivatives on the right hand side of this equation using automatic differentiation of the function <span class="math notranslate nohighlight">\(f(x, y)\)</span>! There are a few examples of analytical approaches to derivatives from implicit functions <a class="reference external" href="https://www.math.ucdavis.edu/~kouba/CalcOneDIRECTORY/implicitdiffdirectory/ImplicitDiff.html">here</a> we will use for example.</p>
+<p>In the following examples, we will assume that <span class="math notranslate nohighlight">\(y\)</span> is a function of <span class="math notranslate nohighlight">\(x\)</span> and that <span class="math notranslate nohighlight">\(x\)</span> is independent. We will consider a series of implicit equations, compute <span class="math notranslate nohighlight">\(dy/dx\)</span> using jax from the formula above, and compare them to the analytical results in the web page referenced above.</p>
+<p>The <span class="math notranslate nohighlight">\(dy/dx\)</span> functions generally depend on both <span class="math notranslate nohighlight">\(x\)</span>, and <span class="math notranslate nohighlight">\(y\)</span>. Technically, these are the derivatives along the curve <span class="math notranslate nohighlight">\(y(x)\)</span>, but since we can evaluate them at any points, we will use some random points for <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> to test for equality between the analytical derivatives and the jax derivatives. This isn’t a rigorous proof of equality, but it is the only thing that makes sense to do for now. It is assumed that if these points are ok, all the others are too. That might be a broad claim, since we only sample <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> from 0 to 1 here but the approach is general. Here are the imports and the random test points for all the examples that follow.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jax</span>
@@ -807,11 +809,11 @@ Sometimes, it might be desirable to go back to basics though, especially if you 
 </div>
 </div>
 </div>
-<p>Next we consider $x^3 + y^3 = 4$ as our implicit function.</p>
-<p>$f(x, y) = x^3 + y^3 - 4 = 0$</p>
-<p>$df/dx = 3 x^2$</p>
-<p>$df/dy = 3 y^2$</p>
-<p>so $dy/dx = -x^2 / y^2$ for comparison.</p>
+<p>Next we consider <span class="math notranslate nohighlight">\(x^3 + y^3 = 4\)</span> as our implicit function.</p>
+<p><span class="math notranslate nohighlight">\(f(x, y) = x^3 + y^3 - 4 = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(df/dx = 3 x^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(df/dy = 3 y^2\)</span></p>
+<p>so <span class="math notranslate nohighlight">\(dy/dx = -x^2 / y^2\)</span> for comparison.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -853,17 +855,17 @@ Sometimes, it might be desirable to go back to basics though, especially if you 
 <p>The output of True means the jax results and the analytical results are “all close”, i.e. within a tolerance the results are the same.</p>
 </section>
 </section>
-<section id="scientific-applications">
+<section class="tex2jax_ignore mathjax_ignore" id="scientific-applications">
 <h1>Scientific applications<a class="headerlink" href="#scientific-applications" title="Permalink to this heading">#</a></h1>
 <section id="compressibility-variation-from-an-implicit-equation-of-state">
 <h2>Compressibility variation from an implicit equation of state<a class="headerlink" href="#compressibility-variation-from-an-implicit-equation-of-state" title="Permalink to this heading">#</a></h2>
 <p>There are two ways to explore how some property varies with some parameter. One is if you have an equation relating them, you simply solve it many times for each parameter. Another is if you can derive an equation for how the property changes with parameter changes, then you have an ODE you can integrate. We explore that here. We will use the van der Waal equation of state to derive an equation for how the compressibility changes with the reduced pressure.</p>
-<p>The general strategy to compute the compressibility as a function of pressure is to integrate $dV / dP_r$ over a range of $P_r$ to get the molar volume as a function of $P_r$, and then to directly compute the compressibility from $Z = PV/(RT)$.</p>
-<p>To use this approach we need to get $dV / dP_r$ from the van der Waal equation. Here, we follow the work in the previous section to get the derivative from the implicit form of the van der Waal equation:</p>
-<p>$f(V, P_r, T_r) = \frac{R Tr * Tc}{V - b} - \frac{a}{V^2} - P_r Pc = 0$</p>
+<p>The general strategy to compute the compressibility as a function of pressure is to integrate <span class="math notranslate nohighlight">\(dV / dP_r\)</span> over a range of <span class="math notranslate nohighlight">\(P_r\)</span> to get the molar volume as a function of <span class="math notranslate nohighlight">\(P_r\)</span>, and then to directly compute the compressibility from <span class="math notranslate nohighlight">\(Z = PV/(RT)\)</span>.</p>
+<p>To use this approach we need to get <span class="math notranslate nohighlight">\(dV / dP_r\)</span> from the van der Waal equation. Here, we follow the work in the previous section to get the derivative from the implicit form of the van der Waal equation:</p>
+<p><span class="math notranslate nohighlight">\(f(V, P_r, T_r) = \frac{R Tr * Tc}{V - b} - \frac{a}{V^2} - P_r Pc = 0\)</span></p>
 <p>We can get</p>
-<p>$dV/dP_r = (-df/dP_r) / (df/dV)$</p>
-<p>and the two derivatives on the right can be found easily by automatic differentiation. First, we express the van der Waal equation in implicit form, with the variables as $V, P_r, T_r$. Only two of those variables are independent; if you define two of them you can compute the third one using a tool like root.</p>
+<p><span class="math notranslate nohighlight">\(dV/dP_r = (-df/dP_r) / (df/dV)\)</span></p>
+<p>and the two derivatives on the right can be found easily by automatic differentiation. First, we express the van der Waal equation in implicit form, with the variables as <span class="math notranslate nohighlight">\(V, P_r, T_r\)</span>. Only two of those variables are independent; if you define two of them you can compute the third one using a tool like root.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="mf">0.08206</span>  <span class="c1"># gas constant</span>
@@ -882,7 +884,7 @@ Sometimes, it might be desirable to go back to basics though, especially if you 
 </div>
 </div>
 </div>
-<p>Now, if we want to know how does the volume vary with $P_r$, we need to derive the derivative $dV/dP_r$, and then integrate it. Here we use jax to define the derivatives, and then we define a function that uses them. Note the arguments in the function dVdPr are in an order that anticipates we want to integrate it in solve_ivp, to get a function $V(P_r)$.</p>
+<p>Now, if we want to know how does the volume vary with <span class="math notranslate nohighlight">\(P_r\)</span>, we need to derive the derivative <span class="math notranslate nohighlight">\(dV/dP_r\)</span>, and then integrate it. Here we use jax to define the derivatives, and then we define a function that uses them. Note the arguments in the function dVdPr are in an order that anticipates we want to integrate it in solve_ivp, to get a function <span class="math notranslate nohighlight">\(V(P_r)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfdPr</span> <span class="o">=</span> <span class="n">grad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># derivative of f with respect to arg at index=1: Pr</span>
@@ -896,7 +898,7 @@ Sometimes, it might be desirable to go back to basics though, especially if you 
 </div>
 </div>
 </div>
-<p>Now, we need an initial condition to start the integration from. We want the volume at $P_r=0.1$. We have to use <code class="docutils literal notranslate"><span class="pre">root</span></code> for this, or some other method that tells you want is the volume at $P_r=0.1$. We can pass the values of $P_r$ and $T_R$ as arguments to our implicit function. Since $V$ is the first argument, we can directly solve our implicit function. Otherwise you would have to define a helper objective function to use with root.</p>
+<p>Now, we need an initial condition to start the integration from. We want the volume at <span class="math notranslate nohighlight">\(P_r=0.1\)</span>. We have to use <code class="docutils literal notranslate"><span class="pre">root</span></code> for this, or some other method that tells you want is the volume at <span class="math notranslate nohighlight">\(P_r=0.1\)</span>. We can pass the values of <span class="math notranslate nohighlight">\(P_r\)</span> and <span class="math notranslate nohighlight">\(T_R\)</span> as arguments to our implicit function. Since <span class="math notranslate nohighlight">\(V\)</span> is the first argument, we can directly solve our implicit function. Otherwise you would have to define a helper objective function to use with root.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">root</span>
@@ -952,9 +954,9 @@ Sometimes, it might be desirable to go back to basics though, especially if you 
 <section id="computing-the-pressure-from-a-solid-equation-of-state">
 <h2>Computing the pressure from a solid equation of state<a class="headerlink" href="#computing-the-pressure-from-a-solid-equation-of-state" title="Permalink to this heading">#</a></h2>
 <p>A solid equation of state describes the energy of a solid under isotropic strain. We can readily compute the pressure at a particular volume from the equation:</p>
-<p>$P = -\frac{dE}{dV}$</p>
+<p><span class="math notranslate nohighlight">\(P = -\frac{dE}{dV}\)</span></p>
 <p>We just need the derivative of this equation:</p>
-<p>$E = E_0+\frac{B_0 V}{B’_0}\left[\frac{(V_0/V)^{B’_0}}{B’_0-1}+1\right]-\frac{V_0 B_0}{B’_0-1}$</p>
+<p><span class="math notranslate nohighlight">\(E = E_0+\frac{B_0 V}{B'_0}\left[\frac{(V_0/V)^{B'_0}}{B'_0-1}+1\right]-\frac{V_0 B_0}{B'_0-1}\)</span></p>
 <p>We use jax to get it for us.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1003,8 +1005,8 @@ Sometimes, it might be desirable to go back to basics though, especially if you 
 <section id="sensitivity-analysis-using-automatic-differentiation-in-python">
 <h2>Sensitivity analysis using automatic differentiation in Python<a class="headerlink" href="#sensitivity-analysis-using-automatic-differentiation-in-python" title="Permalink to this heading">#</a></h2>
 <p>This <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.428.6699&amp;rep=rep1&amp;type=pdf">paper</a> describes how sensitivity analysis requires access to the derivatives of a function. Say, for example we have a function describing the time evolution of the concentration of species A:</p>
-<p>$[A] = \frac{[A]<em>0}{k_1 + k</em>{-1}} (k_1 e^{(-(k_1 + k_{-1})t)} + k_{-1})$</p>
-<p>The local sensitivity of the concentration of A to the parameters $k1$ and $k_1$ are defined as $\frac{\partial A}{\partial k_1}$ and $\frac{\partial A}{\partial k_{-1}}$. Our goal is to plot the sensitivity as a function of time. We could derive those derivatives, but we will use auto-differentiation instead through the jax package.</p>
+<p><span class="math notranslate nohighlight">\([A] = \frac{[A]_0}{k_1 + k_{-1}} (k_1 e^{(-(k_1 + k_{-1})t)} + k_{-1})\)</span></p>
+<p>The local sensitivity of the concentration of A to the parameters <span class="math notranslate nohighlight">\(k1\)</span> and <span class="math notranslate nohighlight">\(k_1\)</span> are defined as <span class="math notranslate nohighlight">\(\frac{\partial A}{\partial k_1}\)</span> and <span class="math notranslate nohighlight">\(\frac{\partial A}{\partial k_{-1}}\)</span>. Our goal is to plot the sensitivity as a function of time. We could derive those derivatives, but we will use auto-differentiation instead through the jax package.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A0</span> <span class="o">=</span> <span class="mf">1.0</span>
@@ -1055,7 +1057,7 @@ Sometimes, it might be desirable to go back to basics though, especially if you 
 <p>That looks like the figure in the paper. To summarize the main takeaway, jax enabled us to readily compute derivatives without having to derive them manually.</p>
 </section>
 </section>
-<section id="summary">
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>These are just some of <em>many</em> possible applications of automatic differentiation in mathematics and engineering. The key points you should take away from this is that it is often possible to program with derivatives, and to compute derivatives automatically in many cases. This enables you to think about writing programs that reflect the mathematical and scientific ideas you are trying to implement more directly, and in many cases less approximately.</p>
 <div class="cell docutils container">
@@ -1066,13 +1068,13 @@ Sometimes, it might be desirable to go back to basics though, especially if you 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="auhaVsKcYIOR" data-shufflequestions="False"
+<div class="output text_html"><div id="KgJPeXFUfgij" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#auhaVsKcYIOR {
+#KgJPeXFUfgij {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1242,7 +1244,7 @@ Sometimes, it might be desirable to go back to basics though, especially if you 
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsauhaVsKcYIOR=[{"question": "The dot product of 2 vectors will be ", "type": "multiple_choice", "answers": [{"answer": "a scalar", "correct": true}, {"answer": "a vector", "correct": false}, {"answer": "2 vectors", "correct": false}, {"answer": "2 scalars", "correct": false}], "tag": "dot_product applications", "lecture_file": "20_autograd_applications"}, {"question": "When evaluating line integrals, we need to be cautious of choosing the parameterization of the curve in order to get the right solution", "type": "multiple_choice", "answers": [{"answer": "Yes, the solution to a line integral will depend on the curve parameterization.", "correct": false}, {"answer": "No, we can choose any form of parameterization and will reach the same solution.", "correct": true}, {"answer": "-", "correct": false}, {"answer": "-", "correct": false}], "tag": "line_integral applications", "lecture_file": "20_autograd_applications"}, {"question": "Using lagrange multipliers to find a local optimum ", "type": "multiple_choice", "answers": [{"answer": "Eliminates constraint equations", "correct": false}, {"answer": "Uses gradients to locate the optimum", "correct": false}, {"answer": "Modifies the objective function", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "lagrange_multipliers applications", "lecture_file": "20_autograd_applications"}, {"question": "What is the relation between a Jacobian J and a Hessian H of a function f(x)", "type": "multiple_choice", "answers": [{"answer": "J = H( gradient(f(x)))", "correct": false}, {"answer": "H = gradient (J(f(x))", "correct": false}, {"answer": "H = J( gradient (f(x)))", "correct": true}, {"answer": "There is no relation", "correct": false}], "tag": "jacobian hessian derivative", "lecture_file": "20_autograd_applications"}, {"question": "Which of the following is not an implicit function", "type": "multiple_choice", "answers": [{"answer": "sin(x)  + sin^2(y) = 0.75", "correct": false}, {"answer": "3x^2 - 10 = y", "correct": true}, {"answer": "y^4 + x^3 = 8", "correct": false}, {"answer": "x^2 = y^2 - 10", "correct": false}], "tag": "implicit_function applications", "lecture_file": "20_autograd_applications"}, {"question": "<p>The correct function call to grad() for evaluating the partial derivative with respect to x2 is:</p>\n<pre><code class=\"language-python\">def f(x1, x2, x3):\n    return x1^2 + x2^2 -x3^3\n</code></pre>", "type": "multiple_choice", "answers": [{"answer": "grad(f, x2)", "correct": false}, {"answer": "grad(f, 0)", "correct": false}, {"answer": "grad(f, 1)", "correct": true}, {"answer": "grad(f, 2)", "correct": false}], "tag": "autograd derivative", "lecture_file": "20_autograd_applications"}, {"question": "Automatic differentiation can be used for", "type": "multiple_choice", "answers": [{"answer": "Constrained Optimization", "correct": false}, {"answer": "Line integrals", "correct": false}, {"answer": "Sensitivity Analysis", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "automatic_differentiation derivative", "lecture_file": "20_autograd_applications"}, {"question": "Which of the following is not an implicit function", "type": "multiple_choice", "answers": [{"answer": "x^2 + 2x - 5 - y^2 = 0", "correct": false}, {"answer": "x^2 - 5 = y^2", "correct": false}, {"answer": "xy = x + y", "correct": true}, {"answer": "sin(x)  + sin^2(y) = 0.75", "correct": false}], "tag": "implicit_function applications", "lecture_file": "20_autograd_applications"}, {"question": "To calculate how a variable changes with respect to a certain parameter, we can use", "type": "multiple_choice", "answers": [{"answer": "Partial derivative of the variable with respect to the parameter", "correct": true}, {"answer": "There are only experimental approaches to achieve this", "correct": false}, {"answer": "A change of basis", "correct": false}, {"answer": "A total derivative with respect to time", "correct": false}], "tag": "derivative", "lecture_file": "20_autograd_applications"}, {"question": "What is the partial derivative of the function f(x, y, z) = x^2 * e^z * cos(y) + 2*z*x*y, with respect to z.", "type": "multiple_choice", "answers": [{"answer": "x^2 * cos(y) + 2*y*x", "correct": false}, {"answer": "x^2 * e^z * cos(y) + 2*y*x", "correct": true}, {"answer": "2*y*x", "correct": false}, {"answer": "x^2 * e^z * cos(y) + 2*x*y*z", "correct": false}], "tag": "derivative", "lecture_file": "20_autograd_applications"}];
+</style></div><script type="application/javascript">var questionsKgJPeXFUfgij=[{"question": "The dot product of 2 vectors will be ", "type": "multiple_choice", "answers": [{"answer": "a scalar", "correct": true}, {"answer": "a vector", "correct": false}, {"answer": "2 vectors", "correct": false}, {"answer": "2 scalars", "correct": false}], "tag": "dot_product applications", "lecture_file": "20_autograd_applications"}, {"question": "When evaluating line integrals, we need to be cautious of choosing the parameterization of the curve in order to get the right solution", "type": "multiple_choice", "answers": [{"answer": "Yes, the solution to a line integral will depend on the curve parameterization.", "correct": false}, {"answer": "No, we can choose any form of parameterization and will reach the same solution.", "correct": true}, {"answer": "-", "correct": false}, {"answer": "-", "correct": false}], "tag": "line_integral applications", "lecture_file": "20_autograd_applications"}, {"question": "Using lagrange multipliers to find a local optimum ", "type": "multiple_choice", "answers": [{"answer": "Eliminates constraint equations", "correct": false}, {"answer": "Uses gradients to locate the optimum", "correct": false}, {"answer": "Modifies the objective function", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "lagrange_multipliers applications", "lecture_file": "20_autograd_applications"}, {"question": "What is the relation between a Jacobian J and a Hessian H of a function f(x)", "type": "multiple_choice", "answers": [{"answer": "J = H( gradient(f(x)))", "correct": false}, {"answer": "H = gradient (J(f(x))", "correct": false}, {"answer": "H = J( gradient (f(x)))", "correct": true}, {"answer": "There is no relation", "correct": false}], "tag": "jacobian hessian derivative", "lecture_file": "20_autograd_applications"}, {"question": "Which of the following is not an implicit function", "type": "multiple_choice", "answers": [{"answer": "sin(x)  + sin^2(y) = 0.75", "correct": false}, {"answer": "3x^2 - 10 = y", "correct": true}, {"answer": "y^4 + x^3 = 8", "correct": false}, {"answer": "x^2 = y^2 - 10", "correct": false}], "tag": "implicit_function applications", "lecture_file": "20_autograd_applications"}, {"question": "<p>The correct function call to grad() for evaluating the partial derivative with respect to x2 is:</p>\n<pre><code class=\"language-python\">def f(x1, x2, x3):\n    return x1^2 + x2^2 -x3^3\n</code></pre>", "type": "multiple_choice", "answers": [{"answer": "grad(f, x2)", "correct": false}, {"answer": "grad(f, 0)", "correct": false}, {"answer": "grad(f, 1)", "correct": true}, {"answer": "grad(f, 2)", "correct": false}], "tag": "autograd derivative", "lecture_file": "20_autograd_applications"}, {"question": "Automatic differentiation can be used for", "type": "multiple_choice", "answers": [{"answer": "Constrained Optimization", "correct": false}, {"answer": "Line integrals", "correct": false}, {"answer": "Sensitivity Analysis", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "automatic_differentiation derivative", "lecture_file": "20_autograd_applications"}, {"question": "Which of the following is not an implicit function", "type": "multiple_choice", "answers": [{"answer": "x^2 + 2x - 5 - y^2 = 0", "correct": false}, {"answer": "x^2 - 5 = y^2", "correct": false}, {"answer": "xy = x + y", "correct": true}, {"answer": "sin(x)  + sin^2(y) = 0.75", "correct": false}], "tag": "implicit_function applications", "lecture_file": "20_autograd_applications"}, {"question": "To calculate how a variable changes with respect to a certain parameter, we can use", "type": "multiple_choice", "answers": [{"answer": "Partial derivative of the variable with respect to the parameter", "correct": true}, {"answer": "There are only experimental approaches to achieve this", "correct": false}, {"answer": "A change of basis", "correct": false}, {"answer": "A total derivative with respect to time", "correct": false}], "tag": "derivative", "lecture_file": "20_autograd_applications"}, {"question": "What is the partial derivative of the function f(x, y, z) = x^2 * e^z * cos(y) + 2*z*x*y, with respect to z.", "type": "multiple_choice", "answers": [{"answer": "x^2 * cos(y) + 2*y*x", "correct": false}, {"answer": "x^2 * e^z * cos(y) + 2*y*x", "correct": true}, {"answer": "2*y*x", "correct": false}, {"answer": "x^2 * e^z * cos(y) + 2*x*y*z", "correct": false}], "tag": "derivative", "lecture_file": "20_autograd_applications"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1991,8 +1993,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("auhaVsKcYIOR")) {
-            show_questions(questionsauhaVsKcYIOR,  auhaVsKcYIOR); 
+          if(document.getElementById("KgJPeXFUfgij")) {
+            show_questions(questionsKgJPeXFUfgij,  KgJPeXFUfgij); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2001,8 +2003,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("auhaVsKcYIOR");
-        // console.log(document.getElementById("auhaVsKcYIOR"));
+        //console.log("KgJPeXFUfgij");
+        // console.log(document.getElementById("KgJPeXFUfgij"));
 
         try_show();
         }
