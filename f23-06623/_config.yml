@@ -48,6 +48,7 @@ parse:
     # including those that are enabled by default!
     - amsmath
     - dollarmath
+    - linkify
     
 launch_buttons:
   notebook_interface        : jupyterlab  # The interface interactive links will activate ["classic", "jupyterlab"]
