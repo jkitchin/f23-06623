@@ -528,8 +528,8 @@ document.write(`
 <p>$y’’(x) \approx \frac{y_{i-1} - 2 y_i + y_{i+1}}{h^2} $</p>
 <p>$y’(x) \approx \frac{y_{i+1} - y_{i-1}}{2 h} $</p>
 <p>We define a function $y’’(x) = F(x, y, y’)$. At each node in our discretized region, we will have an equation that looks like $y’’(x) - F(x, y, y’) = 0$, which will be nonlinear in the unknown solution $y$. The set of equations to solve is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5ac6f11c-0471-4456-a65d-3f8aefdcf877">
-<span class="eqno">(2)<a class="headerlink" href="#equation-5ac6f11c-0471-4456-a65d-3f8aefdcf877" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-032ab333-75cd-46dc-a3c9-c611cb431a6c">
+<span class="eqno">(2)<a class="headerlink" href="#equation-032ab333-75cd-46dc-a3c9-c611cb431a6c" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 y_0 - \alpha &amp;=&amp; 0 \\
 \frac{y_{i-1} - 2 y_i + y_{i+1}}{h^2} + (3 y_i) \left(\frac{y_{i+1} - y_{i-1}}{2 h}\right) &amp;=&amp; 0 \\
 y_L - \beta &amp;=&amp;0
@@ -1278,13 +1278,13 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="VfNeUISibbNF" data-shufflequestions="False"
+<div class="output text_html"><div id="NiuvUHshcCcg" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#VfNeUISibbNF {
+#NiuvUHshcCcg {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1454,7 +1454,7 @@ solve_bvp<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsVfNeUISibbNF=[
+</style></div><script type="application/javascript">var questionsNiuvUHshcCcg=[
   {
     "question": "Using finite difference method, find the values of y', <br>if y = [3.,  5.,  7.,  9., 11., 13.]<br>h = 0.2, and the end points are at 1, 15.",
     "type": "multiple_choice",
@@ -2445,8 +2445,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("VfNeUISibbNF")) {
-            show_questions(questionsVfNeUISibbNF,  VfNeUISibbNF); 
+          if(document.getElementById("NiuvUHshcCcg")) {
+            show_questions(questionsNiuvUHshcCcg,  NiuvUHshcCcg); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2455,8 +2455,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("VfNeUISibbNF");
-        // console.log(document.getElementById("VfNeUISibbNF"));
+        //console.log("NiuvUHshcCcg");
+        // console.log(document.getElementById("NiuvUHshcCcg"));
 
         try_show();
         }
