@@ -32,7 +32,7 @@ parts:
     - file: lectures/index.ipynb
 - caption: Assignments
   chapters:
-    - glob: assignments/*/*.ipynb
+    - glob: assignments/*
 - caption: About the book
   chapters:
     - file: execution-statistics.md    
