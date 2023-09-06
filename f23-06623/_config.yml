@@ -15,7 +15,7 @@ logo                        : lectures/06623-roadmap.png  # A path to the book l
 execute:
   execute_notebooks: force
   exclude_patterns:
-    - 'assignments'
+    - 'assignments*'
 
 # Define the name of the latex output file for PDF builds
 latex:
