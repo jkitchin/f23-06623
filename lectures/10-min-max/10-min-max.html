@@ -680,7 +680,7 @@ document.write(`
     nfev: 7
     fjac: [[-1.000e+00]]
        r: [ 8.000e+00]
-     qtf: [ 2.465e-32]
+     qtf: [ 1.233e-32]
 </pre></div>
 </div>
 </div>
@@ -793,7 +793,7 @@ The second derivative is [-8.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>at x=[0.56735137]: y&#39;(0) = [6.85722723e-14]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>at x=[0.56735137]: y&#39;(0) = [4.69048017e-14]
 The second derivative is [6.43775165]
 </pre></div>
 </div>
@@ -833,7 +833,7 @@ The second derivative is [6.43775165]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.5673513747994342, 0.5218875824868201, array(-8.71627422e-12), 5)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.5673513747994446, 0.5218875824868201, array(-8.80056295e-12), 5)
 </pre></div>
 </div>
 </div>
@@ -870,10 +870,10 @@ minimize<span class="o">?</span>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: Optimization terminated successfully.
   success: True
    status: 0
-      fun: 0.521887582486822
+      fun: 0.5218875824868219
         x: [ 5.674e-01]
       nit: 3
-      jac: [-1.118e-07]
+      jac: [-1.043e-07]
  hess_inv: [[ 1.556e-01]]
      nfev: 14
      njev: 7
@@ -1163,7 +1163,7 @@ minimize<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.999999935332582
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.999999935332596
 </pre></div>
 </div>
 </div>
@@ -1183,10 +1183,10 @@ minimize<span class="o">?</span>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0,
- 38.662803773064404,
- 32.49983056415947,
- 26.249999599753814,
- 19.999999935332582]
+ 38.66280377306441,
+ 32.49983056415948,
+ 26.24999959975382,
+ 19.999999935332596]
 </pre></div>
 </div>
 </div>
@@ -1223,7 +1223,7 @@ minimize<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10.0, 38.662803773064404)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10.0, 38.66280377306441)
 </pre></div>
 </div>
 <img alt="../../_images/8e5b9fe68dd5134588464b93f96edb6f819df2ffecd3fe7dd2b062ea317934df.png" src="../../_images/8e5b9fe68dd5134588464b93f96edb6f819df2ffecd3fe7dd2b062ea317934df.png" />
@@ -1292,13 +1292,13 @@ minimize<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="xQmNNzuKfBOM" data-shufflequestions="False"
+<div class="output text_html"><div id="xEAIqlwvvqtR" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#xQmNNzuKfBOM {
+#xEAIqlwvvqtR {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1468,7 +1468,7 @@ minimize<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsxQmNNzuKfBOM=[{"question": "What will be the output of <br>a = [1, 2, 3]; b = 5<br>print(max(*a, b))", "type": "multiple_choice", "answers": [{"answer": "TypeError: '<' not supported between instances of 'int' and 'list'", "correct": false}, {"answer": "a", "correct": false}, {"answer": "5", "correct": true}, {"answer": "b", "correct": false}], "tag": "python", "lecture_file": "10_min_max"}, {"question": "What will be the output of <br>a = [1, 2, 3]; b = 5<br>print(min(a, b))", "type": "multiple_choice", "answers": [{"answer": "TypeError: '<' not supported between instances of 'int' and 'list'", "correct": true}, {"answer": "a", "correct": false}, {"answer": "1", "correct": false}, {"answer": "b", "correct": false}], "tag": "python", "lecture_file": "10_min_max"}, {"question": "What will be the output of <br>a = [[1, 2, 3], [-1, -2, -3]]<br>print(np.argmin(a, axis = 1))", "type": "multiple_choice", "answers": [{"answer": "-3", "correct": false}, {"answer": "[5]", "correct": false}, {"answer": "[0, 2]", "correct": true}, {"answer": "[-1, -2, -3]", "correct": false}], "tag": "numpy", "lecture_file": "10_min_max"}, {"question": "A saddle point is always located at a local minimum and local maximum", "type": "multiple_choice", "answers": [{"answer": "TRUE", "correct": true}, {"answer": "FALSE", "correct": false}, {"answer": "Only local minimum", "correct": false}, {"answer": "Only local maximum", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "Which of the following functions from scipy are useful for finding the minimum", "type": "multiple_choice", "answers": [{"answer": "minimize", "correct": false}, {"answer": "fmin", "correct": false}, {"answer": "solve_ivp", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "Finding the global extrema using scipy.optimize.minimize depends on", "type": "multiple_choice", "answers": [{"answer": "The initial guess", "correct": false}, {"answer": "The solver method", "correct": false}, {"answer": "Constraints", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "Accuracy of finding minima using the graphical method is mainly limited by which of the following factors:<br>a: Computational power available<br>b: Discretization of the function<br>c: Plotting library", "type": "multiple_choice", "answers": [{"answer": "a", "correct": false}, {"answer": "a, b", "correct": true}, {"answer": "a, b, c", "correct": false}, {"answer": "b, c", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "The number of iterations performed by the solver when using <br>sol = minimize(f, guess)<br>can be found with", "type": "multiple_choice", "answers": [{"answer": "sol.int", "correct": false}, {"answer": "sol.nit", "correct": true}, {"answer": "sol.iter", "correct": false}, {"answer": "len(sol.x)", "correct": false}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "If f(x) is discontinous at the point x=a, then", "type": "multiple_choice", "answers": [{"answer": "There is a global minimum at 'a'", "correct": false}, {"answer": "There is a local maximum at 'a'", "correct": false}, {"answer": "There can be either a local maximum or a local minimum at 'a'", "correct": true}, {"answer": "There is a global maximum at 'a'", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "Reducing the spacing (dx) between points to calculate the derivative using scipy.misc.derivative() might result in", "type": "multiple_choice", "answers": [{"answer": "Low accuracy", "correct": false}, {"answer": "High accuracy with a risk of numerical instability", "correct": true}, {"answer": "High accuracy and numerical stability", "correct": false}, {"answer": "Low accuracy and numerical instability", "correct": false}], "tag": "scipy", "lecture_file": "10_min_max"}];
+</style></div><script type="application/javascript">var questionsxEAIqlwvvqtR=[{"question": "What will be the output of <br>a = [1, 2, 3]; b = 5<br>print(max(*a, b))", "type": "multiple_choice", "answers": [{"answer": "TypeError: '<' not supported between instances of 'int' and 'list'", "correct": false}, {"answer": "a", "correct": false}, {"answer": "5", "correct": true}, {"answer": "b", "correct": false}], "tag": "python", "lecture_file": "10_min_max"}, {"question": "What will be the output of <br>a = [1, 2, 3]; b = 5<br>print(min(a, b))", "type": "multiple_choice", "answers": [{"answer": "TypeError: '<' not supported between instances of 'int' and 'list'", "correct": true}, {"answer": "a", "correct": false}, {"answer": "1", "correct": false}, {"answer": "b", "correct": false}], "tag": "python", "lecture_file": "10_min_max"}, {"question": "What will be the output of <br>a = [[1, 2, 3], [-1, -2, -3]]<br>print(np.argmin(a, axis = 1))", "type": "multiple_choice", "answers": [{"answer": "-3", "correct": false}, {"answer": "[5]", "correct": false}, {"answer": "[0, 2]", "correct": true}, {"answer": "[-1, -2, -3]", "correct": false}], "tag": "numpy", "lecture_file": "10_min_max"}, {"question": "A saddle point is always located at a local minimum and local maximum", "type": "multiple_choice", "answers": [{"answer": "TRUE", "correct": true}, {"answer": "FALSE", "correct": false}, {"answer": "Only local minimum", "correct": false}, {"answer": "Only local maximum", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "Which of the following functions from scipy are useful for finding the minimum", "type": "multiple_choice", "answers": [{"answer": "minimize", "correct": false}, {"answer": "fmin", "correct": false}, {"answer": "solve_ivp", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "Finding the global extrema using scipy.optimize.minimize depends on", "type": "multiple_choice", "answers": [{"answer": "The initial guess", "correct": false}, {"answer": "The solver method", "correct": false}, {"answer": "Constraints", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "Accuracy of finding minima using the graphical method is mainly limited by which of the following factors:<br>a: Computational power available<br>b: Discretization of the function<br>c: Plotting library", "type": "multiple_choice", "answers": [{"answer": "a", "correct": false}, {"answer": "a, b", "correct": true}, {"answer": "a, b, c", "correct": false}, {"answer": "b, c", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "The number of iterations performed by the solver when using <br>sol = minimize(f, guess)<br>can be found with", "type": "multiple_choice", "answers": [{"answer": "sol.int", "correct": false}, {"answer": "sol.nit", "correct": true}, {"answer": "sol.iter", "correct": false}, {"answer": "len(sol.x)", "correct": false}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "If f(x) is discontinous at the point x=a, then", "type": "multiple_choice", "answers": [{"answer": "There is a global minimum at 'a'", "correct": false}, {"answer": "There is a local maximum at 'a'", "correct": false}, {"answer": "There can be either a local maximum or a local minimum at 'a'", "correct": true}, {"answer": "There is a global maximum at 'a'", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "Reducing the spacing (dx) between points to calculate the derivative using scipy.misc.derivative() might result in", "type": "multiple_choice", "answers": [{"answer": "Low accuracy", "correct": false}, {"answer": "High accuracy with a risk of numerical instability", "correct": true}, {"answer": "High accuracy and numerical stability", "correct": false}, {"answer": "Low accuracy and numerical instability", "correct": false}], "tag": "scipy", "lecture_file": "10_min_max"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2217,8 +2217,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("xQmNNzuKfBOM")) {
-            show_questions(questionsxQmNNzuKfBOM,  xQmNNzuKfBOM); 
+          if(document.getElementById("xEAIqlwvvqtR")) {
+            show_questions(questionsxEAIqlwvvqtR,  xEAIqlwvvqtR); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2227,8 +2227,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("xQmNNzuKfBOM");
-        // console.log(document.getElementById("xQmNNzuKfBOM"));
+        //console.log("xEAIqlwvvqtR");
+        // console.log(document.getElementById("xEAIqlwvvqtR"));
 
         try_show();
         }
