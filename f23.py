@@ -125,3 +125,11 @@ try:
     pdf = register_line_magic(pdf)
 except:
     pass
+
+
+
+# Update environment
+import os
+if not os.path.exists(os.path.expanduser('~/share')):
+    os.symlink('/usr/local/share/f23-06623',os.path.expanduser('~/share'), target_is_directory=True)
+    
