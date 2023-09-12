@@ -522,7 +522,7 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(\frac{dV}{dPr} = \frac{dV}{dP} \frac{dP}{dPr}\)</span>.</p>
 <p>The first term on the right is also <span class="math notranslate nohighlight">\((\frac{dP}{dV})^{-1}\)</span> which we can derive from the van der Waal equation. The second term on the right is just a constant from the definition of the reduced pressure.</p>
 <p>With some work you can derive this differential equation:</p>
-<p><span class="math notranslate nohighlight">\(\frac{dP}{dV} = -\frac{RT}{V-b}^2 + \frac{2a}{V^3}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{dP}{dV} = -\frac{RT}{(V-b)^2} + \frac{2a}{V^3}\)</span></p>
 <p>Combine this information to derive the required ODE <span class="math notranslate nohighlight">\(\frac{dV}{dPr}\)</span> and express it in one or more functions in Python.</p>
 <p>We are given an initial condition: at Pr=0.1, Tr=1.1, V=3.676.</p>
 <p>Use this information to calculate V as a function of Pr by integrating the differential equation you derived in the previous step.</p>

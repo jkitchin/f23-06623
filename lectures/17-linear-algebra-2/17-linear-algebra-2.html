@@ -543,7 +543,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/78b7f9cdde2ddba0daa733fe492cbd87cc4b83e8892807bd27261e95b95ebdff.png" src="../../_images/78b7f9cdde2ddba0daa733fe492cbd87cc4b83e8892807bd27261e95b95ebdff.png" />
+<img alt="../../_images/aa76337388b466070e5c6ae9cdc7a82aa93f2aaeb0272451152bca69ccd11d17.png" src="../../_images/aa76337388b466070e5c6ae9cdc7a82aa93f2aaeb0272451152bca69ccd11d17.png" />
 </div>
 </div>
 <p>We would like an equation like <span class="math notranslate nohighlight">\(y(x) = a_2 x^2 + a_1 x + a_0\)</span>. If we write these out for each data point we get:</p>
@@ -614,7 +614,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e8b08b4fd0a5c20083f9f7d105e344855ce4de37f2251d89f0f669ebeca639f6.png" src="../../_images/e8b08b4fd0a5c20083f9f7d105e344855ce4de37f2251d89f0f669ebeca639f6.png" />
+<img alt="../../_images/cc1fe3ad157b39c82f234e9b5202a8f9561580eef3d4c07ef209bdea76d55917.png" src="../../_images/cc1fe3ad157b39c82f234e9b5202a8f9561580eef3d4c07ef209bdea76d55917.png" />
 </div>
 </div>
 <p>What we have done here is fit an N<sup>th</sup> order polynomial to <span class="math notranslate nohighlight">\(N\)</span> data points. There is a possibility that we have overfit this data, and extrapolation is not reliable. However, interpolation by this method may be useful. We will return to this for larger data sets where <span class="math notranslate nohighlight">\(N\)</span> is much larger than the order of the polynomial when we talk about linear regression next week.</p>
@@ -627,7 +627,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c0a08e200015d68096dd40f0c724ff6733e26763de4eae2d3688e7a8082973cf.png" src="../../_images/c0a08e200015d68096dd40f0c724ff6733e26763de4eae2d3688e7a8082973cf.png" />
+<img alt="../../_images/616a815de47f628a0f94d5cee5400b20eb4baa61ecb154d0f1c9691f4885ab80.png" src="../../_images/616a815de47f628a0f94d5cee5400b20eb4baa61ecb154d0f1c9691f4885ab80.png" />
 </div>
 </div>
 <section id="interpolation-libraries">
@@ -666,7 +666,7 @@ interp1d<span class="o">?</span>
        10.29353741, 10.58265306, 10.87176871, 11.16088435, 11.45      ])
 </pre></div>
 </div>
-<img alt="../../_images/83b1bf33eed7db1240954a427e0ed7a7d1d13a6991444f4a3a58dc66a1df0b58.png" src="../../_images/83b1bf33eed7db1240954a427e0ed7a7d1d13a6991444f4a3a58dc66a1df0b58.png" />
+<img alt="../../_images/63084202868ebf45e55834cf869e3651706c5686b940563741c8894d9c913774.png" src="../../_images/63084202868ebf45e55834cf869e3651706c5686b940563741c8894d9c913774.png" />
 </div>
 </div>
 <p>We can also specify quadratic spline interpolation.</p>
@@ -679,7 +679,7 @@ interp1d<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2bff52a22c43fa96ac649e7cba909b9b5c7c1b1807402207e19f1363d4dd5374.png" src="../../_images/2bff52a22c43fa96ac649e7cba909b9b5c7c1b1807402207e19f1363d4dd5374.png" />
+<img alt="../../_images/272e9fd66eed052454d358e9ae6e2d758a4c98c002e25c0abca89137f7e55f0e.png" src="../../_images/272e9fd66eed052454d358e9ae6e2d758a4c98c002e25c0abca89137f7e55f0e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -694,10 +694,10 @@ interp1d<span class="o">?</span>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: Optimization terminated successfully.
   success: True
    status: 0
-      fun: 4.266474097757242
+      fun: 4.266474097757241
         x: [ 1.621e+00]
       nit: 2
-      jac: [ 5.960e-08]
+      jac: [ 1.192e-07]
  hess_inv: [[ 6.632e-01]]
      nfev: 6
      njev: 3
@@ -748,7 +748,7 @@ interp1d<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/549f4fef58ae2fa441c51dc41ae5c2338c9adae508c264437a20ef9cf9222847.png" src="../../_images/549f4fef58ae2fa441c51dc41ae5c2338c9adae508c264437a20ef9cf9222847.png" />
+<img alt="../../_images/bec800549929ec824237ef44b3a71bed1361584b81eb9df2be7bcae507ba5cf2.png" src="../../_images/bec800549929ec824237ef44b3a71bed1361584b81eb9df2be7bcae507ba5cf2.png" />
 </div>
 </div>
 <p>Interpolation is a kind of data driven model for developing a mathematical model from data that can be used to predict new values. These models are not based on physics, but they can be used for predicting new values, estimating derivatives, integrals, etc. Of course, you must be careful with extrapolation; all polynomials tend to ± infinity eventually, which is probably not physically relevant in most cases.</p>
@@ -832,7 +832,7 @@ interp1d<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.263347542066016
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.2633475420660147
 </pre></div>
 </div>
 </div>
@@ -846,7 +846,7 @@ interp1d<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.079925860926975, -1.079925860926975)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.0799258609269726, -1.079925860926975)
 </pre></div>
 </div>
 </div>
@@ -860,7 +860,7 @@ interp1d<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((0.23929402866936386+0j),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((0.23929402866936397+0j),
  0.23929402866936386,
  array([1.2920795 +0.j        , 0.07654431+0.42348751j,
         0.07654431-0.42348751j]))
@@ -924,7 +924,7 @@ interp1d<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.0, 1.0, 0.9999999999999999]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.9999999999999999, 1.0, 1.0]
 </pre></div>
 </div>
 </div>
@@ -940,9 +940,9 @@ interp1d<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1.0 1.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 0.9999999999999999 1.0
 1 1.0 1.0
-2 0.9999999999999999 0.9999999999999999
+2 1.0 1.0
 </pre></div>
 </div>
 </div>
@@ -1021,7 +1021,7 @@ interp1d<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0705157973407724
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0705157973407708
 </pre></div>
 </div>
 </div>
@@ -1040,7 +1040,7 @@ interp1d<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.0705157973407724, array([-0.60533548,  0.78323314, -0.14182666]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.0705157973407708, array([-0.60533548,  0.78323314, -0.14182666]))
 </pre></div>
 </div>
 </div>
@@ -1229,7 +1229,7 @@ True [-1.77022954 -1.68275159 -1.73736055] [-1.77022954 -1.68275159 -1.73736055]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[12.    3.08 -3.3   0.   -0.79]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[12.    3.08 -3.3  -0.   -0.79]
 </pre></div>
 </div>
 </div>
@@ -1241,7 +1241,7 @@ True [-1.77022954 -1.68275159 -1.73736055] [-1.77022954 -1.68275159 -1.73736055]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.20000000e+01,  3.08387236e+00, -3.29707054e+00,  4.85402861e-16,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.20000000e+01,  3.08387236e+00, -3.29707054e+00, -4.84341558e-16,
        -7.86801815e-01])
 </pre></div>
 </div>
@@ -1349,13 +1349,13 @@ True [-1.77022954 -1.68275159 -1.73736055] [-1.77022954 -1.68275159 -1.73736055]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="QgoQgvpghwSR" data-shufflequestions="False"
+<div class="output text_html"><div id="lXKAYBXwIalW" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#QgoQgvpghwSR {
+#lXKAYBXwIalW {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1525,7 +1525,7 @@ True [-1.77022954 -1.68275159 -1.73736055] [-1.77022954 -1.68275159 -1.73736055]
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsQgoQgvpghwSR=[{"question": "Which of the following matrices can be solved using np.linalg.solve(A, B)", "type": "multiple_choice", "answers": [{"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4]])<br>B = np.array([b1, b2, b3])", "correct": false}, {"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4], [a3, a4 ,a5]])<br>B = np.array([b1, b2])", "correct": false}, {"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4], [a3, a4, a5]])<br>B = np.array([b1, b2, b3])", "correct": true}, {"answer": "A = np.array([[a1, a2], [a2, a3], [a3, a4]])<br>B = np.array([b1, b2])", "correct": false}], "tag": "numpy applications", "lecture_file": "17_linear_algebra_2"}, {"question": "If B and X are row vectors, then the expression $b_1 x_1 + b_2 x_2 + b_3 x_3$ can be expressed as", "type": "multiple_choice", "answers": [{"answer": "B.T . X.T", "correct": false}, {"answer": "B . X", "correct": false}, {"answer": "B.T . X", "correct": false}, {"answer": "B . X.T", "correct": true}], "tag": "vectors applications", "lecture_file": "17_linear_algebra_2"}, {"question": "x = np.linspace(1, 5, 3); y = np.array([3, 9, 27])<br>Y = interp1d(x, y, kind='quadratic', bounds_error=False)<br>xfit = np.linspace(-1, 8)<br>print(Y(xfit))<br><br>The above code will", "type": "multiple_choice", "answers": [{"answer": "Raise an error", "correct": false}, {"answer": "Print Y() values for the x-range (-1, 8)", "correct": false}, {"answer": "Print Y() values for the x-range (1, 5) and NaN for the rest", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "scipy applications", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvalues of matrix A are complex, then we can be certain that the matrix A", "type": "multiple_choice", "answers": [{"answer": "is symmetric", "correct": false}, {"answer": "is a non-square matrix", "correct": false}, {"answer": "has all the elements as complex numbers", "correct": false}, {"answer": "is non-symmetric", "correct": true}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "For a 2 x 2 matrix with all values being real, and having 2 eigenvalues, if 1-2j is one of the eigenvalues, what is the other eigenvalue", "type": "multiple_choice", "answers": [{"answer": "1 + 2j", "correct": true}, {"answer": "-2j", "correct": false}, {"answer": "-1 -2j", "correct": false}, {"answer": "-1+2j", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "For an N x N matrix, the number of eigenvalues", "type": "multiple_choice", "answers": [{"answer": "will always be equal to N", "correct": false}, {"answer": "can never be more than N", "correct": true}, {"answer": "can be less or more than N", "correct": false}, {"answer": "will always be less than N", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "Find the product of the eigenvalues for the matrix:<br>np.array([[1, 2, 3], [3, 2, 1], [2, 1, 0]])", "type": "multiple_choice", "answers": [{"answer": "-8", "correct": false}, {"answer": "Need more information", "correct": false}, {"answer": "0", "correct": true}, {"answer": "1", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "Find the sum of all the eigenvalues of the matrix:<br>np.array([[1, 2, 3], [3, 2, 1], [2, 0, 1]])", "type": "multiple_choice", "answers": [{"answer": "0", "correct": false}, {"answer": "4", "correct": true}, {"answer": "Need more information", "correct": false}, {"answer": "6", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvalues of the Hessian matrix for a function are all negative, then we are at a", "type": "multiple_choice", "answers": [{"answer": "minimum", "correct": false}, {"answer": "saddle point", "correct": false}, {"answer": "maximum", "correct": true}, {"answer": "Need more information", "correct": false}], "tag": "eigenvalues hessian eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvectors of a matrix A are orthogonal, then we can be certain  that matrix A is a ", "type": "multiple_choice", "answers": [{"answer": "symmetric matrix", "correct": true}, {"answer": "asymmetric matrix", "correct": false}, {"answer": "lower triangular matrix", "correct": false}, {"answer": "There is no inference", "correct": false}], "tag": "eigenvectors eigen", "lecture_file": "17_linear_algebra_2"}];
+</style></div><script type="application/javascript">var questionslXKAYBXwIalW=[{"question": "Which of the following matrices can be solved using np.linalg.solve(A, B)", "type": "multiple_choice", "answers": [{"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4]])<br>B = np.array([b1, b2, b3])", "correct": false}, {"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4], [a3, a4 ,a5]])<br>B = np.array([b1, b2])", "correct": false}, {"answer": "A = np.array([[a1, a2, a3], [a2, a3, a4], [a3, a4, a5]])<br>B = np.array([b1, b2, b3])", "correct": true}, {"answer": "A = np.array([[a1, a2], [a2, a3], [a3, a4]])<br>B = np.array([b1, b2])", "correct": false}], "tag": "numpy applications", "lecture_file": "17_linear_algebra_2"}, {"question": "If B and X are row vectors, then the expression $b_1 x_1 + b_2 x_2 + b_3 x_3$ can be expressed as", "type": "multiple_choice", "answers": [{"answer": "B.T . X.T", "correct": false}, {"answer": "B . X", "correct": false}, {"answer": "B.T . X", "correct": false}, {"answer": "B . X.T", "correct": true}], "tag": "vectors applications", "lecture_file": "17_linear_algebra_2"}, {"question": "x = np.linspace(1, 5, 3); y = np.array([3, 9, 27])<br>Y = interp1d(x, y, kind='quadratic', bounds_error=False)<br>xfit = np.linspace(-1, 8)<br>print(Y(xfit))<br><br>The above code will", "type": "multiple_choice", "answers": [{"answer": "Raise an error", "correct": false}, {"answer": "Print Y() values for the x-range (-1, 8)", "correct": false}, {"answer": "Print Y() values for the x-range (1, 5) and NaN for the rest", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "scipy applications", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvalues of matrix A are complex, then we can be certain that the matrix A", "type": "multiple_choice", "answers": [{"answer": "is symmetric", "correct": false}, {"answer": "is a non-square matrix", "correct": false}, {"answer": "has all the elements as complex numbers", "correct": false}, {"answer": "is non-symmetric", "correct": true}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "For a 2 x 2 matrix with all values being real, and having 2 eigenvalues, if 1-2j is one of the eigenvalues, what is the other eigenvalue", "type": "multiple_choice", "answers": [{"answer": "1 + 2j", "correct": true}, {"answer": "-2j", "correct": false}, {"answer": "-1 -2j", "correct": false}, {"answer": "-1+2j", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "For an N x N matrix, the number of eigenvalues", "type": "multiple_choice", "answers": [{"answer": "will always be equal to N", "correct": false}, {"answer": "can never be more than N", "correct": true}, {"answer": "can be less or more than N", "correct": false}, {"answer": "will always be less than N", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "Find the product of the eigenvalues for the matrix:<br>np.array([[1, 2, 3], [3, 2, 1], [2, 1, 0]])", "type": "multiple_choice", "answers": [{"answer": "-8", "correct": false}, {"answer": "Need more information", "correct": false}, {"answer": "0", "correct": true}, {"answer": "1", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "Find the sum of all the eigenvalues of the matrix:<br>np.array([[1, 2, 3], [3, 2, 1], [2, 0, 1]])", "type": "multiple_choice", "answers": [{"answer": "0", "correct": false}, {"answer": "4", "correct": true}, {"answer": "Need more information", "correct": false}, {"answer": "6", "correct": false}], "tag": "eigenvalues eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvalues of the Hessian matrix for a function are all negative, then we are at a", "type": "multiple_choice", "answers": [{"answer": "minimum", "correct": false}, {"answer": "saddle point", "correct": false}, {"answer": "maximum", "correct": true}, {"answer": "Need more information", "correct": false}], "tag": "eigenvalues hessian eigen", "lecture_file": "17_linear_algebra_2"}, {"question": "If the eigenvectors of a matrix A are orthogonal, then we can be certain  that matrix A is a ", "type": "multiple_choice", "answers": [{"answer": "symmetric matrix", "correct": true}, {"answer": "asymmetric matrix", "correct": false}, {"answer": "lower triangular matrix", "correct": false}, {"answer": "There is no inference", "correct": false}], "tag": "eigenvectors eigen", "lecture_file": "17_linear_algebra_2"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2274,8 +2274,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("QgoQgvpghwSR")) {
-            show_questions(questionsQgoQgvpghwSR,  QgoQgvpghwSR); 
+          if(document.getElementById("lXKAYBXwIalW")) {
+            show_questions(questionslXKAYBXwIalW,  lXKAYBXwIalW); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2284,8 +2284,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("QgoQgvpghwSR");
-        // console.log(document.getElementById("QgoQgvpghwSR"));
+        //console.log("lXKAYBXwIalW");
+        // console.log(document.getElementById("lXKAYBXwIalW"));
 
         try_show();
         }

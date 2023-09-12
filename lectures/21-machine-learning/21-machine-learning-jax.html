@@ -555,7 +555,7 @@ document.write(`
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
 </pre></div>
 </div>
-<img alt="../../_images/c35375ec6f281725b59206876e1fa2eb4e0af553bccac67db0a8ccef379725c9.png" src="../../_images/c35375ec6f281725b59206876e1fa2eb4e0af553bccac67db0a8ccef379725c9.png" />
+<img alt="../../_images/125d2148e6e7d0f20d54cc1175e5599b6f00ef0fa422e01974db9c0c9f4e015f.png" src="../../_images/125d2148e6e7d0f20d54cc1175e5599b6f00ef0fa422e01974db9c0c9f4e015f.png" />
 </div>
 </div>
 <p>We have to define a function for our model, and then another one for the residuals. For now, we stick with a syntax we are familiar with, and one that works with <code class="docutils literal notranslate"><span class="pre">least_squares</span></code>.</p>
@@ -626,7 +626,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.7640388476050587e-09
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.7640540993837326e-09
 </pre></div>
 </div>
 </div>
@@ -663,9 +663,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.000e+02+0.j -5.735e+33+0.j -9.599e+07+0.j -2.139e+04+0.j
-  1.442e+03+0.j -3.283e+03+0.j  5.060e-03+0.j  1.738e-07+0.j
-  1.241e-08+0.j  1.950e-13+0.j]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.000e+02+0.j -5.735e+33+0.j -9.599e+07+0.j -6.623e+03+0.j
+ -3.276e+03+0.j -6.486e-02+0.j  5.691e-03+0.j  1.323e-08+0.j
+ -8.228e-09+0.j  1.950e-13+0.j]
 </pre></div>
 </div>
 </div>
@@ -678,7 +678,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(-1.33733746e+11, dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(-1.337224e+11, dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -695,7 +695,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/af9139d7d0e54bbd473648f1c39cebf0979b99829f2f0b8f39955529e2a66f7b.png" src="../../_images/af9139d7d0e54bbd473648f1c39cebf0979b99829f2f0b8f39955529e2a66f7b.png" />
+<img alt="../../_images/1d291cd5fc6249880974404d7b561943d0799e6ab5fbd6172b31a6314753aaec.png" src="../../_images/1d291cd5fc6249880974404d7b561943d0799e6ab5fbd6172b31a6314753aaec.png" />
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(y = b_1 + w_{10} tanh(w_{00} x + b_{00}) + w_{11} tanh(w_{01} x + b_{01}) + w_{12} tanh(w_{02} x + b_{02})\)</span></p>
@@ -739,7 +739,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ce6005bc65b615ca7ff4170e7631f8e43a729602326f4d710946a5d79f444af5.png" src="../../_images/ce6005bc65b615ca7ff4170e7631f8e43a729602326f4d710946a5d79f444af5.png" />
+<img alt="../../_images/9d3a472ed9888deeae8f3d4d02614f9b01bd47853307ccc9f5d0feaf3a97897c.png" src="../../_images/9d3a472ed9888deeae8f3d4d02614f9b01bd47853307ccc9f5d0feaf3a97897c.png" />
 </div>
 </div>
 <p>You can see that this model starts failing at <span class="math notranslate nohighlight">\(x&gt;1\)</span>. At very large <span class="math notranslate nohighlight">\(x\)</span> it will start to level out. What defines large <span class="math notranslate nohighlight">\(x\)</span> is unclear though, in this specific example, it is around 400. That might be anticipated from knowledge of the <code class="docutils literal notranslate"><span class="pre">np.tanh</span></code> function, it also saturates at large values of <span class="math notranslate nohighlight">\(x\)</span>.</p>
@@ -754,7 +754,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8efafbf1ee70c8984010ef620e8693830ec54e5b0b0386002dd8779bd9ed1e33.png" src="../../_images/8efafbf1ee70c8984010ef620e8693830ec54e5b0b0386002dd8779bd9ed1e33.png" />
+<img alt="../../_images/9db2c8a65114ab390bc8cc97fb53d85a15f4790a464022390156eb507057d0a1.png" src="../../_images/9db2c8a65114ab390bc8cc97fb53d85a15f4790a464022390156eb507057d0a1.png" />
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(y = b_1 + w_{10} tanh(w_{00} x + b_{00}) + w_{11} tanh(w_{01} x + b_{01}) + w_{12} tanh(w_{02} x + b_{02})\)</span></p>
@@ -859,7 +859,7 @@ y = [w10, w11, w12] @ np.tanh([w01 * x + b01]) + b1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7ec7f117c3072c086bf350fedba9972a2216663208fde2ccfa2acf81dc6adc02.png" src="../../_images/7ec7f117c3072c086bf350fedba9972a2216663208fde2ccfa2acf81dc6adc02.png" />
+<img alt="../../_images/ce403465677259eeb644016f82147c91140eb5580a1bc1ad6b65f0f534b95a94.png" src="../../_images/ce403465677259eeb644016f82147c91140eb5580a1bc1ad6b65f0f534b95a94.png" />
 </div>
 </div>
 <p>You can see w0 is a row vector of weights, and there are three biases in b0. W1 in contrast, is a column vector of weights, with one bias. So 10 parameters in total, like we had before. We will create an objective function of the mean squared error again. There is a subtle point here too. The input data will go in with a specific shape of (N, 1) where N is the number of x-points. Our input is from <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> as a 1D array. So, we build a 2D array with the 1D array as the first row, and then transpose it to get it into a column.</p>
@@ -925,7 +925,7 @@ y = [w10, w11, w12] @ np.tanh([w01 * x + b01]) + b1
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10658 9.995249008312393e-05
 </pre></div>
 </div>
-<img alt="../../_images/d654d56a840596190877728fcd550b2cc15ead1e41472a90d7d7bfc50b45c535.png" src="../../_images/d654d56a840596190877728fcd550b2cc15ead1e41472a90d7d7bfc50b45c535.png" />
+<img alt="../../_images/570c2a73656a8cb743893b85b234536a8055739039c72ba071cbc805dddf0515.png" src="../../_images/570c2a73656a8cb743893b85b234536a8055739039c72ba071cbc805dddf0515.png" />
 </div>
 </div>
 <p>Now we can compare the output of this to our previous fit.</p>
@@ -953,9 +953,9 @@ y = [w10, w11, w12] @ np.tanh([w01 * x + b01]) + b1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.01916308e-06 4.10822121e-02 5.78960433e-01 2.85594602e-09
- 1.64532928e-05 5.26297401e-01 1.87421242e-08 1.08502500e+00
- 7.05128793e-01 1.04458134e-23]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.01924059e-06 4.10823420e-02 5.78960201e-01 2.85594448e-09
+ 1.64540310e-05 5.26297119e-01 1.87419588e-08 1.08502502e+00
+ 7.05128525e-01 1.04457329e-23]
 </pre></div>
 </div>
 </div>
@@ -977,7 +977,7 @@ y = [w10, w11, w12] @ np.tanh([w01 * x + b01]) + b1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/aa61886e2b60ce36405be2d9bf7cfd571415a8c2177aaabc5d2c3d06ddd7b2c6.png" src="../../_images/aa61886e2b60ce36405be2d9bf7cfd571415a8c2177aaabc5d2c3d06ddd7b2c6.png" />
+<img alt="../../_images/2e6538d4213fed60f10f4868f63c0f2be124758a91415f4da1fc783dd03c445e.png" src="../../_images/2e6538d4213fed60f10f4868f63c0f2be124758a91415f4da1fc783dd03c445e.png" />
 </div>
 </div>
 </section>
@@ -993,13 +993,13 @@ y = [w10, w11, w12] @ np.tanh([w01 * x + b01]) + b1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="PPHVwEETdEXc" data-shufflequestions="False"
+<div class="output text_html"><div id="AkDsXLcESYjS" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#PPHVwEETdEXc {
+#AkDsXLcESYjS {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1169,7 +1169,7 @@ y = [w10, w11, w12] @ np.tanh([w01 * x + b01]) + b1
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsPPHVwEETdEXc=[{"question": "Neural networks are", "type": "multiple_choice", "answers": [{"answer": "Linear models", "correct": false}, {"answer": "Non-linear models", "correct": true}, {"answer": "Linear regression models", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "A data set can be represented with only a unique neural network model", "type": "multiple_choice", "answers": [{"answer": "FALSE", "correct": true}, {"answer": "TRUE", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "Neural networks are very useful models because", "type": "multiple_choice", "answers": [{"answer": "They accurately represent biological neurons", "correct": false}, {"answer": "Theoretically, they can fit to any data set", "correct": true}, {"answer": "You don\u2019t need to train them", "correct": false}, {"answer": "They can extrapolate in an accurate manner", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "The nature of extrapolation from a neural network depends a lot on", "type": "multiple_choice", "answers": [{"answer": "the activation functions", "correct": true}, {"answer": "size of the data set", "correct": false}, {"answer": "number of hidden layers", "correct": false}, {"answer": "number of neurons", "correct": false}], "tag": "activation_function hyperparameters", "lecture_file": "21_machine_learning"}, {"question": "The hyperparameters for a neural network are", "type": "multiple_choice", "answers": [{"answer": "The number of neurons in a layer", "correct": false}, {"answer": "The activation function", "correct": false}, {"answer": "Number of hidden layers", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "hyperparameters", "lecture_file": "21_machine_learning"}, {"question": "Gradient descent updates the hyperparameters after each", "type": "multiple_choice", "answers": [{"answer": "Epoch", "correct": true}, {"answer": "layer", "correct": false}, {"answer": "data point", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "gradient_descent algorithm", "lecture_file": "21_machine_learning"}, {"question": "For a neural network with the architecture:<br>Input layer = 3 features<br>first layer = 3 neurons<br>second layer = 5 neurons<br>output layer = 1 output variable<br>How many weights are involved between the first and second layer?", "type": "multiple_choice", "answers": [{"answer": "9", "correct": false}, {"answer": "3", "correct": false}, {"answer": "15", "correct": true}, {"answer": "5", "correct": false}], "tag": "weights_biases algorithm", "lecture_file": "21_machine_learning"}, {"question": "The gradient descent algorithm leads to at least a local minimum of", "type": "multiple_choice", "answers": [{"answer": "weights and biases", "correct": false}, {"answer": "output", "correct": false}, {"answer": "The objective function", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "gradient_descent algorithm", "lecture_file": "21_machine_learning"}, {"question": "What is the value of the count of total weights and biases for a neural network which has 2 hidden layers (3 neurons in each) between the input (2 inputs) and output (1 output)?", "type": "multiple_choice", "answers": [{"answer": "10", "correct": false}, {"answer": "81", "correct": false}, {"answer": "25", "correct": true}, {"answer": "18", "correct": false}], "tag": "weights_biases algorithm", "lecture_file": "21_machine_learning"}, {"question": "The statement: 'A higher learning rate will result in quickly reaching the optimum parameters of a neural network', is", "type": "multiple_choice", "answers": [{"answer": "Never true", "correct": false}, {"answer": "Always true", "correct": false}, {"answer": "Can be true only for learning rates above a certain threshold", "correct": false}, {"answer": "Can be true, but can also cause the solver to not converge.", "correct": true}], "tag": "learning_rate", "lecture_file": "21_machine_learning"}];
+</style></div><script type="application/javascript">var questionsAkDsXLcESYjS=[{"question": "Neural networks are", "type": "multiple_choice", "answers": [{"answer": "Linear models", "correct": false}, {"answer": "Non-linear models", "correct": true}, {"answer": "Linear regression models", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "A data set can be represented with only a unique neural network model", "type": "multiple_choice", "answers": [{"answer": "FALSE", "correct": true}, {"answer": "TRUE", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "Neural networks are very useful models because", "type": "multiple_choice", "answers": [{"answer": "They accurately represent biological neurons", "correct": false}, {"answer": "Theoretically, they can fit to any data set", "correct": true}, {"answer": "You don\u2019t need to train them", "correct": false}, {"answer": "They can extrapolate in an accurate manner", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "The nature of extrapolation from a neural network depends a lot on", "type": "multiple_choice", "answers": [{"answer": "the activation functions", "correct": true}, {"answer": "size of the data set", "correct": false}, {"answer": "number of hidden layers", "correct": false}, {"answer": "number of neurons", "correct": false}], "tag": "activation_function hyperparameters", "lecture_file": "21_machine_learning"}, {"question": "The hyperparameters for a neural network are", "type": "multiple_choice", "answers": [{"answer": "The number of neurons in a layer", "correct": false}, {"answer": "The activation function", "correct": false}, {"answer": "Number of hidden layers", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "hyperparameters", "lecture_file": "21_machine_learning"}, {"question": "Gradient descent updates the hyperparameters after each", "type": "multiple_choice", "answers": [{"answer": "Epoch", "correct": true}, {"answer": "layer", "correct": false}, {"answer": "data point", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "gradient_descent algorithm", "lecture_file": "21_machine_learning"}, {"question": "For a neural network with the architecture:<br>Input layer = 3 features<br>first layer = 3 neurons<br>second layer = 5 neurons<br>output layer = 1 output variable<br>How many weights are involved between the first and second layer?", "type": "multiple_choice", "answers": [{"answer": "9", "correct": false}, {"answer": "3", "correct": false}, {"answer": "15", "correct": true}, {"answer": "5", "correct": false}], "tag": "weights_biases algorithm", "lecture_file": "21_machine_learning"}, {"question": "The gradient descent algorithm leads to at least a local minimum of", "type": "multiple_choice", "answers": [{"answer": "weights and biases", "correct": false}, {"answer": "output", "correct": false}, {"answer": "The objective function", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "gradient_descent algorithm", "lecture_file": "21_machine_learning"}, {"question": "What is the value of the count of total weights and biases for a neural network which has 2 hidden layers (3 neurons in each) between the input (2 inputs) and output (1 output)?", "type": "multiple_choice", "answers": [{"answer": "10", "correct": false}, {"answer": "81", "correct": false}, {"answer": "25", "correct": true}, {"answer": "18", "correct": false}], "tag": "weights_biases algorithm", "lecture_file": "21_machine_learning"}, {"question": "The statement: 'A higher learning rate will result in quickly reaching the optimum parameters of a neural network', is", "type": "multiple_choice", "answers": [{"answer": "Never true", "correct": false}, {"answer": "Always true", "correct": false}, {"answer": "Can be true only for learning rates above a certain threshold", "correct": false}, {"answer": "Can be true, but can also cause the solver to not converge.", "correct": true}], "tag": "learning_rate", "lecture_file": "21_machine_learning"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1918,8 +1918,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("PPHVwEETdEXc")) {
-            show_questions(questionsPPHVwEETdEXc,  PPHVwEETdEXc); 
+          if(document.getElementById("AkDsXLcESYjS")) {
+            show_questions(questionsAkDsXLcESYjS,  AkDsXLcESYjS); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1928,8 +1928,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("PPHVwEETdEXc");
-        // console.log(document.getElementById("PPHVwEETdEXc"));
+        //console.log("AkDsXLcESYjS");
+        // console.log(document.getElementById("AkDsXLcESYjS"));
 
         try_show();
         }
