@@ -244,6 +244,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Index</a></li>
 
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../assignments/get-solutions.html">Getting to the solutions</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the book</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../execution-statistics.html">Build statistics</a></li>
@@ -761,7 +765,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.63129139, 0.70912218]), array(-18.67601658))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.64062059, 0.71091982]), array(22.60239329))
 </pre></div>
 </div>
 </div>
@@ -774,7 +778,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f341e1f05893bfffd1e65f0c43944263ac3bb1959b950abd76ad7d04af50825d.png" src="../../_images/f341e1f05893bfffd1e65f0c43944263ac3bb1959b950abd76ad7d04af50825d.png" />
+<img alt="../../_images/8925c6c1a497b680bdae0974afd20d6250f9c5e91536447449501583aea18ed3.png" src="../../_images/8925c6c1a497b680bdae0974afd20d6250f9c5e91536447449501583aea18ed3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -789,7 +793,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/80722bd8e974db39fb71f32aef8db14e63bc90bc16e2cbb369be4df9fe8a57ac.png" src="../../_images/80722bd8e974db39fb71f32aef8db14e63bc90bc16e2cbb369be4df9fe8a57ac.png" />
+<img alt="../../_images/f4be2289cf16eaf984e31e77e6bc17f9fb18c182628775abda5d200ee73f4c1a.png" src="../../_images/f4be2289cf16eaf984e31e77e6bc17f9fb18c182628775abda5d200ee73f4c1a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -799,7 +803,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c7cfae098f14f7fb53c136a0a1b345fd213a466f4bbaf544f30d428d385a8ea7.png" src="../../_images/c7cfae098f14f7fb53c136a0a1b345fd213a466f4bbaf544f30d428d385a8ea7.png" />
+<img alt="../../_images/e15ac67ebdcc71288dac0226e402471532a6451e6fd2ab73581454a41d25a19a.png" src="../../_images/e15ac67ebdcc71288dac0226e402471532a6451e6fd2ab73581454a41d25a19a.png" />
 </div>
 </div>
 </section>
@@ -1217,8 +1221,8 @@ example:</p>
 <p><span class="math notranslate nohighlight">\(f_1(x, y) = x^2 y\)</span></p>
 <p><span class="math notranslate nohighlight">\(f_2(x, y) = 5 x + \sin(y)\)</span></p>
 <p>The Jacobian of this system is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-806a4a83-abff-4890-b50b-9b854bedce19">
-<span class="eqno">(4)<a class="headerlink" href="#equation-806a4a83-abff-4890-b50b-9b854bedce19" title="Permalink to this equation">#</a></span>\[\begin{equation} \left[\begin{array}{cc} 2 x y &amp; x^2 \\ 5 &amp; \cos y \\
+<div class="amsmath math notranslate nohighlight" id="equation-e945368b-ab5a-4466-b7b0-06ca65ccdcf1">
+<span class="eqno">(4)<a class="headerlink" href="#equation-e945368b-ab5a-4466-b7b0-06ca65ccdcf1" title="Permalink to this equation">#</a></span>\[\begin{equation} \left[\begin{array}{cc} 2 x y &amp; x^2 \\ 5 &amp; \cos y \\
 \end{array}\right] \end{equation}\]</div>
 <p>There are two Jacobian functions, <code class="docutils literal notranslate"><span class="pre">jacfwd</span></code> and <code class="docutils literal notranslate"><span class="pre">jacref</span></code>. In theory they do the same thing, but one of them will usually be faster for some systems. <code class="docutils literal notranslate"><span class="pre">jacfwd</span></code> uses a forward pass through the code to compute the Jacobian, while <code class="docutils literal notranslate"><span class="pre">jacrev</span></code> uses a reverse pass. The <a class="reference external" href="https://jax.readthedocs.io/en/latest/notebooks/autodiff_cookbook.html#jacobians-and-hessians-using-jacfwd-and-jacrev">documentation</a> recommends using jacfwd for “tall” Jacobians and jacref for “wide” jacobians. For square jacobians, it does not matter. It is fine to be practical, and try both to see if one is faster than other.</p>
 <div class="cell docutils container">
@@ -1560,13 +1564,13 @@ regression and conclude with an introduction to machine learning.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="GgvaJxVlLODC" data-shufflequestions="False"
+<div class="output text_html"><div id="aiYOozfeHShg" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#GgvaJxVlLODC {
+#aiYOozfeHShg {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1736,7 +1740,7 @@ regression and conclude with an introduction to machine learning.</p>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsGgvaJxVlLODC=[
+</style></div><script type="application/javascript">var questionsaiYOozfeHShg=[
   {
     "question": "Derivatives have useful applications in determining",
     "type": "multiple_choice",
@@ -2727,8 +2731,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("GgvaJxVlLODC")) {
-            show_questions(questionsGgvaJxVlLODC,  GgvaJxVlLODC); 
+          if(document.getElementById("aiYOozfeHShg")) {
+            show_questions(questionsaiYOozfeHShg,  aiYOozfeHShg); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2737,8 +2741,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("GgvaJxVlLODC");
-        // console.log(document.getElementById("GgvaJxVlLODC"));
+        //console.log("aiYOozfeHShg");
+        // console.log(document.getElementById("aiYOozfeHShg"));
 
         try_show();
         }
