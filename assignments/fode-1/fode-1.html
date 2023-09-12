@@ -525,7 +525,17 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(\frac{dP}{dV} = -\frac{RT}{(V-b)^2} + \frac{2a}{V^3}\)</span></p>
 <p>Combine this information to derive the required ODE <span class="math notranslate nohighlight">\(\frac{dV}{dPr}\)</span> and express it in one or more functions in Python.</p>
 <p>We are given an initial condition: at Pr=0.1, Tr=1.1, V=3.676.</p>
-<p>Use this information to calculate V as a function of Pr by integrating the differential equation you derived in the previous step.</p>
+<p>Use this information to calculate V as a function of Pr by integrating the differential equation you derived in the previous step. Here is some additional information you need.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R = 0.08206   # gas constant
+Pc = 72.9     # critical pressure
+Tc = 304.2    # critical temperature
+
+a = 27 * R**2 * Tc**2 / (Pc * 64)
+b = R * Tc / (8 * Pc)
+
+Tr = 1.1
+</pre></div>
+</div>
 <p>Finally, the compressibility is defined as <span class="math notranslate nohighlight">\(Z = \frac{P V}{R T}\)</span>. Plot the compressibility as a function of Pr.</p>
 <p>Your solution should look like</p>
 <p><img alt="this" src="../../_images/IMG_1388.png" />.</p>
