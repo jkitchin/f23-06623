@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -78,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -455,10 +465,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -466,7 +476,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -533,8 +543,8 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(y''(x) \approx \frac{y_{i-1} - 2 y_i + y_{i+1}}{h^2} \)</span></p>
 <p><span class="math notranslate nohighlight">\(y'(x) \approx \frac{y_{i+1} - y_{i-1}}{2 h} \)</span></p>
 <p>We define a function <span class="math notranslate nohighlight">\(y''(x) = F(x, y, y')\)</span>. At each node in our discretized region, we will have an equation that looks like <span class="math notranslate nohighlight">\(y''(x) - F(x, y, y') = 0\)</span>, which will be nonlinear in the unknown solution <span class="math notranslate nohighlight">\(y\)</span>. The set of equations to solve is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-95c0bf8c-e6a9-4824-abf3-f8c596e1c27a">
-<span class="eqno">(2)<a class="headerlink" href="#equation-95c0bf8c-e6a9-4824-abf3-f8c596e1c27a" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-25b55d0d-650a-4aba-aaf8-06a5bc3382f6">
+<span class="eqno">(2)<a class="headerlink" href="#equation-25b55d0d-650a-4aba-aaf8-06a5bc3382f6" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 y_0 - \alpha &amp;=&amp; 0 \\
 \frac{y_{i-1} - 2 y_i + y_{i+1}}{h^2} + (3 y_i) \left(\frac{y_{i+1} - y_{i-1}}{2 h}\right) &amp;=&amp; 0 \\
 y_L - \beta &amp;=&amp;0
@@ -633,7 +643,7 @@ y_L - \beta &amp;=&amp;0
        0.55555556, 0.66666667, 0.77777778, 0.88888889, 1.        ])
 </pre></div>
 </div>
-<img alt="../../_images/423deeb701201816fe28a8e7ce968eb0e45b8b812bb58d6e50c98184de3db3f8.png" src="../../_images/423deeb701201816fe28a8e7ce968eb0e45b8b812bb58d6e50c98184de3db3f8.png" />
+<img alt="../../_images/d7733fff435127874739debf9c00f111f0d5989efa0e0d4a414981b0e64578f0.png" src="../../_images/d7733fff435127874739debf9c00f111f0d5989efa0e0d4a414981b0e64578f0.png" />
 </div>
 </div>
 <p>We should check our residuals function. We mostly want to see that it runs, and produces the right shaped output.</p>
@@ -689,7 +699,7 @@ y_L - \beta &amp;=&amp;0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/68074b6b2d0df34e51b0e0cf262c103c3ec286f9529252d6ae1c7ab32ca3472b.png" src="../../_images/68074b6b2d0df34e51b0e0cf262c103c3ec286f9529252d6ae1c7ab32ca3472b.png" />
+<img alt="../../_images/c92394d13f83340c49383c3a18a1ee1fdc61290f24695b3201639f6103c90ac2.png" src="../../_images/c92394d13f83340c49383c3a18a1ee1fdc61290f24695b3201639f6103c90ac2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -747,7 +757,7 @@ y_L - \beta &amp;=&amp;0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ab8477a64d3c7069b0b1dcaaea71221603dced819c9a112bb59458cb62258063.png" src="../../_images/ab8477a64d3c7069b0b1dcaaea71221603dced819c9a112bb59458cb62258063.png" />
+<img alt="../../_images/655b6eedb9446c3cb1c4946fd31911332cc5141732981a80be3cb33aac56f903.png" src="../../_images/655b6eedb9446c3cb1c4946fd31911332cc5141732981a80be3cb33aac56f903.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -888,7 +898,7 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9cbd92962ed2883f3c64056fb46f4841fae0c3ca2b9b9f5177180b43f20f3583.png" src="../../_images/9cbd92962ed2883f3c64056fb46f4841fae0c3ca2b9b9f5177180b43f20f3583.png" />
+<img alt="../../_images/bb194e305c9afe52dd19b0ba128571564f9763e13609d796fc4a31e6dd4b4d63.png" src="../../_images/bb194e305c9afe52dd19b0ba128571564f9763e13609d796fc4a31e6dd4b4d63.png" />
 </div>
 </div>
 <p>We also need a guess for U2, and in this case we know that <span class="math notranslate nohighlight">\(u2 = u1'\)</span>, so we just use that.</p>
@@ -927,7 +937,7 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1df26431f84ef9999b2f5d53570845ebc58d87e2d35ba997588c39e78a00a092.png" src="../../_images/1df26431f84ef9999b2f5d53570845ebc58d87e2d35ba997588c39e78a00a092.png" />
+<img alt="../../_images/68c3390ec88206e335e7a9f8a8e14afe30f11bfcb36fb6fd4ecc73d28319b173.png" src="../../_images/68c3390ec88206e335e7a9f8a8e14afe30f11bfcb36fb6fd4ecc73d28319b173.png" />
 </div>
 </div>
 <p>Now, we are ready to solve the BVP. Let’s check that all the functions work correctly, e.g. they don’t result in errors and return the right things.</p>
@@ -991,7 +1001,7 @@ solve_bvp<span class="o">?</span>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The algorithm converged to the desired accuracy.
 </pre></div>
 </div>
-<img alt="../../_images/643a07125739c4fe5ef5c86155feacd8bdf1631ce0319e4aa953dd72f83dc65d.png" src="../../_images/643a07125739c4fe5ef5c86155feacd8bdf1631ce0319e4aa953dd72f83dc65d.png" />
+<img alt="../../_images/e29d5df389bffe76703c12f9f9b137c98f578518e3169e4b5f9c7fb483c5c995.png" src="../../_images/e29d5df389bffe76703c12f9f9b137c98f578518e3169e4b5f9c7fb483c5c995.png" />
 </div>
 </div>
 </section>
@@ -1009,7 +1019,7 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f6f7e4f8967758503a8e09f01f382d50a2c43c1a0b080c0003a3a180d7f1dfb3.png" src="../../_images/f6f7e4f8967758503a8e09f01f382d50a2c43c1a0b080c0003a3a180d7f1dfb3.png" />
+<img alt="../../_images/1384c8f4b8ac23ceab26de2cef361e61b847f4ea7354456aa642748fb2b256af.png" src="../../_images/1384c8f4b8ac23ceab26de2cef361e61b847f4ea7354456aa642748fb2b256af.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1030,7 +1040,7 @@ solve_bvp<span class="o">?</span>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The algorithm converged to the desired accuracy.
 </pre></div>
 </div>
-<img alt="../../_images/f867465d44af428e113f514463dabcc58c0c2fb943dc2d335583d1bf0e15088f.png" src="../../_images/f867465d44af428e113f514463dabcc58c0c2fb943dc2d335583d1bf0e15088f.png" />
+<img alt="../../_images/fab2bcdd08e74e9daef7af32640d7ef576d20732c0cf675670f697caa35a3f1b.png" src="../../_images/fab2bcdd08e74e9daef7af32640d7ef576d20732c0cf675670f697caa35a3f1b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1055,7 +1065,7 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/183358b676d90889a78f1377b014da7e7250748f408e09954588a9e21c3ba615.png" src="../../_images/183358b676d90889a78f1377b014da7e7250748f408e09954588a9e21c3ba615.png" />
+<img alt="../../_images/edc84ddc125df4b9fa6e173db4c2031c2eeec648e03084017b66387c6a8cbb3e.png" src="../../_images/edc84ddc125df4b9fa6e173db4c2031c2eeec648e03084017b66387c6a8cbb3e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1076,7 +1086,7 @@ solve_bvp<span class="o">?</span>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The algorithm converged to the desired accuracy.
 </pre></div>
 </div>
-<img alt="../../_images/ca0a9db7a19133722d6295dc224a4a334ddc124c4e8d14f7ac37b89fd3361bd4.png" src="../../_images/ca0a9db7a19133722d6295dc224a4a334ddc124c4e8d14f7ac37b89fd3361bd4.png" />
+<img alt="../../_images/b4f92a3e5fd6783f4e9ef915d42e32c2fd24241aa1e2ddfbae5456157474a9f7.png" src="../../_images/b4f92a3e5fd6783f4e9ef915d42e32c2fd24241aa1e2ddfbae5456157474a9f7.png" />
 </div>
 </div>
 <p><strong>exercise</strong> Try using different guesses, e.g. lines, or triangle shapes, etc. What else looks like this shape? Half a cycle of a sin wave? A semi-circle?</p>
@@ -1129,7 +1139,7 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ac7fc5f60a772217f6349a40696eb01a850bc99100260184a7d1b443e61b579f.png" src="../../_images/ac7fc5f60a772217f6349a40696eb01a850bc99100260184a7d1b443e61b579f.png" />
+<img alt="../../_images/ce40592dcd00d6558e9e07c017a0fb7b11f710267b318315cbf9afa4ac05c357.png" src="../../_images/ce40592dcd00d6558e9e07c017a0fb7b11f710267b318315cbf9afa4ac05c357.png" />
 </div>
 </div>
 <p>Now we solve the system.</p>
@@ -1158,7 +1168,7 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c89a71f5ad825ee0881f069991efc4ce4152cb199fb09c4cba5f86c4d4af41ed.png" src="../../_images/c89a71f5ad825ee0881f069991efc4ce4152cb199fb09c4cba5f86c4d4af41ed.png" />
+<img alt="../../_images/68329355a37ae172f7c7890ea2d2e48f3e79c83dc17c6143038ea4215524bedf.png" src="../../_images/68329355a37ae172f7c7890ea2d2e48f3e79c83dc17c6143038ea4215524bedf.png" />
 </div>
 </div>
 <p>You can see the solution looks nothing like our initial guess. In this case, a high thiele modulus means most of the reaction happens near the catalyst surface, and the interior of the slab has hardly any reactant in it. This solution is consistent with that.</p>
@@ -1284,13 +1294,13 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="nFilbSYLRlwQ" data-shufflequestions="False"
+<div class="output text_html"><div id="yjypBKbXQzjV" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#nFilbSYLRlwQ {
+#yjypBKbXQzjV {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1460,7 +1470,7 @@ solve_bvp<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsnFilbSYLRlwQ=[
+</style></div><script type="application/javascript">var questionsyjypBKbXQzjV=[
   {
     "question": "Using finite difference method, find the values of y', <br>if y = [3.,  5.,  7.,  9., 11., 13.]<br>h = 0.2, and the end points are at 1, 15.",
     "type": "multiple_choice",
@@ -2451,8 +2461,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("nFilbSYLRlwQ")) {
-            show_questions(questionsnFilbSYLRlwQ,  nFilbSYLRlwQ); 
+          if(document.getElementById("yjypBKbXQzjV")) {
+            show_questions(questionsyjypBKbXQzjV,  yjypBKbXQzjV); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2461,8 +2471,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("nFilbSYLRlwQ");
-        // console.log(document.getElementById("nFilbSYLRlwQ"));
+        //console.log("yjypBKbXQzjV");
+        // console.log(document.getElementById("yjypBKbXQzjV"));
 
         try_show();
         }
@@ -2496,11 +2506,10 @@ if (typeof version == 'undefined') {
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../08-nla-2/08-nla-2.html"
@@ -2520,10 +2529,7 @@ if (typeof version == 'undefined') {
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -2595,8 +2601,8 @@ By John Kitchin
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
 
   <footer class="bd-footer">
   </footer>
