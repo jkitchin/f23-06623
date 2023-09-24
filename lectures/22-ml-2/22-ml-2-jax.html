@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -579,7 +579,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1695565459.664304    2623 tfrt_cpu_pjrt_client.cc:349] TfrtCpuClient created.
+No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;weights&#39;: [Array([[ 0.05823338, -0.03133112,  0.007182  ],
@@ -1067,13 +1069,13 @@ RMSE test = 0.112
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="uKhZbLuKKPTy" data-shufflequestions="False"
+<div class="output text_html"><div id="fVWwtmPUBxNj" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#uKhZbLuKKPTy {
+#fVWwtmPUBxNj {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1243,7 +1245,7 @@ RMSE test = 0.112
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsuKhZbLuKKPTy=[{"question": "Which of the following activation functions would always result in the model extrapolating to zero for features greater than the training data in value?", "type": "multiple_choice", "answers": [{"answer": "Radial Basis Function", "correct": false}, {"answer": "tanh", "correct": false}, {"answer": "RelU", "correct": false}, {"answer": "None of the above", "correct": true}], "tag": "activation_function", "lecture_file": "22_ml_2"}, {"question": "RelU(-10) would give the output", "type": "multiple_choice", "answers": [{"answer": "10", "correct": false}, {"answer": "-10", "correct": false}, {"answer": "0", "correct": true}, {"answer": "100", "correct": false}], "tag": "activation_function", "lecture_file": "22_ml_2"}, {"question": "A neural network with a constant value multiplier as the activation function, will give us a model which is equivalent to", "type": "multiple_choice", "answers": [{"answer": "Non-linear regression", "correct": false}, {"answer": "Linear regression", "correct": true}, {"answer": "A neural network with a tanh activation", "correct": false}, {"answer": "A neural network with a RelU activation", "correct": false}], "tag": "activation_function", "lecture_file": "22_ml_2"}, {"question": "The number of neurons in the first layer of a neural network should be", "type": "multiple_choice", "answers": [{"answer": "Less than or equal to the number of input variables", "correct": false}, {"answer": "Greater than or equal to the number of input variables", "correct": false}, {"answer": "Always equal to the number of input variables", "correct": false}, {"answer": "There is no set rule and depends on the problem at hand", "correct": true}], "tag": "neural_network", "lecture_file": "22_ml_2"}, {"question": "Neural networks can be used for", "type": "multiple_choice", "answers": [{"answer": "Classification", "correct": false}, {"answer": "Regression", "correct": false}, {"answer": "Feature Engineering", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "neural_network", "lecture_file": "22_ml_2"}, {"question": "For a finite data set and a single layer neural network with a tanh activation function, a data point at -inf would give the output as", "type": "multiple_choice", "answers": [{"answer": "-inf", "correct": false}, {"answer": "+inf", "correct": false}, {"answer": "a finite value", "correct": true}, {"answer": "-1", "correct": false}], "tag": "activation_function", "lecture_file": "22_ml_2"}, {"question": "If the training error is 0, then it is most likely that", "type": "multiple_choice", "answers": [{"answer": "We have a perfect model generalising the data", "correct": false}, {"answer": "The model is overfitting", "correct": true}, {"answer": "The model is underfitting", "correct": false}, {"answer": "The model is non-linear", "correct": false}], "tag": "train_test", "lecture_file": "22_ml_2"}, {"question": "A good model will most probably have", "type": "multiple_choice", "answers": [{"answer": "Test error slighlty higher than the training error", "correct": true}, {"answer": "Test error much higher than the training error", "correct": false}, {"answer": "Test error equal to the training error", "correct": false}, {"answer": "Test error much lower than the training error", "correct": false}], "tag": "train_test", "lecture_file": "22_ml_2"}, {"question": "As the number of epochs in training a neural network would increase, assuming the model converges eventually, the training error would", "type": "multiple_choice", "answers": [{"answer": "Keep on increasing", "correct": false}, {"answer": "Keep on decreasing", "correct": false}, {"answer": "Decrease then increase", "correct": false}, {"answer": "Decrease and will reach a constant value", "correct": true}], "tag": "train_test epoch", "lecture_file": "22_ml_2"}, {"question": "Reducing the step size will result in", "type": "multiple_choice", "answers": [{"answer": "No changes in the model performance", "correct": false}, {"answer": "Less epochs required to reach the desired accuracy", "correct": false}, {"answer": "More epochs required to reach the desired accuracy", "correct": true}, {"answer": "A smaller neural network", "correct": false}], "tag": "neural_network step_size epoch", "lecture_file": "22_ml_2"}];
+</style></div><script type="application/javascript">var questionsfVWwtmPUBxNj=[{"question": "Which of the following activation functions would always result in the model extrapolating to zero for features greater than the training data in value?", "type": "multiple_choice", "answers": [{"answer": "Radial Basis Function", "correct": false}, {"answer": "tanh", "correct": false}, {"answer": "RelU", "correct": false}, {"answer": "None of the above", "correct": true}], "tag": "activation_function", "lecture_file": "22_ml_2"}, {"question": "RelU(-10) would give the output", "type": "multiple_choice", "answers": [{"answer": "10", "correct": false}, {"answer": "-10", "correct": false}, {"answer": "0", "correct": true}, {"answer": "100", "correct": false}], "tag": "activation_function", "lecture_file": "22_ml_2"}, {"question": "A neural network with a constant value multiplier as the activation function, will give us a model which is equivalent to", "type": "multiple_choice", "answers": [{"answer": "Non-linear regression", "correct": false}, {"answer": "Linear regression", "correct": true}, {"answer": "A neural network with a tanh activation", "correct": false}, {"answer": "A neural network with a RelU activation", "correct": false}], "tag": "activation_function", "lecture_file": "22_ml_2"}, {"question": "The number of neurons in the first layer of a neural network should be", "type": "multiple_choice", "answers": [{"answer": "Less than or equal to the number of input variables", "correct": false}, {"answer": "Greater than or equal to the number of input variables", "correct": false}, {"answer": "Always equal to the number of input variables", "correct": false}, {"answer": "There is no set rule and depends on the problem at hand", "correct": true}], "tag": "neural_network", "lecture_file": "22_ml_2"}, {"question": "Neural networks can be used for", "type": "multiple_choice", "answers": [{"answer": "Classification", "correct": false}, {"answer": "Regression", "correct": false}, {"answer": "Feature Engineering", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "neural_network", "lecture_file": "22_ml_2"}, {"question": "For a finite data set and a single layer neural network with a tanh activation function, a data point at -inf would give the output as", "type": "multiple_choice", "answers": [{"answer": "-inf", "correct": false}, {"answer": "+inf", "correct": false}, {"answer": "a finite value", "correct": true}, {"answer": "-1", "correct": false}], "tag": "activation_function", "lecture_file": "22_ml_2"}, {"question": "If the training error is 0, then it is most likely that", "type": "multiple_choice", "answers": [{"answer": "We have a perfect model generalising the data", "correct": false}, {"answer": "The model is overfitting", "correct": true}, {"answer": "The model is underfitting", "correct": false}, {"answer": "The model is non-linear", "correct": false}], "tag": "train_test", "lecture_file": "22_ml_2"}, {"question": "A good model will most probably have", "type": "multiple_choice", "answers": [{"answer": "Test error slighlty higher than the training error", "correct": true}, {"answer": "Test error much higher than the training error", "correct": false}, {"answer": "Test error equal to the training error", "correct": false}, {"answer": "Test error much lower than the training error", "correct": false}], "tag": "train_test", "lecture_file": "22_ml_2"}, {"question": "As the number of epochs in training a neural network would increase, assuming the model converges eventually, the training error would", "type": "multiple_choice", "answers": [{"answer": "Keep on increasing", "correct": false}, {"answer": "Keep on decreasing", "correct": false}, {"answer": "Decrease then increase", "correct": false}, {"answer": "Decrease and will reach a constant value", "correct": true}], "tag": "train_test epoch", "lecture_file": "22_ml_2"}, {"question": "Reducing the step size will result in", "type": "multiple_choice", "answers": [{"answer": "No changes in the model performance", "correct": false}, {"answer": "Less epochs required to reach the desired accuracy", "correct": false}, {"answer": "More epochs required to reach the desired accuracy", "correct": true}, {"answer": "A smaller neural network", "correct": false}], "tag": "neural_network step_size epoch", "lecture_file": "22_ml_2"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1992,8 +1994,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("uKhZbLuKKPTy")) {
-            show_questions(questionsuKhZbLuKKPTy,  uKhZbLuKKPTy); 
+          if(document.getElementById("fVWwtmPUBxNj")) {
+            show_questions(questionsfVWwtmPUBxNj,  fVWwtmPUBxNj); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2002,8 +2004,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("uKhZbLuKKPTy");
-        // console.log(document.getElementById("uKhZbLuKKPTy"));
+        //console.log("fVWwtmPUBxNj");
+        // console.log(document.getElementById("fVWwtmPUBxNj"));
 
         try_show();
         }
@@ -2131,8 +2133,8 @@ By John Kitchin
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

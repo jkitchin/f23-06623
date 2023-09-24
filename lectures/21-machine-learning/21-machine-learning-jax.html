@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -562,7 +562,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1695565451.725521    2584 tfrt_cpu_pjrt_client.cc:349] TfrtCpuClient created.
+No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
 </pre></div>
 </div>
 <img alt="../../_images/1260c83ca7d8295ec23732b9c30731f738ef8c4ea8943d9b9efdd0024e38c8d2.png" src="../../_images/1260c83ca7d8295ec23732b9c30731f738ef8c4ea8943d9b9efdd0024e38c8d2.png" />
@@ -1003,13 +1005,13 @@ y = [w10, w11, w12] @ np.tanh([w01 * x + b01]) + b1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="xwqOWXPMsNko" data-shufflequestions="False"
+<div class="output text_html"><div id="FwmYyGrYBLUB" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#xwqOWXPMsNko {
+#FwmYyGrYBLUB {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1179,7 +1181,7 @@ y = [w10, w11, w12] @ np.tanh([w01 * x + b01]) + b1
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsxwqOWXPMsNko=[{"question": "Neural networks are", "type": "multiple_choice", "answers": [{"answer": "Linear models", "correct": false}, {"answer": "Non-linear models", "correct": true}, {"answer": "Linear regression models", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "A data set can be represented with only a unique neural network model", "type": "multiple_choice", "answers": [{"answer": "FALSE", "correct": true}, {"answer": "TRUE", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "Neural networks are very useful models because", "type": "multiple_choice", "answers": [{"answer": "They accurately represent biological neurons", "correct": false}, {"answer": "Theoretically, they can fit to any data set", "correct": true}, {"answer": "You don\u2019t need to train them", "correct": false}, {"answer": "They can extrapolate in an accurate manner", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "The nature of extrapolation from a neural network depends a lot on", "type": "multiple_choice", "answers": [{"answer": "the activation functions", "correct": true}, {"answer": "size of the data set", "correct": false}, {"answer": "number of hidden layers", "correct": false}, {"answer": "number of neurons", "correct": false}], "tag": "activation_function hyperparameters", "lecture_file": "21_machine_learning"}, {"question": "The hyperparameters for a neural network are", "type": "multiple_choice", "answers": [{"answer": "The number of neurons in a layer", "correct": false}, {"answer": "The activation function", "correct": false}, {"answer": "Number of hidden layers", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "hyperparameters", "lecture_file": "21_machine_learning"}, {"question": "Gradient descent updates the hyperparameters after each", "type": "multiple_choice", "answers": [{"answer": "Epoch", "correct": true}, {"answer": "layer", "correct": false}, {"answer": "data point", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "gradient_descent algorithm", "lecture_file": "21_machine_learning"}, {"question": "For a neural network with the architecture:<br>Input layer = 3 features<br>first layer = 3 neurons<br>second layer = 5 neurons<br>output layer = 1 output variable<br>How many weights are involved between the first and second layer?", "type": "multiple_choice", "answers": [{"answer": "9", "correct": false}, {"answer": "3", "correct": false}, {"answer": "15", "correct": true}, {"answer": "5", "correct": false}], "tag": "weights_biases algorithm", "lecture_file": "21_machine_learning"}, {"question": "The gradient descent algorithm leads to at least a local minimum of", "type": "multiple_choice", "answers": [{"answer": "weights and biases", "correct": false}, {"answer": "output", "correct": false}, {"answer": "The objective function", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "gradient_descent algorithm", "lecture_file": "21_machine_learning"}, {"question": "What is the value of the count of total weights and biases for a neural network which has 2 hidden layers (3 neurons in each) between the input (2 inputs) and output (1 output)?", "type": "multiple_choice", "answers": [{"answer": "10", "correct": false}, {"answer": "81", "correct": false}, {"answer": "25", "correct": true}, {"answer": "18", "correct": false}], "tag": "weights_biases algorithm", "lecture_file": "21_machine_learning"}, {"question": "The statement: 'A higher learning rate will result in quickly reaching the optimum parameters of a neural network', is", "type": "multiple_choice", "answers": [{"answer": "Never true", "correct": false}, {"answer": "Always true", "correct": false}, {"answer": "Can be true only for learning rates above a certain threshold", "correct": false}, {"answer": "Can be true, but can also cause the solver to not converge.", "correct": true}], "tag": "learning_rate", "lecture_file": "21_machine_learning"}];
+</style></div><script type="application/javascript">var questionsFwmYyGrYBLUB=[{"question": "Neural networks are", "type": "multiple_choice", "answers": [{"answer": "Linear models", "correct": false}, {"answer": "Non-linear models", "correct": true}, {"answer": "Linear regression models", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "A data set can be represented with only a unique neural network model", "type": "multiple_choice", "answers": [{"answer": "FALSE", "correct": true}, {"answer": "TRUE", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "Neural networks are very useful models because", "type": "multiple_choice", "answers": [{"answer": "They accurately represent biological neurons", "correct": false}, {"answer": "Theoretically, they can fit to any data set", "correct": true}, {"answer": "You don\u2019t need to train them", "correct": false}, {"answer": "They can extrapolate in an accurate manner", "correct": false}], "tag": "neural_network", "lecture_file": "21_machine_learning"}, {"question": "The nature of extrapolation from a neural network depends a lot on", "type": "multiple_choice", "answers": [{"answer": "the activation functions", "correct": true}, {"answer": "size of the data set", "correct": false}, {"answer": "number of hidden layers", "correct": false}, {"answer": "number of neurons", "correct": false}], "tag": "activation_function hyperparameters", "lecture_file": "21_machine_learning"}, {"question": "The hyperparameters for a neural network are", "type": "multiple_choice", "answers": [{"answer": "The number of neurons in a layer", "correct": false}, {"answer": "The activation function", "correct": false}, {"answer": "Number of hidden layers", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "hyperparameters", "lecture_file": "21_machine_learning"}, {"question": "Gradient descent updates the hyperparameters after each", "type": "multiple_choice", "answers": [{"answer": "Epoch", "correct": true}, {"answer": "layer", "correct": false}, {"answer": "data point", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "gradient_descent algorithm", "lecture_file": "21_machine_learning"}, {"question": "For a neural network with the architecture:<br>Input layer = 3 features<br>first layer = 3 neurons<br>second layer = 5 neurons<br>output layer = 1 output variable<br>How many weights are involved between the first and second layer?", "type": "multiple_choice", "answers": [{"answer": "9", "correct": false}, {"answer": "3", "correct": false}, {"answer": "15", "correct": true}, {"answer": "5", "correct": false}], "tag": "weights_biases algorithm", "lecture_file": "21_machine_learning"}, {"question": "The gradient descent algorithm leads to at least a local minimum of", "type": "multiple_choice", "answers": [{"answer": "weights and biases", "correct": false}, {"answer": "output", "correct": false}, {"answer": "The objective function", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "gradient_descent algorithm", "lecture_file": "21_machine_learning"}, {"question": "What is the value of the count of total weights and biases for a neural network which has 2 hidden layers (3 neurons in each) between the input (2 inputs) and output (1 output)?", "type": "multiple_choice", "answers": [{"answer": "10", "correct": false}, {"answer": "81", "correct": false}, {"answer": "25", "correct": true}, {"answer": "18", "correct": false}], "tag": "weights_biases algorithm", "lecture_file": "21_machine_learning"}, {"question": "The statement: 'A higher learning rate will result in quickly reaching the optimum parameters of a neural network', is", "type": "multiple_choice", "answers": [{"answer": "Never true", "correct": false}, {"answer": "Always true", "correct": false}, {"answer": "Can be true only for learning rates above a certain threshold", "correct": false}, {"answer": "Can be true, but can also cause the solver to not converge.", "correct": true}], "tag": "learning_rate", "lecture_file": "21_machine_learning"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1928,8 +1930,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("xwqOWXPMsNko")) {
-            show_questions(questionsxwqOWXPMsNko,  xwqOWXPMsNko); 
+          if(document.getElementById("FwmYyGrYBLUB")) {
+            show_questions(questionsFwmYyGrYBLUB,  FwmYyGrYBLUB); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1938,8 +1940,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("xwqOWXPMsNko");
-        // console.log(document.getElementById("xwqOWXPMsNko"));
+        //console.log("FwmYyGrYBLUB");
+        // console.log(document.getElementById("FwmYyGrYBLUB"));
 
         try_show();
         }
@@ -2064,8 +2066,8 @@ By John Kitchin
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
