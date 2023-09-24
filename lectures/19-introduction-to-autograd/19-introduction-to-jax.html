@@ -775,7 +775,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.63435575, 0.70110437]), array(-99.99528666))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.63284714, 0.70564994]), array(78.03497625))
 </pre></div>
 </div>
 </div>
@@ -788,7 +788,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/04689c7ce465802ebb9255aca6f7e063249f7cc6c05f22f7882fdc645b7e5870.png" src="../../_images/04689c7ce465802ebb9255aca6f7e063249f7cc6c05f22f7882fdc645b7e5870.png" />
+<img alt="../../_images/8a6647450174b64622a73ca6b89d43507c2c68f7f4760fcfa59bf70b10b48a0c.png" src="../../_images/8a6647450174b64622a73ca6b89d43507c2c68f7f4760fcfa59bf70b10b48a0c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -803,7 +803,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4c4f375d319827f5cededbc46785c9488067a90891bbe557d18cae85ef555a0d.png" src="../../_images/4c4f375d319827f5cededbc46785c9488067a90891bbe557d18cae85ef555a0d.png" />
+<img alt="../../_images/d2f27753397158af06cfef605e918f5dd714a763a712336a3839361b46ddb15f.png" src="../../_images/d2f27753397158af06cfef605e918f5dd714a763a712336a3839361b46ddb15f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -813,7 +813,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9b5926572241a0d0cbcb3b20617f9f7d8f0da683a98c1d448b6d3a78fc18fdc0.png" src="../../_images/9b5926572241a0d0cbcb3b20617f9f7d8f0da683a98c1d448b6d3a78fc18fdc0.png" />
+<img alt="../../_images/42a07b2f122b3a26a84385caf139de46baf4ffe851e39b25e3b70b0ac5434723.png" src="../../_images/42a07b2f122b3a26a84385caf139de46baf4ffe851e39b25e3b70b0ac5434723.png" />
 </div>
 </div>
 </section>
@@ -966,7 +966,7 @@ example, it could be an objective function.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1695594945.862552    2529 tfrt_cpu_pjrt_client.cc:349] TfrtCpuClient created.
+I0000 00:00:1695595216.528102    2761 tfrt_cpu_pjrt_client.cc:349] TfrtCpuClient created.
 No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
 </pre></div>
 </div>
@@ -1233,8 +1233,8 @@ example:</p>
 <p><span class="math notranslate nohighlight">\(f_1(x, y) = x^2 y\)</span></p>
 <p><span class="math notranslate nohighlight">\(f_2(x, y) = 5 x + \sin(y)\)</span></p>
 <p>The Jacobian of this system is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c6dec2b6-e89d-4ef2-bc52-c91b07eb1d94">
-<span class="eqno">(4)<a class="headerlink" href="#equation-c6dec2b6-e89d-4ef2-bc52-c91b07eb1d94" title="Permalink to this equation">#</a></span>\[\begin{equation} \left[\begin{array}{cc} 2 x y &amp; x^2 \\ 5 &amp; \cos y \\
+<div class="amsmath math notranslate nohighlight" id="equation-f3310294-6a27-4297-ba0c-a694701f22b0">
+<span class="eqno">(4)<a class="headerlink" href="#equation-f3310294-6a27-4297-ba0c-a694701f22b0" title="Permalink to this equation">#</a></span>\[\begin{equation} \left[\begin{array}{cc} 2 x y &amp; x^2 \\ 5 &amp; \cos y \\
 \end{array}\right] \end{equation}\]</div>
 <p>There are two Jacobian functions, <code class="docutils literal notranslate"><span class="pre">jacfwd</span></code> and <code class="docutils literal notranslate"><span class="pre">jacref</span></code>. In theory they do the same thing, but one of them will usually be faster for some systems. <code class="docutils literal notranslate"><span class="pre">jacfwd</span></code> uses a forward pass through the code to compute the Jacobian, while <code class="docutils literal notranslate"><span class="pre">jacrev</span></code> uses a reverse pass. The <a class="reference external" href="https://jax.readthedocs.io/en/latest/notebooks/autodiff_cookbook.html#jacobians-and-hessians-using-jacfwd-and-jacrev">documentation</a> recommends using jacfwd for “tall” Jacobians and jacref for “wide” jacobians. For square jacobians, it does not matter. It is fine to be practical, and try both to see if one is faster than other.</p>
 <div class="cell docutils container">
@@ -1576,13 +1576,13 @@ regression and conclude with an introduction to machine learning.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="LXDzznrOWDBF" data-shufflequestions="False"
+<div class="output text_html"><div id="LINQNRJsWGYK" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#LXDzznrOWDBF {
+#LINQNRJsWGYK {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1752,7 +1752,7 @@ regression and conclude with an introduction to machine learning.</p>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsLXDzznrOWDBF=[
+</style></div><script type="application/javascript">var questionsLINQNRJsWGYK=[
   {
     "question": "Derivatives have useful applications in determining",
     "type": "multiple_choice",
@@ -2743,8 +2743,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("LXDzznrOWDBF")) {
-            show_questions(questionsLXDzznrOWDBF,  LXDzznrOWDBF); 
+          if(document.getElementById("LINQNRJsWGYK")) {
+            show_questions(questionsLINQNRJsWGYK,  LINQNRJsWGYK); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2753,8 +2753,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("LXDzznrOWDBF");
-        // console.log(document.getElementById("LXDzznrOWDBF"));
+        //console.log("LINQNRJsWGYK");
+        // console.log(document.getElementById("LINQNRJsWGYK"));
 
         try_show();
         }
