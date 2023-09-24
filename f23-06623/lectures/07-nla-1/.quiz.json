@@ -120,20 +120,20 @@
     "lecture_file": "07_nla_1"
   },
   {
-    "question": "Which of the following finds the 3rd derivative of a function f at the point x0, using scipy.misc.derivative?",
+    "question": "Which of the following finds the 3rd derivative of a function f at the point x0, using numdifftools.Derivative?",
     "type": "multiple_choice",
     "answers": [
       {
-        "answer": "derivative(f, x0, 3)",
-        "correct": false
-      },
-      {
-        "answer": "(derivative(f, x0, 1))^3",
-        "correct": false
-      },
-      {
-        "answer": "derivative(f, x0, 1, 3)",
+        "answer": "nd.Derivative(f, n=3)(x0)",
         "correct": true
+      },
+      {
+        "answer": "(derivative(f)(x0)))^3",
+        "correct": false
+      },
+      {
+        "answer": "nd.Derivative(f)(x0)(3)",
+          "correct": false
       },
       {
         "answer": "None of the above",
