@@ -808,7 +808,7 @@ document.write(`
 </section>
 <section id="derivatives-of-functions">
 <h2>Derivatives of functions<a class="headerlink" href="#derivatives-of-functions" title="Permalink to this heading">#</a></h2>
-<p>When you can derive an analytical derivative, you should probably consider doing that, because otherwise we have to approximate the derivatives numerically using finite differences, which is less accurate and computationally more expensive, or we need to use advance libraries that are capable of finding derivatives automatically. We will first see how to the finite differences approach, and later learn about the automatic approach.</p>
+<p>When you can derive an analytical derivative, you should probably consider doing that, because otherwise we have to approximate the derivatives numerically using finite differences, which is less accurate and computationally more expensive, or we need to use advance libraries that are capable of finding derivatives automatically. We will first see how to use the finite differences approach, and later learn about the automatic approach.</p>
 <p>scipy has deprecated <code class="docutils literal notranslate"><span class="pre">scipy.misc.derivative</span></code> function and will remove it soon. We will consider <a class="reference external" href="https://github.com/pbrod/numdifftools">numdifftools</a> instead. You provide a function, an x-value that you want the derivative at, and a dx to use in a finite-difference formula. By default, three points are used in the difference formula. You want to use a small dx to get an accurate result, but not too small or you can get numerical errors.</p>
 <p><strong>exercise</strong>: Try this out with different values of dx from 0.1 to 1e-15.</p>
 <div class="cell docutils container">
@@ -1219,7 +1219,7 @@ nd.Derivative<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2405/250610355.py:19: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2280/250610355.py:19: DeprecationWarning: Conversion of an array with ndim &gt; 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
   fa_exit[i] = sol.x
 </pre></div>
 </div>
@@ -1275,13 +1275,13 @@ nd.Derivative<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="BwnrANdIDeqj" data-shufflequestions="False"
+<div class="output text_html"><div id="dXRNsMXgzNKJ" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#BwnrANdIDeqj {
+#dXRNsMXgzNKJ {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1451,7 +1451,7 @@ nd.Derivative<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsBwnrANdIDeqj=[
+</style></div><script type="application/javascript">var questionsdXRNsMXgzNKJ=[
   {
     "question": "Which matplotlib function plots a vertical line at a given x-coordinate?",
     "type": "multiple_choice",
@@ -2442,8 +2442,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("BwnrANdIDeqj")) {
-            show_questions(questionsBwnrANdIDeqj,  BwnrANdIDeqj); 
+          if(document.getElementById("dXRNsMXgzNKJ")) {
+            show_questions(questionsdXRNsMXgzNKJ,  dXRNsMXgzNKJ); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2452,8 +2452,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("BwnrANdIDeqj");
-        // console.log(document.getElementById("BwnrANdIDeqj"));
+        //console.log("dXRNsMXgzNKJ");
+        // console.log(document.getElementById("dXRNsMXgzNKJ"));
 
         try_show();
         }
