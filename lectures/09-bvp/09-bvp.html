@@ -543,8 +543,8 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(y''(x) \approx \frac{y_{i-1} - 2 y_i + y_{i+1}}{h^2} \)</span></p>
 <p><span class="math notranslate nohighlight">\(y'(x) \approx \frac{y_{i+1} - y_{i-1}}{2 h} \)</span></p>
 <p>We define a function <span class="math notranslate nohighlight">\(y''(x) = F(x, y, y')\)</span>. At each node in our discretized region, we will have an equation that looks like <span class="math notranslate nohighlight">\(y''(x) - F(x, y, y') = 0\)</span>, which will be nonlinear in the unknown solution <span class="math notranslate nohighlight">\(y\)</span>. The set of equations to solve is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a4fb2223-82f9-432c-be2a-b5239d374f98">
-<span class="eqno">(2)<a class="headerlink" href="#equation-a4fb2223-82f9-432c-be2a-b5239d374f98" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-fe577e06-4dc0-4e01-bb6b-558dcf771f49">
+<span class="eqno">(2)<a class="headerlink" href="#equation-fe577e06-4dc0-4e01-bb6b-558dcf771f49" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 y_0 - \alpha &amp;=&amp; 0 \\
 \frac{y_{i-1} - 2 y_i + y_{i+1}}{h^2} + (3 y_i) \left(\frac{y_{i+1} - y_{i-1}}{2 h}\right) &amp;=&amp; 0 \\
 y_L - \beta &amp;=&amp;0
@@ -742,7 +742,7 @@ y_L - \beta &amp;=&amp;0
 </div>
 </div>
 </div>
-<p>The solution is has some apparent kinks because we only used about 10 points. How can you tell if the solution is correct? We can estimate the derivatives, and see how well they fit the equation. We look for:</p>
+<p>The solution has some apparent kinks because we only used about 10 points. How can you tell if the solution is correct? We can estimate the derivatives, and see how well they fit the equation. We look for:</p>
 <p><span class="math notranslate nohighlight">\(y'' + 3 y y' = 0\)</span> for all <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>Let’s check how well the solution works.</p>
 <div class="cell docutils container">
@@ -778,7 +778,7 @@ y_L - \beta &amp;=&amp;0
 <li><p>Numerical derivatives at the end-points are less accurate than in the middle.</p></li>
 </ol>
 <p><strong>exercise</strong> Go back and repeat this for a finer grid, e.g. with 50, 100 points.</p>
-<p>The approach described here is pretty general. Here, we were able to solve a second-order BVP by discretizing it, approximating the derivatives at the points, and solving the corresponding nonlinear algebra equations. This approach can be extended in a variety of ways, including to systems of equations, and to 2D or 3D systems (where this approach is called finite-element). You will see these kinds of problems extensively in the spring semster in the Transport class.</p>
+<p>The approach described here is pretty general. Here, we were able to solve a second-order BVP by discretizing it, approximating the derivatives at the points, and solving the corresponding nonlinear algebra equations. This approach can be extended in a variety of ways, including to systems of equations, and to 2D or 3D systems (where this approach is called finite-element). You will see these kinds of problems extensively in the the MS Transport class.</p>
 <p>As we have seen before, however, there are functions in <code class="docutils literal notranslate"><span class="pre">scipy</span></code> that can help solve these problems.</p>
 </section>
 <section id="introduction-to-solve-bvp">
@@ -1294,13 +1294,13 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="RKkEnYcIAvJg" data-shufflequestions="False"
+<div class="output text_html"><div id="XNWGmqFwRKWT" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#RKkEnYcIAvJg {
+#XNWGmqFwRKWT {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1470,7 +1470,7 @@ solve_bvp<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsRKkEnYcIAvJg=[
+</style></div><script type="application/javascript">var questionsXNWGmqFwRKWT=[
   {
     "question": "Using finite difference method, find the values of y', <br>if y = [3.,  5.,  7.,  9., 11., 13.]<br>h = 0.2, and the end points are at 1, 15.",
     "type": "multiple_choice",
@@ -1501,11 +1501,11 @@ solve_bvp<span class="o">?</span>
     "answers": [
       {
         "answer": "[-0.87, -0.87]",
-        "correct": false
+        "correct": true
       },
       {
         "answer": "[-0.87, -0.98]",
-        "correct": true
+        "correct": false
       },
       {
         "answer": "[-0.98, -0.98]",
@@ -2461,8 +2461,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("RKkEnYcIAvJg")) {
-            show_questions(questionsRKkEnYcIAvJg,  RKkEnYcIAvJg); 
+          if(document.getElementById("XNWGmqFwRKWT")) {
+            show_questions(questionsXNWGmqFwRKWT,  XNWGmqFwRKWT); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2471,8 +2471,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("RKkEnYcIAvJg");
-        // console.log(document.getElementById("RKkEnYcIAvJg"));
+        //console.log("XNWGmqFwRKWT");
+        // console.log(document.getElementById("XNWGmqFwRKWT"));
 
         try_show();
         }
