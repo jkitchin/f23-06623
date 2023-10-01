@@ -29,11 +29,11 @@
     "answers": [
       {
         "answer": "[-0.87, -0.87]",
-        "correct": false
+        "correct": true
       },
       {
         "answer": "[-0.87, -0.98]",
-        "correct": true
+        "correct": false
       },
       {
         "answer": "[-0.98, -0.98]",
