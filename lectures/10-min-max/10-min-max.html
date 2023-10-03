@@ -662,7 +662,7 @@ document.write(`
 </ol>
 <p>Cons:</p>
 <ol class="arabic simple">
-<li><p><em>Lot’s</em> of function evaluations. Imagine if it took a long time to compute each value.</p></li>
+<li><p><em>Lots</em> of function evaluations. Imagine if it took a long time to compute each value.</p></li>
 <li><p>Somewhat tedious.</p></li>
 <li><p>Not so easy to reproduce</p></li>
 <li><p>Not scalable to large problems, your time to do this becomes a limiting factor.</p></li>
@@ -853,7 +853,7 @@ The second derivative is [6.43775165]
 </div>
 </div>
 <p>This answer also agrees to at least 5 decimal places. This is the gist of what happens in root.</p>
-<p>As we have seen many times, finding minima is such a common task that there are dedicated functions available for doing it. One of the is <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code>. This has a similar signature as <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root</span></code>, you give it a function and an initial guess, and it iteratively searches for a minimum.</p>
+<p>As we have seen many times, finding minima is such a common task that there are dedicated functions available for doing it. One of them is <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code>. This has a similar signature as <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root</span></code>, you give it a function and an initial guess, and it iteratively searches for a minimum.</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="scipy-optimize-minimize">
@@ -1100,23 +1100,39 @@ minimize<span class="o">?</span>
 <img alt="../../_images/febf1d11302e3ceae1eacdd565d3782c0d2bdc304e58ab4cef4fcaa20ea97a79.png" src="../../_images/febf1d11302e3ceae1eacdd565d3782c0d2bdc304e58ab4cef4fcaa20ea97a79.png" />
 </div>
 </div>
+<p>The function is periodic though, and depending on your guess you can find some surprising results. Here we make many guesses in the domain. Surprisingly, some solutions are found outside of it! We can visualize the solutions found in a histogram.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SOL</span> <span class="o">=</span> <span class="p">[</span><span class="n">minimize</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,))</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">50</span><span class="p">)]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">sol</span> <span class="ow">in</span> <span class="n">SOL</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/46f4f6dc00fb6ab6cf02775394064fa58dba78ac6a21b3ed79670f68561a0c46.png" src="../../_images/46f4f6dc00fb6ab6cf02775394064fa58dba78ac6a21b3ed79670f68561a0c46.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="c1"># the real function is periodic</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">h</span><span class="p">(</span><span class="n">x0</span><span class="p">),</span> <span class="s1">&#39;b--&#39;</span><span class="p">)</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">h</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="s1">&#39;b--&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">sol</span> <span class="ow">in</span> <span class="n">SOL</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="n">sol</span><span class="o">.</span><span class="n">fun</span> <span class="k">for</span> <span class="n">sol</span> <span class="ow">in</span> <span class="n">SOL</span><span class="p">],</span> <span class="s2">&quot;ro&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/73e5dbf450dca751c1ba0f68ab3c866b351bddc976547a1c9376a3e0c0d6c16a.png" src="../../_images/73e5dbf450dca751c1ba0f68ab3c866b351bddc976547a1c9376a3e0c0d6c16a.png" />
+<img alt="../../_images/d016113a4ab1ed8e50ff2f5684b7a3df3b3129cd039470d9b0b2baa4aab1af87.png" src="../../_images/d016113a4ab1ed8e50ff2f5684b7a3df3b3129cd039470d9b0b2baa4aab1af87.png" />
 </div>
 </div>
 <p>Once again, here you have to decide which maximum is relevant</p>
 </section>
 <section id="application-to-maximizing-profit-in-a-pfr">
 <h2>Application to maximizing profit in a PFR<a class="headerlink" href="#application-to-maximizing-profit-in-a-pfr" title="Permalink to this heading">#</a></h2>
-<p>Compound X with concentration of <span class="math notranslate nohighlight">\(C_{X0} = 2.5\)</span> kmol / m<sup>3</sup> at a flow rate of 12 m<sup>3</sup>/min is converted to Y in a first order reaction with a rate constant of 30 1/min in a tubular reactor. The value of Y is \<span class="math notranslate nohighlight">\(1.5/kmol. The cost of operation is \\\)</span>2.50 per minute per m<sup>3</sup>. Find the reactor length that maximizes the profit (profit is value of products minus operating costs).</p>
+<p>Compound X with concentration of <span class="math notranslate nohighlight">\(C_{X0} = 2.5\)</span> kmol / m<sup>3</sup> at a flow rate of 12 m<sup>3</sup>/min is converted to Y in a first order reaction with a rate constant of 30 1/min in a tubular reactor. The value of Y is $1.5/kmol. The cost of operation is $2.50 per minute per m<sup>3</sup>. Find the reactor length that maximizes the profit (profit is value of products minus operating costs).</p>
 <p>First, consider why there is a maximum. At low volumes the operating cost is low, and the production of Y is low. At high volumes, you maximize production of Y, so you have the most value, but the operating costs go up (to infinity for complete conversion!). Somewhere in the middle is where a maximum is.</p>
 <p>Here are some relevant constants.</p>
 <div class="cell docutils container">
@@ -1306,13 +1322,13 @@ minimize<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="lSlZsRsUNGfG" data-shufflequestions="False"
+<div class="output text_html"><div id="yrWYzImeqmOg" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#lSlZsRsUNGfG {
+#yrWYzImeqmOg {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1482,7 +1498,249 @@ minimize<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionslSlZsRsUNGfG=[{"question": "What will be the output of <br>a = [1, 2, 3]; b = 5<br>print(max(*a, b))", "type": "multiple_choice", "answers": [{"answer": "TypeError: '<' not supported between instances of 'int' and 'list'", "correct": false}, {"answer": "a", "correct": false}, {"answer": "5", "correct": true}, {"answer": "b", "correct": false}], "tag": "python", "lecture_file": "10_min_max"}, {"question": "What will be the output of <br>a = [1, 2, 3]; b = 5<br>print(min(a, b))", "type": "multiple_choice", "answers": [{"answer": "TypeError: '<' not supported between instances of 'int' and 'list'", "correct": true}, {"answer": "a", "correct": false}, {"answer": "1", "correct": false}, {"answer": "b", "correct": false}], "tag": "python", "lecture_file": "10_min_max"}, {"question": "What will be the output of <br>a = [[1, 2, 3], [-1, -2, -3]]<br>print(np.argmin(a, axis = 1))", "type": "multiple_choice", "answers": [{"answer": "-3", "correct": false}, {"answer": "[5]", "correct": false}, {"answer": "[0, 2]", "correct": true}, {"answer": "[-1, -2, -3]", "correct": false}], "tag": "numpy", "lecture_file": "10_min_max"}, {"question": "A saddle point is always located at a local minimum and local maximum", "type": "multiple_choice", "answers": [{"answer": "TRUE", "correct": true}, {"answer": "FALSE", "correct": false}, {"answer": "Only local minimum", "correct": false}, {"answer": "Only local maximum", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "Which of the following functions from scipy are useful for finding the minimum", "type": "multiple_choice", "answers": [{"answer": "minimize", "correct": false}, {"answer": "fmin", "correct": false}, {"answer": "solve_ivp", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "Finding the global extrema using scipy.optimize.minimize depends on", "type": "multiple_choice", "answers": [{"answer": "The initial guess", "correct": false}, {"answer": "The solver method", "correct": false}, {"answer": "Constraints", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "Accuracy of finding minima using the graphical method is mainly limited by which of the following factors:<br>a: Computational power available<br>b: Discretization of the function<br>c: Plotting library", "type": "multiple_choice", "answers": [{"answer": "a", "correct": false}, {"answer": "a, b", "correct": true}, {"answer": "a, b, c", "correct": false}, {"answer": "b, c", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "The number of iterations performed by the solver when using <br>sol = minimize(f, guess)<br>can be found with", "type": "multiple_choice", "answers": [{"answer": "sol.int", "correct": false}, {"answer": "sol.nit", "correct": true}, {"answer": "sol.iter", "correct": false}, {"answer": "len(sol.x)", "correct": false}], "tag": "scipy", "lecture_file": "10_min_max"}, {"question": "If f(x) is discontinous at the point x=a, then", "type": "multiple_choice", "answers": [{"answer": "There is a global minimum at 'a'", "correct": false}, {"answer": "There is a local maximum at 'a'", "correct": false}, {"answer": "There can be either a local maximum or a local minimum at 'a'", "correct": true}, {"answer": "There is a global maximum at 'a'", "correct": false}], "tag": "derivative", "lecture_file": "10_min_max"}, {"question": "Reducing the spacing (dx) between points to calculate the derivative using scipy.misc.derivative() might result in", "type": "multiple_choice", "answers": [{"answer": "Low accuracy", "correct": false}, {"answer": "High accuracy with a risk of numerical instability", "correct": true}, {"answer": "High accuracy and numerical stability", "correct": false}, {"answer": "Low accuracy and numerical instability", "correct": false}], "tag": "scipy", "lecture_file": "10_min_max"}];
+</style></div><script type="application/javascript">var questionsyrWYzImeqmOg=[
+  {
+    "question": "What will be the output of <br>a = [1, 2, 3]; b = 5<br>print(max(*a, b))",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "TypeError: '<' not supported between instances of 'int' and 'list'",
+        "correct": false
+      },
+      {
+        "answer": "a",
+        "correct": false
+      },
+      {
+        "answer": "5",
+        "correct": true
+      },
+      {
+        "answer": "b",
+        "correct": false
+      }
+    ],
+    "tag": "python",
+    "lecture_file": "10_min_max"
+  },
+  {
+    "question": "What will be the output of <br>a = [1, 2, 3]; b = 5<br>print(min(a, b))",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "TypeError: '<' not supported between instances of 'int' and 'list'",
+        "correct": true
+      },
+      {
+        "answer": "a",
+        "correct": false
+      },
+      {
+        "answer": "1",
+        "correct": false
+      },
+      {
+        "answer": "b",
+        "correct": false
+      }
+    ],
+    "tag": "python",
+    "lecture_file": "10_min_max"
+  },
+  {
+    "question": "What will be the output of <br>a = [[1, 2, 3], [-1, -2, -3]]<br>print(np.argmin(a, axis = 1))",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "-3",
+        "correct": false
+      },
+      {
+        "answer": "[5]",
+        "correct": false
+      },
+      {
+        "answer": "[0, 2]",
+        "correct": true
+      },
+      {
+        "answer": "[-1, -2, -3]",
+        "correct": false
+      }
+    ],
+    "tag": "numpy",
+    "lecture_file": "10_min_max"
+  },
+  {
+    "question": "A saddle point is always located at a local minimum and local maximum",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "TRUE",
+        "correct": true
+      },
+      {
+        "answer": "FALSE",
+        "correct": false
+      },
+      {
+        "answer": "Only local minimum",
+        "correct": false
+      },
+      {
+        "answer": "Only local maximum",
+        "correct": false
+      }
+    ],
+    "tag": "derivative",
+    "lecture_file": "10_min_max"
+  },
+  {
+    "question": "Which of the following functions from scipy are useful for finding the minimum",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "minimize",
+        "correct": false
+      },
+      {
+        "answer": "fmin",
+        "correct": false
+      },
+      {
+        "answer": "solve_ivp",
+        "correct": false
+      },
+      {
+        "answer": "All of the above",
+        "correct": true
+      }
+    ],
+    "tag": "scipy",
+    "lecture_file": "10_min_max"
+  },
+  {
+    "question": "Finding the global extrema using scipy.optimize.minimize depends on",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "The initial guess",
+        "correct": false
+      },
+      {
+        "answer": "The solver method",
+        "correct": false
+      },
+      {
+        "answer": "Constraints",
+        "correct": false
+      },
+      {
+        "answer": "All of the above",
+        "correct": true
+      }
+    ],
+    "tag": "scipy",
+    "lecture_file": "10_min_max"
+  },
+  {
+    "question": "Accuracy of finding minima using the graphical method is mainly limited by which of the following factors:<br>a: Computational power available<br>b: Discretization of the function<br>c: Plotting library",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "a",
+        "correct": false
+      },
+      {
+        "answer": "a, b",
+        "correct": true
+      },
+      {
+        "answer": "a, b, c",
+        "correct": false
+      },
+      {
+        "answer": "b, c",
+        "correct": false
+      }
+    ],
+    "tag": "derivative",
+    "lecture_file": "10_min_max"
+  },
+  {
+    "question": "The number of iterations performed by the solver when using <br>sol = minimize(f, guess)<br>can be found with",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "sol.int",
+        "correct": false
+      },
+      {
+        "answer": "sol.nit",
+        "correct": true
+      },
+      {
+        "answer": "sol.iter",
+        "correct": false
+      },
+      {
+        "answer": "len(sol.x)",
+        "correct": false
+      }
+    ],
+    "tag": "scipy",
+    "lecture_file": "10_min_max"
+  },
+  {
+    "question": "If f(x) is discontinous at the point x=a, then",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "There is a global minimum at 'a'",
+        "correct": false
+      },
+      {
+        "answer": "There is a local maximum at 'a'",
+        "correct": false
+      },
+      {
+        "answer": "There can be either a local maximum or a local minimum at 'a'",
+        "correct": true
+      },
+      {
+        "answer": "There is a global maximum at 'a'",
+        "correct": false
+      }
+    ],
+    "tag": "derivative",
+    "lecture_file": "10_min_max"
+  },
+  {
+    "question": "Reducing the spacing (dx) between points to calculate the derivative using numdifftools.Derivative() might result in",
+    "type": "multiple_choice",
+    "answers": [
+      {
+        "answer": "Low accuracy",
+        "correct": false
+      },
+      {
+        "answer": "High accuracy with a risk of numerical instability",
+        "correct": true
+      },
+      {
+        "answer": "High accuracy and numerical stability",
+        "correct": false
+      },
+      {
+        "answer": "Low accuracy and numerical instability",
+        "correct": false
+      }
+    ],
+    "tag": "scipy",
+    "lecture_file": "10_min_max"
+  }
+]
+;
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2231,8 +2489,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("lSlZsRsUNGfG")) {
-            show_questions(questionslSlZsRsUNGfG,  lSlZsRsUNGfG); 
+          if(document.getElementById("yrWYzImeqmOg")) {
+            show_questions(questionsyrWYzImeqmOg,  yrWYzImeqmOg); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2241,8 +2499,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("lSlZsRsUNGfG");
-        // console.log(document.getElementById("lSlZsRsUNGfG"));
+        //console.log("yrWYzImeqmOg");
+        // console.log(document.getElementById("yrWYzImeqmOg"));
 
         try_show();
         }
