@@ -718,19 +718,19 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: Optimization terminated successfully.
   success: True
    status: 0
-      fun: 1.4912984000626383e-05
+      fun: 1.4913119072413729e-05
         x: [-5.647e+01  5.723e-01  2.742e+00  1.656e+01]
-      nit: 28
-      jac: [-2.419e-06 -8.417e-07  3.751e-08  8.639e-07]
- hess_inv: [[ 3.081e-01 -2.983e+00  7.646e+01 -2.454e+00]
-            [-2.983e+00  5.047e+01 -1.534e+03  4.746e+01]
-            [ 7.646e+01 -1.534e+03  6.851e+04 -2.867e+03]
-            [-2.454e+00  4.746e+01 -2.867e+03  1.553e+02]]
-     nfev: 175
-     njev: 35
+      nit: 33
+      jac: [ 9.261e-06  2.763e-06  2.200e-07  3.515e-06]
+ hess_inv: [[ 3.111e-01 -3.048e+00  7.794e+01 -2.443e+00]
+            [-3.048e+00  5.124e+01 -1.544e+03  4.646e+01]
+            [ 7.794e+01 -1.544e+03  6.887e+04 -2.894e+03]
+            [-2.443e+00  4.646e+01 -2.894e+03  1.609e+02]]
+     nfev: 185
+     njev: 37
 </pre></div>
 </div>
-<img alt="../../_images/afcec7efdc2f1eda192b052b7092aa57cd837f84b9c4552169421c78c432e9b1.png" src="../../_images/afcec7efdc2f1eda192b052b7092aa57cd837f84b9c4552169421c78c432e9b1.png" />
+<img alt="../../_images/b3e1fce18b0479ffdcd39cf0d76a5022f88547d8480d10b6d071c066779ae8cb.png" src="../../_images/b3e1fce18b0479ffdcd39cf0d76a5022f88547d8480d10b6d071c066779ae8cb.png" />
 </div>
 </div>
 <p>That looks pretty good. We should ask ourselves, how do we know we got a minimum? We should see that the objective function is really at a minimum <em>for each of the parameters</em>. Here, we show that it is a minimum for the first parameter.</p>
@@ -762,7 +762,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ab4f87c97882110de0f83fce966f4aa0d6c9ce9b9ab6f0484ea1ecc487988552.png" src="../../_images/ab4f87c97882110de0f83fce966f4aa0d6c9ce9b9ab6f0484ea1ecc487988552.png" />
+<img alt="../../_images/3f13a6fa94312800bea6af75585c4491f05a4da4d5ad2e2e5d4b8188238f230d.png" src="../../_images/3f13a6fa94312800bea6af75585c4491f05a4da4d5ad2e2e5d4b8188238f230d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -781,7 +781,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/475080629c862c3ef51bb7bb783d47508a35093d92dd45f6270df262c0f2f02c.png" src="../../_images/475080629c862c3ef51bb7bb783d47508a35093d92dd45f6270df262c0f2f02c.png" />
+<img alt="../../_images/986fbd33ccd6442771dbdc1d2810220799874b6db8f5c464d70d391f202c412a.png" src="../../_images/986fbd33ccd6442771dbdc1d2810220799874b6db8f5c464d70d391f202c412a.png" />
 </div>
 </div>
 <p>You can see visually that the error goes up on each side of the parameter estimate.</p>
@@ -822,7 +822,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.02060957709869471, -4.1495524381492945e-13, -0.0426805050199939)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.02061142218087396, -2.7597626722550528e-14, -0.042677817939905424)
 </pre></div>
 </div>
 </div>
@@ -1089,7 +1089,7 @@ nlinfit<span class="o">??</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5bd52fa8c2e898c1be83c25bf287cc8d73c8fe0f9f7d5bfb4fb5295e753b532a.png" src="../../_images/5bd52fa8c2e898c1be83c25bf287cc8d73c8fe0f9f7d5bfb4fb5295e753b532a.png" />
+<img alt="../../_images/957feea0d3adda69545786a5c020bde61c421cadaa837453e98b0155324ca24c.png" src="../../_images/957feea0d3adda69545786a5c020bde61c421cadaa837453e98b0155324ca24c.png" />
 </div>
 </div>
 <p>So the idea is we can generate a distribution of the parameters</p>
@@ -1105,10 +1105,10 @@ nlinfit<span class="o">??</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.3204905058584453, 0.00966993273334841)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.3205441114833552, 0.009724397337440235)
 </pre></div>
 </div>
-<img alt="../../_images/a409b7250083d7260b8162818aed3d2045ce2e1a27a34bacf0cc6807232f9c89.png" src="../../_images/a409b7250083d7260b8162818aed3d2045ce2e1a27a34bacf0cc6807232f9c89.png" />
+<img alt="../../_images/1d433e197e58facdde37a0c98695f3afc621af4799a645a694fb76efee246eac.png" src="../../_images/1d433e197e58facdde37a0c98695f3afc621af4799a645a694fb76efee246eac.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1133,7 +1133,7 @@ nlinfit<span class="o">??</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At x=5, y=1.320 +- 0.019 at about the 95% confidence level.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At x=5, y=1.321 +- 0.019 at about the 95% confidence level.
 </pre></div>
 </div>
 </div>
@@ -1184,13 +1184,13 @@ nlpredict<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="psTaGpfiFmap" data-shufflequestions="False"
+<div class="output text_html"><div id="xbjzrzKfLstK" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#psTaGpfiFmap {
+#xbjzrzKfLstK {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1360,7 +1360,7 @@ nlpredict<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionspsTaGpfiFmap=[
+</style></div><script type="application/javascript">var questionsxbjzrzKfLstK=[
   {
     "question": "When using minimize() for regression, which of the following objective functions would cause the model to shift towards the outliers to a greater extent than the rest:<br>a: (y_pred - y)^2<br>b: (y_pred - y)<br>c: |ypred - y|",
     "type": "multiple_choice",
@@ -2351,8 +2351,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("psTaGpfiFmap")) {
-            show_questions(questionspsTaGpfiFmap,  psTaGpfiFmap); 
+          if(document.getElementById("xbjzrzKfLstK")) {
+            show_questions(questionsxbjzrzKfLstK,  xbjzrzKfLstK); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2361,8 +2361,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("psTaGpfiFmap");
-        // console.log(document.getElementById("psTaGpfiFmap"));
+        //console.log("xbjzrzKfLstK");
+        // console.log(document.getElementById("xbjzrzKfLstK"));
 
         try_show();
         }
