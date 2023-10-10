@@ -645,7 +645,7 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(SSE = \sum (y - (m x + b))^2\)</span></p>
 <p><span class="math notranslate nohighlight">\(\frac{\partial SSE}{\partial m} = \sum 2 (y - (m x + b)) * (-x)\)</span></p>
 <p><span class="math notranslate nohighlight">\(\frac{\partial SSE}{\partial b} = \sum 2 (y - (m x + b)) * (-1)\)</span></p>
-<p>NExt you need the four second derivatives (the off diagonals are the same because it does not matter which order you differentiate in).</p>
+<p>Next you need the four second derivatives (the off diagonals are the same because it does not matter which order you differentiate in).</p>
 <p><span class="math notranslate nohighlight">\(\frac{\partial^2 SSE}{\partial m^2} = \sum 2 x^2\)</span></p>
 <p><span class="math notranslate nohighlight">\(\frac{\partial^2 SSE}{\partial m b} = \sum 2 x\)</span></p>
 <p><span class="math notranslate nohighlight">\(\frac{\partial^2 SSE}{\partial b^2} = \sum 2 \)</span></p>
@@ -705,7 +705,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.2404 1.144 ]
 </pre></div>
 </div>
-<img alt="../../_images/563ac43c40641ff3c2d932c5f36f2887433b79b95ef91f3a57baa5842937528d.png" src="../../_images/563ac43c40641ff3c2d932c5f36f2887433b79b95ef91f3a57baa5842937528d.png" />
+<img alt="../../_images/4802f7df1762d84d8df867fb8fca2ead13bb6de019b0889f823d4f0d774f79c1.png" src="../../_images/4802f7df1762d84d8df867fb8fca2ead13bb6de019b0889f823d4f0d774f79c1.png" />
 </div>
 </div>
 <p>You can see that the fitted line is “dragged” towards the outlier. We say that least squares minimization is not <em>robust</em> to outliers.</p>
@@ -763,10 +763,10 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.26845682 1.14      ]
-1.230000002431845
+1.2300000024318456
 </pre></div>
 </div>
-<img alt="../../_images/5a13cbf5c59496a93ba1a1569ceaf7ea47035fe7abfaabc2e7d218da6d20386c.png" src="../../_images/5a13cbf5c59496a93ba1a1569ceaf7ea47035fe7abfaabc2e7d218da6d20386c.png" />
+<img alt="../../_images/3a0c5c239efa954e102287e13a1e9bdec02e853341f55a9fbec9485333cc1b83.png" src="../../_images/3a0c5c239efa954e102287e13a1e9bdec02e853341f55a9fbec9485333cc1b83.png" />
 </div>
 </div>
 <p>There is a historical reason this is not done a lot, and that is the absolute value function has a discontinuity in its first derivative at the origin which can be problematic in some optimization algorithms. It is obviously not a problem here, and you can see that the outlier has less of an effect on the fitted line in this case.</p>
@@ -792,7 +792,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.25741034 1.15352086]
 </pre></div>
 </div>
-<img alt="../../_images/c7e33160dc5e3ea239c5439a007cadfae354d7d56d60792c73e0d258f59ac5e9.png" src="../../_images/c7e33160dc5e3ea239c5439a007cadfae354d7d56d60792c73e0d258f59ac5e9.png" />
+<img alt="../../_images/b60ab41092c58fd0865ee53e9d0a04ca9b84e96e27fdebfd23e67b133b23fbc7.png" src="../../_images/b60ab41092c58fd0865ee53e9d0a04ca9b84e96e27fdebfd23e67b133b23fbc7.png" />
 </div>
 </div>
 <p>The downside of these approaches is that they complicate the analysis of uncertainty. The uncertainty analysis we have considered so far is only formally correct when we minimize the summed squared errors. It is only approximately correct when something else is minimized.</p>
@@ -839,7 +839,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.28599999 1.16750001]
 </pre></div>
 </div>
-<img alt="../../_images/39067d1270083fcea7db6df51b4b67b86114baab207989cf7a3ec8f575d29849.png" src="../../_images/39067d1270083fcea7db6df51b4b67b86114baab207989cf7a3ec8f575d29849.png" />
+<img alt="../../_images/930d0968a142b2d05ed659fb8cec0a92dcf77a28de70365a643e698a1c581675.png" src="../../_images/930d0968a142b2d05ed659fb8cec0a92dcf77a28de70365a643e698a1c581675.png" />
 </div>
 </div>
 </section>
@@ -871,7 +871,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6131044728864087
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6131044728864088
 </pre></div>
 </div>
 </div>
@@ -879,12 +879,12 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;bo&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">220</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.6</span> <span class="o">*</span> <span class="n">x</span><span class="p">)));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;bo&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">240</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.6</span> <span class="o">*</span> <span class="n">x</span><span class="p">)));</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dbbe86dde304c56734bd81ff85dfed6a45b6573157187fa5b08602689970fb8f.png" src="../../_images/dbbe86dde304c56734bd81ff85dfed6a45b6573157187fa5b08602689970fb8f.png" />
+<img alt="../../_images/a6718c687736f15bc263c9dc82484fe3035022d85d6397372268945c921affca.png" src="../../_images/a6718c687736f15bc263c9dc82484fe3035022d85d6397372268945c921affca.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -916,7 +916,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b285544c1e77c1430fb3f61830b7bf87e09feb86abb4faa0d745af5a43a5cf1d.png" src="../../_images/b285544c1e77c1430fb3f61830b7bf87e09feb86abb4faa0d745af5a43a5cf1d.png" />
+<img alt="../../_images/649465a34af9698328dd6e102c070efad751852419586aa04a70aac791350123.png" src="../../_images/649465a34af9698328dd6e102c070efad751852419586aa04a70aac791350123.png" />
 </div>
 </div>
 <p>The fit generally goes through the data, but it is not clear if there is a small outlier near 2 that is skewing the fit, and perhaps leading to an inaccurate asymptote at long times.</p>
@@ -948,7 +948,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[230.77020764   0.35563066]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[230.77020888   0.35563066]
 </pre></div>
 </div>
 <img alt="../../_images/22d1951d8888d0cf9ca4fc99897b2596e5bdac3af3616aed814fc67353d0f354.png" src="../../_images/22d1951d8888d0cf9ca4fc99897b2596e5bdac3af3616aed814fc67353d0f354.png" />
@@ -985,7 +985,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[230.12681081   0.36025669]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[230.12681082   0.36025669]
 </pre></div>
 </div>
 <img alt="../../_images/c0bc4a06c1949554336f447137fe6bd7728ad822879dafc8f029215fbb121408.png" src="../../_images/c0bc4a06c1949554336f447137fe6bd7728ad822879dafc8f029215fbb121408.png" />
@@ -1000,8 +1000,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([39.38600932, 30.83044152, -3.036934  , -1.1358961 ,  1.35586146,
-        0.14499036])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([39.38600913, 30.83044125, -3.03693428, -1.13589633,  1.3558613 ,
+        0.14499028])
 </pre></div>
 </div>
 </div>
@@ -1024,7 +1024,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> message: The solution converged.
  success: True
   status: 1
-     fun: [-1.421e-12]
+     fun: [-1.393e-12]
        x: [ 6.378e+00]
     nfev: 8
     fjac: [[-1.000e+00]]
@@ -1049,13 +1049,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="lrPsMYKXAcUU" data-shufflequestions="False"
+<div class="output text_html"><div id="wiHGQzSOUWGd" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#lrPsMYKXAcUU {
+#wiHGQzSOUWGd {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1225,7 +1225,7 @@ document.write(`
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionslrPsMYKXAcUU=[{"question": "The Hessian matrix obtained using scipy.minimize() can be made more accurate by", "type": "multiple_choice", "answers": [{"answer": "Decreasing the tolerance", "correct": false}, {"answer": "Using the SLSQP solver", "correct": false}, {"answer": "Increasing the tolerance", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "scipy hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "The relation: Hessian_inverse = 2*Covariance is valid only in the case of ", "type": "multiple_choice", "answers": [{"answer": "minimization using sum squared errors", "correct": true}, {"answer": "minimization using absolute sum of errors", "correct": false}, {"answer": "always valid", "correct": false}, {"answer": "always valid for high tolerance solvers", "correct": false}], "tag": "hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "np.linalg.inv(A) requires", "type": "multiple_choice", "answers": [{"answer": "A to be a non-singular matrix", "correct": false}, {"answer": "Determinant of A not equal to zero", "correct": false}, {"answer": "A to be a square matrix", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "numpy matrices hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "Which norm regression approach among the following will be more resistant to outliers", "type": "multiple_choice", "answers": [{"answer": "L2", "correct": false}, {"answer": "L1", "correct": true}, {"answer": "Both L1 and L2 will be equally resistant", "correct": false}, {"answer": "L1.5", "correct": false}], "tag": "outliers robust_regression", "lecture_file": "12_nonlinear_regression"}, {"question": "For an array([1, 2, 3, 4, 5, 6, 7]), an additional entry of value 20 to the array, will", "type": "multiple_choice", "answers": [{"answer": "Not affect the median but will change the mean value", "correct": false}, {"answer": "Change the mean and median both, but will have less impact on the mean", "correct": false}, {"answer": "Change the mean and median both, but will have less impact on the median", "correct": true}, {"answer": "Not affect the mean but will change the median value", "correct": false}], "tag": "mean_median", "lecture_file": "12_nonlinear_regression"}, {"question": "For an array([1, 2, 3, 4, 5, 6, 7]), an additional entry of value 8 to the array, will", "type": "multiple_choice", "answers": [{"answer": "Will equally change the median and mean", "correct": true}, {"answer": "Change the mean and median both, but will have less impact on the mean", "correct": false}, {"answer": "Change the mean and median both, but will have less impact on the median", "correct": false}, {"answer": "Not affect the median or the mean", "correct": false}], "tag": "mean_median", "lecture_file": "12_nonlinear_regression"}, {"question": "Using L2 norm instead of L1 to minimize errors will affect the regression model in what way", "type": "multiple_choice", "answers": [{"answer": "The model will move towards the outliers", "correct": true}, {"answer": "The model will move away from the outliers", "correct": false}, {"answer": "The model will remain unaffected", "correct": false}, {"answer": "Can't say", "correct": false}], "tag": "robust_regression norm_regression", "lecture_file": "12_nonlinear_regression"}, {"question": "Find the median of the following set (1, 2, 3, 5, 7, 9, 13, 18, 30)", "type": "multiple_choice", "answers": [{"answer": "15.5", "correct": false}, {"answer": "7", "correct": true}, {"answer": "9.7", "correct": false}, {"answer": "13", "correct": false}], "tag": "mean_median", "lecture_file": "12_nonlinear_regression"}, {"question": "A Hessian of a scalar-valued function consists of", "type": "multiple_choice", "answers": [{"answer": "first-order partial derivatives", "correct": false}, {"answer": "first-order total derivatives", "correct": false}, {"answer": "second-order total derivatives", "correct": false}, {"answer": "second-order partial derivatives", "correct": true}], "tag": "hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "To fit a model to a set of data points which were recorded using an instrument which loses precision over time, the best choice, among the following, would be to use", "type": "multiple_choice", "answers": [{"answer": "weighted regression with weights increasing for newer points", "correct": false}, {"answer": "weighted regression with weights decreasing for newer points", "correct": true}, {"answer": "regular regression without weights", "correct": false}, {"answer": "all would give the same results", "correct": false}], "tag": "robust_regression weighted_regression", "lecture_file": "12_nonlinear_regression"}];
+</style></div><script type="application/javascript">var questionswiHGQzSOUWGd=[{"question": "The Hessian matrix obtained using scipy.minimize() can be made more accurate by", "type": "multiple_choice", "answers": [{"answer": "Decreasing the tolerance", "correct": false}, {"answer": "Using the SLSQP solver", "correct": false}, {"answer": "Increasing the tolerance", "correct": true}, {"answer": "None of the above", "correct": false}], "tag": "scipy hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "The relation: Hessian_inverse = 2*Covariance is valid only in the case of ", "type": "multiple_choice", "answers": [{"answer": "minimization using sum squared errors", "correct": true}, {"answer": "minimization using absolute sum of errors", "correct": false}, {"answer": "always valid", "correct": false}, {"answer": "always valid for high tolerance solvers", "correct": false}], "tag": "hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "np.linalg.inv(A) requires", "type": "multiple_choice", "answers": [{"answer": "A to be a non-singular matrix", "correct": false}, {"answer": "Determinant of A not equal to zero", "correct": false}, {"answer": "A to be a square matrix", "correct": false}, {"answer": "All of the above", "correct": true}], "tag": "numpy matrices hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "Which norm regression approach among the following will be more resistant to outliers", "type": "multiple_choice", "answers": [{"answer": "L2", "correct": false}, {"answer": "L1", "correct": true}, {"answer": "Both L1 and L2 will be equally resistant", "correct": false}, {"answer": "L1.5", "correct": false}], "tag": "outliers robust_regression", "lecture_file": "12_nonlinear_regression"}, {"question": "For an array([1, 2, 3, 4, 5, 6, 7]), an additional entry of value 20 to the array, will", "type": "multiple_choice", "answers": [{"answer": "Not affect the median but will change the mean value", "correct": false}, {"answer": "Change the mean and median both, but will have less impact on the mean", "correct": false}, {"answer": "Change the mean and median both, but will have less impact on the median", "correct": true}, {"answer": "Not affect the mean but will change the median value", "correct": false}], "tag": "mean_median", "lecture_file": "12_nonlinear_regression"}, {"question": "For an array([1, 2, 3, 4, 5, 6, 7]), an additional entry of value 8 to the array, will", "type": "multiple_choice", "answers": [{"answer": "Will equally change the median and mean", "correct": true}, {"answer": "Change the mean and median both, but will have less impact on the mean", "correct": false}, {"answer": "Change the mean and median both, but will have less impact on the median", "correct": false}, {"answer": "Not affect the median or the mean", "correct": false}], "tag": "mean_median", "lecture_file": "12_nonlinear_regression"}, {"question": "Using L2 norm instead of L1 to minimize errors will affect the regression model in what way", "type": "multiple_choice", "answers": [{"answer": "The model will move towards the outliers", "correct": true}, {"answer": "The model will move away from the outliers", "correct": false}, {"answer": "The model will remain unaffected", "correct": false}, {"answer": "Can't say", "correct": false}], "tag": "robust_regression norm_regression", "lecture_file": "12_nonlinear_regression"}, {"question": "Find the median of the following set (1, 2, 3, 5, 7, 9, 13, 18, 30)", "type": "multiple_choice", "answers": [{"answer": "15.5", "correct": false}, {"answer": "7", "correct": true}, {"answer": "9.7", "correct": false}, {"answer": "13", "correct": false}], "tag": "mean_median", "lecture_file": "12_nonlinear_regression"}, {"question": "A Hessian of a scalar-valued function consists of", "type": "multiple_choice", "answers": [{"answer": "first-order partial derivatives", "correct": false}, {"answer": "first-order total derivatives", "correct": false}, {"answer": "second-order total derivatives", "correct": false}, {"answer": "second-order partial derivatives", "correct": true}], "tag": "hessian", "lecture_file": "12_nonlinear_regression"}, {"question": "To fit a model to a set of data points which were recorded using an instrument which loses precision over time, the best choice, among the following, would be to use", "type": "multiple_choice", "answers": [{"answer": "weighted regression with weights increasing for newer points", "correct": false}, {"answer": "weighted regression with weights decreasing for newer points", "correct": true}, {"answer": "regular regression without weights", "correct": false}, {"answer": "all would give the same results", "correct": false}], "tag": "robust_regression weighted_regression", "lecture_file": "12_nonlinear_regression"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -1974,8 +1974,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("lrPsMYKXAcUU")) {
-            show_questions(questionslrPsMYKXAcUU,  lrPsMYKXAcUU); 
+          if(document.getElementById("wiHGQzSOUWGd")) {
+            show_questions(questionswiHGQzSOUWGd,  wiHGQzSOUWGd); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -1984,8 +1984,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("lrPsMYKXAcUU");
-        // console.log(document.getElementById("lrPsMYKXAcUU"));
+        //console.log("wiHGQzSOUWGd");
+        // console.log(document.getElementById("wiHGQzSOUWGd"));
 
         try_show();
         }

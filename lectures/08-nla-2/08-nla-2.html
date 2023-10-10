@@ -989,8 +989,8 @@ document.write(`
 </div>
 <p>Analogously to systems of ordinary differential equations, with systems of nonlinear equations we define functions that will return a zero for each equation in the system. Then we have to pass an initial guess for each variable to root, and it will return an array of values, one for each variable.</p>
 <p>It is considerably more difficult to visualize systems of nonlinear equations. With two equations and two unknowns it is sometimes easy to plot solutions, but not always.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6624caed-6809-4468-88c7-fcf347e8eafb">
-<span class="eqno">(1)<a class="headerlink" href="#equation-6624caed-6809-4468-88c7-fcf347e8eafb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-900b6da0-56b9-4c40-a81f-3e09ab60b736">
+<span class="eqno">(1)<a class="headerlink" href="#equation-900b6da0-56b9-4c40-a81f-3e09ab60b736" title="Permalink to this equation">#</a></span>\[\begin{align}
 y &amp;=&amp; x^2 \\
 y &amp;=&amp; 8 - x^2
 \end{align}\]</div>
@@ -1181,14 +1181,14 @@ y &amp;=&amp; 8 - x^2
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>( message: The solution converged.
   success: True
    status: 1
-      fun: [ 1.090e-13 -2.670e-14]
+      fun: [ 1.091e-13 -2.676e-14]
         x: [ 3.532e-01  6.061e-01]
      nfev: 21
      fjac: [[-1.114e-01  9.938e-01]
             [-9.938e-01 -1.114e-01]]
         r: [ 1.396e+00  2.402e-01  8.425e-01]
       qtf: [ 3.050e-10  8.300e-10],
- array([ 1.09023901e-13, -2.67008637e-14]))
+ array([ 1.09134923e-13, -2.67563749e-14]))
 </pre></div>
 </div>
 </div>
@@ -1236,7 +1236,7 @@ y &amp;=&amp; 8 - x^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.35324662, 0.60608174]), array([6.13078369e-12, 1.45204395e-11]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.35324662, 0.60608174]), array([6.13078525e-12, 1.45204373e-11]))
 </pre></div>
 </div>
 </div>
@@ -1285,13 +1285,13 @@ y &amp;=&amp; 8 - x^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="RKlLvQAISHOp" data-shufflequestions="False"
+<div class="output text_html"><div id="cFbSFSyrvgPF" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#RKlLvQAISHOp {
+#cFbSFSyrvgPF {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1461,7 +1461,7 @@ y &amp;=&amp; 8 - x^2
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsRKlLvQAISHOp=[
+</style></div><script type="application/javascript">var questionscFbSFSyrvgPF=[
   {
     "question": "What will be the input to np.roots() to find the roots of the equation:<br>$5x^4 - 10x^2 + 20x - 50 = 0$",
     "type": "multiple_choice",
@@ -2452,8 +2452,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("RKlLvQAISHOp")) {
-            show_questions(questionsRKlLvQAISHOp,  RKlLvQAISHOp); 
+          if(document.getElementById("cFbSFSyrvgPF")) {
+            show_questions(questionscFbSFSyrvgPF,  cFbSFSyrvgPF); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2462,8 +2462,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("RKlLvQAISHOp");
-        // console.log(document.getElementById("RKlLvQAISHOp"));
+        //console.log("cFbSFSyrvgPF");
+        // console.log(document.getElementById("cFbSFSyrvgPF"));
 
         try_show();
         }
