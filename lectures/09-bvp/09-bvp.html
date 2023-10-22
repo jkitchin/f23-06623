@@ -543,8 +543,8 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(y''(x) \approx \frac{y_{i-1} - 2 y_i + y_{i+1}}{h^2} \)</span></p>
 <p><span class="math notranslate nohighlight">\(y'(x) \approx \frac{y_{i+1} - y_{i-1}}{2 h} \)</span></p>
 <p>We define a function <span class="math notranslate nohighlight">\(y''(x) = F(x, y, y')\)</span>. At each node in our discretized region, we will have an equation that looks like <span class="math notranslate nohighlight">\(y''(x) - F(x, y, y') = 0\)</span>, which will be nonlinear in the unknown solution <span class="math notranslate nohighlight">\(y\)</span>. The set of equations to solve is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a793f10b-1891-457e-97fc-8ea2b32fdad5">
-<span class="eqno">(2)<a class="headerlink" href="#equation-a793f10b-1891-457e-97fc-8ea2b32fdad5" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-8f90f7d6-7180-48b4-b34b-74590c3f45f0">
+<span class="eqno">(2)<a class="headerlink" href="#equation-8f90f7d6-7180-48b4-b34b-74590c3f45f0" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
 y_0 - \alpha &amp;=&amp; 0 \\
 \frac{y_{i-1} - 2 y_i + y_{i+1}}{h^2} + (3 y_i) \left(\frac{y_{i+1} - y_{i-1}}{2 h}\right) &amp;=&amp; 0 \\
 y_L - \beta &amp;=&amp;0
@@ -1294,13 +1294,13 @@ solve_bvp<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="mDJaKPzVwSUy" data-shufflequestions="False"
+<div class="output text_html"><div id="xSoesuTbGdfO" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#mDJaKPzVwSUy {
+#xSoesuTbGdfO {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1470,7 +1470,7 @@ solve_bvp<span class="o">?</span>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsmDJaKPzVwSUy=[
+</style></div><script type="application/javascript">var questionsxSoesuTbGdfO=[
   {
     "question": "Using finite difference method, find the values of y', <br>if y = [3.,  5.,  7.,  9., 11., 13.]<br>h = 0.2, and the end points are at 1, 15.",
     "type": "multiple_choice",
@@ -2461,8 +2461,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("mDJaKPzVwSUy")) {
-            show_questions(questionsmDJaKPzVwSUy,  mDJaKPzVwSUy); 
+          if(document.getElementById("xSoesuTbGdfO")) {
+            show_questions(questionsxSoesuTbGdfO,  xSoesuTbGdfO); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2471,8 +2471,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("mDJaKPzVwSUy");
-        // console.log(document.getElementById("mDJaKPzVwSUy"));
+        //console.log("xSoesuTbGdfO");
+        // console.log(document.getElementById("xSoesuTbGdfO"));
 
         try_show();
         }
