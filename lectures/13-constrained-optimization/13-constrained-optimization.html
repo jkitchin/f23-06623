@@ -966,7 +966,7 @@ The optimal diameter is 9.20 cm. The optimal length is 5.35 cm. The cost is $9.9
 </section>
 <section id="an-application">
 <h2>An application<a class="headerlink" href="#an-application" title="Permalink to this heading">#</a></h2>
-<p>Let us suppose that a merry farmer has 75 roods (4 roods = 1 acre) on which to plant two crops: wheat and corn. To produce these crops, it costs the farmer (for seed, water, fertilizer, etc. ) \<span class="math notranslate nohighlight">\(120 per rood for the wheat, and \\\)</span>210 per rood for the corn. The farmer has \<span class="math notranslate nohighlight">\(15,000 available for expenses, but after the harvest the farmer must store the crops while awaiting favorable or good market conditions. The farmer has storage space for 4,000 bushels. Each rood yields an average of 110 bushels of wheat or 30 bushels of corn. If the net profit per bushel of wheat (after all the expenses) is \\\)</span>1.30 and for corn is \$2.00, how should the merry farmer plant the 75 roods to maximize profit?</p>
+<p>Let us suppose that a merry farmer has 75 roods (4 roods = 1 acre) on which to plant two crops: wheat and corn. To produce these crops, it costs the farmer (for seed, water, fertilizer, etc. ) $120 per rood for the wheat, and $210 per rood for the corn. The farmer has $15,000 available for expenses, but after the harvest the farmer must store the crops while awaiting favorable or good market conditions. The farmer has storage space for 4,000 bushels. Each rood yields an average of 110 bushels of wheat or 30 bushels of corn. If the net profit per bushel of wheat (after all the expenses) is $1.30 and for corn is \$2.00, how should the merry farmer plant the 75 roods to maximize profit?</p>
 <p>It is not obvious what to do. Wheat is cheaper to plant, and yields more per rood, but it is less profitable.</p>
 <p>Let <span class="math notranslate nohighlight">\(x\)</span> be the number of roods of wheat planted, and <span class="math notranslate nohighlight">\(y\)</span> be the number of roods of corn planted. The profit function is: <span class="math notranslate nohighlight">\( P = (110)(\)</span>1.3)x + (30)(<span class="math notranslate nohighlight">\(2)y = 143x + 60y \)</span></p>
 <p>There are some constraint inequalities, specified by the limits on expenses, storage and roodage. They are:</p>
@@ -1013,7 +1013,7 @@ The optimal diameter is 9.20 cm. The optimal length is 5.35 cm. The cost is $9.9
 
 
 <span class="n">sol</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span>
-    <span class="n">profit</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="n">constraints</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ineq&quot;</span><span class="p">,</span> <span class="s2">&quot;fun&quot;</span><span class="p">:</span> <span class="n">f</span><span class="p">}</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">[</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">c3</span><span class="p">]]</span>
+    <span class="n">profit</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="n">constraints</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ineq&quot;</span><span class="p">,</span> <span class="s2">&quot;fun&quot;</span><span class="p">:</span> <span class="n">f</span><span class="p">}</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">[</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">c3</span><span class="p">,</span> <span class="n">c4</span><span class="p">,</span> <span class="n">c5</span><span class="p">]]</span>
 <span class="p">)</span>
 <span class="n">sol</span>
 </pre></div>
@@ -1029,28 +1029,6 @@ The optimal diameter is 9.20 cm. The optimal length is 5.35 cm. The cost is $9.9
      jac: [-1.430e+02 -6.000e+01]
     nfev: 9
     njev: 2
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">minimize</span><span class="p">(</span>
-    <span class="n">profit</span><span class="p">,</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">constraints</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ineq&quot;</span><span class="p">,</span> <span class="s2">&quot;fun&quot;</span><span class="p">:</span> <span class="n">f</span><span class="p">}</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">[</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">c3</span><span class="p">]]</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> message: Optimization terminated successfully
- success: True
-  status: 0
-     fun: -6315.6250008500265
-       x: [ 2.188e+01  5.313e+01]
-     nit: 4
-     jac: [-1.430e+02 -6.000e+01]
-    nfev: 13
-    njev: 4
 </pre></div>
 </div>
 </div>
@@ -1110,13 +1088,13 @@ We will store 4000 bushels.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="aVLoVdDAhPJf" data-shufflequestions="False"
+<div class="output text_html"><div id="hFMqTVDIuskx" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#aVLoVdDAhPJf {
+#hFMqTVDIuskx {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1286,7 +1264,7 @@ We will store 4000 bushels.
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsaVLoVdDAhPJf=[{"question": "What will be the output of:<br>a = dict()<br>a['one'] = 1<br>print(a)", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": false}, {"answer": "['one': 1]", "correct": false}, {"answer": "{'one': 1}", "correct": true}, {"answer": "{'one': '1'}", "correct": false}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "Which of the following is not a correct entry in a python dictionary", "type": "multiple_choice", "answers": [{"answer": "{1:'1'}", "correct": false}, {"answer": "{'a': 1}", "correct": false}, {"answer": "{5.23: 5}", "correct": false}, {"answer": "{[1, 2]: 'ab'}", "correct": true}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "Which of the following can be a way of printing the 'n'-th key in a dictionary 'dict'", "type": "multiple_choice", "answers": [{"answer": "dict.keys()[n]", "correct": false}, {"answer": "dict.keys(n)", "correct": false}, {"answer": "list(dict.keys())[n]", "correct": true}, {"answer": "dict.items()[n]", "correct": false}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "What can be a way of accessing the 'n'-th key and value separately from a dictionary", "type": "multiple_choice", "answers": [{"answer": "dict.keys()[n], dict.values()[n]", "correct": false}, {"answer": "d.items()[n]", "correct": false}, {"answer": "dict.keys(n), dict.values(n)", "correct": false}, {"answer": "for key, value in dict.items():<br>    print(key, value)", "correct": true}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "Constraints in scipy.optimize.minimize need to be functions which", "type": "multiple_choice", "answers": [{"answer": "always return zero when satisfied", "correct": false}, {"answer": "can return zero or are greater than zero when satisfied", "correct": true}, {"answer": "can return zero or are less than zero when satisfied", "correct": false}, {"answer": "can only return values which are less than zero", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "For multiple constraints, the argument 'constraints' in scipy.optimize.minimize needs to be", "type": "multiple_choice", "answers": [{"answer": "a dictionary", "correct": false}, {"answer": "a list", "correct": false}, {"answer": "a list of dictionaries", "correct": true}, {"answer": "a dictionary of lists", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "<pre><code class=\"language-python\">def f(X):\n    return -X[0]\n\nconstraints = {'type':'ineq', 'fun': f}\n</code></pre>\n<p>is a </p>", "type": "multiple_choice", "answers": [{"answer": "negativity constraint", "correct": true}, {"answer": "positivity constraint", "correct": false}, {"answer": "equality constraint", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "Which equation from the options can be expressed as the following constraint function:<br><br>def f(X):<br>    x, y = X<br>    return -(2x + 3y - 11)<br>constraints = {'type':'ineq', 'fun':f}", "type": "multiple_choice", "answers": [{"answer": "2x + 3y + 11 <= 0", "correct": false}, {"answer": "2x + 3y <= 11", "correct": true}, {"answer": "2x + 3y >=11", "correct": false}, {"answer": "-2x-3y <=11", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "Which of the following solvers cannot be used with constraints in scipy.optimize.minimize", "type": "multiple_choice", "answers": [{"answer": "BFGS", "correct": true}, {"answer": "SLSQP", "correct": false}, {"answer": "trust-constr", "correct": false}, {"answer": "COBYLA", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "The default solver in scipy.optimize.minimize when using constraints is", "type": "multiple_choice", "answers": [{"answer": "BFGS", "correct": false}, {"answer": "SLSQP", "correct": true}, {"answer": "trust-constr", "correct": false}, {"answer": "COBYLA", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}];
+</style></div><script type="application/javascript">var questionshFMqTVDIuskx=[{"question": "What will be the output of:<br>a = dict()<br>a['one'] = 1<br>print(a)", "type": "multiple_choice", "answers": [{"answer": "Error", "correct": false}, {"answer": "['one': 1]", "correct": false}, {"answer": "{'one': 1}", "correct": true}, {"answer": "{'one': '1'}", "correct": false}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "Which of the following is not a correct entry in a python dictionary", "type": "multiple_choice", "answers": [{"answer": "{1:'1'}", "correct": false}, {"answer": "{'a': 1}", "correct": false}, {"answer": "{5.23: 5}", "correct": false}, {"answer": "{[1, 2]: 'ab'}", "correct": true}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "Which of the following can be a way of printing the 'n'-th key in a dictionary 'dict'", "type": "multiple_choice", "answers": [{"answer": "dict.keys()[n]", "correct": false}, {"answer": "dict.keys(n)", "correct": false}, {"answer": "list(dict.keys())[n]", "correct": true}, {"answer": "dict.items()[n]", "correct": false}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "What can be a way of accessing the 'n'-th key and value separately from a dictionary", "type": "multiple_choice", "answers": [{"answer": "dict.keys()[n], dict.values()[n]", "correct": false}, {"answer": "d.items()[n]", "correct": false}, {"answer": "dict.keys(n), dict.values(n)", "correct": false}, {"answer": "for key, value in dict.items():<br>    print(key, value)", "correct": true}], "tag": "dictionary", "lecture_file": "13_constrained_optimization"}, {"question": "Constraints in scipy.optimize.minimize need to be functions which", "type": "multiple_choice", "answers": [{"answer": "always return zero when satisfied", "correct": false}, {"answer": "can return zero or are greater than zero when satisfied", "correct": true}, {"answer": "can return zero or are less than zero when satisfied", "correct": false}, {"answer": "can only return values which are less than zero", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "For multiple constraints, the argument 'constraints' in scipy.optimize.minimize needs to be", "type": "multiple_choice", "answers": [{"answer": "a dictionary", "correct": false}, {"answer": "a list", "correct": false}, {"answer": "a list of dictionaries", "correct": true}, {"answer": "a dictionary of lists", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "<pre><code class=\"language-python\">def f(X):\n    return -X[0]\n\nconstraints = {'type':'ineq', 'fun': f}\n</code></pre>\n<p>is a </p>", "type": "multiple_choice", "answers": [{"answer": "negativity constraint", "correct": true}, {"answer": "positivity constraint", "correct": false}, {"answer": "equality constraint", "correct": false}, {"answer": "None of the above", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "Which equation from the options can be expressed as the following constraint function:<br><br>def f(X):<br>    x, y = X<br>    return -(2x + 3y - 11)<br>constraints = {'type':'ineq', 'fun':f}", "type": "multiple_choice", "answers": [{"answer": "2x + 3y + 11 <= 0", "correct": false}, {"answer": "2x + 3y <= 11", "correct": true}, {"answer": "2x + 3y >=11", "correct": false}, {"answer": "-2x-3y <=11", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "Which of the following solvers cannot be used with constraints in scipy.optimize.minimize", "type": "multiple_choice", "answers": [{"answer": "BFGS", "correct": true}, {"answer": "SLSQP", "correct": false}, {"answer": "trust-constr", "correct": false}, {"answer": "COBYLA", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}, {"question": "The default solver in scipy.optimize.minimize when using constraints is", "type": "multiple_choice", "answers": [{"answer": "BFGS", "correct": false}, {"answer": "SLSQP", "correct": true}, {"answer": "trust-constr", "correct": false}, {"answer": "COBYLA", "correct": false}], "tag": "scipy constraints", "lecture_file": "13_constrained_optimization"}];
     // Make a random ID
 function makeid(length) {
     var result = [];
@@ -2035,8 +2013,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("aVLoVdDAhPJf")) {
-            show_questions(questionsaVLoVdDAhPJf,  aVLoVdDAhPJf); 
+          if(document.getElementById("hFMqTVDIuskx")) {
+            show_questions(questionshFMqTVDIuskx,  hFMqTVDIuskx); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2045,8 +2023,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("aVLoVdDAhPJf");
-        // console.log(document.getElementById("aVLoVdDAhPJf"));
+        //console.log("hFMqTVDIuskx");
+        // console.log(document.getElementById("hFMqTVDIuskx"));
 
         try_show();
         }
