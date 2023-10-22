@@ -775,7 +775,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.62953918, 0.7118926 ]), array(55.19464162))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.63407903, 0.71093049]), array(-33.16620876))
 </pre></div>
 </div>
 </div>
@@ -788,7 +788,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/63b192797b23eae2b80f2f15cec1e4ed4cee28a2e3eb430c1bfa400a33585c68.png" src="../../_images/63b192797b23eae2b80f2f15cec1e4ed4cee28a2e3eb430c1bfa400a33585c68.png" />
+<img alt="../../_images/5a8047c822e536f46e6d455ab8465c84f0e24a4360a7ca741499d418f0c4a365.png" src="../../_images/5a8047c822e536f46e6d455ab8465c84f0e24a4360a7ca741499d418f0c4a365.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -803,7 +803,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8117a2ece159e93bf4f0a22fc1eb07752d38bd2c6cff127c2f3e53bef20ef46d.png" src="../../_images/8117a2ece159e93bf4f0a22fc1eb07752d38bd2c6cff127c2f3e53bef20ef46d.png" />
+<img alt="../../_images/ff26b06872a426a96f0dde228aa845a1df7727bf6ac0b84f81012ed3b7dc364d.png" src="../../_images/ff26b06872a426a96f0dde228aa845a1df7727bf6ac0b84f81012ed3b7dc364d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -813,7 +813,7 @@ there are big changes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9a772b1f04cdaefb916d776f8bf4c602b6c03e7f53ae6421c2395992895cd24d.png" src="../../_images/9a772b1f04cdaefb916d776f8bf4c602b6c03e7f53ae6421c2395992895cd24d.png" />
+<img alt="../../_images/357199bbf54840e7c588509b9fa7e9cd5a705d4ed85c205d5820666db639ba32.png" src="../../_images/357199bbf54840e7c588509b9fa7e9cd5a705d4ed85c205d5820666db639ba32.png" />
 </div>
 </div>
 </section>
@@ -988,18 +988,18 @@ differentiable</em>.</p>
 
     <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">4</span> <span class="n">frame</span><span class="p">]</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.13/x64/lib/python3.10/site-packages/jax/_src/api.py:782,</span> in <span class="ni">_check_input_dtype_revderiv</span><span class="nt">(name, holomorphic, allow_int, x)</span>
-<span class="g g-Whitespace">    </span><span class="mi">778</span> <span class="k">if</span> <span class="p">(</span><span class="n">dtypes</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">aval</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">extended</span><span class="p">)</span> <span class="ow">or</span>
-<span class="g g-Whitespace">    </span><span class="mi">779</span>     <span class="n">dtypes</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">aval</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">)</span> <span class="ow">or</span>
-<span class="g g-Whitespace">    </span><span class="mi">780</span>     <span class="n">dtypes</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">aval</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)):</span>
-<span class="g g-Whitespace">    </span><span class="mi">781</span>   <span class="k">if</span> <span class="ow">not</span> <span class="n">allow_int</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">782</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> requires real- or complex-valued inputs (input dtype &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">783</span>                     <span class="sa">f</span><span class="s2">&quot;that is a sub-dtype of np.inexact), but got </span><span class="si">{</span><span class="n">aval</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">. &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">784</span>                     <span class="s2">&quot;If you want to use Boolean- or integer-valued inputs, use vjp &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">785</span>                     <span class="s2">&quot;or set allow_int to True.&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">786</span> <span class="k">elif</span> <span class="ow">not</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">aval</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inexact</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">787</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> requires numerical-valued inputs (input dtype that is a &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">788</span>                   <span class="sa">f</span><span class="s2">&quot;sub-dtype of np.bool_ or np.number), but got </span><span class="si">{</span><span class="n">aval</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.13/x64/lib/python3.10/site-packages/jax/_src/api.py:771,</span> in <span class="ni">_check_input_dtype_revderiv</span><span class="nt">(name, holomorphic, allow_int, x)</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span> <span class="k">if</span> <span class="p">(</span><span class="n">dtypes</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">aval</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">extended</span><span class="p">)</span> <span class="ow">or</span>
+<span class="g g-Whitespace">    </span><span class="mi">768</span>     <span class="n">dtypes</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">aval</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">)</span> <span class="ow">or</span>
+<span class="g g-Whitespace">    </span><span class="mi">769</span>     <span class="n">dtypes</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">aval</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)):</span>
+<span class="g g-Whitespace">    </span><span class="mi">770</span>   <span class="k">if</span> <span class="ow">not</span> <span class="n">allow_int</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">771</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> requires real- or complex-valued inputs (input dtype &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">772</span>                     <span class="sa">f</span><span class="s2">&quot;that is a sub-dtype of np.inexact), but got </span><span class="si">{</span><span class="n">aval</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">. &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">773</span>                     <span class="s2">&quot;If you want to use Boolean- or integer-valued inputs, use vjp &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">774</span>                     <span class="s2">&quot;or set allow_int to True.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">775</span> <span class="k">elif</span> <span class="ow">not</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">aval</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inexact</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">776</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> requires numerical-valued inputs (input dtype that is a &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">777</span>                   <span class="sa">f</span><span class="s2">&quot;sub-dtype of np.bool_ or np.number), but got </span><span class="si">{</span><span class="n">aval</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: grad requires real- or complex-valued inputs (input dtype that is a sub-dtype of np.inexact), but got int64. If you want to use Boolean- or integer-valued inputs, use vjp or set allow_int to True.
 </pre></div>
@@ -1048,12 +1048,12 @@ in the jax.numpy library.</p>
 
     <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">4</span> <span class="n">frame</span><span class="p">]</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.13/x64/lib/python3.10/site-packages/jax/_src/api.py:767,</span> in <span class="ni">_check_scalar</span><span class="nt">(x)</span>
-<span class="g g-Whitespace">    </span><span class="mi">765</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">aval</span><span class="p">,</span> <span class="n">ShapedArray</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">766</span>   <span class="k">if</span> <span class="n">aval</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">():</span>
-<span class="ne">--&gt; </span><span class="mi">767</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;had shape: </span><span class="si">{</span><span class="n">aval</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">768</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">769</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;had abstract value </span><span class="si">{</span><span class="n">aval</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.13/x64/lib/python3.10/site-packages/jax/_src/api.py:756,</span> in <span class="ni">_check_scalar</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">    </span><span class="mi">754</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">aval</span><span class="p">,</span> <span class="n">ShapedArray</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">755</span>   <span class="k">if</span> <span class="n">aval</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">756</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;had shape: </span><span class="si">{</span><span class="n">aval</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">757</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">758</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;had abstract value </span><span class="si">{</span><span class="n">aval</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
 
 <span class="ne">TypeError</span>: Gradient only defined for scalar-output functions. Output had shape: (2,).
 </pre></div>
@@ -1228,8 +1228,8 @@ example:</p>
 <p><span class="math notranslate nohighlight">\(f_1(x, y) = x^2 y\)</span></p>
 <p><span class="math notranslate nohighlight">\(f_2(x, y) = 5 x + \sin(y)\)</span></p>
 <p>The Jacobian of this system is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-90797b81-fe1e-4fa1-8298-15338fae8ad1">
-<span class="eqno">(4)<a class="headerlink" href="#equation-90797b81-fe1e-4fa1-8298-15338fae8ad1" title="Permalink to this equation">#</a></span>\[\begin{equation} \left[\begin{array}{cc} 2 x y &amp; x^2 \\ 5 &amp; \cos y \\
+<div class="amsmath math notranslate nohighlight" id="equation-7734c5a7-b165-4542-a7fe-0e92009e29c4">
+<span class="eqno">(4)<a class="headerlink" href="#equation-7734c5a7-b165-4542-a7fe-0e92009e29c4" title="Permalink to this equation">#</a></span>\[\begin{equation} \left[\begin{array}{cc} 2 x y &amp; x^2 \\ 5 &amp; \cos y \\
 \end{array}\right] \end{equation}\]</div>
 <p>There are two Jacobian functions, <code class="docutils literal notranslate"><span class="pre">jacfwd</span></code> and <code class="docutils literal notranslate"><span class="pre">jacref</span></code>. In theory they do the same thing, but one of them will usually be faster for some systems. <code class="docutils literal notranslate"><span class="pre">jacfwd</span></code> uses a forward pass through the code to compute the Jacobian, while <code class="docutils literal notranslate"><span class="pre">jacrev</span></code> uses a reverse pass. The <a class="reference external" href="https://jax.readthedocs.io/en/latest/notebooks/autodiff_cookbook.html#jacobians-and-hessians-using-jacfwd-and-jacrev">documentation</a> recommends using jacfwd for “tall” Jacobians and jacref for “wide” jacobians. For square jacobians, it does not matter. It is fine to be practical, and try both to see if one is faster than other.</p>
 <div class="cell docutils container">
@@ -1571,13 +1571,13 @@ regression and conclude with an introduction to machine learning.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="JYSFBzKTbhjr" data-shufflequestions="False"
+<div class="output text_html"><div id="GBpikiJwsUDa" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-preserveresponses="false"
                data-numquestions="1000000"
                data-maxwidth="600"
                style="border-radius: 10px; text-align: left"> <style>
-#JYSFBzKTbhjr {
+#GBpikiJwsUDa {
    --jq-multiple-choice-bg: #6f78ffff;
    --jq-mc-button-bg: #fafafa;
    --jq-mc-button-border: #e0e0e0e0;
@@ -1747,7 +1747,7 @@ regression and conclude with an introduction to machine learning.</p>
         background-color: var(--jq-correct-color);
     }
 }
-</style></div><script type="application/javascript">var questionsJYSFBzKTbhjr=[
+</style></div><script type="application/javascript">var questionsGBpikiJwsUDa=[
   {
     "question": "Derivatives have useful applications in determining",
     "type": "multiple_choice",
@@ -2738,8 +2738,8 @@ if (typeof version == 'undefined') {
            Someone more knowledgeable could make this better ;-) */
 
         function try_show() {
-          if(document.getElementById("JYSFBzKTbhjr")) {
-            show_questions(questionsJYSFBzKTbhjr,  JYSFBzKTbhjr); 
+          if(document.getElementById("GBpikiJwsUDa")) {
+            show_questions(questionsGBpikiJwsUDa,  GBpikiJwsUDa); 
           } else {
              setTimeout(try_show, 200);
           }
@@ -2748,8 +2748,8 @@ if (typeof version == 'undefined') {
         {
         // console.log(element);
 
-        //console.log("JYSFBzKTbhjr");
-        // console.log(document.getElementById("JYSFBzKTbhjr"));
+        //console.log("GBpikiJwsUDa");
+        // console.log(document.getElementById("GBpikiJwsUDa"));
 
         try_show();
         }
